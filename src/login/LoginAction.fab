@@ -1,0 +1,10 @@
+package login;
+
+import javax.servlet.ServletException;
+import sif.servlet.*;
+import sif.html.*;
+
+public class LoginAction[principal servP] extends AbstractAction[servP] {
+    //TODO
+}
+

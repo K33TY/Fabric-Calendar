@@ -1,0 +1,10 @@
+package login;
+
+import sif.servlet.SessionState;
+import sif.servlet.SessionPrincipal;
+import fabricated.util.*;
+
+public class AuthSessState extends SessionState {
+    //TODO
+    
+}

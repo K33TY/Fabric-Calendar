@@ -1,0 +1,77 @@
+public class Event
+{
+	// User id - representing the owner of the event
+	final int uid;
+
+	// object id
+	final int oid;
+
+
+
+
+
+
+
+}
+
+
+
+/*
+
+JIF:
+    final int{CalServEP:;CalServEP!:;this} uid;
+    final label{this} timeLbl;
+    final label{this} infoLbl;
+
+    final Date[timeLbl]{this} startTime;
+    final Date[timeLbl]{this} endTime;
+    final String{*infoLbl} name;
+    final String{*infoLbl} note;
+    final List[{CalServEP:;CalServEP!:}]{*infoLbl} attendees; // Set of User[CalServEP] who are attending the event
+    final List[{CalServEP:;CalServEP!:}]{*infoLbl} viewers; // Set of User[CalServEP] who can view the time of the event
+    final User[CalServEP]{*infoLbl} creator;
+
+    public Event{*infoLbl_}(int{CalServEP:;CalServEP!:;this} uid_,
+                 label{this} timeLbl_,
+                 label{this} infoLbl_,
+                 Date[timeLbl_]{this} startTime_,
+                 Date[timeLbl_]{this} endTime_,
+                 String{*infoLbl_} name_,
+                 String{*infoLbl_} note_,
+                 List[{CalServEP:;CalServEP!:}]{*infoLbl_} attendees_,
+                 List[{CalServEP:;CalServEP!:}]{*infoLbl_} viewers_,
+                 User[CalServEP]{*infoLbl_} creator_) {
+        this.uid = uid_;
+        this.timeLbl = timeLbl_;
+        this.infoLbl = infoLbl_;
+        this.startTime = startTime_;
+        this.endTime = endTime_;
+        this.name = name_;
+        this.note = note_;
+        this.creator = creator_;
+        this.attendees = attendees_;
+        this.viewers = viewers_;
+    }
+
+
+    public String{CalServEP:;CalServEP!:} toString() {
+        return Integer.toString(uid);
+    }
+
+    public int{CalServEP:;CalServEP!:} hashCode() {
+        return uid;
+    }
+
+    public boolean{o;CalServEP:;CalServEP!:} equals(IDComparable[{CalServEP:;CalServEP!:}] o) {
+        return equals(new label {CalServEP:;CalServEP!:}, o);
+    }
+    public boolean{o;CalServEP:;CalServEP!:;lbl;*lbl} equals(label lbl, IDComparable[lbl] o) {
+        if (o instanceof Event) {
+            Event that = (Event)o;
+            return this.uid == that.uid;
+        }
+        return false;
+    }
+
+
+*/

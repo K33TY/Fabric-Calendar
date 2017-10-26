@@ -1,0 +1,14 @@
+package login;
+
+import javax.servlet.ServletException;
+
+import sif.servlet.*;
+import sif.html.*;
+
+/**
+ * Extend this class to create actions that are protected by login requirement
+ */
+abstract public class AuthenticatedAction[principal servP] extends AbstractAction[servP] {
+    //TODO
+}
+

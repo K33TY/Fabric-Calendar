@@ -1,0 +1,13 @@
+package login;
+
+import sif.servlet.HTMLServlet;
+import sif.servlet.Request;
+
+import javax.servlet.ServletException;
+
+
+public abstract class AbstractServlet[principal servP] extends HTMLAuthServlet[servP] {
+    
+    //TODO
+    
+}
