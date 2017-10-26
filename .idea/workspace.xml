@@ -2,27 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/AcquireEvent.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/DateUtil.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/EditEvent.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/Event.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/Main.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/ShowCalendar.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/AbstractAction.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/AbstractServlet.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/AuthSessState.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/HTMLAuthServlet.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/LoginAction.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/LoginClosure.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/login/LogoffAction.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/principals/StoragePrincipal.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/principals/UserPrincipal.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/store/StorageNode.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/user/FrontPage.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/user/WorkerNode.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,7 +83,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogoffAction.fab" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LogoffAction.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/login/LogoffAction.fab">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
@@ -124,12 +103,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="60">
-                <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <first_editor relative-caret-position="105">
+                <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -159,7 +138,6 @@
         <option value="$PROJECT_DIR$/src/StorageNode.fab" />
         <option value="$PROJECT_DIR$/src/AcquireEvent.fab" />
         <option value="$PROJECT_DIR$/src/Event.fab" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/login/AbstractAction.fab" />
         <option value="$PROJECT_DIR$/src/login/AbstractServlet.fab" />
         <option value="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" />
@@ -168,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/login/LoginAction.fab" />
         <option value="$PROJECT_DIR$/src/login/LoginClosure.fab" />
         <option value="$PROJECT_DIR$/src/login/LogoffAction.fab" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -404,12 +383,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
-      <workItem from="1509050691425" duration="986000" />
+      <workItem from="1509050691425" duration="1225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2356000" />
+    <option name="totallyTimeSpent" value="2595000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
@@ -621,17 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="60">
-            <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/login/AbstractAction.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -693,6 +661,17 @@
         <state relative-caret-position="150">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="105">
+            <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
