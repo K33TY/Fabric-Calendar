@@ -6,7 +6,7 @@ a:link       { color: #339966; background-color: transparent; font-weight: bold 
 a:visited    { color: #009999; background-color: transparent; font-weight: bold }
 a:hover      { color: #0000FF; background-color: transparent }
 body, table, p, ul, li, td  { font-family: Arial, helvetica, sans-serif;
-			      font-size: "100%";  color: "black" }
+			      font-size: 100%;  color: black }
 th              { font-family: Arial, helvetica, sans-serif;
                   color: white;
 		  background-color: #000080;
@@ -14,7 +14,7 @@ th              { font-family: Arial, helvetica, sans-serif;
 		  font-weight: bold }
 
 body { background-color: #d0e8ff }
-// table { background-color: #e0f0ff }
+table { background-color: #e0f0ff }
 td { vertical-align: top }
 
 p, ul, li {background-color: transparent}

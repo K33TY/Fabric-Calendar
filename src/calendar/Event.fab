@@ -1,3 +1,5 @@
+package calendar;
+
 public class Event
 {
 	// User id - representing the owner of the event
