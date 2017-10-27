@@ -79,9 +79,7 @@ List< SerializedObject > getStaleObjects (LongKeyMap< Integer > reads)
 
 ```java
 final TransactionManager tm
- 
 final SurrogateManager sm
- 
 RemoteIdentity<RemoteWorker> localWorkerIdentity
 ```
 
@@ -155,9 +153,7 @@ void usageHeader (PrintStream out)
 
 ```java
 String storeName
- 
 int threadPool
- 
 int timeout
 
 # The worker shell command to run
@@ -221,7 +217,7 @@ final LongKeyMap< Integer > reads
 
 ## SessionAttributes
 
-**No Doxygen was created. Could this be because class and methods do not have labelling public/protected/private?**
+(**No Doxygen was created. Could this be because class and methods do not have labelling public/protected/private?**)
 
 #### Member Functions
 
@@ -289,7 +285,7 @@ void createSurrogates (PrepareRequest req)
 
 ## Store
 
-**No Doxygen was created for some reason...**
+(**No Doxygen was created for some reason...**)
 
 Extends: fabric.messages.MessageToStoreHandler
 
@@ -403,12 +399,106 @@ If principal is null, return bottom principal, otherwise return the string of pr
 ```java
 private String nameOf(Principal p)
 ```
+-----
+
+## SubscriptionManager
+(**Not complete because Doxygen not comprehensive**)
+
+Keeps track of who's subscribed to what object. Handles subscriptions for a single store. 
+
+#### Public Member Functions
+
+```java
+SubscriptionManager (String store, TransactionManager tm)  
+```
+
+```java
+void run()
+```
+
+Subscribe the given worker to the given onum:
+```java
+void subscribe(long onum, RemoteWorker worker, boolean dissemSubscribe)
+```
+
+Notify the subscription manager that a set of objects has been updated by a particular worker:
+```java
+void notifyUpdate(LongSet onums, RemoteWorker worker)
+```
+
+#### Public Attributes
+
+```java
+static final boolean ENABLE_OBJECT_UPDATES = false
+```
+
+Inherits from:
+ + fabric.common.FabricThread.Impl
 
 -----
 
-
-## SubscriptionManager
-
 ## SurrogateManager
 
+A surrogate manager encapsulates the strategy for building and maintaining surrogate objects for inter-store references.
+
+#### Public Member Functions
+
+Modify req so that all references are local. It should do so by creating or reusing surrogate objects for all of the 
+non-local references. Any new surrogate objects should be added to the req.creates, while any read surrogate objects 
+should be added to req.reads:
+```java
+void createSurrogates (PrepareRequest req)
+```
+
 ## TransactionManager
+
+#### Public Member Functions
+
+Constructor
+```java
+TransactionManager (ObjectDB database)
+```
+
+Instruct the transaction manager that the given transaction is aborting:
+```java
+void abortTransaction (Principal worker, long transactionID) throws AccessException 
+```
+
+Execute the commit phase of two phase commit:
+```java
+void commitTransaction (RemoteIdentity<RemoteWorker> workerIdentity, long transactionID) 
+		throws TransactionCommitFailedException 
+```
+
+Execute the prepare phase of two phase commit. Validates the transaction to make sure that no conflicts would occur 
+if this transaction were committed. Once prepare returns successfully, the corresponding transaction can only fail if 
+the coordinator aborts it.
+
+The prepare method must check a large number of conditions:
++ Neither creates, updates, nor reads can have pending commits, i.e. none of them can contain objects for which other 
+transactions have been prepared but not committed or aborted.
++ The worker has appropriate permissions to read/write/create
++ Created objects don't already exist
++ Updated objects cannot have been read since the proposed commit time.
++ Updated objects do not have valid outstanding promises
++ Modified and read objects do exist
++ Read objects are still valid (version numbers match) 
+```java
+void prepare (Principal worker, PrepareRequest req) throws TransactionPrepareFailedException 
+```
+
+Returns a Glob containing the specified object. All surrogates referenced by any object in the group will also be in 
+the group. This ensures that the worker will not reveal information when dereferencing surrogates:
+```java
+ObjectGlob getGlob (long onum, RemoteWorker subscriber) throws AccessException
+```
+
+Returns an ObjectGroup containing the specified object. All surrogates referenced by any object in the group will also 
+be in the group. This ensures that the worker will not reveal information when dereferencing surrogates:
+```java
+ObjectGroup getGroup (Principal principal, RemoteWorker subscriber, long onum) throws AccessException 
+```
+
+```java
+long [] newOnums (Principal worker, int num) throws AccessException 
+```
