@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/AcquireEvent.java" afterPath="$PROJECT_DIR$/classes/calendar/AcquireEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/DateUtil.java" afterPath="$PROJECT_DIR$/classes/calendar/DateUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/EditEvent.java" afterPath="$PROJECT_DIR$/classes/calendar/EditEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/Event.java" afterPath="$PROJECT_DIR$/classes/calendar/Event.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/Main.java" afterPath="$PROJECT_DIR$/classes/calendar/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/ShowCalendar.java" afterPath="$PROJECT_DIR$/classes/calendar/ShowCalendar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/AcquireEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/AcquireEvent.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/DateUtil.fab" afterPath="$PROJECT_DIR$/src/calendar/DateUtil.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/EditEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/EditEvent.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Event.fab" afterPath="$PROJECT_DIR$/src/calendar/Event.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Main.fab" afterPath="$PROJECT_DIR$/src/calendar/Main.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/ShowCalendar.fab" afterPath="$PROJECT_DIR$/src/calendar/ShowCalendar.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/principals/StoragePrincipal.fab" afterPath="$PROJECT_DIR$/src/principals/StoragePrincipal.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/principals/UserPrincipal.fab" afterPath="$PROJECT_DIR$/src/principals/UserPrincipal.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/store/StorageNode.fab" afterPath="$PROJECT_DIR$/src/store/StorageNode.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user/FrontPage.fab" afterPath="$PROJECT_DIR$/src/user/FrontPage.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/user/UserMain.fab" afterPath="$PROJECT_DIR$/src/user/UserMain.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/calendar.css" afterPath="$PROJECT_DIR$/web/calendar.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calendar.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="calendar.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/calendar.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -70,12 +53,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditEvent.fab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/calendar/EditEvent.fab">
+      <file leaf-file-name="AbstractAction.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/login/AbstractAction.fab">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="345">
+                <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="56" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -95,16 +91,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="19" lean-forward="false" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.fab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/calendar/Event.fab">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -156,7 +142,6 @@
         <option value="$PROJECT_DIR$/src/login/LogoffAction.fab" />
         <option value="$PROJECT_DIR$/etc/config/user.properties" />
         <option value="$PROJECT_DIR$/etc/config/store.properties" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/bin/init-state" />
         <option value="$PROJECT_DIR$/bin/start-all" />
         <option value="$PROJECT_DIR$/bin/start-webapps" />
@@ -194,6 +179,7 @@
         <option value="$PROJECT_DIR$/src/user/FrontPage.fab" />
         <option value="$PROJECT_DIR$/src/user/UserMain.fab" />
         <option value="$PROJECT_DIR$/web/calendar.css" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -477,12 +463,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
-      <workItem from="1509050691425" duration="12287000" />
+      <workItem from="1509050691425" duration="13008000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13657000" />
+    <option name="totallyTimeSpent" value="14378000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-1660" width="1440" height="2560" extended-state="0" />
@@ -527,14 +513,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/etc/config/store.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/DayViewIcon.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -589,17 +567,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="270">
-            <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -931,6 +898,25 @@
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login/AbstractAction.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="345">
+            <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="24" selection-end-column="56" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
