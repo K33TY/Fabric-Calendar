@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/calendar/AcquireEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/calendar/DateUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/calendar/EditEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/calendar/Event.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/calendar/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/calendar/ShowCalendar.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/fabric/principals/StoragePrincipal.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/fabric/principals/UserPrincipal.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/AbstractAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/AbstractServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/AuthSessState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/AuthenticatedAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/HTMLAuthServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/LoginAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/LoginClosure.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/login/LogoffAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/user/FrontPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/classes/user/UserMain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/Docs.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/system/fabric/store/store.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/user/WorkerNode.fab" afterPath="$PROJECT_DIR$/src/user/UserMain.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/system/fabric/store/store.md" afterPath="$PROJECT_DIR$/docs/system/fabric/store/store.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,8 +63,8 @@
         <entry file="file://$PROJECT_DIR$/docs/system/fabric/store/store.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1350">
-                <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <first_editor relative-caret-position="195">
+                <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -490,12 +469,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
-      <workItem from="1509050691425" duration="6284000" />
+      <workItem from="1509050691425" duration="6491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7654000" />
+    <option name="totallyTimeSpent" value="7861000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-1660" width="1440" height="2560" extended-state="0" />
@@ -934,8 +913,8 @@
     <entry file="file://$PROJECT_DIR$/docs/system/fabric/store/store.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1350">
-            <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <first_editor relative-caret-position="195">
+            <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
             <folding />
           </first_editor>
           <second_editor />

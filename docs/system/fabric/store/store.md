@@ -1,17 +1,17 @@
 # Store Classes
 
-+ [DuplicateStoreException](#DuplicateStoreException)
-+ [InProcessStore](#InProcessStoreInProcessStore)
-+ [Node](#Node)
-+ [Options](#Options)
++ [DuplicateStoreException](#duplicatestoreexception)
++ [InProcessStore](#inprocessstore)
++ [Node](#node)
++ [Options](#options)
 + [package-info](#package-info)
-+ [PrepareRequest](#PrepareRequest)
-+ [SessionAttributes](#SessionAttributes)
-+ [SimpleSurrogateManager](#SimpleSurrogateManager)
-+ [Store](#Store)
-+ [SubscriptionManager](#SubscriptionManager)
-+ [SurrogateManager](#SurrogateManager)
-+ [TransactionManager](#TransactionManager)
++ [PrepareRequest](#preparerequest)
++ [SessionAttributes](#sessionattributes)
++ [SimpleSurrogateManager](#simplesurrogatemanager)
++ [Store](#store)
++ [SubscriptionManager](#subscriptionmanager)
++ [SurrogateManager](#surrogatemanager)
++ [TransactionManager](#transactionmanager)
 
 ## DuplicateStoreException
 
