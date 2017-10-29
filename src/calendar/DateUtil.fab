@@ -1,6 +1,47 @@
 package calendar;
 
-public class DateUtil
+import fabric.util.Date
+
+// For now, going to pretend that Fabric has Date implemented and can get calendars from the runtime
+
+public class DateUtil[label L]
 {
 
+	public static String{L;date} dateToString(Date[L] date, boolean{date} replaceSpace)
+	{
+        String d = ( (date == null) ? "" : date.toShortString() );
+        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
+    }
+
+    public static boolean{*lbl;lbl} isDate{*lbl}(label lbl, String{*lbl} dateStr)
+    {
+        try
+        {
+            Date[L].valueOf(lbl, dateStr);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static Date[lbl]{*lbl;lbl} stringToDate{*lbl}(label lbl, String{*lbl} dateStr)
+    {
+        try
+        {
+            return Date[lbl].valueOf(lbl, dateStr);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return null;
+        }
+    }
 }
+
+
+/**
+
+Since there is no fabric.util.Date class, may need to implement this?
+
+*/
