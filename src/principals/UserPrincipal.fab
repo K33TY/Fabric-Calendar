@@ -6,7 +6,7 @@ import fabric.worker.Store;
 
 import login.LoginClosure;
 
-public class UserPrincipal extends ExternalPrincipal // User[CalServEP] // if using userserv.User
+public class UserPrincipal{CalServEP→; CalServEP←} extends ExternalPrincipal // User[CalServEP] // if using userserv.User
 {
     private final UserPassword[this]{this;this←}@{this.store$->} pass;
     private final String{P←;P→} user;
@@ -20,6 +20,13 @@ public class UserPrincipal extends ExternalPrincipal // User[CalServEP] // if us
         this.user="eperk";
         this.mapKey="eperkPrincipal";
         super("eperk");
+
+        // the calendar root principal can act for all users.
+        // DOWNGRADE REASON: Hide the effect of delegating CalRootEP.
+        declassify({this→;this←})
+        {
+            addDelegatesTo(CalRootEP);
+        }
     }
 
     // When adding other principals
@@ -32,10 +39,18 @@ public class UserPrincipal extends ExternalPrincipal // User[CalServEP] // if us
         this.mapKey = user + "Principal";
         super(user);
         //super(user, password, firstName, lastName); // only if using userserv.User (not sure if want to?)
+
+        // the calendar root principal can act for all users.
+        // DOWNGRADE REASON: Hide the effect of delegating CalRootEP.
+        declassify({this→;this←})
+        {
+            addDelegatesTo(CalRootEP);
+        }
     }
 
     // TODO: Not sure why the travel app is doing this..
     // Travel app says: "Where will the declassification w.r.t. password happen?"
+    // I declassified in constructor to allow delegation to calendar root so root can act for all users
     public boolean{authPrf; closure; lbl; *lbl; executeNow; this; this←} isAuthorized{this→;this←}( java.lang.Object authPrf,
 																			                      Closure[this, lb] closure,
 																			                      label lbl,
