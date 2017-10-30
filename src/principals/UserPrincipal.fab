@@ -52,21 +52,21 @@ public class UserPrincipal{CalServEP→; CalServEP←} extends ExternalPrincipal
     // Travel app says: "Where will the declassification w.r.t. password happen?"
     // I declassified in constructor to allow delegation to calendar root so root can act for all users
     public boolean{authPrf; closure; lbl; *lbl; executeNow; this; this←} isAuthorized{this→;this←}( java.lang.Object authPrf,
-																			                      Closure[this, lb] closure,
+																			                      Closure[this, lbl] closure,
 																			                      label lbl,
 																			                      boolean executeNow )
         where authority (this),
-              {authPrf;closure;lb;executeNow} <= lbl,
+              {authPrf; closure; lbl; executeNow} <= lbl,
               lbl <= {this→}
     {
-        endorse(authPrf, {authPrf;this→;this←} to {this→;this←})
+        endorse(authPrf, {authPrf; this→; this←} to {this→;this←})
 
         if (authPrf instanceof String)
         {
 	        String passwd = (String) authPrf;
 
 	        if (pass == null)
-	            declassify ({*lb;this;this←}) { return false; }
+	            declassify ({*lbl; this; this←}) { return false; }
 
 	        String myPass = pass.password;
 
@@ -79,7 +79,7 @@ public class UserPrincipal{CalServEP→; CalServEP←} extends ExternalPrincipal
         declassify ({*lbl; this; this←}) { return false; }
     }
 
-	public static UserPrincipal{*!:} getInstance{*!:}()
+	public static UserPrincipal{*←} getInstance{*←}()
 	{
 		atomic
 		{
