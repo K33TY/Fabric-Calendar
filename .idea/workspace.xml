@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/AuthSessState.fab" afterPath="$PROJECT_DIR$/src/login/AuthSessState.fab" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" afterPath="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/HTMLAuthServlet.fab" afterPath="$PROJECT_DIR$/src/login/HTMLAuthServlet.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/LoginAction.fab" afterPath="$PROJECT_DIR$/src/login/LoginAction.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/LoginClosure.fab" afterPath="$PROJECT_DIR$/src/login/LoginClosure.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/login/LogoffAction.fab" afterPath="$PROJECT_DIR$/src/login/LogoffAction.fab" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,8 +40,8 @@
       <file leaf-file-name="AuthenticatedAction.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/login/AuthenticatedAction.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2340">
-              <caret line="156" column="48" lean-forward="false" selection-start-line="156" selection-start-column="48" selection-end-line="156" selection-end-column="48" />
+            <state relative-caret-position="2460">
+              <caret line="164" column="14" lean-forward="false" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -65,41 +67,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HTMLAuthServlet.fab" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HTMLAuthServlet.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/login/HTMLAuthServlet.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowCalendar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/calendar/ShowCalendar.java">
+      <file leaf-file-name="LoginAction.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/login/LoginAction.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            <state relative-caret-position="2252">
+              <caret line="474" column="13" lean-forward="true" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/calendar/Main.java">
+      <file leaf-file-name="LoginClosure.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/login/LoginClosure.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="570">
+              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthenticatedAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/login/AuthenticatedAction.java">
+      <file leaf-file-name="LogoffAction.fab" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/login/LogoffAction.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+            <state relative-caret-position="270">
+              <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -130,9 +132,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/AcquireEvent.fab" />
         <option value="$PROJECT_DIR$/src/Event.fab" />
-        <option value="$PROJECT_DIR$/src/login/LoginAction.fab" />
-        <option value="$PROJECT_DIR$/src/login/LoginClosure.fab" />
-        <option value="$PROJECT_DIR$/src/login/LogoffAction.fab" />
         <option value="$PROJECT_DIR$/etc/config/user.properties" />
         <option value="$PROJECT_DIR$/etc/config/store.properties" />
         <option value="$PROJECT_DIR$/bin/init-state" />
@@ -176,9 +175,12 @@
         <option value="$PROJECT_DIR$/classes/calendar/AcquireEvent.java" />
         <option value="$PROJECT_DIR$/src/login/AbstractServlet.fab" />
         <option value="$PROJECT_DIR$/src/login/AbstractAction.fab" />
-        <option value="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" />
         <option value="$PROJECT_DIR$/src/login/AuthSessState.fab" />
         <option value="$PROJECT_DIR$/src/login/HTMLAuthServlet.fab" />
+        <option value="$PROJECT_DIR$/src/login/LoginClosure.fab" />
+        <option value="$PROJECT_DIR$/src/login/LogoffAction.fab" />
+        <option value="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" />
+        <option value="$PROJECT_DIR$/src/login/LoginAction.fab" />
       </list>
     </option>
   </component>
@@ -462,12 +464,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
-      <workItem from="1509050691425" duration="23080000" />
+      <workItem from="1509050691425" duration="25830000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24450000" />
+    <option name="totallyTimeSpent" value="27200000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-1660" width="1440" height="2560" extended-state="0" />
@@ -512,16 +514,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/NewEventIcon.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WeekViewIcon.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/init-state">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -657,14 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/LogoffAction.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -888,14 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/login/AbstractServlet.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="86" lean-forward="false" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/login/AbstractAction.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
@@ -906,8 +882,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/login/AuthenticatedAction.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="156" column="48" lean-forward="false" selection-start-line="156" selection-start-column="48" selection-end-line="156" selection-end-column="48" />
+        <state relative-caret-position="2460">
+          <caret line="164" column="14" lean-forward="false" selection-start-line="164" selection-start-column="14" selection-end-line="164" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login/AbstractServlet.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="86" lean-forward="false" selection-start-line="21" selection-start-column="86" selection-end-line="21" selection-end-column="86" />
           <folding />
         </state>
       </provider>
@@ -922,8 +906,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/login/HTMLAuthServlet.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login/LoginAction.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2252">
+          <caret line="474" column="13" lean-forward="true" selection-start-line="474" selection-start-column="13" selection-end-line="474" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login/LoginClosure.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/login/LogoffAction.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="14" lean-forward="false" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>

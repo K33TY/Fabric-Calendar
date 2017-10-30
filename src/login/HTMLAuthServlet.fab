@@ -13,7 +13,6 @@ public abstract class HTMLAuthServlet[principal servP] extends HTMLServlet[servP
 
     }
 
-
     public principal{p:;p!:} createUser{p:; p!:}( String{p:; p!:} userID,
                                                   String{p:; p!:} password,
                                                   principal{p:; p!:} p )

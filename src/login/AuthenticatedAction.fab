@@ -35,7 +35,7 @@ abstract public class AuthenticatedAction[principal servP] extends AbstractActio
                                                    HTMLAuthServlet[servP]{*lbl} servlet )
         throws ( ServletException{*lbl; req.session←} )
         where caller(req.session),
-        lbl <= {req.session→}
+              lbl <= {req.session→}
     {
         if (req == null) return false;
         ServletException{*lbl; req.session←} ex = null;
@@ -83,7 +83,7 @@ abstract public class AuthenticatedAction[principal servP] extends AbstractActio
                                     Request[servP]{*lbl} req )
         throws ( ServletException{*lbl;req.session←} )
         where caller(req.session),
-        lbl <= {req.session→}
+              lbl <= {req.session→}
     {
         if (req == null) throw new ServletException("Error processing request");
         Servlet[servP] servlet_ = getServlet();
@@ -138,10 +138,10 @@ abstract public class AuthenticatedAction[principal servP] extends AbstractActio
                                    AuthSessState{*lbl} state )
         throws (ServletException{*lbl; req.session←})
         where caller(req.session),
-        lbl <= {req.session→},
-        {req.session←} <= lbl,
-        req.session equiv state.sessionPrincipal,
-        lbl <= {state.store$→}
+              lbl <= {req.session→},
+              {req.session←} <= lbl,
+              req.session equiv state.sessionPrincipal,
+              lbl <= {state.store$→}
     {
         if (state == null || req == null) return;
 
@@ -160,7 +160,7 @@ abstract public class AuthenticatedAction[principal servP] extends AbstractActio
                                            principal{*lbl} currentUser )
         throws (ServletException{*lbl; req.session←})
         where caller(req.session),
-        lbl <= {req.session→},
-        req.session equiv state.sessionPrincipal,
-        req.session actsfor currentUser;
+              lbl <= {req.session→},
+              req.session equiv state.sessionPrincipal,
+              req.session actsfor currentUser;
 }
