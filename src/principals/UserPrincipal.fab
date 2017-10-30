@@ -6,7 +6,7 @@ import fabric.worker.Store;
 
 import login.LoginClosure;
 
-public class UserPrincipal extends User[CalServEP]
+public class UserPrincipal extends ExternalPrincipal // User[CalServEP] // if using userserv.User
 {
     private final UserPassword[this]{this;this←}@{this.store$->} pass;
     private final String{P←;P→} user;
