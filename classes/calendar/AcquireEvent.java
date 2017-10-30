@@ -1,4 +1,4 @@
-package calendar
+package calendar;
 
 public class AcquireEvent
 {
