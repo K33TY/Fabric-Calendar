@@ -6,6 +6,8 @@ import fabric.worker.Store;
 
 import login.LoginClosure;
 
+//TODO: put a display string here for calservdeclassifier u.displayString()
+
 public class UserPrincipal{CalServEP→; CalServEP←} extends ExternalPrincipal // User[CalServEP] // if using userserv.User
 {
     private final UserPassword[this]{this;this←}@{this.store$->} pass;
