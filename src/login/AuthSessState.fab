@@ -6,7 +6,7 @@ import fabricated.util.*;
 
 public class AuthSessState extends SessionState
 {
-    principal{sessionPrincipal←}@{⊤→this.store$} currentUser = null;
+    final principal{sessionPrincipal←}@{⊤→this.store$} currentUser;
 
     public AuthSessState(String{this} id, SessionPrincipal{this} session)
     {
@@ -22,7 +22,7 @@ public class AuthSessState extends SessionState
     	}
     }
 
-    public principal{this;sessionPrincipal←} currentUser{this}()
+    public principal{this; sessionPrincipal←} currentUser{this}()
     {
         return currentUser;
     }
@@ -31,5 +31,6 @@ public class AuthSessState extends SessionState
     {
         this.currentUser = cu;
     }
+
 
 }

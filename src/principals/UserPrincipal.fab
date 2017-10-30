@@ -8,11 +8,13 @@ import login.LoginClosure;
 
 //TODO: put a display string here for calservdeclassifier u.displayString()
 
-public class UserPrincipal{CalServEP→; CalServEP←} extends ExternalPrincipal // User[CalServEP] // if using userserv.User
+public class UserPrincipal[principal CalServEP] extends ExternalPrincipal // User[CalServEP] // if using userserv.User
 {
     private final UserPassword[this]{this;this←}@{this.store$->} pass;
     private final String{P←;P→} user;
     private final String{P←;P→} mapKey;
+    private final String{P←;P→} firstName;
+    private final String{P←;P→} lastName;
     private static CalServEP{*←} P;
 
     public UserPrincipal()
@@ -39,6 +41,8 @@ public class UserPrincipal{CalServEP→; CalServEP←} extends ExternalPrincipal
         this.pass  = new UserPassword[this](password);
         this.user = user;
         this.mapKey = user + "Principal";
+        this.firstName = firstName;
+        this.lastName = lastName;
         super(user);
         //super(user, password, firstName, lastName); // only if using userserv.User (not sure if want to?)
 
