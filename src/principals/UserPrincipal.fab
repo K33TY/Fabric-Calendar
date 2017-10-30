@@ -1,1 +1,112 @@
 package principals;
+
+import fabric.util.Map;
+import fabric.worker.Store;
+//import userserv.User;
+
+import login.LoginClosure;
+
+public class UserPrincipal extends User[CalServEP]
+{
+    private final UserPassword[this]{this;this←}@{this.store$->} pass;
+    private final String{P←;P→} user;
+    private final String{P←;P→} mapKey;
+    private static CalServEP{*←} P;
+
+    public UserPrincipal()
+    {
+        // just me for now
+        this.pass  = new UserPassword[this]("password");
+        this.user="eperk";
+        this.mapKey="eperkPrincipal";
+        super("eperk");
+    }
+
+    // When adding other principals
+    public UserPrincipal(String{this} user, String{this} password, String{CalServEP→;CalServEP←} firstName, String{CalServEP→;CalServEP←} lastName)
+        where authority (this),
+              endorse({CalServEP→;CalServEP←} meet this←)
+    {
+        this.pass  = new UserPassword[this](password);
+        this.user = user;
+        this.mapKey = user + "Principal";
+        super(user);
+        //super(user, password, firstName, lastName); // only if using userserv.User (not sure if want to?)
+    }
+
+    // TODO: Not sure why the travel app is doing this..
+    // Travel app says: "Where will the declassification w.r.t. password happen?"
+    public boolean{authPrf; closure; lbl; *lbl; executeNow; this; this←} isAuthorized{this→;this←}( java.lang.Object authPrf,
+																			                      Closure[this, lb] closure,
+																			                      label lbl,
+																			                      boolean executeNow )
+        where authority (this),
+              {authPrf;closure;lb;executeNow} <= lbl,
+              lbl <= {this→}
+    {
+        endorse(authPrf, {authPrf;this→;this←} to {this→;this←})
+
+        if (authPrf instanceof String)
+        {
+	        String passwd = (String) authPrf;
+
+	        if (pass == null)
+	            declassify ({*lb;this;this←}) { return false; }
+
+	        String myPass = pass.password;
+
+	        if (myPass == passwd || (myPass != null && myPass.equals(passwd)))
+	        {
+	            // password supplied agrees with this password!
+	            declassify ({*lbl; this; this←}) { return true; }
+	        }
+        }
+        declassify ({*lbl; this; this←}) { return false; }
+    }
+
+	public static UserPrincipal{*!:} getInstance{*!:}()
+	{
+		atomic
+		{
+			FabricWorker user = FabricWorker.getWorker();
+			if (user != null)
+			{
+				final Store store = user.getStore(this.user);
+				if (store != null)
+				{
+					Map rootMap = store.getRoot();
+
+					if (rootMap != null)
+					{
+						Object obj = rootMap.get(this.mapKey);
+						UserPrincipal user= null;
+
+						if (obj instanceof UserPrincipal)
+						{
+							user = (UserPrincipal) obj;
+						}
+						else
+						{
+							user = new UserPrincipal@store();
+							rootMap.put(this.mapKey, user);
+						}
+						return user;
+					}
+				}
+			}
+
+			return null;
+		}
+	}
+}
+
+class UserPassword[principal P]
+{
+    final String{P←;P→} password;
+
+    UserPassword(String{P←;P→} password)
+    {
+        this.password = password;
+        super();
+    }
+}

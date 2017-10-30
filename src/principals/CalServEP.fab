@@ -1,0 +1,25 @@
+package principals;
+
+// Fabric also has an external principals class in fabric.lang.security
+
+public class CalServEP extends ExternalPrincipal // Do I need to declare location of it? fabric.lang.security.ExternalPrincipal
+{
+	private static CalServEP{*←} P;
+
+	public CalServEP()
+	{
+		super("calendar.CalServEP");
+	}
+
+	public static Principal{*←} getInstance{*←}()
+	{
+		atomic
+        {
+			if (P == null)
+			{
+				P = new CalServEP();
+			}
+			return P;
+		}
+	}
+}

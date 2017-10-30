@@ -28,3 +28,10 @@ What is the property: ```fabric.dissemination.pastry.pastry_socket_allow_loopbac
 ## Issues
 
 There is no fabric.util.Date object
+
+## Symbols (for copy and pasting)
+
+←
+→
+⊥
+⊤
