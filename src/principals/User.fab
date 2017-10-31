@@ -11,11 +11,15 @@ public class User[principal P] extends ExternalPrincipal
     private final String{P→; P←} firstName;
     private final String{P→; P←} lastName;
 
+    private Store store;
+
     // When adding other principals
     public UserPrincipal(String{this} user, String{this} password, String{P→; P←} firstName, String{P→; P←} lastName)
         where authority (this),
               endorse({P→;P←} meet this←)
     {
+        store  = FabricWorker.getWorker().getStore("store");
+
         this.pass  = new UserPassword[this](password);
         this.user = user;
         this.mapKey = user + "Principal";
@@ -62,6 +66,16 @@ public class User[principal P] extends ExternalPrincipal
 
 			return null;
 		}
+	}
+
+	public String getName()
+	{
+		return this.firstName + " " + this.lastName;
+	}
+
+	public String getUid()
+	{
+		return this.user;
 	}
 }
 

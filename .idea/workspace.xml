@@ -2,56 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bck/src/calendar/DateUtil.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bck/src/calendar/Event.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bck/src/calendar/Main.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/UserSession.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/principals/Store.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/principals/User.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/calendar/AcquireEvent.java" afterPath="$PROJECT_DIR$/bck/classes/calendar/AcquireEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/calendar/DateUtil.java" afterPath="$PROJECT_DIR$/bck/classes/calendar/DateUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/calendar/EditEvent.java" afterPath="$PROJECT_DIR$/bck/classes/calendar/EditEvent.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/calendar/Event.java" afterPath="$PROJECT_DIR$/bck/classes/calendar/Event.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/calendar/Main.java" afterPath="$PROJECT_DIR$/bck/classes/calendar/Main.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/calendar/ShowCalendar.java" afterPath="$PROJECT_DIR$/bck/classes/calendar/ShowCalendar.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/fabric/principals/StoragePrincipal.java" afterPath="$PROJECT_DIR$/bck/classes/fabric/principals/StoragePrincipal.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/fabric/principals/UserPrincipal.java" afterPath="$PROJECT_DIR$/bck/classes/fabric/principals/UserPrincipal.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/AbstractAction.java" afterPath="$PROJECT_DIR$/bck/classes/login/AbstractAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/AbstractServlet.java" afterPath="$PROJECT_DIR$/bck/classes/login/AbstractServlet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState.java" afterPath="$PROJECT_DIR$/bck/classes/login/AuthSessState.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/AuthenticatedAction.java" afterPath="$PROJECT_DIR$/bck/classes/login/AuthenticatedAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/HTMLAuthServlet.java" afterPath="$PROJECT_DIR$/bck/classes/login/HTMLAuthServlet.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/LoginAction.java" afterPath="$PROJECT_DIR$/bck/classes/login/LoginAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure.java" afterPath="$PROJECT_DIR$/bck/classes/login/LoginClosure.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/login/LogoffAction.java" afterPath="$PROJECT_DIR$/bck/classes/login/LogoffAction.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/user/FrontPage.java" afterPath="$PROJECT_DIR$/bck/classes/user/FrontPage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/classes/user/UserMain.java" afterPath="$PROJECT_DIR$/bck/classes/user/UserMain.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/AcquireEvent.fab" afterPath="$PROJECT_DIR$/bck/src/calendar/AcquireEvent.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/CalServDeclassifier.fab" afterPath="$PROJECT_DIR$/bck/src/calendar/CalServDeclassifier.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/EditEvent.fab" afterPath="$PROJECT_DIR$/bck/src/calendar/EditEvent.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/ShowCalendar.fab" afterPath="$PROJECT_DIR$/bck/src/calendar/ShowCalendar.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/AbstractAction.fab" afterPath="$PROJECT_DIR$/bck/src/login/AbstractAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/AbstractServlet.fab" afterPath="$PROJECT_DIR$/bck/src/login/AbstractServlet.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/AuthSessState.fab" afterPath="$PROJECT_DIR$/bck/src/login/AuthSessState.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" afterPath="$PROJECT_DIR$/bck/src/login/AuthenticatedAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/HTMLAuthServlet.fab" afterPath="$PROJECT_DIR$/bck/src/login/HTMLAuthServlet.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/LoginAction.fab" afterPath="$PROJECT_DIR$/bck/src/login/LoginAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/LoginClosure.fab" afterPath="$PROJECT_DIR$/bck/src/login/LoginClosure.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/login/LogoffAction.fab" afterPath="$PROJECT_DIR$/bck/src/login/LogoffAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/principals/CalRootEP.fab" afterPath="$PROJECT_DIR$/bck/src/principals/CalRootEP.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/principals/CalServEP.fab" afterPath="$PROJECT_DIR$/bck/src/principals/CalServEP.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/principals/StoragePrincipal.fab" afterPath="$PROJECT_DIR$/bck/src/principals/StoragePrincipal.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/principals/UserPrincipal.fab" afterPath="$PROJECT_DIR$/bck/src/principals/UserPrincipal.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/store/StorageNode.fab" afterPath="$PROJECT_DIR$/bck/src/store/StorageNode.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/user/FrontPage.fab" afterPath="$PROJECT_DIR$/bck/src/user/FrontPage.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/user/UserMain.fab" afterPath="$PROJECT_DIR$/bck/src/user/UserMain.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/DateUtil.fab" afterPath="$PROJECT_DIR$/src/calendar/DateUtil.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Event.fab" afterPath="$PROJECT_DIR$/src/calendar/Event.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Main.fab" afterPath="$PROJECT_DIR$/src/calendar/Main.fab" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/principals/UserName.fab" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/calendar/Event.fab" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/UserSession.fab" afterPath="$PROJECT_DIR$/src/calendar/UserSession.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/principals/Store.fab" afterPath="$PROJECT_DIR$/src/principals/Store.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/principals/User.fab" afterPath="$PROJECT_DIR$/src/principals/User.fab" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Store.fab" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Store.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/principals/Store.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="375">
+              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.fab" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.fab" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/principals/User.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="637">
+              <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -108,8 +66,8 @@
       <file leaf-file-name="UserPrincipal.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bck/src/principals/UserPrincipal.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="132" selection-end-column="1" />
+            <state relative-caret-position="-530">
+              <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -118,28 +76,8 @@
       <file leaf-file-name="UserSession.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/calendar/UserSession.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Event.fab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/calendar/Event.fab">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.fab" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+            <state relative-caret-position="300">
+              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -148,8 +86,8 @@
       <file leaf-file-name="OwnerEvent.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/calendar/OwnerEvent.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,8 +96,28 @@
       <file leaf-file-name="ViewerEvent.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/calendar/ViewerEvent.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+            <state relative-caret-position="150">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserName.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/principals/UserName.fab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AttendeeEvent.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/calendar/AttendeeEvent.fab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -183,8 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/docs/Docs.md" />
-        <option value="$PROJECT_DIR$/docs/system/fabric/store/store.md" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/classes/user/FrontPage.java" />
         <option value="$PROJECT_DIR$/classes/login/AbstractAction.java" />
@@ -227,13 +183,15 @@
         <option value="$PROJECT_DIR$/src/login/AuthSessState.fab" />
         <option value="$PROJECT_DIR$/src/principals/UserPrincipal.fab" />
         <option value="$PROJECT_DIR$/src/calendar/DateUtil.fab" />
-        <option value="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" />
-        <option value="$PROJECT_DIR$/src/calendar/Event.fab" />
         <option value="$PROJECT_DIR$/src/calendar/Main.fab" />
-        <option value="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" />
-        <option value="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" />
-        <option value="$PROJECT_DIR$/src/principals/User.fab" />
         <option value="$PROJECT_DIR$/src/principals/Store.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/UserSession.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/Event.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" />
+        <option value="$PROJECT_DIR$/src/principals/UserName.fab" />
+        <option value="$PROJECT_DIR$/src/principals/User.fab" />
       </list>
     </option>
   </component>
@@ -571,15 +529,16 @@
       <option name="presentableId" value="Default" />
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
-      <workItem from="1509050691425" duration="44451000" />
+      <workItem from="1509050691425" duration="46423000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45821000" />
+    <option name="totallyTimeSpent" value="47793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -593,7 +552,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17460318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17460318" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -620,16 +579,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/bck/classes/user/FrontPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bck/classes/calendar/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -942,22 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/AttendeeEvent.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/Event.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -966,50 +899,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/OwnerEvent.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/ViewerEvent.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/UserSession.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bck/src/user/UserMain.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bck/src/principals/UserPrincipal.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="132" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/principals/User.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1025,10 +918,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bck/src/principals/UserPrincipal.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-530">
+          <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/principals/Store.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="375">
+          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/UserSession.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/Event.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/OwnerEvent.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/AttendeeEvent.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="14" lean-forward="false" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/ViewerEvent.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/principals/UserName.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/principals/User.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
           <folding />
         </state>
       </provider>

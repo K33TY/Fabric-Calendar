@@ -1,0 +1,21 @@
+package calendar;
+import principals.User;
+import principals.Store;
+
+// Once authenticated allow access to this class?
+public class UserSession extends User
+{
+	RemoteWorker store = FabricWorker.getWorker().getWorker("store");
+	OwnerEvent newEvent;
+
+	public void addEvent()
+    {
+        addEvent@store(newEvent.getOid());
+    }
+
+    public void editEvent()
+    {
+        addEvent@store(newEvent);
+    }
+
+}

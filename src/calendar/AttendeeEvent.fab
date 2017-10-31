@@ -1,1 +1,10 @@
 package calendar;
+import fabric.lang.Object;
+
+public abstract class AttendeeEvent extends Object
+{
+	long onum;
+	String name = "busy";
+	Date startTime;
+	Date endTime;
+}

@@ -1,1 +1,12 @@
 package calendar;
+import fabric.lang.Object;
+
+public abstract class ViewerEvent extends Object
+{
+	long onum;
+	String name;
+    Date startTime;
+    Date endTime;
+    String note;
+
+}

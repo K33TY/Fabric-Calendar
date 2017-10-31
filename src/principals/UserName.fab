@@ -1,0 +1,14 @@
+package principals;
+
+public class UserName[principal P]
+{
+	String name;
+	String uid;
+
+	public UserName[principal P] (User user)
+	{
+		this.name = user.getName();
+		this.uid = user.getUid();
+	}
+
+}
