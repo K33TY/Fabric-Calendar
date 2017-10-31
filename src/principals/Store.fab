@@ -1,0 +1,28 @@
+package principals;
+
+import fabric.worker.Store;
+import fabric.util.*;
+
+public class Store[⊤] extends ExternalPrincipal
+{
+	public Store()
+	{
+		super("store")
+	}
+
+	// persistent
+	private HashMap<String uid, OwnerEvent oe> ownedEvents;
+	private HashMap<String uid, AttendeeEvent ae> attendEvents;
+	private HashMap<String uid, ViewEvent ve> viewerEvents;
+	private ArrayList<User> users;
+
+	// ephemeral
+	private ArrayList<User> loggedOnUsers;
+	private ArrayList<int> AccessedObjects; // keep track by oid
+
+	public void addEvent() {}
+
+	public void editEvent() {}
+
+	public void addUser() {}
+}

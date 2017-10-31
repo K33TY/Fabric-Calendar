@@ -2,6 +2,8 @@ package calendar;
 
 import fabric.util.Date
 
+// For now, going to pretend that Fabric has Date implemented and can get calendars from the runtime
+
 public class DateUtil[label L]
 {
 
@@ -36,3 +38,10 @@ public class DateUtil[label L]
         }
     }
 }
+
+
+/**
+
+Since there is no fabric.util.Date class, may need to implement this?
+
+*/
