@@ -159,6 +159,130 @@
                 language feature of data shipping, and cache all objects at the worker node relating to the authenticated
                 user.  <br /><br />
 
+                <h2>A brief overview of Objects within the Calendar application</h2>
+
+                <h3>Events Objects</h3>
+                OwnerEvents and AttendeeEvents essentially have the same fields. Maybe it would be possible to allow these
+                objects to cast to each other with the new policy enforced. For example, OwnerEvent can always cast to
+                AttendeeEvent, but AttendeeEvent can only cast to OwnerEvent if P = uid?<br /><br />
+
+                <strong>OwnerEvent</strong>
+                Given the policy label {P→;P←}
+                <ul>
+                    <li>event id</li>
+                    <li>owner uid</li>
+                    <li>event name</li>
+                    <li>event starting time</li>
+                    <li>event ending time</li>
+                    <li>event note</li>
+                    <li>list of attendees (allowed to view but not access any field in the event)</li>
+                    <li>list of viewers (only allowed to view time of event but no other field, instead see "busy")</li>
+                </ul><br />
+
+                <strong>AttendeeEvent</strong>
+                Given the policy label {P→}
+                <ul>
+                    <li>event id</li>
+                    <li>owner uid</li>
+                    <li>event name</li>
+                    <li>event starting time</li>
+                    <li>event ending time</li>
+                    <li>event note</li>
+                    <li>list of attendees (allowed to view but not access any field in the event)</li>
+                    <li>list of viewers (only allowed to view time of event but no other field, instead see "busy")</li>
+                </ul><br />
+
+                <strong>ViewerEvent</strong>
+                <ul>
+                    <li>event id</li>
+                    <li>event name = "busy"</li>
+                    <li>event starting time</li>
+                    <li>event ending time</li>
+                </ul>
+
+                <h3>Principals</h3>
+
+                <strong>Store</strong><br />
+                A persistent storage node representing what in the Jif implementation CalRootEP principal. This Calendar
+                Root Principal has the greatest privilege {&#8868;→&#8868;;&#8868;←&#8868;} <br /><br />
+                <ul>
+                    <li>ownedEvents is a hash mapping uid to a hashmap of oid→OwnerEvent objects that uid owns</li>
+                    <li>attendeeEvents is a hash mapping uid to a hashmap of oid→AttendeeEvent objects that uid may attend</li>
+                    <li>viewerEvents is a hash mapping uid to a hashmap of oid→ViewerEvent objects that uid may view</li>
+                    <li>a list of calendar users</li>
+                    <li>a list of logged on users</li>
+                    <li>a list of accessed objects (this becomes necessary if we are going to later let more than one
+                        user edit an event)</li>
+                    <li>method to add an event: <br />
+                        <ul>
+                            <li>append OwnedEvent to ownedEvents.get(uid).put(e.oid, e)</li>
+                            <li>for each user in the list of attendees create AttendeeEvent
+                                and append to attendeeEvents.get(uid).put(e.oid, e)</li>
+                            <li>for each user in the list of viewers create ViewerEvent
+                                and append to viewerEvents.get(uid).put(e.oid, e)</li>
+                        </ul>
+                    </li>
+                    <li>method to edit an event: <br />
+                        <ul>
+                            <li>update OwnedEvent in ownedEvents.get(uid)</li>
+                            <li>for each user in the list of attendees update AttendeeEvent in attendeeEvents.get(uid).get(oid),
+                            and check if user is in logged on users. If so, push event to user. If push fails more than
+                            x retries, assume that user left without logging off, so simply remove them from logged on
+                            users list</li>
+                            <li>for each user in the list of viewers update ViewerEvent in viewerEvents.get(uid).get(oid),
+                            and check if user is in logged on users. If so, push event to user. If push fails more than
+                            x retries, assume that user left without logging off, so simply remove them from logged on
+                            users list</li>
+                        </ul>
+                    </li>
+                    <li>method to authenticate a user: <br />
+                        <ul>
+                            <li>check if uid exists, if not return null</li>
+                            <li>check if pw matches for uid, if so delegate rights of uid to worker and ship all objects
+                            associated with this user</li>
+                        </ul>
+                    </li>
+                    <li>method to log a user off of the system: <br />
+                        <ul>
+                            <li>remove user from logged on users list</li>
+                            <li>later implementation could be multithreaded to check for user inactivity and automatically
+                            log off users</li>
+                        </ul>
+                    </li>
+                    <li>method give full names of active calendar users to an authenticated user: this allows user to know
+                    who they can add to their events</li>
+                </ul>
+
+                <strong>Worker</strong><br />
+                A temporal "session" node representing what in the Jif implementation was essentially the Userv package
+                and the CalServEP principal. It starts off with the least label {&#8869;→&#8869;;&#8869;←&#8869;}, and
+                has the possibility to acquire a labeling for a new user or for an existing user assuming authentication.<br /><br />
+
+                <em>Prior to authentication:</em><br />
+                <ul>
+                    <li>user = bottom principal &#8869;</li>
+                    <li>list of events owned = null</li>
+                    <li>list of events attending = null</li>
+                    <li>list of viewable events = null</li>
+                    <li>method to authenticate: remote call <font color="#006400">auth(input userID, input pw)@store</font>
+                    and date instantiation</li>
+                    <li>method to add user: remote call <font color="#006400">add(input userID, input pw)@store</font>
+                        and date instantiation</li>
+                </ul>
+                (I seem to remember that remote calls are protected by SSL?)<br /><br />
+
+                <em>Upon authentication:</em><br />
+                <ul>
+                    <li>user = P (self)</li>
+                    <li>list of events P owns</li>
+                    <li>list of events P is attending</li>
+                    <li>list of events P may view</li>
+                    <li>method to add an event: <font color="#006400">addEvent(Event e)@store</font></li>
+                    <li>method to edit an event: <font color="#006400">editEvent(Event e)@store</font></li>
+                    <li>method to log off: <font color="#006400">logOff()@store</font></li>
+                    <li>method to full names of other calendar users: <font color="#006400">getUsers()@store</font></li>
+                </ul>
+
                 <strong>This implementation requires the following considerations:</strong>
                 <ol>
                     <li>
@@ -176,10 +300,21 @@
                         the transaction map so that Fabric's sense of optimistic transaction holds?
                     </li>
                     <li>
+                        How does the calendar root allow a user to acquire the name of other users of the calendar? Do we
+                        suppose that an authenticated user should have privilege to access this? What are any issues if we
+                        further allow them to access the username which is effectively the current uid for the current
+                        implementation?
+                    </li>
+                    <li>
                         Finally, most importantly, how will security labels properly enforce the desired purposes?
                     </li>
                 </ol>
 
+
+
+                <h3>Consideration One</h3>
+                To properly account for the acquisition of a user's objects and delegation of principal rights, the store's
+                overall contents must be considered.
 
             </div>
 
