@@ -283,6 +283,20 @@
                     <li>method to full names of other calendar users: <font color="#006400">getUsers()@store</font></li>
                 </ul>
 
+                <h3>Other Objects</h3>
+                <strong>Date</strong><br />
+                This object should not require any special consideration for confidentiality policy of the assumption that
+                the user can view their time and date themselves. Because we use user specific system time to instantiate
+                only their calendar for a session, we are assured that no data can be leaked by this allowance. <br /><br />
+
+                The Calendar Root Principal has some understanding of this object, but never needs to instantiate this for
+                itself as it will not need to print any dates to a servlet.<br /><br />
+
+                <strong>Servlet Related Code</strong><br />
+                Because the worker only accesses data that they are allowed to read and write, the calendar that they can
+                see is instantiated on these objects. This removes the need to do any downgrading in the instantiation
+                and updating of the calendar client-side.
+
                 <strong>This implementation requires the following considerations:</strong>
                 <ol>
                     <li>
