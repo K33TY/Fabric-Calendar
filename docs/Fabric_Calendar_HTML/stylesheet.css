@@ -79,7 +79,9 @@ a:hover {
 }
 
 #content div {
-    overflow: hidden;
+    overflow-y: auto;
+    padding-left: 20px;
+    padding-right: 30px;
     text-overflow: ellipsis;
     width: 95%;
 }

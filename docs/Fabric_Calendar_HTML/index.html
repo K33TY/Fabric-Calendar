@@ -159,8 +159,26 @@
                 language feature of data shipping, and cache all objects at the worker node relating to the authenticated
                 user.  <br /><br />
 
-                
-
+                <strong>This implementation requires the following considerations:</strong>
+                <ol>
+                    <li>
+                        How will the authenticated user acquire all calendar objects that they own or have permission to
+                        access or view?
+                    </li>
+                    <li>
+                        How will the user prepare and commit new calendar event objects or edit existing events? Furthermore,
+                        how will the store propagate these changes on commit, especially to any other active user?
+                    </li>
+                    <li>
+                        (This was not existing in the prior calendar implementation, but would be fun if time permits.)
+                        What issues exist during multiple user accesses to the same calendar objects, assuming we allow
+                        attendees to write to the object (perhaps to leave an event)? Namely, how will the store implement
+                        the transaction map so that Fabric's sense of optimistic transaction holds?
+                    </li>
+                    <li>
+                        Finally, most importantly, how will security labels properly enforce the desired purposes?
+                    </li>
+                </ol>
 
 
             </div>
