@@ -84,6 +84,7 @@ a:hover {
     padding-right: 30px;
     text-overflow: ellipsis;
     width: 95%;
+    height: auto;
 }
 
 #content a {
