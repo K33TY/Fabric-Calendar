@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/principals/UserName.fab" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/calendar/Event.fab" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/AttendeeEvent.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/OwnerEvent.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/UserSession.fab" afterPath="$PROJECT_DIR$/src/calendar/UserSession.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/principals/Store.fab" afterPath="$PROJECT_DIR$/src/principals/Store.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/principals/User.fab" afterPath="$PROJECT_DIR$/src/principals/User.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,8 +16,8 @@
       <file leaf-file-name="Store.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/principals/Store.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="525">
+              <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -34,8 +27,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="540">
-                <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="1" />
+              <first_editor relative-caret-position="465">
+                <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -46,8 +39,8 @@
       <file leaf-file-name="User.fab" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/principals/User.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+            <state relative-caret-position="37">
+              <caret line="35" column="53" lean-forward="true" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -176,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/login/LogoffAction.fab" />
         <option value="$PROJECT_DIR$/src/login/AuthenticatedAction.fab" />
         <option value="$PROJECT_DIR$/src/login/LoginAction.fab" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/principals/CalRootEP.fab" />
         <option value="$PROJECT_DIR$/src/principals/CalServEP.fab" />
         <option value="$PROJECT_DIR$/src/calendar/CalServDeclassifier.fab" />
@@ -192,6 +184,7 @@
         <option value="$PROJECT_DIR$/src/calendar/ViewerEvent.fab" />
         <option value="$PROJECT_DIR$/src/principals/UserName.fab" />
         <option value="$PROJECT_DIR$/src/principals/User.fab" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -529,12 +522,12 @@
       <option name="presentableId" value="Default" />
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
-      <workItem from="1509050691425" duration="46423000" />
+      <workItem from="1509050691425" duration="47060000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47793000" />
+    <option name="totallyTimeSpent" value="48430000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -907,29 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="540">
-            <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="1" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bck/src/principals/UserPrincipal.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-530">
           <caret line="28" column="69" lean-forward="true" selection-start-line="28" selection-start-column="69" selection-end-line="28" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/principals/Store.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -982,10 +956,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="465">
+            <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/principals/Store.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/principals/User.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="73" column="5" lean-forward="true" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="37">
+          <caret line="35" column="53" lean-forward="true" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
           <folding />
         </state>
       </provider>

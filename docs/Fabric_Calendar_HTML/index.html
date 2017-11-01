@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric: How to Create a Fabric Application</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            hideAll();
+            $('#calendar').show();
+        });
+
+        function hideAll() {
+            $('#intro').hide();
+            $('#features').hide();
+            $('#store').hide();
+            $('#worker').hide();
+            $('#calendar').hide();
+            $('#references').hide();
+        };
+
+        $(function() {
+            $('#showIntro').click(function() {
+                hideAll();
+                $('#intro').show();
+                return false;
+            });
+
+            $('#showFeatures').click(function() {
+                hideAll();
+                $('#features').show();
+                return false;
+            });
+
+            $('#showStore').click(function() {
+                hideAll();
+                $('#store').show();
+                return false;
+            });
+
+            $('#showWorker').click(function() {
+                hideAll();
+                $('#worker').show();
+                return false;
+            });
+
+            $('#showCalendar').click(function() {
+                hideAll();
+                $('#calendar').show();
+                return false;
+            });
+
+            $('#showReferences').click(function() {
+                hideAll();
+                $('#references').show();
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="header">
+    <h1>Fabric: How to Create a Fabric Application</h1>
+</div>
+
+<div id="main">
+    <div id="navPane">
+        <div id="nav">
+            <!--ANCHORS TO CONTENT-->
+            <a href="#" class="main-link" id="showIntro">Introduction</a><br />
+
+            <a href="#" class="main-link" id="showFeatures">Language Features</a><br />
+
+            <a href="#" class="main-link" id="showStore">Store</a><br />
+            <ul class="sub-link">
+                <li>
+                    Persistence
+
+                </li>
+            </ul>
+
+            <a href="#" class="main-link" id="showWorker">Worker</a><br />
+
+            <a href="#" class="main-link" id="showCalendar">Calendar Example</a><br />
+
+            <a href="#" class="main-link" id="showReferences">References</a>
+        </div>
+    </div>
+
+    <div id="contentPane">
+        <div id="content">
+            <div id="intro">
+                <h2>Introduction</h2>
+
+                This site's main purpose will be to walk a new user through the different steps of creating a basic
+                Fabric application. <br /> <br />
+
+                This is not meant to be a replacement for the <a href="https://www.cs.cornell.edu/projects/fabric/manual/0.3.0/html/">
+                Fabric manual</a>, but supplementary material of a more hands-on nature.
+            </div>
+
+            <div id="features">
+                <h2>Language Features</h2>
+            </div>
+
+            <div id="store">
+                <h2>Store</h2>
+
+                <h3>Persistence</h3>
+            </div>
+
+            <div id="worker">
+                <h2>Worker</h2>
+            </div>
+
+            <div id="calendar">
+                <h2>Calendar Example</h2>
+
+                A calendar application was written in Fabric's precursor language, Jif. This prior calendar, based on
+                Jif's language capabilities, was not distributed. Porting the calendar to the Fabric language meant
+                requiring an overhaul to the architecture. <br /><br />
+
+                The original calendar implemented a mySQL database to achieve persistence, and setting up the database
+                was a requirement for running the application. The actions for the calendar required accessing the database
+                by authorized principals (calendar users). However, in the Fabric language, there is an object implemented
+                with the intention of serving as a persistent database. This object, the store, follows the many new
+                distributed design decisions implemented in the Fabric language. <br /><br />
+
+                Now, instead of implementing a database, and using database calls to achieve the functionality in the
+                calendar, we simply need to ensure that a storage node is running somewhere with the persistent features
+                required by the calendar. In essence, this storage node acts as the top principal with the greatest label
+                {&#8868;→&#8868;;&#8868;←&#8868;}, allowing the storage to perform all actions on any calendar in an
+                active user session. <br /><br />
+
+                A worker node is spun up for any individual user wanting to access the calendar. This follows the Fabric
+                language premise which states that objects do not "instantiate" but rather join the overall "Fabric."
+                The worker node, therefore should allow a user to either join the calendar (a future wanted capability)
+                or authenticate a session if they have already joined the calendar previously. With both of these actions,
+                we are able to use Fabric's idea of remote calls, accessing the storage node by invoking appropriate
+                methods at the store. <br /><br />
+
+                Adding a user is a feature that would be nice to implement, and may become another method with the least
+                label that the store allows. Of course, the store will check that the username is valid and not already
+                in use, especially considering the username is operating as a user-id, or key, for access to all of the
+                user's objects within their calendar. At this point, we shall first hard-code this functionality until
+                the other portions of the calendar are implemented.<br /><br />
+
+                In the case of authentication, we do not care about the latency for authentication happening over the
+                wire since this would be no different if we had to do the same task via a SQL database access. At this
+                point, the worker node is completely untrusted, having the least label {&#8869;→&#8869;;&#8869;←&#8869;}.
+                The store allows a singular remote call to operate with this security label, namely a method which allows
+                the store to receive input from the user at the given worker node. If the user provides a valid username
+                and password combination, then the store will delegate the confidentiality and integrity permissions of
+                that user to the active session represented by the worker node. Furthermore, it will use the Fabric's
+                language feature of data shipping, and cache all objects at the worker node relating to the authenticated
+                user.  <br /><br />
+
+                
+
+
+
+            </div>
+
+            <div id="references">
+                <h2>References</h2>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+
+</div>
+
+</body>
+</html>
