@@ -79,7 +79,9 @@
             <ul class="sub-link">
                 <li>
                     Persistence
-
+                </li>
+                <li>
+                    Implementation Example
                 </li>
             </ul>
 
@@ -105,6 +107,28 @@
 
             <div id="features">
                 <h2>Language Features</h2>
+                Fabric is a language designed to enforce information flow policies during both compile and runtime across
+                multiple domains which have could have mutual distrust. The language is designed to follow the same trust
+                assumption as what is used for the internet: "trust nobody." Hence, it does not care which nodes enter the
+                "Fabric" since any node can delegate authority or access control to specific nodes (principals). This idea
+                is highly useful for current issues in Cross Domain Assurance, allowing for the sharing of valuable data,
+                both computations and information, in a way which strongly enforces both confidentiality and integrity
+                expectations. <br /><br />
+
+                There any many valuable and novel features that exist within the language which sets it apart from both
+                prior implementations of distributed systems, which might focus heavily on either persistence or information
+                flow. A list of such features, some of which will be described in more detail, are as follows:<br />
+
+                <ul>
+                    <li>persistent storage</li>
+                    <li>data shipping</li>
+                    <li>function shipping (remote method calls)</li>
+                    <li>access control labels on objects</li>
+                    <li>capability to grant authority to principal over classes and/or specific methods</li>
+                    <li>capability to delegate authority from one principal to another</li>
+                    <li>optimistic atomic transactions allowing for rollback when encountering various issues</li>
+                    <li>sophisticated transaction bookkeeping and management</li>
+                </ul><br />
             </div>
 
             <div id="store">
@@ -124,7 +148,7 @@
                 form to its associated storage file. (Supposing the attacker has access to the store, could he read the
                 store's information for himself?)
 
-                <h3>Implementation</h3>
+                <h3>Implementation Example</h3>
                 Here, we explore a simple implementation of using a Fabric store:
             </div>
 
