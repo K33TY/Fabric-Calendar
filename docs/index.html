@@ -109,8 +109,23 @@
 
             <div id="store">
                 <h2>Store</h2>
+                The storage nodes in Fabric are designed to be persistent storage for Fabric objects, and these nodes allow
+                for the provision of these objects to both worker nodes and the dissemination layer. <br /><br />
+
+                The store should group objects by similar security policies. This allows the store to easily perform the
+                data shipping necessary to cache objects at any requesting node who has the associated access control labels.
 
                 <h3>Persistence</h3>
+                Storage nodes can be started with terminal commands, or with executables assuming the developer has
+                created these shell scripts. Upon starting the store node, the node will first attempt to read in any
+                storage files on the machine with the expected store name. If it exists, it will load the persistent data
+                from there. Otherwise, it will simply create a new store from scratch. When a storage node is properly
+                shutdown, without using a kill process command, then it will make sure to write all of its data in serialized
+                form to its associated storage file. (Supposing the attacker has access to the store, could he read the
+                store's information for himself?)
+
+                <h3>Implementation</h3>
+                Here, we explore a simple implementation of using a Fabric store:
             </div>
 
             <div id="worker">
