@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric: How to Create a Fabric Application</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //hideAll();
+            //$('#intro').show();
+            //$('#store').show();
+        });
+
+        function hideAll() {
+            $('#intro').hide();
+            $('#common').hide();
+            $('#dissemination').hide();
+            $('#lang').hide();
+            $('#messages').hide();
+            $('#net').hide();
+            $('#store').hide();
+            $('#worker').hide();
+        };
+
+        $(function() {
+            $('#showIntro').click(function() {
+                hideAll();
+                $('#intro').show();
+                return false;
+            });
+
+            $('#showCommon').click(function() {
+                hideAll();
+                $('#common').show();
+                return false;
+            });
+
+            $('#showDissemination').click(function() {
+                hideAll();
+                $('#dissemination').show();
+                return false;
+            });
+
+            $('#showLang').click(function() {
+                hideAll();
+                $('#lang').show();
+                return false;
+            });
+
+            $('#showMessages').click(function() {
+                hideAll();
+                $('#messages').show();
+                return false;
+            });
+
+            $('#showNet').click(function() {
+                hideAll();
+                $('#net').show();
+                return false;
+            });
+
+            $('#showStore').click(function() {
+                hideAll();
+                $('#store').show();
+                return false;
+            });
+
+            $('#showWorker').click(function() {
+                hideAll();
+                $('#worker').show();
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="header">
+    <h1>Fabric: How to Create a Fabric Application</h1>
+</div>
+
+<div id="main">
+    <div id="navPane">
+        <div id="nav">
+            <!--ANCHORS TO CONTENT-->
+            <a href="#" class="main-link" id="showIntro">Introduction</a><br />
+
+            <a href="#" class="main-link" id="showCommon">Common</a><br />
+
+            <a href="#" class="main-link" id="showDissemination">Dissemination</a><br />
+
+            <a href="#" class="main-link" id="showLang">Lang</a><br />
+
+            <a href="#" class="main-link" id="showMessages">Messages</a><br />
+            <ul class="sub-link">
+                <li>
+                    Persistence
+                </li>
+                <li>
+                    Implementation Example
+                </li>
+            </ul>
+
+            <a href="#" class="main-link" id="showNet">Net</a><br />
+
+            <a href="#" class="main-link" id="showStore">Store</a><br />
+
+            <a href="#" class="main-link" id="showWorker">Worker</a>
+        </div>
+    </div>
+
+    <div id="contentPane">
+        <div id="content">
+            <div id="intro">
+                <h2>Introduction</h2>
+
+            </div>
+
+            <div id="common">
+                <h2>Common</h2>
+
+            </div>
+
+            <div id="dissemination">
+                <h2>Dissemination</h2>
+
+            </div>
+
+            <div id="lang">
+                <h2>Lang</h2>
+
+            </div>
+
+            <div id="messages">
+                <h2>Messages</h2>
+
+            </div>
+
+            <div id="net">
+                <h2>Net</h2>
+
+            </div>
+
+            <div id="store">
+                <h2>Store</h2>
+
+            </div>
+
+            <div id="worker">
+                <h2>Worker</h2>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="footer">
+
+</div>
+
+</body>
+</html>

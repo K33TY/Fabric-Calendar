@@ -1,0 +1,9 @@
+package principals;
+
+import fabric.worker.Store;
+import fabric.util.*;
+
+public class CalendarRoot[principal P] extends ExternalPrincipal
+{
+
+}

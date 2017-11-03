@@ -3,7 +3,7 @@ package principals;
 import fabric.worker.Store;
 import fabric.util.*;
 
-public class User[principal P] extends ExternalPrincipal
+public class UserPrincipalEP[principal P] extends ExternalPrincipal
 {
     private final UserPassword[P]{P; P←}@{this.store$->} pass;
     private final String{P→; P←} user;
