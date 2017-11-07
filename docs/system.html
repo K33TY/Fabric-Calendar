@@ -136,7 +136,21 @@
 
             <div id="messages">
                 <h2>Messages</h2>
+                The fabric.messages package involves all classes and interfaces relating to messages which can be sent
+                between the different types of fabric nodes. Some of the capabilities provided include: <br />
 
+                <ul>
+                    <li>Transaction requests to a store: <font color="#006400">See PrepareTransactionMessage.java</font>></li>
+                    <li>Ways to update workers and dissemination nodes that an object has been updated:
+                        <font color="#006400">See ObjectUpdateMessage.java</font>></li>
+                    <li>Transaction requests to a store: <font color="#006400">See PrepareTransactionMessage.java</font>></li>
+                    <li>Worker requests to read an object at a store: <font color="#006400">See ReadMessage.java</font>></li>
+                    <li>Ways to perform function shipping: <font color="#006400">See RemoteCallMessage.java</font>></li>
+                    <li>Ability to check whether cached objects are still fresh by requesting response from
+                        a store: <font color="#006400">See StalenessCheckMessage.java</font>></li>
+                    <li>A request from a worker to take ownership of an object from another worker:
+                        <font color="#006400">See TakeOwnershipMessage.java</font>></li>
+                </ul>
             </div>
 
             <div id="net">

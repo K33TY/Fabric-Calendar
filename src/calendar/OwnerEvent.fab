@@ -3,5 +3,11 @@ import fabric.lang.Object;
 
 public abstract class OwnerEvent extends Object
 {
-
+	long onum;
+    String name;
+    Date startTime;
+    Date endTime;
+    String note;
+    List<Users> attendees;
+    List<Users> viewers;
 }

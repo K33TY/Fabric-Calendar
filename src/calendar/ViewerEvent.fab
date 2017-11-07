@@ -4,9 +4,8 @@ import fabric.lang.Object;
 public abstract class ViewerEvent extends Object
 {
 	long onum;
-	String name;
+	String name = "busy";
     Date startTime;
     Date endTime;
-    String note;
 
 }

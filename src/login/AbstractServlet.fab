@@ -1,0 +1,28 @@
+package login;
+
+import sif.servlet.HTMLServlet;
+import sif.servlet.Request;
+
+import javax.servlet.ServletException;
+
+
+public abstract class AbstractServlet[principal servP] extends HTMLAuthServlet[servP]
+{
+    /** Ensure the on construction that know we can throw ServletException. */
+    public AbstractServlet() throws ServletException
+    {
+
+    }
+
+	// TODO: FIND OUT WHAT THIS MEANS
+	/**
+	*   What I think:
+	*   Method which must be called by principal p
+	*       to return principal p who only delegates readership and writership to top principal
+	*       by looking up user ID and principal in method only user or top could call?
+	*/
+    public abstract principal{p→;p←;p} lookupUserID{p→; p←}( String{p→; p←} userID, principal{p→; p←} p ) where caller(p);
+
+	/** Set the default action to be the servlet principal's request */
+    protected abstract String defaultActionName(Request[servP] req);
+}

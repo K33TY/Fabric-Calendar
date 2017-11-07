@@ -4,7 +4,10 @@ import fabric.lang.Object;
 public abstract class AttendeeEvent extends Object
 {
 	long onum;
-	String name = "busy";
+	String name;
 	Date startTime;
 	Date endTime;
+	String note;
+	List<Users> attendees;
+	List<Users> viewers;
 }

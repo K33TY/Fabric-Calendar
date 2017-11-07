@@ -1,6 +1,6 @@
 package calendar;
 
-import fabric.util.Date
+import fabric.util.Date;
 
 public class DateUtil[label L]
 {

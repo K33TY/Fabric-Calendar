@@ -3,32 +3,18 @@ package stores;
 import fabric.worker.Store;
 import fabric.util.*;
 
-// TODO: Questions: how does the store remain persistent if the node is shutdown?
-//                  I don't understand how Berkeley DB handles this
-
-public class CalendarStore[⊤] extends ExternalPrincipal
+public class PrincipalStore[⊤] extends ExternalPrincipal
 {
-	public CalendarStore()
+	public PrincipalStore()
 	{
 		super("principalStore")
 	}
 
 	// persistent
-	private HashMap<String uid, OwnerEvent oe> ownedEvents;
-	private HashMap<String uid, AttendeeEvent ae> attendEvents;
-	private HashMap<String uid, ViewEvent ve> viewerEvents;
 	private ArrayList<User> users;
 
 	// ephemeral
 	private ArrayList<User> loggedOnUsers;
-	private ArrayList<int> AccessedObjects; // keep track by oid
-
-	public void addEvent(long onum)
-	{
-
-	}
-
-	public void editEvent() {}
 
 	public void addUser() {}
 
