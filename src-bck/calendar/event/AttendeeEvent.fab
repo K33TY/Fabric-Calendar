@@ -1,4 +1,4 @@
-package calendar;
+package calendar.event;
 import fabric.lang.Object;
 
 public abstract class AttendeeEvent extends Object

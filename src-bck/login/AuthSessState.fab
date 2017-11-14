@@ -1,0 +1,38 @@
+package login;
+
+import sif.servlet.SessionState;
+import sif.servlet.SessionPrincipal;
+import fabricated.util.*;
+
+public class AuthSessState extends SessionState
+{
+    final principal{sessionPrincipal←}@{⊤→this.store$} currentUser;
+
+    public AuthSessState(String{this} id, SessionPrincipal{this} session)
+    {
+    	super(id, session);
+    }
+
+    public AuthSessState{sp←}(final SessionPrincipal{this} sp, String{this} si, principal{sp←} cu)
+    {
+    	super(si, sp);
+    	if (sp equiv sessionPrincipal)
+    	{
+    	    this.currentUser = cu;
+    	}
+    }
+
+	// Getter
+    public principal{this; sessionPrincipal←} currentUser{this}()
+    {
+        return currentUser;
+    }
+
+	// Setter
+    void currentUser{sessionPrincipal←}(principal{sessionPrincipal←} cu)
+    {
+        this.currentUser = cu;
+    }
+
+
+}
