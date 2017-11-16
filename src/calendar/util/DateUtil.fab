@@ -1,4 +1,4 @@
-package calendar;
+package calendar.util;
 
 import fabric.util.Date;
 

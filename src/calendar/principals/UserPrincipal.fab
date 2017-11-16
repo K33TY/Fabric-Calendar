@@ -1,4 +1,4 @@
-package principals;
+package calendar.principals;
 
 import fabric.worker.Store;
 import fabric.util.*;

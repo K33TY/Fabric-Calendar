@@ -4,7 +4,7 @@ body{
     margin: 0;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+	overflow: hidden;
 }
 
 html{
@@ -152,6 +152,7 @@ dl.citelist dd {
 }
 
 #contentPane{
+	height: 100%;
     width: 80%;
     float: right;
     background: #e1e1e1;
@@ -162,9 +163,9 @@ dl.citelist dd {
 }
 
 #content{
-    scroll-snap-margin-right:15px;
+    #scroll-snap-margin-right:15px;
     margin-right:15px;
-    margin-left:15px;
+    #margin-left:15px;
     overflow-y: scroll;
 }
 
@@ -188,6 +189,7 @@ dl.citelist dd {
 }
 
 #navPane{
+	height: 100%;
     width: 20%;
     float: left;
     background: #bebebe;
