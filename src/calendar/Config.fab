@@ -1,0 +1,8 @@
+package calendar;
+
+public final class Config
+{
+	public static final String{⊤→} calendarStoreName = "store";
+
+
+}

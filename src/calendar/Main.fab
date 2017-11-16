@@ -1,9 +1,118 @@
 package calendar;
 
+import fabric.util.Map;
+import sif.servlet.Servlet;
+import sif.servlet.HTMLServlet;
+import sif.servlet.Request;
+import sif.servlet.SessionState;
+import sif.servlet.SessionPrincipal;
 
-// class FinishEditingEvent implements FinishEditEventReceiver {
-// class CreateEvent extends USessAction[CalServEP]
-// class SelectDisplayUser extends USessAction[CalServEP] authority(CalServEP) {
-// class EditEventAction extends USessAction[CalServEP] {
-// class ChangeDisplayDateAction extends USessAction[CalServEP] {
-// public class ShowCalendarSessAction extends USessAction[CalServEP] authority(CalServEP) {
+import javax.servlet.ServletException; // Why did Intellij have the intellisense to throw ServletException before I imported this?
+
+/**
+*   Entry point for calendar application, which should be the place where
+*		- Fabric nodes instantiated
+*       - Servlet instantiated
+*       - A calendar object created
+	(Looking at travel.customer.CustomerMain.fab example)
+*/
+
+public final class Main extends HTMLServlet[ServletPrincipal]
+{
+	final Store{this}@{⊤→} _localStore;
+	final Store{this}@{⊤→} _store;
+	final principal{this}@{⊤→} _servletPrincipal;
+
+	public Main() throws ServletException
+	{
+		FabricWorker w = FabricWorker.getWorker();
+		Store localStore = null;
+
+		// If a worker exists, then grab its local store
+		if (w != null)
+		{
+			localStore = w.getLocalStore();
+		}
+
+		_localStore = localStore;
+		_store = worker$.getStore(Config.calendarStoreName); // What is the dollar sign for?
+
+		// If the store has a Map of Fabric objects, then grab the root of this
+		Map root = null;
+		if (_store != null)
+		{
+			root = (Map) _store.getRoot();
+		}
+
+		atomic
+		{
+			if (root != null)
+			{
+				Calendar[ServletPrincipal] calendarInit = null;
+				Object obj = root.get(Config.calendarMapKey);
+
+				if (obj instanceof Calendar[ServletPrincipal])
+				{
+					calendarInit = (Calendar[ServletPrincipal]) obj;
+				}
+				_servletPrincipal = calendarInit;
+			}
+			else
+			{
+				_servletPrincipal = null;
+			}
+		}
+	}
+
+	public void initialize{ServletPrincipal→; ServletPrincipal←}()
+		throws ServletException
+	{
+		addStartAction(new FrontPage(this));
+	}
+
+	public String getPrivateHostID() throws ServletException
+	{
+		return "";
+	}
+
+	public String defaultActionName(Request[ServletPrincipal] req)
+    {
+        return "frontPage";
+    }
+
+    // what does *lbl mean?
+    // Necessary runtime method for sif.servlet.Servlet.fab
+    protected SessionState{*lbl} createSessionState{*lbl}
+    (   // method params:
+		label{*lbl} lbl,
+		String{*lbl} id,
+		SessionPrincipal{*lbl} session
+	)
+    {
+        atomic
+        {
+            if ( _localStore != null &&
+                 _localStore equiv worker$ &&
+                 lbl <= new label{⊤→worker$} &&
+                 new label {⊤←worker$} <= lbl )
+            {
+                return new SessionState@_localStore(id, session);
+            }
+            return null;
+        }
+    }
+
+    // Necessary runtime method for sif.servlet.Servlet.fab
+    protected SessionPrincipal createSessionPrincipal( String{_servletPrincipal→; _servletPrincipal←} id )
+    {
+        SessionPrincipal p = null;
+        atomic
+        {
+            if (_store != null && _store equiv _servletPrincipal)
+            {
+                p = new SessionPrincipal@_store(id);
+            }
+        }
+        return p;
+    }
+}
