@@ -9,6 +9,75 @@
     <script src="js/scripts.js"></script>
 
     <script type="text/javascript">
+		$(function() {
+			var nav = $( '#nav' );
+		
+			$('.content-section').each( function(i) {
+				var div = $( this );
+				var divID = div.attr( 'id' );
+				console.log( divID );
+				div.children('.content-header').each( function() {
+					var header = $( this );
+					var headerID = 'section-' + divID;
+					
+					// make this header clickable with an anchor tag
+					header.attr( 'id', headerID );
+					header.wrap( '<a href="#' + headerID + '" >' );
+					
+					// dynamically add a new link in the nav bar
+					var navDiv = $( '<div>' );
+					var navLink = $( '<a>' );
+					navLink.text( header.text() );
+					navLink.attr({
+						href  : '#' + headerID,
+						class : 'main-link'
+					});
+					
+					
+					
+					var subsections = div.children( '.content-subsection' );
+					if ( subsections.length > 0 ) {
+						var ul = $( '<ul class="sub-link">' );
+						
+						$('.content-subsection').each( function() {
+							var sub = $( this );
+							var subText = sub.attr('content-link');
+							if ( !subText ) {
+								subText = sub.text();
+							}
+							
+							var subID = headerID + '-' + subText.toLowerCase();
+							
+							console.log( subID );
+							
+							sub.attr( 'id', subID );
+							sub.wrap( '<a href="#' + subID + '" >' );
+							
+							// dynamically add a new link in the nav bar
+							var navSubLink = $( '<a>' );
+							navSubLink.attr({
+								href  : '#' + subID,
+								class : 'content-sublink'
+							});
+							
+							navSubLink.text( subText );
+							
+							var li = $( '<li>' );
+							li.append( navSubLink );
+							
+							ul.append( li );
+							
+						});
+					}
+					
+					navDiv.append( navLink );
+					navDiv.append( ul );
+					nav.append( navDiv );
+				});
+			})
+		});
+		
+		/*
         $(document).ready(function() {
             hideAll();
             $('#intro').show();
@@ -26,7 +95,7 @@
             $('#calendar').hide();
             $('#references').hide();
         };
-
+		
         $(function() {
             $('#showIntro').click(function() {
                 hideAll();
@@ -64,6 +133,7 @@
                 return false;
             });
         });
+		*/
     </script>
 </head>
 <body>
@@ -75,6 +145,7 @@
     <div id="navPane">
         <div id="nav">
             <!--ANCHORS TO CONTENT-->
+			<!--
             <a href="#" class="main-link" id="showIntro">Introduction</a><br />
 
             <a href="#" class="main-link" id="showFeatures">Language Features</a><br />
@@ -94,13 +165,14 @@
             <a href="#" class="main-link" id="showCalendar">Calendar Example</a><br />
 
             <a href="#" class="main-link" id="showReferences">References</a>
+			-->
         </div>
     </div>
 
     <div id="contentPane">
         <div id="content">
-            <div id="intro">
-                <h2>Introduction</h2>
+            <div id="intro" class="content-section">
+                <h2 class="content-header">Introduction</h2>
 
                 This site's main purpose will be to walk a new user through the different steps of creating a basic
                 Fabric application. <br /> <br />
@@ -109,8 +181,8 @@
                 Fabric manual</a>, but supplementary material of a more hands-on nature.<br />
             </div>
 
-            <div id="features">
-                <h2>Language Features</h2>
+            <div id="features" class="content-section">
+                <h2 class="content-header">Language Features</h2>
                 Fabric is a language designed to enforce information flow policies during both compile and runtime across
                 multiple domains which have could have mutual distrust. The language is designed to follow the same trust
                 assumption as what is used for the internet: "trust nobody." Hence, it does not care which nodes enter the
@@ -135,15 +207,15 @@
                 </ul><br />
             </div>
 
-            <div id="store">
-                <h2>Store</h2>
+            <div id="store" class="content-section">
+                <h2 class="content-header">Store</h2>
                 The storage nodes in Fabric are designed to be persistent storage for Fabric objects, and these nodes allow
                 for the provision of these objects to both worker nodes and the dissemination layer. <br /><br />
 
                 The store should group objects by similar security policies. This allows the store to easily perform the
                 data shipping necessary to cache objects at any requesting node who has the associated access control labels.
 
-                <h3>Persistence</h3>
+                <h3 class="content-subsection">Persistence</h3>
                 Storage nodes can be started with terminal commands, or with executables assuming the developer has
                 created these shell scripts. Upon starting the store node, the node will first attempt to read in any
                 storage files on the machine with the expected store name. If it exists, it will load the persistent data
@@ -152,16 +224,16 @@
                 form to its associated storage file. (Supposing the attacker has access to the store, could he read the
                 store's information for himself?)
 
-                <h3>Implementation Example</h3>
+                <h3 class="content-subsection">Implementation Example</h3>
                 Here, we explore a simple implementation of using a Fabric store:<br /><br />
             </div>
 
-            <div id="worker">
-                <h2>Worker</h2>
+            <div id="worker" class="content-section">
+                <h2 class="content-header">Worker</h2>
             </div>
 
-            <div id="calendar">
-                <h2>Calendar Example</h2>
+            <div id="calendar" class="content-section">
+                <h2 class="content-header">Calendar Example</h2>
 
                 A calendar application was written in Fabric's precursor language, Jif. This prior calendar, based on
                 Jif's language capabilities, was not distributed. Porting the calendar to the Fabric language meant
@@ -202,7 +274,7 @@
                 language feature of data shipping, and cache all objects at the worker node relating to the authenticated
                 user.  <br /><br />
 
-                <h2>A brief overview of objects within the Fabric Calendar application</h2>
+                <h2 class="content-subsection" content-link="Overview">A brief overview of objects within the Fabric Calendar application</h2>
 
                 <h3>Events Objects:</h3>
                 OwnerEvents and AttendeeEvents essentially have the same fields. Maybe it would be possible to allow these
@@ -340,7 +412,7 @@
                 see is instantiated on these objects. This removes the need to do any downgrading in the instantiation
                 and updating of the calendar client-side.<br /><br />
 
-                <h2>This implementation requires the following considerations:</h2>
+                <h3>This implementation requires the following considerations:</h3>
                 <ol>
                     <li>
                         How will the authenticated user acquire all calendar objects that they own or have permission to
@@ -376,8 +448,8 @@
 
             </div>
 
-            <div id="references">
-                <h2>References</h2>
+            <div id="references" class="content-section">
+                <h2 class="content-header">References</h2>
                 <dl class="citelist">
                     <dt><a class="anchor" id="CITEREF_mobile-fabric-2012"></a>[1]</dt>
                     <dd><p class="startdd">Owen Arden, Michael&#160;D. George, Jed Liu, K.&#160;Vikram, Aslan Askarov, and Andrew&#160;C. Myers. <a href="http://www.cs.cornell.edu/andru/papers/mobile.html">Sharing mobile code securely with information flow control</a>. In <em>Proc. IEEE 2012 Symposium on Security and Privacy</em>, pages 191&ndash;205, San Francisco, CA, USA, May 2012. Software release at <a href="http://www.cs.cornell.edu/projects/fabric/">http://www.cs.cornell.edu/projects/fabric/</a>.</p>

@@ -6,6 +6,7 @@ import sif.servlet.HTMLServlet;
 import sif.servlet.Request;
 import sif.servlet.SessionState;
 import sif.servlet.SessionPrincipal;
+import calendar.principals.ServletPrincipal;
 
 import javax.servlet.ServletException; // Why did Intellij have the intellisense to throw ServletException before I imported this?
 

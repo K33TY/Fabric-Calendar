@@ -1,13 +1,21 @@
 package calendar.principals;
 
-import fabric.worker.Store;
-import fabric.util.*;
+import fabric.util.Map;
+import calendar.Config;
 
 /**
 *   The Calendar servlet principal that essentially has rights to any writable objects for the Calendar
 *   It is has the same rights as the top principal for confidentiality
 */
-public class ServletPrincipal[principal P] extends ExternalPrincipal
+public class ServletPrincipal extends ExternalPrincipal
 {
+	public ServletPrincipal()
+	{
+		super("servlet");
+	}
 
+	public static ServletPrincipal{⊤←} getInstance{⊤←} ()
+	{
+
+	}
 }
