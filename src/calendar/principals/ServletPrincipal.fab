@@ -16,6 +16,9 @@ public class ServletPrincipal extends ExternalPrincipal
 
 	public static ServletPrincipal{⊤←} getInstance{⊤←} ()
 	{
+		atomic
+		{
 
+		}
 	}
 }

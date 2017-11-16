@@ -132,6 +132,7 @@ dl.citelist dd {
 
 .sub-link {
     margin-top: 1px;
+	margin-bottom: 0px;
 }
 
 #header{
@@ -211,7 +212,6 @@ a.content-sublink {
 	font-size: initial;
 }
 
-
 #navFull{
     height:50px;
     background-color: #b3acae;
@@ -229,4 +229,13 @@ a.content-sublink {
     border-top:#FFFFFF 2px solid;
     margin:0;
     padding:0;
+}
+
+dt {
+	display: inline;
+	padding-top: 0px !important;
+}
+
+dd {
+	display: inline;
 }

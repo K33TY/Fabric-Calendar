@@ -11,67 +11,56 @@
     <script type="text/javascript">
 		$(function() {
 			var nav = $( '#nav' );
-		
-			$('.content-section').each( function(i) {
+			
+			// loop through each content section so we can use its ID
+			$( '.content-section' ).each( function() {
 				var div = $( this );
 				var divID = div.attr( 'id' );
-				console.log( divID );
-				div.children('.content-header').each( function() {
+				
+				// loop through all of the content headers and dynamically generate
+				// their IDs, anchors, and navbar links
+				div.children( '.content-header' ).each( function() {
 					var header = $( this );
 					var headerID = 'section-' + divID;
 					
 					// make this header clickable with an anchor tag
 					header.attr( 'id', headerID );
-					header.wrap( '<a href="#' + headerID + '" >' );
+					header.wrapInner( '<a href="#' + headerID + '" >' );
 					
-					// dynamically add a new link in the nav bar
+					// dynamically create a new link so we can add it to the navbar
 					var navDiv = $( '<div>' );
 					var navLink = $( '<a>' );
 					navLink.text( header.text() );
-					navLink.attr({
-						href  : '#' + headerID,
-						class : 'main-link'
-					});
+					navLink.attr({ href: '#' + headerID, class: 'main-link' });
+					navDiv.append( navLink );
 					
-					
-					
+					// check if this section has subsections to link to
 					var subsections = div.children( '.content-subsection' );
 					if ( subsections.length > 0 ) {
 						var ul = $( '<ul class="sub-link">' );
 						
-						$('.content-subsection').each( function() {
+						subsections.each( function() {
 							var sub = $( this );
-							var subText = sub.attr('content-link');
-							if ( !subText ) {
-								subText = sub.text();
-							}
-							
+							var subText = sub.attr( 'content-link' ) || sub.text();
 							var subID = headerID + '-' + subText.toLowerCase();
 							
-							console.log( subID );
-							
+							// make this subheader clickable with an anchor tag
 							sub.attr( 'id', subID );
-							sub.wrap( '<a href="#' + subID + '" >' );
+							sub.wrapInner( '<a href="#' + subID + '" >' );
 							
-							// dynamically add a new link in the nav bar
+							// dynamically add a new sublink to the parent UL
 							var navSubLink = $( '<a>' );
-							navSubLink.attr({
-								href  : '#' + subID,
-								class : 'content-sublink'
-							});
-							
 							navSubLink.text( subText );
+							navSubLink.attr({ href: '#' + subID, class: 'content-sublink' });
 							
 							var li = $( '<li>' );
 							li.append( navSubLink );
-							
 							ul.append( li );
-							
 						});
+						// add the list of subsections to the new section div in the navbar
+						navDiv.append( ul );
 					}
-					
-					navDiv.append( navLink );
-					navDiv.append( ul );
+					// add the new section div in the navbar
 					nav.append( navDiv );
 				});
 			})
