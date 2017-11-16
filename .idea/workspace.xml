@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/Calendar.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/Config.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/FrontPage.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/session/FinishEditEventReceiveer.fab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/CalendarSessionState.fab" afterPath="$PROJECT_DIR$/src/calendar/session/CalendarSessionState.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/ChangeDisplayDateAction.fab" afterPath="$PROJECT_DIR$/src/calendar/session/ChangeDisplayDateAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/SelectDisplayUser.fab" afterPath="$PROJECT_DIR$/src/calendar/session/SelectDisplayUser.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/ShowCalendarSessAction.fab" afterPath="$PROJECT_DIR$/src/calendar/session/ShowCalendarSessAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/event/EditEventAction.fab" afterPath="$PROJECT_DIR$/src/calendar/session/EditEventAction.fab" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/calendar/event/FinishEditingEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/session/FinishEditingEvent.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Main.fab" afterPath="$PROJECT_DIR$/src/calendar/Main.fab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/event/FinishEditEvent.fab" afterPath="$PROJECT_DIR$/src/calendar/event/FinishEditEvent.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Config.fab" afterPath="$PROJECT_DIR$/src/calendar/Config.fab" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,7 +39,7 @@
       <file leaf-file-name="Main.fab" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="926">
+            <state relative-caret-position="1404">
               <caret line="117" column="1" lean-forward="true" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
               <folding />
             </state>
@@ -82,8 +69,8 @@
       <file leaf-file-name="Config.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/calendar/Config.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="120">
+              <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -199,8 +186,8 @@
         <option value="$PROJECT_DIR$/src/calendar/session/ShowCalendarSessAction.fab" />
         <option value="$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab" />
         <option value="$PROJECT_DIR$/src/calendar/Calendar.fab" />
-        <option value="$PROJECT_DIR$/src/calendar/Config.fab" />
         <option value="$PROJECT_DIR$/src/calendar/Main.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/Config.fab" />
       </list>
     </option>
   </component>
@@ -517,12 +504,12 @@
       <updated>1508662056206</updated>
       <workItem from="1508662058004" duration="1370000" />
       <workItem from="1509050691425" duration="59764000" />
-      <workItem from="1510613705840" duration="18860000" />
+      <workItem from="1510613705840" duration="19165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79994000" />
+    <option name="totallyTimeSpent" value="80299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1681" y="-473" width="1489" height="1373" extended-state="0" />
@@ -925,14 +912,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/Config.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/calendar/FrontPage.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -965,9 +944,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/Config.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="926">
+        <state relative-caret-position="1404">
           <caret line="117" column="1" lean-forward="true" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
           <folding />
         </state>

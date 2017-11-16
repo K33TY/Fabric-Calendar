@@ -2,7 +2,12 @@ package calendar;
 
 public final class Config
 {
+	// The name of the calendar store
 	public static final String{⊤→} calendarStoreName = "store";
 
+	// The key in the root map for the calendar object
+    public static final String{⊤→} calendarMapKey = "calendar";
 
+	// The key in the root map for the calendar servlet principal
+	public static final String{⊤→} calendarPrincipalMapKey = "servletPrincipal";
 }
