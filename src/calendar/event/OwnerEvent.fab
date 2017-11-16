@@ -1,5 +1,7 @@
 package calendar.event;
 import fabric.lang.Object;
+import fabric.util.Date;
+
 
 public abstract class OwnerEvent extends Object
 {
@@ -8,6 +10,6 @@ public abstract class OwnerEvent extends Object
     Date startTime;
     Date endTime;
     String note;
-    List<Users> attendees;
-    List<Users> viewers;
+    List[this] attendees;
+    List[this] viewers;
 }

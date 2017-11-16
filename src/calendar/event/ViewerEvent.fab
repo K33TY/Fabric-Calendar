@@ -1,5 +1,7 @@
 package calendar.event;
 import fabric.lang.Object;
+import fabric.util.Date;
+
 
 public abstract class ViewerEvent extends Object
 {
@@ -7,5 +9,4 @@ public abstract class ViewerEvent extends Object
 	String name = "busy";
     Date startTime;
     Date endTime;
-
 }

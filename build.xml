@@ -1,0 +1,64 @@
+<!--
+**********************************************
+    Fabric Calendar Apache Ant Build File
+**********************************************
+-->
+
+<project name="calendar" default="build-all" basedir=".">
+    <description>
+        Fabric Calendar Application
+    </description>
+
+<!--*****************
+    Global Properties
+    *****************-->
+
+    <property file="etc/build.properties" />
+
+    <import file="${fabric.home}/common.xml" />
+    <import file="${fabric.home}/src/lib/sif/common.xml" />
+    <import file="${fabric.home}/src/lib/collections/common.xml" />
+
+    <dirname property="calendar.home" file="${ant.file.calendar}" />
+
+<!--****************
+    Cleaning Targets
+    ****************-->
+
+    <target name="clean" description="remove generated files">
+        <delete dir="${calendar.home}/classes" />
+    </target>
+
+    <target name="clobber" depends="clean" description="remove generated files and states of stores">
+        <delete dir="${calendar.home}/var" />
+    </target>
+
+<!--*******************
+    Compilation Targets
+    *******************-->
+
+    <target name="build-all" depends="build-calendar" />
+    <target name="all" depends="build-all" />
+
+    <target name="build-calendar" depends="sif" description="builds the Fabric Calendar Application" >
+        <fabc dest="${calendar.home}/classes">
+            <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
+            <arg value="-cp" />         <arg pathref="sif.classpath" />
+            <arg value="-cp" />         <arg pathref="collections.classpath" />
+            <arg value="-cp" />         <arg pathref="lib.classpath" />
+            <arg value="-cp" />         <arg value="${calendar.home}/classes" />
+            <arg value="-addsigcp" />   <arg pathref="sif.sigcp" />
+            <arg value="-trusted-providers" />
+
+            <fileset dir="${calendar.home}/src" includes="**/*.fab" />
+        </fabc>
+
+        <filc dest="${calendar.home}/classes">
+            <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
+            <arg value="-cp" />         <arg value="${calendar.home}/classes" />
+
+            <fileset dir="${calendar.home}/src" includes="**/*.fil" />
+        </filc>
+    </target>
+
+</project>

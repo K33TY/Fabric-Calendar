@@ -16,7 +16,7 @@ public class UserPrincipal[principal P] extends ExternalPrincipal
     // When adding other principals
     public UserPrincipal(String{this} user, String{this} password, String{P→; P←} firstName, String{P→; P←} lastName)
         where authority (this),
-              endorse({P→;P←} meet this←)
+              endorse({P→;P←} meet {this←})
     {
         store  = FabricWorker.getWorker().getStore("store");
 
