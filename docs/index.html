@@ -77,6 +77,13 @@
 				});
 			})
 		});
+
+		if (location.hash) {
+            var requested_hash = location.hash.slice(1);
+            location.hash = '';
+            location.hash = requested_hash;
+        }
+        
     </script>
 </head>
 <body>
@@ -125,6 +132,13 @@
                     <li>optimistic atomic transactions allowing for rollback when encountering various issues</li>
                     <li>sophisticated transaction bookkeeping and management</li>
                 </ul><br />
+            </div>
+
+            <div id="compiling" class="content-section">
+                <h2 class="content-header">Compilation Structure</h2>
+
+
+
             </div>
 
             <div id="store" class="content-section">
@@ -220,8 +234,8 @@ FabricWorker.getWorker().getLocalStore();
 
             </div>
 
-            <div id="useful" class="content-section">
-                <h2 class="content-header">Useful Methods</h2>
+            <div id="instantiation" class="content-section">
+                <h2 class="content-header">Instantiation</h2>
 
 <pre><!------------------------codeblock------------------------------------------------------>
 <code class="java">
