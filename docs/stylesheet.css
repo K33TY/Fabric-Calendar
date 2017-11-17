@@ -17,11 +17,9 @@ pre{
     margin: -15px 0 0 0;
 }
 
-/* Doing this screws with every other div :(  */
-/* div {
-    height: 100%;
-    width: 100%;
-} */
+img {
+    margin-left: 25px;
+}
 
 a {
     color: #000000;
@@ -120,6 +118,11 @@ dl.citelist dt {
 dl.citelist dd {
     margin:2px 0;
     padding:5px 0;
+}
+
+.caption {
+    font-size:0.65em;
+    margin-left: 5px;
 }
 
 .main-link {
