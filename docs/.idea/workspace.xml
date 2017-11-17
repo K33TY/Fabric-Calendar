@@ -14,18 +14,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="138" column="29" lean-forward="true" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
+            <state relative-caret-position="690">
+              <caret line="116" column="121" lean-forward="true" selection-start-line="116" selection-start-column="121" selection-end-line="116" selection-end-column="121" />
               <folding>
-                <element signature="e#26652#26659#0" expanded="true" />
-                <element signature="e#27194#27201#0" expanded="true" />
-                <element signature="e#27672#27679#0" expanded="true" />
-                <element signature="e#28319#28326#0" expanded="true" />
-                <element signature="e#28851#28858#0" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#28047#28054#0" expanded="true" />
+                <element signature="e#28589#28596#0" expanded="true" />
+                <element signature="e#29067#29074#0" expanded="true" />
+                <element signature="e#29714#29721#0" expanded="true" />
+                <element signature="e#30246#30253#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cornell_seal.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imgs/cornell_seal.svg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -40,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="582">
-              <caret line="127" column="12" lean-forward="true" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+            <state relative-caret-position="470">
+              <caret line="188" column="20" lean-forward="false" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -70,8 +81,9 @@
         <option value="$PROJECT_DIR$/lang.html" />
         <option value="$PROJECT_DIR$/system.html" />
         <option value="$PROJECT_DIR$/highlight/styles/liz.css" />
-        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/imgs/cornell_seal.svg" />
         <option value="$PROJECT_DIR$/stylesheet.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -166,12 +178,12 @@
       <updated>1509510333191</updated>
       <workItem from="1509510334255" duration="12054000" />
       <workItem from="1510810709687" duration="17000" />
-      <workItem from="1510877781154" duration="7048000" />
+      <workItem from="1510877781154" duration="9719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19119000" />
+    <option name="totallyTimeSpent" value="21790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -211,11 +223,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#26652#26659#0" expanded="true" />
-            <element signature="e#27194#27201#0" expanded="true" />
-            <element signature="e#27672#27679#0" expanded="true" />
-            <element signature="e#28319#28326#0" expanded="true" />
-            <element signature="e#28851#28858#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#28047#28054#0" expanded="true" />
+            <element signature="e#28589#28596#0" expanded="true" />
+            <element signature="e#29067#29074#0" expanded="true" />
+            <element signature="e#29714#29721#0" expanded="true" />
+            <element signature="e#30246#30253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -241,11 +254,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#26652#26659#0" expanded="true" />
-            <element signature="e#27194#27201#0" expanded="true" />
-            <element signature="e#27672#27679#0" expanded="true" />
-            <element signature="e#28319#28326#0" expanded="true" />
-            <element signature="e#28851#28858#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#28047#28054#0" expanded="true" />
+            <element signature="e#28589#28596#0" expanded="true" />
+            <element signature="e#29067#29074#0" expanded="true" />
+            <element signature="e#29714#29721#0" expanded="true" />
+            <element signature="e#30246#30253#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -290,25 +304,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/imgs/cornell_seal.svg">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="138" column="29" lean-forward="true" selection-start-line="138" selection-start-column="29" selection-end-line="138" selection-end-column="29" />
-          <folding>
-            <element signature="e#26652#26659#0" expanded="true" />
-            <element signature="e#27194#27201#0" expanded="true" />
-            <element signature="e#27672#27679#0" expanded="true" />
-            <element signature="e#28319#28326#0" expanded="true" />
-            <element signature="e#28851#28858#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="33" column="21" lean-forward="false" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="127" column="12" lean-forward="true" selection-start-line="127" selection-start-column="12" selection-end-line="127" selection-end-column="12" />
+        <state relative-caret-position="470">
+          <caret line="188" column="20" lean-forward="false" selection-start-line="188" selection-start-column="20" selection-end-line="188" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="116" column="121" lean-forward="true" selection-start-line="116" selection-start-column="121" selection-end-line="116" selection-end-column="121" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#28047#28054#0" expanded="true" />
+            <element signature="e#28589#28596#0" expanded="true" />
+            <element signature="e#29067#29074#0" expanded="true" />
+            <element signature="e#29714#29721#0" expanded="true" />
+            <element signature="e#30246#30253#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
