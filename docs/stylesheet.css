@@ -172,6 +172,7 @@ dl.citelist dd {
     float: right;  this breaks stuff too */
     background: #e1e1e1;
     border-top:#FFFFFF 2px solid;
+    border-bottom:#FFFFFF 2px solid;
     margin:0;
     padding:0;
     text-align:left;
