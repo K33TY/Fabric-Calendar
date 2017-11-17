@@ -100,6 +100,7 @@
         <div id="nav"></div>
     </div>
 
+<!--======================================|  INTRO  |========================================-->
     <div id="contentPane">
         <div id="content">
             <div id="intro" class="content-section">
@@ -112,6 +113,7 @@
                 Fabric manual</a>, but supplementary material of a more hands-on nature.<br />
             </div>
 
+<!--======================================|  FEATURES  |========================================-->
             <div id="features" class="content-section">
                 <h2 class="content-header">Language Features</h2>
                 Fabric is a language designed to enforce information flow policies during both compile and runtime across
@@ -145,6 +147,7 @@
                 </div>
             </div>
 
+<!--======================================|  COMPILING  |========================================-->
             <div id="compiling" class="content-section">
                 <h2 class="content-header">Compilation Structure</h2>
                 Fabric classes are written as <font color="#bf0a00">.fab </font> files, and these
@@ -164,6 +167,7 @@
 
             </div>
 
+<!--======================================|  STORE  |========================================-->
             <div id="store" class="content-section">
                 <h2 class="content-header">Store</h2>
                 The storage nodes in Fabric are designed to be persistent storage for Fabric objects, and these nodes allow
@@ -184,12 +188,12 @@
                 <h3 class="content-subsection">Implementation Example</h3>
                 Here, we explore a simple implementation of using a Fabric store:
 
-<pre><!------------------------codeblock------------------------------------------------------>
+<pre><!------------------------codeblock------------->
 <code class="java">
 // Get a reference to a store by its name
 Store store = FabricWorker.getWorker().getStore("storeName");
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
                 Once we have the store, we can access objects from within the store or instantiate objects and add them
                 to the store. In order to do this, consider that we want to know if we have a custom object type in our
@@ -199,7 +203,7 @@ Store store = FabricWorker.getWorker().getStore("storeName");
                 not of the expected type, then we can create the object by doing a remote call of the custom object's
                 constructor at the store; and afterwards, we add this object to the store's map with the key we choose:
 
-<pre><!------------------------codeblock------------------------------------------------------>
+<pre><!------------------------codeblock------------->
 <code class="java">
 if (store != null)
 {
@@ -220,29 +224,29 @@ if (store != null)
     }
 }
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
                 It is also possible to do the function shipping of a constructor requiring arguments:
 
-<pre><!------------------------codeblock------------------------------------------------------>
+<pre><!------------------------codeblock------------->
 <code class="java">
 custom = new CustomObject@store(arg1, arg2, arg3);
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
                 The above examples all deal with persistent objects at stores, but we can also have objects at a worker
                 node's non-persistent local store, which can be accessed in the following way:
 
-<pre><!------------------------codeblock------------------------------------------------------>
+<pre><!------------------------codeblock------------->
 <code class="java">
 FabricWorker.getWorker().getLocalStore();
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
                 (** What is the good of having these local objects? )<br /><br />
 
             </div>
-
+<!--======================================|  WORKER  |========================================-->
             <div id="worker" class="content-section">
                 <h2 class="content-header">Worker</h2>
 
@@ -250,6 +254,7 @@ FabricWorker.getWorker().getLocalStore();
 
             </div>
 
+<!--======================================|  LABELS  |========================================-->
             <div id="labels" class="content-section">
                 <h2 class="content-header">Labels</h2>
 
@@ -257,35 +262,109 @@ FabricWorker.getWorker().getLocalStore();
 
             </div>
 
+<!--======================================|  INSTANTIATION  |========================================-->
             <div id="instantiation" class="content-section">
                 <h2 class="content-header">Instantiation</h2>
 
-<pre><!------------------------codeblock------------------------------------------------------>
+<pre><!------------------------codeblock------------->
 <code class="java">
 // TODO: how to instantiate an object with policy labels
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
-<pre><!------------------------codeblock------------------------------------------------------>
+<pre><!------------------------codeblock------------->
 <code class="java">
 // TODO: how to instantiate an array with policy labels
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
             </div>
 
+<!--======================================|  CALENDAR EXAMPLE  |========================================-->
             <div id="calendar" class="content-section">
                 <h2 class="content-header">Calendar Example</h2>
+
+                A calendar application was written in Fabric's precursor language, Jif. This prior calendar, based on
+                Jif's language capabilities, was not distributed. Porting the calendar to the Fabric language meant
+                requiring an overhaul to the architecture. <br /><br />
+
+                The original calendar implemented a mySQL database to achieve persistence, and setting up the database
+                was a requirement for running the application. The actions for the calendar required accessing the database
+                by authorized principals (calendar users). However, in the Fabric language, there is an object implemented
+                with the intention of serving as a persistent database. This object, the store, follows the many new
+                distributed design decisions implemented in the Fabric language. <br /><br />
+
+                Now, instead of implementing a database, and using database calls to achieve the functionality in the
+                calendar, we simply need to ensure that a storage node is running somewhere with the persistent features
+                required by the calendar. In essence, this storage node acts as the top principal with the greatest label
+                {&#8868;→&#8868;;&#8868;←&#8868;}, allowing the storage to perform all actions on any calendar in an
+                active user session. <br /><br />
+
+                A worker node is spun up for any individual user wanting to access the calendar. This follows the Fabric
+                language premise which states that objects do not "instantiate" but rather join the overall "Fabric."
+                The worker node, therefore should allow a user to either join the calendar (a future wanted capability)
+                or authenticate a session if they have already joined the calendar previously. With both of these actions,
+                we are able to use Fabric's idea of remote calls, accessing the storage node by invoking appropriate
+                methods at the store. <br /><br />
+
+                Adding a user is a feature that would be nice to implement, and may become another method with the least
+                label that the store allows. Of course, the store will check that the username is valid and not already
+                in use, especially considering the username is operating as a user-id, or key, for access to all of the
+                user's objects within their calendar. At this point, unsure whether .fil classes are necessary of if
+                perhaps we ought to first hard-code this functionality until
+                the other portions of the calendar are implemented?<br /><br />
+
+
+                <h3 class="content-subsection">Design Ideas</h3>
+
+                From some examples, such as the Box class in MapServ, it seemed that objects were deep copied from
+                one principal to the other. Perhaps for the calendar, something like this would work: <br /><br />
+
 				<img src="imgs/calendar_1.svg"/>
 				<br />
-				
-                Test:
 
-<pre><!------------------------codeblock------------------------------------------------------>
+                Wondering if the following is a reasonable idea for the architecture:<br/>
+<pre><!------------------------codeblock------------->
+<code class="markdown">
+Calendar package
+  + Main - Main entrypoint for application (hopefully)
+  + Calendar - The calendar object
+  + Config - Configuration for the calendar
+  + FrontPage - Front page of servlet
+  + User - User object
+  + Event sub package
+    + OwnerEvent - events owned by principal P
+    + AttendeeEvent - events principal P is attending
+    + ViewerEvent - events principal P may view
+    + CreateEvent
+    + CreateEditEvent
+    + FinishEditEvent
+  + Principal sub package
+    + CalendarRoot - can act on all servlet related final objects
+    + ServletPrincipal - can act on all servlet related mutable objects
+    + UserPrincipal - can only act on objects that UserPrincipal has CI rights
+  + Session sub package
+    + CalendarSessionState
+    + ChangeDisplayDateAction
+    + EditEventAction
+    + FinishEditEventReceiver
+    + FinishEditingEvent
+    + SelectDisplayUser
+    + ShowCalendar
+    + ShowCalendarSessAction
+  + Utility sub package
+    + DateUtil
+    + Declassifier
+
+Login Package ("borrowed" from Travel example, but reformatted for readability concerns)
+</code>
+</pre><!-----------------------end codeblock--------->
+
+<pre><!------------------------codeblock------------->
 <code class="java">
 // TODO: Edit this section!
 </code>
-</pre><!------------------------end codeblock--------------------------------------------------->
+</pre><!-----------------------end codeblock--------->
 
 <!--
                 A calendar application was written in Fabric's precursor language, Jif. This prior calendar, based on
@@ -501,6 +580,7 @@ FabricWorker.getWorker().getLocalStore();
 
             </div>
 
+<!--======================================|  REFERENCES  |========================================-->
             <div id="references" class="content-section">
                 <h2 class="content-header">References</h2>
                 <dl class="citelist">
