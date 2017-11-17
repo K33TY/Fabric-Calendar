@@ -324,41 +324,49 @@ FabricWorker.getWorker().getLocalStore();
 				<br />
 
                 Wondering if the following is a reasonable idea for the architecture:<br/>
-<pre><!------------------------codeblock------------->
-<code class="markdown">
-Calendar package
-  + Main - Main entrypoint for application (hopefully)
-  + Calendar - The calendar object
-  + Config - Configuration for the calendar
-  + FrontPage - Front page of servlet
-  + User - User object
-  + Event sub package
-    + OwnerEvent - events owned by principal P
-    + AttendeeEvent - events principal P is attending
-    + ViewerEvent - events principal P may view
-    + CreateEvent
-    + CreateEditEvent
-    + FinishEditEvent
-  + Principal sub package
-    + CalendarRoot - can act on all servlet related final objects
-    + ServletPrincipal - can act on all servlet related mutable objects
-    + UserPrincipal - can only act on objects that UserPrincipal has CI rights
-  + Session sub package
-    + CalendarSessionState
-    + ChangeDisplayDateAction
-    + EditEventAction
-    + FinishEditEventReceiver
-    + FinishEditingEvent
-    + SelectDisplayUser
-    + ShowCalendar
-    + ShowCalendarSessAction
-  + Utility sub package
-    + DateUtil
-    + Declassifier
 
-Login Package ("borrowed" from Travel example, but reformatted for readability concerns)
-</code>
-</pre><!-----------------------end codeblock--------->
+                Calendar package
+                <ul>
+                    <li>Main - Main entrypoint for application (hopefully)</li>
+                    <li>Calendar - The calendar object</li>
+                    <li>Config - Configuration for the calendar</li>
+                    <li>FrontPage - Front page of servlet</li>
+                    <li>User - User object</li>
+                    <li>Event sub package</li>
+                        <ul>
+                            <li>OwnerEvent - events owned by principal P</li>
+                            <li>AttendeeEvent - events principal P is attending</li>
+                            <li>ViewerEvent - events principal P may view</li>
+                            <li>CreateEvent</li>
+                            <li>CreateEditEvent</li>
+                            <li>FinishEditEvent</li>
+                        </ul>
+                    <li>Principal sub package</li>
+                        <ul>
+                            <li>CalendarRoot - can act on all servlet related final objects</li>
+                            <li>ServletPrincipal - can act on all servlet related mutable objects</li>
+                            <li>UserPrincipal - can only act on objects that UserPrincipal has CI rights</li>
+                        </ul>
+                    <li>Session sub package</li>
+                        <ul>
+                            <li>CalendarSessionState</li>
+                            <li>ChangeDisplayDateAction</li>
+                            <li>EditEventAction</li>
+                            <li>FinishEditEventReceiver</li>
+                            <li>FinishEditingEvent</li>
+                            <li>SelectDisplayUser</li>
+                            <li>ShowCalendar</li>
+                            <li>ShowCalendarSessAction</li>
+                        </ul>
+                    <li>Utility sub package</li>
+                        <ul>
+                            <li>DateUtil</li>
+                            <li>Declassifier</li>
+                        </ul>
+                </ul>
+
+                Login Package ("borrowed" from Travel example, but reformatted for readability concerns)
+
 
 <pre><!------------------------codeblock------------->
 <code class="java">
