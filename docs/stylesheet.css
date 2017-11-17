@@ -13,6 +13,10 @@ html{
     margin: 0;
 }
 
+pre{
+    margin: -15px 0 0 0;
+}
+
 /* Doing this screws with every other div :(  */
 /* div {
     height: 100%;

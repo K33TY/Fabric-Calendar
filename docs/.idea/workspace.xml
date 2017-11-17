@@ -14,27 +14,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1485">
-              <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="606">
+              <caret line="216" column="57" lean-forward="false" selection-start-line="216" selection-start-column="57" selection-end-line="216" selection-end-column="57" />
               <folding>
-                <element signature="e#22388#22395#0" expanded="true" />
-                <element signature="e#22930#22937#0" expanded="true" />
-                <element signature="e#23408#23415#0" expanded="true" />
-                <element signature="e#24055#24062#0" expanded="true" />
-                <element signature="e#24587#24594#0" expanded="true" />
+                <element signature="e#25302#25309#0" expanded="true" />
+                <element signature="e#25844#25851#0" expanded="true" />
+                <element signature="e#26322#26329#0" expanded="true" />
+                <element signature="e#26969#26976#0" expanded="true" />
+                <element signature="e#27501#27508#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="liz.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="liz.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/highlight/styles/liz.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            <state relative-caret-position="345">
+              <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -43,8 +43,8 @@
       <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stylesheet.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="159" column="23" lean-forward="false" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="23" />
+            <state relative-caret-position="675">
+              <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="46" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -62,11 +62,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/stylesheet.css" />
         <option value="$PROJECT_DIR$/lang.html" />
         <option value="$PROJECT_DIR$/system.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/highlight/styles/liz.css" />
+        <option value="$PROJECT_DIR$/stylesheet.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -118,6 +118,11 @@
             <path>
               <item name="docs" type="b2602c69:ProjectViewProjectNode" />
               <item name="docs" type="462c0819:PsiDirectoryNode" />
+              <item name="highlight" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="docs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
               <item name="imgs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -156,12 +161,12 @@
       <updated>1509510333191</updated>
       <workItem from="1509510334255" duration="12054000" />
       <workItem from="1510810709687" duration="17000" />
-      <workItem from="1510877781154" duration="3592000" />
+      <workItem from="1510877781154" duration="5446000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15663000" />
+    <option name="totallyTimeSpent" value="17517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -219,11 +224,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#22388#22395#0" expanded="true" />
-            <element signature="e#22930#22937#0" expanded="true" />
-            <element signature="e#23408#23415#0" expanded="true" />
-            <element signature="e#24055#24062#0" expanded="true" />
-            <element signature="e#24587#24594#0" expanded="true" />
+            <element signature="e#25302#25309#0" expanded="true" />
+            <element signature="e#25844#25851#0" expanded="true" />
+            <element signature="e#26322#26329#0" expanded="true" />
+            <element signature="e#26969#26976#0" expanded="true" />
+            <element signature="e#27501#27508#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -249,11 +254,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#22388#22395#0" expanded="true" />
-            <element signature="e#22930#22937#0" expanded="true" />
-            <element signature="e#23408#23415#0" expanded="true" />
-            <element signature="e#24055#24062#0" expanded="true" />
-            <element signature="e#24587#24594#0" expanded="true" />
+            <element signature="e#25302#25309#0" expanded="true" />
+            <element signature="e#25844#25851#0" expanded="true" />
+            <element signature="e#26322#26329#0" expanded="true" />
+            <element signature="e#26969#26976#0" expanded="true" />
+            <element signature="e#27501#27508#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -290,33 +295,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/highlight/styles/liz.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="159" column="23" lean-forward="false" selection-start-line="159" selection-start-column="17" selection-end-line="159" selection-end-column="23" />
+        <state relative-caret-position="675">
+          <caret line="45" column="38" lean-forward="true" selection-start-line="45" selection-start-column="38" selection-end-line="46" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1485">
-          <caret line="19" column="11" lean-forward="true" selection-start-line="19" selection-start-column="11" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="606">
+          <caret line="216" column="57" lean-forward="false" selection-start-line="216" selection-start-column="57" selection-end-line="216" selection-end-column="57" />
           <folding>
-            <element signature="e#22388#22395#0" expanded="true" />
-            <element signature="e#22930#22937#0" expanded="true" />
-            <element signature="e#23408#23415#0" expanded="true" />
-            <element signature="e#24055#24062#0" expanded="true" />
-            <element signature="e#24587#24594#0" expanded="true" />
+            <element signature="e#25302#25309#0" expanded="true" />
+            <element signature="e#25844#25851#0" expanded="true" />
+            <element signature="e#26322#26329#0" expanded="true" />
+            <element signature="e#26969#26976#0" expanded="true" />
+            <element signature="e#27501#27508#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/highlight/styles/liz.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>

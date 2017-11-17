@@ -145,9 +145,64 @@
                 store's information for himself?)
 
                 <h3 class="content-subsection">Implementation Example</h3>
-                Here, we explore a simple implementation of using a Fabric store:<br /><br />
+                Here, we explore a simple implementation of using a Fabric store:
 
+<pre><!------------------------codeblock------------------------------------------------------>
+<code class="java">
+// Get a reference to a store by it's name
+Store store = FabricWorker.getWorker().getStore("storeName");
+</code>
+</pre><!------------------------end codeblock--------------------------------------------------->
 
+                Once we have the store, we can access objects from within the store or instantiate objects and add them
+                to the store. In order to do this, consider that we want to know if we have a custom object type in our
+                store already. Then, we could grab it from the root node of the store's map by it's key, which is a string
+                of our choosing. Afterwards, we ensure that the retrieved object is of the type we wanted, and if so we
+                can cast it to that object type and save it to our custom object type for use. If it doesn't exist, or is
+                not of the expected type, then we can create the object by doing a remote call of the custom object's
+                constructor at the store; and afterwards, we add this object to the store's map with the key we choose:
+
+<pre><!------------------------codeblock------------------------------------------------------>
+<code class="java">
+if (store != null)
+{
+    Map rootMap = store.getRoot();
+    if (rootMap != null)
+    {
+        Object obj = rootMap.get("customObjectMapKey");
+        CustomObject custom = null;
+        if (obj instance of CustomObject)
+        {
+            custom = (CustomObject) obj;
+        }
+        else
+        {
+            custom = new CustomObject@store();
+            rootMap.put("customObjectMapKey", custom);
+        }
+    }
+}
+</code>
+</pre><!------------------------end codeblock--------------------------------------------------->
+
+                It is also possible to do the function shipping of a constructor that requires arguments:
+
+<pre><!------------------------codeblock------------------------------------------------------>
+<code class="java">
+custom = new CustomObject@store(arg1, arg2, arg3);
+</code>
+</pre><!------------------------end codeblock--------------------------------------------------->
+
+                The above examples all deal with persistent objects at stores, but we can also have objects at a worker
+                node's non-persistent local store, which can be accessed in the following way:
+
+<pre><!------------------------codeblock------------------------------------------------------>
+<code class="java">
+FabricWorker.getWorker().getLocalStore();
+</code>
+</pre><!------------------------end codeblock--------------------------------------------------->
+
+                (** What is the good of having these local objects? )<br /><br />
 
             </div>
 
@@ -158,8 +213,17 @@
 
             </div>
 
+            <div id="useful" class="content-section">
+                <h2 class="content-header">Useful Methods</h2>
+
+
+
+            </div>
+
             <div id="calendar" class="content-section">
                 <h2 class="content-header">Calendar Example</h2>
+
+                Test:
 
 <pre><!------------------------codeblock------------------------------------------------------>
 <code class="java">
