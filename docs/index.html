@@ -149,16 +149,16 @@
 
 <pre><!------------------------codeblock------------------------------------------------------>
 <code class="java">
-// Get a reference to a store by it's name
+// Get a reference to a store by its name
 Store store = FabricWorker.getWorker().getStore("storeName");
 </code>
 </pre><!------------------------end codeblock--------------------------------------------------->
 
                 Once we have the store, we can access objects from within the store or instantiate objects and add them
                 to the store. In order to do this, consider that we want to know if we have a custom object type in our
-                store already. Then, we could grab it from the root node of the store's map by it's key, which is a string
-                of our choosing. Afterwards, we ensure that the retrieved object is of the type we wanted, and if so we
-                can cast it to that object type and save it to our custom object type for use. If it doesn't exist, or is
+                store already. Then, we could grab it from the root node of the store's map by using its key (a string
+                of our choosing). Afterwards, we ensure that the retrieved object is of the type we wanted, and if so we
+                can cast it to that object type and save it for use in the application. If it doesn't exist, or if it is
                 not of the expected type, then we can create the object by doing a remote call of the custom object's
                 constructor at the store; and afterwards, we add this object to the store's map with the key we choose:
 
