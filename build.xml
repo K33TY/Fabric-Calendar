@@ -50,6 +50,22 @@
             <arg value="-addsigcp" />   <arg pathref="sif.sigcp" />
             <arg value="-trusted-providers" />
 
+
+<!--debug
+            <arg value="-debugpositions"/>
+            <arg value="-report" /> <arg value="frontend=1"/>
+            <arg value="-report" /> <arg value="solver=5" />
+            <arg value="-dump"   /> <arg value="FabricToFabilRewriter"/>
+            <arg value="-dump"   /> <arg value="PrincipalCastAdder"/>
+            <arg value="-report" /> <arg value="visit=2"/>
+            <arg value="-report" /> <arg value="labelEnv=5" />
+            <arg value="-print"  /> <arg value="RemoteCallWrapperUpdater"/>
+            <arg value="-print"  /> <arg value="FieldLabelResolver"/>
+            <arg value="-report" /> <arg value="error=5"/>
+            <arg value="-report" /> <arg value="errors=5"/>
+            <arg value="-report" /> <arg value="debug=5" />
+-->
+
             <fileset dir="${calendar.home}/src" includes="**/*.fab" />
         </fabc>
 

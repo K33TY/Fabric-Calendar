@@ -18,7 +18,38 @@ public class ServletPrincipal extends ExternalPrincipal
 	{
 		atomic
 		{
+			FabricWorker w = FabricWorker.getWorker();
+			if (w != null)
+			{
+				final Store store = w.getStore(Config.calendarStoreName);
+				if (store != null)
+				{
+					Map rootMap = store.getRoot();
+					if (rootMap != null)
+					{
+						Object obj = rootMap.get(Config.calendarPrincipalMapKey);
+						ServletPrincipal servletP = null;
+						if (obj instanceof ServletPrincipal)
+						{
+							servletP = (ServletPrincipal) obj;
+						}
+						else
+						{
+							servletP = new ServletPrincipal@store();
+							rootMap.put(Config.calendarPrincipalMapKey, servletP);
+						}
 
+						return servletP;
+					}
+				}
+
+			}
+			return null;
 		}
+	}
+
+	public static ServletPrincipal{⊤←} getInstance{⊤←} (Store store)
+	{
+		return getInstance();
 	}
 }
