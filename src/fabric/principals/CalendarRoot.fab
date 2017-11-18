@@ -1,0 +1,15 @@
+//package fabric.principals;
+//
+//import fabric.worker.Store;
+//import fabric.util.*;
+//
+///**
+//*   The Calendar root principal that essentially has all the objects for the Calendar and is the top principal
+//*   It is the only principal that has integrity rights on final objects, but it doesn't use this except in
+//*   the possible case that something needs to be instantiated
+//*
+//*/
+//public class CalendarRoot[principal P] extends ExternalPrincipal
+//{
+//
+//}

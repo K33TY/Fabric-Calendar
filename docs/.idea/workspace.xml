@@ -14,7 +14,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="613">
@@ -27,6 +27,16 @@
                 <element signature="e#35289#35296#0" expanded="true" />
                 <element signature="e#35821#35828#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../jif/build.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-12142">
+              <caret line="376" column="27" lean-forward="true" selection-start-line="376" selection-start-column="27" selection-end-line="376" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,12 +188,12 @@
       <updated>1509510333191</updated>
       <workItem from="1509510334255" duration="12054000" />
       <workItem from="1510810709687" duration="17000" />
-      <workItem from="1510877781154" duration="11663000" />
+      <workItem from="1510877781154" duration="11911000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23734000" />
+    <option name="totallyTimeSpent" value="23982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -332,6 +342,14 @@
             <element signature="e#35289#35296#0" expanded="true" />
             <element signature="e#35821#35828#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../jif/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12142">
+          <caret line="376" column="27" lean-forward="true" selection-start-line="376" selection-start-column="27" selection-end-line="376" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

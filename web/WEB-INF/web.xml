@@ -7,7 +7,7 @@
 <web-app>
     <servlet>
         <servlet-name>calendar</servlet-name>
-        <servlet-class>user.UserMain</servlet-class>
+        <servlet-class>calendar.Main</servlet-class>
         <init-param>
             <param-name>style_sheet_url</param-name>
             <param-value>calendar.css</param-value>
@@ -20,7 +20,7 @@
         -->
         <init-param>
             <param-name>worker</param-name>
-            <param-value>user</param-value>
+            <param-value>calendarweb</param-value>
         </init-param>
 
         <init-param>

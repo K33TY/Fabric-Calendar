@@ -1,15 +1,15 @@
 package calendar.event;
 
 import fabric.lang.Object;
-import fabric.util.Date;
+//import fabric.util.Date;
 
 public abstract class AttendeeEvent extends Object
 {
 	long onum;
 	String name;
-	Date startTime;
-	Date endTime;
+	//Date startTime;
+	//Date endTime;
 	String note;
-    List[this] attendees;
-    List[this] viewers;
+    //List[this] attendees;
+    //List[this] viewers;
 }

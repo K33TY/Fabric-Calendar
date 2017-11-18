@@ -1,12 +1,12 @@
 package calendar.event;
 import fabric.lang.Object;
-import fabric.util.Date;
+//import fabric.util.Date;
 
 
 public abstract class ViewerEvent extends Object
 {
 	long onum;
 	String name = "busy";
-    Date startTime;
-    Date endTime;
+    //Date startTime;
+    //Date endTime;
 }

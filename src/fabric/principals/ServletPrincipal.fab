@@ -1,4 +1,4 @@
-package calendar.principals;
+package fabric.principals;
 
 import fabric.util.Map;
 import calendar.Config;

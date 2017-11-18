@@ -1,17 +1,17 @@
 package calendar.event;
 import fabric.lang.Object;
-import fabric.util.Date;
+//import fabric.util.Date;
 
 public class OwnerEvent[label L] extends Object
 {
 	long onum;
     String name;
-    Date startTime;
-    Date endTime;
+    //Date startTime;
+    //Date endTime;
     String note;
-    UserPrincipal[] attendees;
-    UserPrincipal[] viewers;
-    UserPrincipal owner;
+    //UserPrincipal[] attendees;
+    //UserPrincipal[] viewers;
+    //UserPrincipal owner;
     label lbl; // Store policies within the object
 
     //label L = {_servletPrincipal→; _servletPrincipal←};
@@ -20,24 +20,24 @@ public class OwnerEvent[label L] extends Object
 	( // Constructor params
 		long {L} onum_,
 		String {L} name_,
-		Date {L} startTime_,
-		Date {L} endTime_,
+		//Date {L} startTime_,
+		//Date {L} endTime_,
 		String {L} note_,
-		UserPrincipal {L}[]{L} attendees_,
-		UserPrincipal {L}[]{L} viewers_,
-		UserPrincipal {L} owner_,
+		//UserPrincipal {L}[]{L} attendees_,
+		//UserPrincipal {L}[]{L} viewers_,
+		//UserPrincipal {L} owner_,
 		label {L} ownerPolicy
 	)
 	//where L <= {} // probably need some rules here
 	{   // initialize event values
 		onum = onum_;
 		name = name_;
-		startTime = startTime_;
-		endTime = endTime_;
+		//startTime = startTime_;
+		//endTime = endTime_;
 		note = note_;
-		attendees = attendees_;
-		viewers = viewers_;
-		owner = owner_;
+		//attendees = attendees_;
+		//viewers = viewers_;
+		//owner = owner_;
 		lbl = ownerPolicy;
 	}
 

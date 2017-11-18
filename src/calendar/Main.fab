@@ -6,7 +6,6 @@ import sif.servlet.HTMLServlet;
 import sif.servlet.Request;
 import sif.servlet.SessionState;
 import sif.servlet.SessionPrincipal;
-import calendar.principals.ServletPrincipal;
 
 import javax.servlet.ServletException; // Why did Intellij have the intellisense to throw ServletException before I imported this?
 
@@ -49,14 +48,14 @@ public final class Main extends HTMLServlet[ServletPrincipal]
 		{
 			if (root != null)
 			{
-				Calendar[ServletPrincipal] calendarInit = null;
-				Object obj = root.get(Config.calendarMapKey);
-
-				if (obj instanceof Calendar[ServletPrincipal])
-				{
-					calendarInit = (Calendar[ServletPrincipal]) obj;
-				}
-				_servletPrincipal = calendarInit;
+//				Calendar[ServletPrincipal] calendarInit = null;
+//				Object obj = root.get(Config.calendarMapKey);
+//
+//				if (obj instanceof Calendar[ServletPrincipal])
+//				{
+//					calendarInit = (Calendar[ServletPrincipal]) obj;
+//				}
+//				_servletPrincipal = calendarInit;
 			}
 			else
 			{
@@ -65,11 +64,11 @@ public final class Main extends HTMLServlet[ServletPrincipal]
 		}
 	}
 
-	public void initialize{ServletPrincipal→; ServletPrincipal←}()
-		throws ServletException
-	{
-		addStartAction(new FrontPage(this));
-	}
+//	public void initialize{ServletPrincipal→; ServletPrincipal←}()
+//		throws ServletException
+//	{
+//		addStartAction(new FrontPage(this));
+//	}
 
 	public String getPrivateHostID() throws ServletException
 	{

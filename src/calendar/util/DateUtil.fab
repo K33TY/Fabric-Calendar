@@ -1,21 +1,21 @@
 package calendar.util;
 
-import fabric.util.Date;
+//import fabric.util.Date;
 
 public class DateUtil[label L]
 {
 
-	public static String{L;date} dateToString(Date[L] date, boolean{date} replaceSpace)
-	{
-        String d = ( (date == null) ? "" : date.toShortString() );
-        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
-    }
+//	public static String{L;date} dateToString(Date[L] date, boolean{date} replaceSpace)
+//	{
+//        String d = ( (date == null) ? "" : date.toShortString() );
+//        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
+//  }
 
     public static boolean{*lbl;lbl} isDate{*lbl}(label lbl, String{*lbl} dateStr)
     {
         try
         {
-            Date[L].valueOf(lbl, dateStr);
+            //Date[L].valueOf(lbl, dateStr);
         }
         catch (IllegalArgumentException e)
         {
@@ -24,15 +24,15 @@ public class DateUtil[label L]
         return true;
     }
 
-    public static Date[lbl]{*lbl;lbl} stringToDate{*lbl}(label lbl, String{*lbl} dateStr)
-    {
-        try
-        {
-            return Date[lbl].valueOf(lbl, dateStr);
-        }
-        catch (IllegalArgumentException e)
-        {
-            return null;
-        }
-    }
+//    public static Date[lbl]{*lbl;lbl} stringToDate{*lbl}(label lbl, String{*lbl} dateStr)
+//    {
+//        try
+//        {
+//            return Date[lbl].valueOf(lbl, dateStr);
+//        }
+//        catch (IllegalArgumentException e)
+//        {
+//            return null;
+//        }
+//    }
 }
