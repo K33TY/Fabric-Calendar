@@ -11,18 +11,18 @@ public class DateUtil[label L]
 //        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
 //  }
 
-    public static boolean{*lbl;lbl} isDate{*lbl}(label lbl, String{*lbl} dateStr)
-    {
-        try
-        {
-            //Date[L].valueOf(lbl, dateStr);
-        }
-        catch (IllegalArgumentException e)
-        {
-            return false;
-        }
-        return true;
-    }
+//    public static boolean{*lbl;lbl} isDate{*lbl}(label lbl, String{*lbl} dateStr)
+//    {
+//        try
+//        {
+//            Date[L].valueOf(lbl, dateStr);
+//        }
+//        catch (IllegalArgumentException e)
+//        {
+//            return false;
+//        }
+//        return true;
+//    }
 
 //    public static Date[lbl]{*lbl;lbl} stringToDate{*lbl}(label lbl, String{*lbl} dateStr)
 //    {

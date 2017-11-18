@@ -16,30 +16,30 @@ public class OwnerEvent[label L] extends Object
 
     //label L = {_servletPrincipal→; _servletPrincipal←};
 
-	public OwnerEvent{L}
-	( // Constructor params
-		long {L} onum_,
-		String {L} name_,
-		//Date {L} startTime_,
-		//Date {L} endTime_,
-		String {L} note_,
-		//UserPrincipal {L}[]{L} attendees_,
-		//UserPrincipal {L}[]{L} viewers_,
-		//UserPrincipal {L} owner_,
-		label {L} ownerPolicy
-	)
-	//where L <= {} // probably need some rules here
-	{   // initialize event values
-		onum = onum_;
-		name = name_;
-		//startTime = startTime_;
-		//endTime = endTime_;
-		note = note_;
-		//attendees = attendees_;
-		//viewers = viewers_;
-		//owner = owner_;
-		lbl = ownerPolicy;
-	}
+//	public OwnerEvent{L}
+//	( // Constructor params
+//		long {L} onum_,
+//		String {L} name_,
+//		//Date {L} startTime_,
+//		//Date {L} endTime_,
+//		String {L} note_,
+//		//UserPrincipal {L}[]{L} attendees_,
+//		//UserPrincipal {L}[]{L} viewers_,
+//		//UserPrincipal {L} owner_,
+//		label {L} ownerPolicy
+//	)
+//	//where L <= {} // probably need some rules here
+//	{   // initialize event values
+//		onum = onum_;
+//		name = name_;
+//		//startTime = startTime_;
+//		//endTime = endTime_;
+//		note = note_;
+//		//attendees = attendees_;
+//		//viewers = viewers_;
+//		//owner = owner_;
+//		lbl = ownerPolicy;
+//	}
 
 	// Deep copy with user label
 //	public OwnerEvent[lbl] {/*not sure what goes here*//*} getOwnerEvent(label lbl, Store s)

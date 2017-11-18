@@ -21,7 +21,7 @@ public final class Main extends HTMLServlet[ServletPrincipal]
 {
 	final Store{this}@{⊤→} _localStore;
 	final Store{this}@{⊤→} _store;
-	final principal{this}@{⊤→} _servletPrincipal;
+//	final principal{this}@{⊤→} _servletPrincipal;
 
 	public Main() throws ServletException
 	{
@@ -35,33 +35,33 @@ public final class Main extends HTMLServlet[ServletPrincipal]
 		}
 
 		_localStore = localStore;
-		_store = worker$.getStore(Config.calendarStoreName); // What is the dollar sign for?
-
-		// If the store has a Map of Fabric objects, then grab the root of this
-		Map root = null;
-		if (_store != null)
-		{
-			root = (Map) _store.getRoot();
-		}
-
-		atomic
-		{
-			if (root != null)
-			{
-//				Calendar[ServletPrincipal] calendarInit = null;
-//				Object obj = root.get(Config.calendarMapKey);
+//		_store = worker$.getStore(Config.calendarStoreName); // What is the dollar sign for?
 //
-//				if (obj instanceof Calendar[ServletPrincipal])
-//				{
-//					calendarInit = (Calendar[ServletPrincipal]) obj;
-//				}
-//				_servletPrincipal = calendarInit;
-			}
-			else
-			{
-				_servletPrincipal = null;
-			}
-		}
+//		// If the store has a Map of Fabric objects, then grab the root of this
+//		Map root = null;
+//		if (_store != null)
+//		{
+//			root = (Map) _store.getRoot();
+//		}
+//
+//		atomic
+//		{
+//			if (root != null)
+//			{
+////				Calendar[ServletPrincipal] calendarInit = null;
+////				Object obj = root.get(Config.calendarMapKey);
+////
+////				if (obj instanceof Calendar[ServletPrincipal])
+////				{
+////					calendarInit = (Calendar[ServletPrincipal]) obj;
+////				}
+////				_servletPrincipal = calendarInit;
+//			}
+//			else
+//			{
+//				_servletPrincipal = null;
+//			}
+//		}
 	}
 
 //	public void initialize{ServletPrincipal→; ServletPrincipal←}()
@@ -103,16 +103,16 @@ public final class Main extends HTMLServlet[ServletPrincipal]
     }
 
     // Necessary runtime method for sif.servlet.Servlet.fab
-    protected SessionPrincipal createSessionPrincipal( String{_servletPrincipal→; _servletPrincipal←} id )
-    {
-        SessionPrincipal p = null;
-        atomic
-        {
-            if (_store != null && _store equiv _servletPrincipal)
-            {
-                p = new SessionPrincipal@_store(id);
-            }
-        }
-        return p;
-    }
+//    protected SessionPrincipal createSessionPrincipal( String{_servletPrincipal→; _servletPrincipal←} id )
+//    {
+//        SessionPrincipal p = null;
+//        atomic
+//        {
+//            if (_store != null && _store equiv _servletPrincipal)
+//            {
+//                p = new SessionPrincipal@_store(id);
+//            }
+//        }
+//        return p;
+//    }
 }

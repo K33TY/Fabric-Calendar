@@ -27,19 +27,19 @@ public class ServletPrincipal extends ExternalPrincipal
 					Map rootMap = store.getRoot();
 					if (rootMap != null)
 					{
-						Object obj = rootMap.get(Config.calendarPrincipalMapKey);
+						//Object obj = rootMap.get(Config.calendarPrincipalMapKey);
 						ServletPrincipal servletP = null;
-						if (obj instanceof ServletPrincipal)
-						{
-							servletP = (ServletPrincipal) obj;
-						}
-						else
-						{
-							servletP = new ServletPrincipal@store();
-							rootMap.put(Config.calendarPrincipalMapKey, servletP);
-						}
+//						if (obj instanceof ServletPrincipal)
+//						{
+//							servletP = (ServletPrincipal) obj;
+//						}
+//						else
+//						{
+//							servletP = new ServletPrincipal@store();
+//							rootMap.put(Config.calendarPrincipalMapKey, servletP);
+//						}
 
-						return servletP;
+//						return servletP;
 					}
 				}
 
