@@ -1,6 +1,11 @@
 package calendar;
 
-public class Calendar
-{
+import fabric.util.Map;
 
+public class Calendar[principal servletP] extends AbstractPrincipal
+{
+	Calendar{this←}()
+	{
+		super("calendar");
+	}
 }

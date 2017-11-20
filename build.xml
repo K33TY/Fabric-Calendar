@@ -51,7 +51,7 @@
             <arg value="-trusted-providers" />
 
 
-<!--debug
+<!--debug-->
             <arg value="-debugpositions"/>
             <arg value="-report" /> <arg value="frontend=1"/>
             <arg value="-report" /> <arg value="solver=5" />
@@ -64,7 +64,7 @@
             <arg value="-report" /> <arg value="error=5"/>
             <arg value="-report" /> <arg value="errors=5"/>
             <arg value="-report" /> <arg value="debug=5" />
--->
+<!---->
 
             <fileset dir="${calendar.home}/src" includes="**/*.fab" />
         </fabc>

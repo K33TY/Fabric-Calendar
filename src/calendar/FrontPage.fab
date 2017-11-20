@@ -1,0 +1,68 @@
+package calendar;
+
+import javax.servlet.ServletException;
+
+import sif.html.*;
+import sif.servlet.Action;
+import sif.servlet.Request;
+import sif.servlet.HTMLRequest;
+import sif.servlet.Servlet;
+import fabric.util.Map;
+import sif.servlet.HTMLServlet;
+
+import login.*;
+
+public class FrontPage extends CalendarAction authority (ServletPrincipal)
+{
+    public FrontPage(Main{this} m)
+        throws ServletException
+    {
+        super();
+        initFields("frontPage", m);
+    }
+
+	public final void invoke{*lbl}(label{*lbl} lbl, Request[ServletPrincipal]{*lbl} req)
+		throws (ServletException{*lbl;req.session←})
+		where caller(req.session),
+	        lbl <= {req.session→}
+	{
+	    HTMLServlet[ServletPrincipal] servlet = (HTMLServlet) getServlet();
+	    if (servlet == null || !(servlet instanceof Main))
+	        throw new ServletException("No servlet available");
+
+	    if (req == null)
+	        throw new ServletException("No request available");
+	    Main main = (Main) servlet;
+
+	    atomic
+	    {
+	        if (lbl <= new label {req.session←})
+	        {
+	            //loginUser(req.session, req);
+	        }
+
+	        if (lbl <= new label {ServletPrincipal←})
+	        {
+
+	            servlet.createPage((HTMLRequest)req, "Home Page", lbl, lbl,
+	                    new NodeList[lbl,lbl](lbl, lbl, createBanner(lbl, "Fabric Information Flow Calendar"),
+	                            lbl, lbl, createBody(lbl, lbl, null)));
+	        }
+	    }
+	}
+/*
+        // Automatically make req.session actsfor CustomerPrincipal, since we are on a worker that allows this
+        // i.e. The customer worker principal acts for CustomerPrincipal
+        private final void loginCustomer{session←}(principal{session←} session, Request[CustomerPrincipal]{session←} reqParam)
+        where authority(CustomerPrincipal), endorse({CustomerPrincipal←})
+        {
+            final Request[CustomerPrincipal] req = endorse(reqParam, {session←} to {CustomerPrincipal←});
+            final DelegatingPrincipal p = (DelegatingPrincipal)CustomerPrincipal;
+            if (p == null) return;
+            final principal sessionLow = endorse(session, {session←} to {CustomerPrincipal←});
+            if (p equiv CustomerPrincipal) {
+                p.addDelegatesTo(sessionLow);
+            }
+
+        }*/
+}
