@@ -177,56 +177,56 @@
                 The <font color="#bf0a00">build.xml</font> file, typically consists of something along the lines of:
 <pre><!------------------------codeblock------------->
 <code class="xml">
-<!--
+&lt;!--
 **********************************************
     Fabric Calendar Apache Ant Build File
 **********************************************
--->
-<project name="calendar" default="build-all" basedir=".">
+--&gt;
+&lt;project name="calendar" default="build-all" basedir="."&gt;
 
-    <description>
+    &lt;description&gt;
         Fabric Calendar Application
-    </description>
-<!--*****************
+    &lt;/description&gt;
+&lt;!--*****************
     Global Properties
-    *****************-->
+    *****************--&gt;
 
-    <property file="etc/build.properties" />
+    &lt;property file="etc/build.properties" /&gt;
 
-    <import file="${fabric.home}/common.xml" />
-    <import file="${fabric.home}/src/lib/sif/common.xml" />
-    <import file="${fabric.home}/src/lib/collections/common.xml" />
+    &lt;import file="${fabric.home}/common.xml" /&gt;
+    &lt;import file="${fabric.home}/src/lib/sif/common.xml" /&gt;
+    &lt;import file="${fabric.home}/src/lib/collections/common.xml" /&gt;
 
-    <dirname property="calendar.home" file="${ant.file.calendar}" />
+    &lt;dirname property="calendar.home" file="${ant.file.calendar}" /&gt;
 
-<!--****************
+&lt;!--****************
     Cleaning Targets
-    ****************-->
+    ****************--&gt;
 
-    <target name="clean" description="remove generated files">
-        <delete dir="${calendar.home}/classes" />
-    </target>
+    &lt;target name="clean" description="remove generated files"&gt;
+        &lt;delete dir="${calendar.home}/classes" /&gt;
+    &lt;/target>
 
-    <target name="clobber" depends="clean" description="remove generated files and states of stores">
-        <delete dir="${calendar.home}/var" />
-    </target>
+    &lt;target name="clobber" depends="clean" description="remove generated files and states of stores"&gt;
+        &lt;delete dir="${calendar.home}/var" /&gt;
+    &lt;/target>
 
-<!--*******************
+&lt;!--*******************
     Compilation Targets
-    *******************-->
+    *******************--&gt;
 
-    <target name="build-all" depends="build-calendar" />
-    <target name="all" depends="build-all" />
+    &lt;target name="build-all" depends="build-calendar" /&gt;
+    &lt;target name="all" depends="build-all" /&gt;
 
-    <target name="build-calendar" depends="sif" description="builds the Fabric Calendar Application" >
-        <fabc dest="${calendar.home}/classes">
-            <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
-            <arg value="-cp" />         <arg pathref="sif.classpath" />
-            <arg value="-cp" />         <arg pathref="collections.classpath" />
-            <arg value="-cp" />         <arg pathref="lib.classpath" />
-            <arg value="-cp" />         <arg value="${calendar.home}/classes" />
-            <arg value="-addsigcp" />   <arg pathref="sif.sigcp" />
-            <arg value="-trusted-providers" />
+    &lt;target name="build-calendar" depends="sif" description="builds the Fabric Calendar Application" &gt;
+        &lt;fabc dest="${calendar.home}/classes"&gt;
+            &lt;arg value="-sourcepath" /&gt; &lt;arg value="${calendar.home}/src" /&gt;
+            &lt;arg value="-cp" /&gt;         &lt;arg pathref="sif.classpath" /&gt;
+            &lt;arg value="-cp" /&gt;         &lt;arg pathref="collections.classpath" /&gt;
+            &lt;arg value="-cp" /&gt;         &lt;arg pathref="lib.classpath" /&gt;
+            &lt;arg value="-cp" /&gt;         &lt;arg value="${calendar.home}/classes" /&gt;
+            &lt;arg value="-addsigcp" /&gt;   &lt;arg pathref="sif.sigcp" /&gt;
+            &lt;arg value="-trusted-providers" /&gt;
 
 
             <!--debug
@@ -244,18 +244,18 @@
             <arg value="-report" /> <arg value="debug=5" />
             -->
 
-            <fileset dir="${calendar.home}/src" includes="**/*.fab" />
-        </fabc>
+            &lt;fileset dir="${calendar.home}/src" includes="**/*.fab" /&gt;
+        &lt;/fabc&gt;
 
-        <filc dest="${calendar.home}/classes">
-            <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
-            <arg value="-cp" />         <arg value="${calendar.home}/classes" />
+        &lt;filc dest="${calendar.home}/classes"&gt;
+            &lt;arg value="-sourcepath" /&gt; &lt;arg value="${calendar.home}/src" /&gt;
+            &lt;arg value="-cp" /&gt;         &lt;arg value="${calendar.home}/classes" /&gt;
 
-            <fileset dir="${calendar.home}/src" includes="**/*.fil" />
-        </filc>
-    </target>
+            &lt;fileset dir="${calendar.home}/src" includes="**/*.fil" /&gt;
+        &lt;/filc&gt;
+    &lt;/target&gt;
 
-</project>
+&lt;/project&gt;
 </code>
 </pre><!-----------------------end codeblock--------->
 
