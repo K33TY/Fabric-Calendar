@@ -1,0 +1,105 @@
+package hello;
+
+import javax.servlet.ServletException;
+
+import sif.html.*;
+import sif.servlet.Action;
+import sif.servlet.HTMLRequest;
+import sif.servlet.HTMLServlet;
+import sif.servlet.Request;
+import sif.servlet.Servlet;
+
+import java.io.*;
+
+/**
+ * HelloAction is a session-specific action.
+ */
+public class HelloAction[label T] extends Action[HelloServEP] {
+	public HelloAction{T}(Main{T} m) throws ServletException {
+		super();
+		atomic {
+			this.nameInp = new Input[HelloServEP](m, new label {});
+			this.fileInp = new Input[HelloServEP](m, new label {});
+			this.searchLbl = new label {};
+		}
+		initFields(m);
+	}
+
+	final Input[HelloServEP]{T} nameInp;
+	final Input[HelloServEP]{T} fileInp;
+	final label{T} searchLbl;
+
+	public void invoke{*lbl}(label{*lbl} lbl, Request[HelloServEP]{*lbl} _req):
+				{*lbl;_req.session←}
+			where caller(_req.session),
+				lbl <= {_req.session→} {
+
+		final HTMLRequest[HelloServEP] req = (HTMLRequest[HelloServEP]) _req;
+		HTMLServlet s = (HTMLServlet) getServlet();       
+		if (s == null || req == null) return;
+		if (T equiv lbl) {
+
+			NodeList content = null;    
+
+			atomic {
+			// extract the name, if it exists.        
+			try {
+				if (lbl <= this.nameInp.inputLbl && this.nameInp.inputLbl equiv this.fileInp.inputLbl && this.nameInp.inputLbl equiv searchLbl) {
+					if (this.nameInp.inputLbl <= new label {*:req.session} && this.fileInp.inputLbl <= new label {*:req.session} && searchLbl <= new label {*:req.session}) {
+						if (new label {*!:req.session} <= this.nameInp.inputLbl && new label {*!:req.session} <= this.fileInp.inputLbl) {
+							String name = req.getParam(nameInp);
+							String fileContents = "";
+
+							try {
+								InputStream file = req.getFile(fileInp);
+								BufferedReader br = 
+									new BufferedReader(new InputStreamReader(file));
+								while (br.ready()) {
+									fileContents += br.readLine() + "\n";
+								}
+							}
+							catch (IOException ignore) { }
+							catch (NullPointerException{⊤→} ignore) { }
+
+							if (name == null || name.length() == 0) name = "world";
+
+							NodeList formEntries = 
+								new NodeList(lbl, lbl, new Text("What is your good name? "), this.nameInp.inputLbl, lbl, new Br(),
+										nameInp.inputLbl, lbl, new TextInput(nameInp, 40, name), this.nameInp.inputLbl, lbl, new Br(),
+										lbl, lbl, new Text("Choose a (small) text file to upload and display: "), this.nameInp.inputLbl, lbl, new Br(),
+										fileInp.inputLbl, lbl, new FileChooser(fileInp, 40), this.nameInp.inputLbl, lbl, new Br(),
+										lbl, lbl, new SubmitButton(s, lbl, "Submit"));
+							Node form = s.createForm(this.nameInp.inputLbl, lbl, this, this.nameInp.inputLbl, lbl, formEntries);
+
+							NodeList searchFormEntries =
+							  new NodeList(lbl, lbl, new Text("Search the web: "),
+								  new TextInput("q", 40, ""),
+									new SubmitButton("btnG", "Google Search"),
+									new SubmitButton("btnI", "I'm Feeling Lucky"));
+							Node offsiteForm = s.createOffsiteForm(searchLbl, lbl, "https://encrypted.google.com/search", true, searchLbl, lbl, searchFormEntries);
+
+							content =
+								new NodeList(this.nameInp.inputLbl, lbl,
+										new Paragraph(this.nameInp.inputLbl, lbl,
+												new NodeList(lbl, lbl,
+														new Text("Hello "),
+														this.nameInp.inputLbl, lbl, new Text(name),
+														lbl, lbl, new Text(" !!!"))),
+														lbl, lbl, new HRule(),
+														this.nameInp.inputLbl, lbl, new Paragraph(this.nameInp.inputLbl, lbl, form),
+														lbl, lbl, new HRule(),
+														searchLbl, lbl, new Paragraph(searchLbl, lbl, offsiteForm),
+														lbl, lbl, new Paragraph("File contents: "),
+														this.nameInp.inputLbl, lbl, new Paragraph(this.nameInp.inputLbl, lbl, new Pre(fileContents)));
+							s.createPage(req, "Hello webapp", this.nameInp.inputLbl, lbl, content);
+						}
+					}
+				}
+			}
+			catch (NullPointerException impossible) { }
+			}
+
+		}
+	}
+}
+// vim: ts=2

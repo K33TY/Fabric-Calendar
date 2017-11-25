@@ -38,7 +38,7 @@ public class FrontPage extends CalendarAction authority (ServletPrincipal)
 	    {
 	        if (lbl <= new label {req.session←})
 	        {
-	            //loginUser(req.session, req);
+	            loginToServlet(req.session, req);
 	        }
 
 	        if (lbl <= new label {ServletPrincipal←})
@@ -50,19 +50,19 @@ public class FrontPage extends CalendarAction authority (ServletPrincipal)
 	        }
 	    }
 	}
-/*
-        // Automatically make req.session actsfor CustomerPrincipal, since we are on a worker that allows this
-        // i.e. The customer worker principal acts for CustomerPrincipal
-        private final void loginCustomer{session←}(principal{session←} session, Request[CustomerPrincipal]{session←} reqParam)
-        where authority(CustomerPrincipal), endorse({CustomerPrincipal←})
-        {
-            final Request[CustomerPrincipal] req = endorse(reqParam, {session←} to {CustomerPrincipal←});
-            final DelegatingPrincipal p = (DelegatingPrincipal)CustomerPrincipal;
-            if (p == null) return;
-            final principal sessionLow = endorse(session, {session←} to {CustomerPrincipal←});
-            if (p equiv CustomerPrincipal) {
-                p.addDelegatesTo(sessionLow);
-            }
 
-        }*/
+    // Automatically make req.session actsfor ServletPrincipal, since we are on a worker that allows this
+    // i.e. The customer worker principal acts for CustomerPrincipal
+    private final void loginToServlet{session←}(principal{session←} session, Request[ServletPrincipal]{session←} reqParam)
+    where authority(ServletPrincipal), endorse({ServletPrincipal←})
+    {
+        final Request[ServletPrincipal] req = endorse(reqParam, {session←} to {ServletPrincipal←});
+        final DelegatingPrincipal p = (DelegatingPrincipal)ServletPrincipal;
+        if (p == null) return;
+        final principal sessionLow = endorse(session, {session←} to {ServletPrincipal←});
+        if (p equiv ServletPrincipal) {
+            p.addDelegatesTo(sessionLow);
+        }
+
+    }
 }
