@@ -171,11 +171,111 @@
             <div id="setup" class="content-section">
                 <h2 class="content-header">Setting Up Your Application</h2>
                 Generally, Fabric applications are built using Apache Ant, which you should have installed to get
-                Polyglot, Jif, and Fabric compiled and ready for use. 
+                Polyglot, Jif, and Fabric compiled and ready for use.
 
                 <h3 class="content-subsection">Apache Ant Build Files</h3>
+                The <font color="#bf0a00">build.xml</font> file, typically consists of something along the lines of:
+<pre><!------------------------codeblock------------->
+<code class="xml">
+<!--
+**********************************************
+    Fabric Calendar Apache Ant Build File
+**********************************************
+-->
+<project name="calendar" default="build-all" basedir=".">
 
-                <h3 class="content-subsection">Shell Scripts</h3>
+    <description>
+        Fabric Calendar Application
+    </description>
+<!--*****************
+    Global Properties
+    *****************-->
+
+    <property file="etc/build.properties" />
+
+    <import file="${fabric.home}/common.xml" />
+    <import file="${fabric.home}/src/lib/sif/common.xml" />
+    <import file="${fabric.home}/src/lib/collections/common.xml" />
+
+    <dirname property="calendar.home" file="${ant.file.calendar}" />
+
+<!--****************
+    Cleaning Targets
+    ****************-->
+
+    <target name="clean" description="remove generated files">
+        <delete dir="${calendar.home}/classes" />
+    </target>
+
+    <target name="clobber" depends="clean" description="remove generated files and states of stores">
+        <delete dir="${calendar.home}/var" />
+    </target>
+
+<!--*******************
+    Compilation Targets
+    *******************-->
+
+    <target name="build-all" depends="build-calendar" />
+    <target name="all" depends="build-all" />
+
+    <target name="build-calendar" depends="sif" description="builds the Fabric Calendar Application" >
+        <fabc dest="${calendar.home}/classes">
+            <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
+            <arg value="-cp" />         <arg pathref="sif.classpath" />
+            <arg value="-cp" />         <arg pathref="collections.classpath" />
+            <arg value="-cp" />         <arg pathref="lib.classpath" />
+            <arg value="-cp" />         <arg value="${calendar.home}/classes" />
+            <arg value="-addsigcp" />   <arg pathref="sif.sigcp" />
+            <arg value="-trusted-providers" />
+
+
+            <!--debug
+            <arg value="-debugpositions"/>
+            <arg value="-report" /> <arg value="frontend=1"/>
+            <arg value="-report" /> <arg value="solver=5" />
+            <arg value="-dump"   /> <arg value="FabricToFabilRewriter"/>
+            <arg value="-dump"   /> <arg value="PrincipalCastAdder"/>
+            <arg value="-report" /> <arg value="visit=2"/>
+            <arg value="-report" /> <arg value="labelEnv=5" />
+            <arg value="-print"  /> <arg value="RemoteCallWrapperUpdater"/>
+            <arg value="-print"  /> <arg value="FieldLabelResolver"/>
+            <arg value="-report" /> <arg value="error=5"/>
+            <arg value="-report" /> <arg value="errors=5"/>
+            <arg value="-report" /> <arg value="debug=5" />
+            -->
+
+            <fileset dir="${calendar.home}/src" includes="**/*.fab" />
+        </fabc>
+
+        <filc dest="${calendar.home}/classes">
+            <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
+            <arg value="-cp" />         <arg value="${calendar.home}/classes" />
+
+            <fileset dir="${calendar.home}/src" includes="**/*.fil" />
+        </filc>
+    </target>
+
+</project>
+</code>
+</pre><!-----------------------end codeblock--------->
+
+                Here, the application and default build behavior is declared at the top. Then, in the section labeled "Global
+                Properties" we have links to any necessary property folders or <font color="#bf0a00">common.xml</font> (build)
+                files. In this example, we had to create a <font color="#bf0a00">build.properties</font> file in etc directory
+                to hardcode the path to the <font color="#bf0a00">$FABRIC</font> (the fabric home directory), since Ant
+                on our environment does not have <font color="#bf0a00">fabric.home</font> variable set.<br /><br />
+
+                Afterwards, the cleaning behavior is set to remove any generated <font color="#bf0a00">*.class</font>
+                files in <font color="#bf0a00">classes</font>and also generated files and states of stores in
+                <font color="#bf0a00">var</font><br /><br />
+
+                Next, in the compilation targets section, we first use <font color="#bf0a00">fabc</font> Fabric compiler,
+                and grabbing any <font color="#bf0a00">.fab</font> file, we compile the respective classes into our application's
+                classes directory. Then, we do the same for the <font color="#bf0a00">.fil</font> files by using the
+                <font color="#bf0a00">filc</font> FabIL compiler. All necessary class paths, source paths, signatures, and
+                trusted providers are passed as arguments.
+
+                <!-- TODO: h3 class="content-subsection">Shell Scripts</h3-->
 
             </div>
 
