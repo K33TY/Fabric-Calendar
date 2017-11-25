@@ -273,7 +273,9 @@
                 and grabbing any <font color="#bf0a00">.fab</font> file, we compile the respective classes into our application's
                 classes directory. Then, we do the same for the <font color="#bf0a00">.fil</font> files by using the
                 <font color="#bf0a00">filc</font> FabIL compiler. All necessary class paths, source paths, signatures, and
-                trusted providers are passed as arguments.
+                trusted providers are passed as arguments. Though our application depends on the <font color="#bf0a00">SIF</font>
+                package, the implementation of Servlet for Information Flow, and therefore uses the respective class paths,
+                most applications will not require this.
 
                 <!-- TODO: h3 class="content-subsection">Shell Scripts</h3-->
 
