@@ -1,0 +1,86 @@
+package prototype.fabric.util;
+
+public class IntList[label L]
+{
+ 	public int{L} value;
+ 	public IntList[L]{L} next;
+
+ 	public IntList{L}(int{L} head)
+	{
+		this.value = head;
+		this.next = null;
+	}
+
+ 	public IntList{L}(int{L} head, IntList[L]{L} tail)
+ 	{
+ 		this.value = head;
+ 		this.next = tail;
+ 	}
+
+ 	public void add{L}(int{L} v)
+ 	{
+ 		if (next == null) next = new IntList{L}(v);
+ 		else next.add(v);
+ 	}
+
+	public void remove{L}(int{L} i)
+	where   L ⊑ {this},
+	        {this} ⊑ L
+	{
+		// TODO
+	}
+
+	public int{L} indexOf{L}(int{L} v)
+	where   L ⊑ {this},
+	     {this} ⊑ L
+	{
+		return indexOf(v, 0);
+	}
+
+	public int{L} indexOf{L}(int{L} v, int{L} i)
+	where   L ⊑ {this},
+	     {this} ⊑ L,
+	     {L;this} ⊑ {i}
+	{
+		 if (value == v) return i;
+		 if (next != null)
+		 {
+		    int temp = i;
+		    temp = i + 1;
+		    return next.indexOf(v, temp);
+		 }
+		 else return -1;
+	}
+
+	public int{L} size{L}()
+	{
+		int size = 0;
+		//if (s != null) size = size + 1;
+		size = 1; //maybe it is okay to have empty elements in list?
+		if (next != null) size = size + next.size();
+
+		return size;
+	}
+
+	public int{L} get{L}(int{L} i) throws Exception
+	where   L ⊑ {this},
+			{this} ⊑ L
+	{
+		return get(i, 0);
+	}
+
+	public int{L} get{L}(int{L} i, int{L} j) throws Exception
+	where   L ⊑ {this},
+			{this} ⊑ L,
+			{L;this} ⊑ {j}
+	{
+		if (i == j) return value;
+		if (next != null)
+		{
+		    int temp = j;
+		    temp = j + 1;
+		    return next.get(i, temp);
+		}
+		else throw new Exception("Index out of bounds");
+    }
+}

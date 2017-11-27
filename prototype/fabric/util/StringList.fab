@@ -1,0 +1,101 @@
+package prototype.fabric.util;
+
+public class StringList[label L]
+{
+ 	public String{L} s;
+ 	public StringList[L]{L} next;
+
+ 	public StringList{L}(String{L} head)
+	{
+		this.s = head;
+		this.next = null;
+	}
+
+ 	public StringList{L}(String{L} head, StringList[L]{L} tail)
+ 	{
+ 		this.s = head;
+ 		this.next = tail;
+ 	}
+
+ 	public void add{L}(String{L} str)
+ 	{
+ 		if (next == null) next = new StringList{L}(str);
+ 		else next.add(str);
+ 	}
+
+	public void remove{L}(String{L} str)
+	where   L ⊑ {this},
+	     {this} ⊑ L
+	{
+		remove(indexOf(str));
+	}
+
+	public void remove{L}(int{L} i)
+	where   L ⊑ {this},
+	     {this} ⊑ L
+	{
+		// TODO
+	}
+
+	public int{L} indexOf{L}(String{L} str)
+	where   L ⊑ {this},
+	     {this} ⊑ L
+	{
+		return indexOf(str, 0);
+	}
+
+	public int{L} indexOf{L}(String{L} str, int{L} i)
+	where   L ⊑ {this},
+	     {this} ⊑ L,
+	     {L;this} ⊑ {i}
+	{
+		 if (s.equals(str)) return i;
+		 if (next != null)
+		 {
+		    int temp = i;
+		    temp = i + 1;
+		    return next.indexOf(str, temp);
+		 }
+		 else return -1;
+	}
+
+	public int{L} size{L}()
+	{
+		int size = 0;
+		//if (s != null) size = size + 1;
+		size = 1; //maybe it is okay to have empty elements in list?
+		if (next != null) size = size + next.size();
+
+		return size;
+	}
+
+	public String{L} get{L}(int{L} i)
+	where   L ⊑ {this},
+			{this} ⊑ L
+	{
+		return get(i, 0);
+	}
+
+	public String{L} get{L}(int{L} i, int{L} j)
+	where   L ⊑ {this},
+			{this} ⊑ L,
+			{L;this} ⊑ {j}
+	{
+		if (i == j) return s;
+		if (next != null)
+		{
+		    int temp = j;
+		    temp = j + 1;
+		    return next.get(i, temp);
+		}
+		else return null;
+     }
+
+ 	public String{L} toString{L}()
+ 	{
+ 		String str = "";
+ 		if (s != null) str = str + s;
+ 		if (next != null) str = str + "\n" + next.toString();
+ 		return str;
+ 	}
+}

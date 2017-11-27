@@ -2,8 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/fabric/util/Date.fab" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/fabric/util/DateBck.fab" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/fabric/util/IntList.fab" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/fabric/util/StringList.fab" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/init-state" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/run-in-xterm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/start-all" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/start-store" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/start-webapps" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/bin/start-worker" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/.idea/workspace.xml" afterPath="$PROJECT_DIR$/docs/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.html" afterPath="$PROJECT_DIR$/docs/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,58 +31,48 @@
       <file leaf-file-name="build.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
+            <state relative-caret-position="1095">
+              <caret line="73" column="10" lean-forward="false" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start-store" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/start-store">
+      <file leaf-file-name="Date.fab" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/prototype/fabric/util/Date.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="1245">
+              <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="start-worker" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/start-worker">
+      <file leaf-file-name="DateBck.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototype/fabric/util/DateBck.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-863">
+              <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="init-state" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/init-state">
+      <file leaf-file-name="StringList.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototype/fabric/util/StringList.fab">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run-in-xterm" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/run-in-xterm">
+      <file leaf-file-name="IntList.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/prototype/fabric/util/IntList.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="start-all" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/start-all">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="1065">
+              <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -140,11 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src-bck/calendar/event/AttendeeEvent.fab" />
-        <option value="$PROJECT_DIR$/src-bck/calendar/event/OwnerEvent.fab" />
-        <option value="$PROJECT_DIR$/src-bck/calendar/event/ViewerEvent.fab" />
-        <option value="$PROJECT_DIR$/src/principals/user/UserName.fab" />
-        <option value="$PROJECT_DIR$/src/principals/user/UserPrincipalEP.fab" />
         <option value="$PROJECT_DIR$/src/calendar/event/CreateEditEvent.fab" />
         <option value="$PROJECT_DIR$/src/calendar/event/CreateEvent.fab" />
         <option value="$PROJECT_DIR$/src/calendar/event/EditEventAction.fab" />
@@ -191,6 +187,11 @@
         <option value="$PROJECT_DIR$/src/calendar/CalendarAction.fab" />
         <option value="$PROJECT_DIR$/src/calendar/FrontPage.fab" />
         <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/prototype/fabric/util/List.fab" />
+        <option value="$PROJECT_DIR$/prototype/fabric/util/StringList.fab" />
+        <option value="$PROJECT_DIR$/prototype/fabric/util/IntList.fab" />
+        <option value="$PROJECT_DIR$/prototype/fabric/util/DateBck.fab" />
+        <option value="$PROJECT_DIR$/prototype/fabric/util/Date.fab" />
       </list>
     </option>
   </component>
@@ -214,7 +215,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="1680" />
     <option name="y" value="-1660" />
     <option name="width" value="1440" />
@@ -331,6 +332,13 @@
               <item name="Calendar-Fabric" type="462c0819:PsiDirectoryNode" />
               <item name="prototype" type="462c0819:PsiDirectoryNode" />
               <item name="fabric" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Calendar-Fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="prototype" type="462c0819:PsiDirectoryNode" />
+              <item name="fabric" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
@@ -543,15 +551,15 @@
       <workItem from="1508662058004" duration="1370000" />
       <workItem from="1509050691425" duration="59764000" />
       <workItem from="1510613705840" duration="44878000" />
-      <workItem from="1511377528691" duration="2154000" />
+      <workItem from="1511377528691" duration="15167000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108166000" />
+    <option name="totallyTimeSpent" value="121179000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="-1660" width="1440" height="2560" extended-state="0" />
+    <frame x="1680" y="-1660" width="1440" height="2560" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -610,34 +618,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/calendar/session/ChangeDisplayDateAction.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="false" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/session/EditEventAction.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="23" lean-forward="false" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/User.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" lean-forward="false" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/session/CalendarSessionState.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="25" lean-forward="true" selection-start-line="0" selection-start-column="25" selection-end-line="0" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/calendar/session/ShowCalendarSessAction.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -680,6 +660,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -702,6 +683,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -925,26 +907,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototype/hello/HelloAction.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/etc/build.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -985,6 +951,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="73" column="10" lean-forward="false" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/hello/HelloAction.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/fabric/util/StringList.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="100" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/fabric/util/IntList.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1065">
+          <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="61" selection-end-line="71" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/fabric/util/DateBck.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-863">
+          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/fabric/util/Date.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="35" lean-forward="true" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
           <folding />
         </state>
       </provider>
