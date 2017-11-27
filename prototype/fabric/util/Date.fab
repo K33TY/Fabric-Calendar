@@ -13,14 +13,15 @@ import fabric.runtime.Runtime;
  * It is immutable.
  * It provides no way to get the current time.
  */
-public class Date[label L]{
+public class Date[label L, principal p] {
 
-    private  int{L} year;
-    private  int{L} month;
-    private  int{L} day;
-    private  int{L} hour;
-    private  int{L} minute;
+    private int{L} year;
+    private int{L} month;
+    private int{L} day;
+    private int{L} hour;
+    private int{L} minute;
 
+	// Special list structures because of issues with polyglot no able to instantiate arrays with values
     public StringList[L]{L}  monthNames;
 
     public StringList[L]{L}  daysOfWeek;
@@ -31,16 +32,135 @@ public class Date[label L]{
 
     public IntList[L]{L}     maxDaysInMonth;
 
+	  //---------------//
+	 //  Constructors //
+	//---------------//
+
+	// Set date to current time
     public Date()
+    where   L ⊑ {this},
+    	    {this} ⊑ L
     {
-        final principal p = PrincipalUtil.nullPrincipal();
         this.year = Runtime[p].currentYear();
         this.month = Runtime[p].currentMonth();
         this.day = Runtime[p].currentDayOfMonth();
         this.hour = Runtime[p].currentHour();
         this.minute = Runtime[p].currentMinute();
 
-        //setConstants();
+        setConstants();
+    }
+
+    public Date{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
+    throws  (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
+    {
+        this.year = pYear;
+        this.month = pMonth;
+        this.day = pDay;
+        this.hour = pHour;
+        this.minute = pMinute;
+        checkDateValid(pYear, pMonth, pDay, pHour, pMinute);
+
+        setConstants();
+    }
+
+	  //-----------------------------//
+	 //  Constructor Helper Methods //
+	//-----------------------------//
+
+	//  Cannot instantiate arrays with values so doing this stupid thing
+    public void setConstants{L}()
+    {
+        // Month Names
+        monthNames.add("NOT A VALID MONTH");
+        monthNames.add("January");
+		monthNames.add("February");
+		monthNames.add("March");
+		monthNames.add("April");
+		monthNames.add("May");
+		monthNames.add("June");
+		monthNames.add("July");
+		monthNames.add("August");
+		monthNames.add("September");
+		monthNames.add("October");
+		monthNames.add("November");
+		monthNames.add("December");
+
+		// Days of week
+		daysOfWeek.add("Sunday");
+		daysOfWeek.add("Monday");
+		daysOfWeek.add("Tuesday");
+		daysOfWeek.add("Wednesday");
+		daysOfWeek.add("Thursday");
+		daysOfWeek.add("Friday");
+		daysOfWeek.add("Saturday");
+		daysOfWeek.add("Sunday");
+
+		// Short month names
+		shortMonthNames.add("NOT A VALID MONTH");
+		shortMonthNames.add("Jan");
+		shortMonthNames.add("Feb");
+		shortMonthNames.add("Mar");
+		shortMonthNames.add("Apr");
+		shortMonthNames.add("May");
+		shortMonthNames.add("Jun");
+		shortMonthNames.add("Jul");
+		shortMonthNames.add("Aug");
+		shortMonthNames.add("Sep");
+		shortMonthNames.add("Oct");
+		shortMonthNames.add("Nov");
+		shortMonthNames.add("Dec");
+
+		// Short days of week
+		shortDaysOfWeek.add("Sun");
+		shortDaysOfWeek.add("Mon");
+		shortDaysOfWeek.add("Tue");
+		shortDaysOfWeek.add("Wed");
+		shortDaysOfWeek.add("Thu");
+		shortDaysOfWeek.add("Fri");
+		shortDaysOfWeek.add("Sat");
+		shortDaysOfWeek.add("Sun");
+
+		// Maximum days in month
+		maxDaysInMonth.add(-1);
+		maxDaysInMonth.add(31);
+		maxDaysInMonth.add(29);
+		maxDaysInMonth.add(31);
+		maxDaysInMonth.add(30);
+		maxDaysInMonth.add(31);
+        maxDaysInMonth.add(30);
+        maxDaysInMonth.add(31);
+        maxDaysInMonth.add(31);
+        maxDaysInMonth.add(30);
+        maxDaysInMonth.add(31);
+        maxDaysInMonth.add(30);
+        maxDaysInMonth.add(31);
+    }
+
+	// why is this method orginally static if called from a object that is being instantiated?
+    private void checkDateValid{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
+    throws  (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
+    {
+        if (pMonth < 1 || pMonth > 12)
+        {
+            throw new IllegalArgumentException("Invalid month: " + pMonth);
+        }
+        /*try {
+            if (pDay < 1 || pDay > daysInMonth(pMonth, pYear))
+            {
+                throw new IllegalArgumentException(monthNames[pMonth] + " " +
+                      pYear + " has " + daysInMonth(pMonth, pYear) + " days.");
+            }
+        }
+        catch(ArrayIndexOutOfBoundsException impossible) { }
+        catch(NullPointerException impossible) { }*/
+        if (pHour < 0 || pHour > 23)
+        {
+            throw new IllegalArgumentException("Invalid hour: " + pHour);
+        }
+        if (pMinute < 0 || pMinute > 59)
+        {
+            throw new IllegalArgumentException("Invalid minute: " + pMinute);
+        }
     }
 //
 //    /**
@@ -108,41 +228,6 @@ public class Date[label L]{
 //        catch (StringIndexOutOfBoundsException impossible) {
 //            return null;
 //        }
-//    }
-//
-//    public void setConstants()
-//    {
-//		this.monthNames = new String[]{
-//		    "NOT A VALID MONTH",
-//		    "January", "February", "March", "April",
-//		    "May", "June", "July", "August",
-//		    "September", "October", "November", "December",
-//		};
-//
-//		this.daysOfWeek = new String[]{
-//		    "Sunday",
-//		    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-//		    "Saturday", "Sunday",
-//		};
-//
-//
-//		this.shortMonthNames = new String[]{
-//		    "NOT A VALID MONTH",
-//		    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-//		    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-//		};
-//
-//		this.shortDaysOfWeek = new String[]{
-//		    "Sun",
-//		    "Mon", "Tue", "Wed", "Thu", "Fri",
-//		    "Sat", "Sun",
-//		};
-//
-//		this.maxDaysInMonth = new int[]{
-//		    -1,
-//		    31, 29, 31, 30, 31, 30,
-//		    31, 31, 30, 31, 30, 31,
-//		};
 //    }
 //
 //    /**

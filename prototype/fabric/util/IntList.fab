@@ -39,8 +39,8 @@ public class IntList[label L]
 
 	public int{L} indexOf{L}(int{L} v, int{L} i)
 	where   L ⊑ {this},
-	     {this} ⊑ L,
-	     {L;this} ⊑ {i}
+	        {this} ⊑ L,
+	        {L;this} ⊑ {i}
 	{
 		 if (value == v) return i;
 		 if (next != null)
