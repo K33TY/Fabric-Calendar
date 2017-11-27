@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="" />
+    <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/fabric/util/Date.fab" afterPath="$PROJECT_DIR$/prototype/fabric/util/Date.fab" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,10 +29,10 @@
       <file leaf-file-name="Date.fab" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prototype/fabric/util/Date.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="979">
-              <caret line="480" column="39" lean-forward="false" selection-start-line="480" selection-start-column="39" selection-end-line="480" selection-end-column="39" />
+            <state relative-caret-position="930">
+              <caret line="324" column="101" lean-forward="false" selection-start-line="324" selection-start-column="101" selection-end-line="324" selection-end-column="101" />
               <folding>
-                <marker date="1511793764000" expanded="true" signature="13529:13710" ph="..." />
+                <marker date="1511794783000" expanded="true" signature="13827:14008" ph="..." />
               </folding>
             </state>
           </provider>
@@ -550,12 +552,12 @@
       <workItem from="1509050691425" duration="59764000" />
       <workItem from="1510613705840" duration="44878000" />
       <workItem from="1511377528691" duration="16483000" />
-      <workItem from="1511751360803" duration="14179000" />
+      <workItem from="1511751360803" duration="15196000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136674000" />
+    <option name="totallyTimeSpent" value="137691000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-1660" width="1440" height="2560" extended-state="6" />
@@ -945,10 +947,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prototype/fabric/util/Date.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="979">
-          <caret line="480" column="39" lean-forward="false" selection-start-line="480" selection-start-column="39" selection-end-line="480" selection-end-column="39" />
+        <state relative-caret-position="930">
+          <caret line="324" column="101" lean-forward="false" selection-start-line="324" selection-start-column="101" selection-end-line="324" selection-end-column="101" />
           <folding>
-            <marker date="1511793764000" expanded="true" signature="13529:13710" ph="..." />
+            <marker date="1511794783000" expanded="true" signature="13827:14008" ph="..." />
           </folding>
         </state>
       </provider>

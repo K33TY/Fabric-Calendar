@@ -185,7 +185,8 @@ public class Date[label L, principal p] {
     }
 
     // why is this method orginally static if called from a object that is being instantiated?
-    public int{L} daysInMonth{L}(int{L} month, int{L} year)
+    public int{L} daysInMonth{L}(int month, int year)
+    where   {month; year} ⊑ L
     {
         if (month < 1 || month > 12) return -1;
         try
@@ -321,17 +322,20 @@ public class Date[label L, principal p] {
     }*/
 
 	// Why is this static originally?
-    public Date[lbl, p] lenientDate{*lbl}(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, principal p)
+	// What is the purpose of this method anyways? why are we making a "lenient date" with new label?
+    public Date[{*lbl}, p]{*lbl} lenientDate{L}(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, principal p)
     where   caller(p),
             //authority(p),
             //endorse({*lbl}),
-
+			{month} ⊑ {L},
             {p→;p←} ⊑ {*lbl},
             {*lbl} ⊑ {p→;p←},
+            {*lbl} ⊑ {L},
+            {L} ⊑ {*lbl},
             {*lbl} ⊑ {⊤→this.store$},  // TODO: What does this mean?
             {⊤←this.store$} ⊑ {*lbl}   // TODO: and this?
     {
-        /* issue with daysInMonth()
+         // issue with daysInMonth()
         int y = year;
         int m = month;
         int d = day;
@@ -356,9 +360,11 @@ public class Date[label L, principal p] {
                     d += daysInMonth((m+10)%12+1, y); m--;
                 }
             }
-            return new Date[lbl, p](y, m, d);
+            //label newlbl = {L}⊔{*lbl};//idea
+            //return new Date[newlbl, p](y, m, d);
+            return new Date[{*lbl}, p](y, m, d);
         }
-        catch (IllegalArgumentException impossible) { }*/
+        catch (IllegalArgumentException impossible) { }
         return null;
     }
 
