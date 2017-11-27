@@ -22,15 +22,15 @@ public class Date[label L, principal p] {
     private int{L} minute;
 
 	// Special list structures because of issues with polyglot no able to instantiate arrays with values
-    public StringList[L]{L}  monthNames;
+    public static StringList[{⊤←⊤}]{⊤←⊤}  monthNames;
 
-    public StringList[L]{L}  daysOfWeek;
+    public static StringList[{⊤←⊤}]{⊤←⊤}  daysOfWeek;
 
-    public StringList[L]{L}  shortDaysOfWeek;
+    public static StringList[{⊤←⊤}]{⊤←⊤}  shortDaysOfWeek;
 
-    public StringList[L]{L}  shortMonthNames;
+    public static StringList[{⊤←⊤}]{⊤←⊤}  shortMonthNames;
 
-    public IntList[L]{L}     maxDaysInMonth;
+    public static IntList[{⊤←⊤}]{⊤←⊤}     maxDaysInMonth;
 
 	  //---------------//
 	 //  Constructors //
@@ -183,6 +183,34 @@ public class Date[label L, principal p] {
         maxDaysInMonth.add(31);
     }
 
+    // why is this method orginally static if called from a object that is being instantiated?
+    public static int{L} daysInMonth{L}(int{L} month, int{L} year)
+    {
+        if (month < 1 || month > 12) return -1;
+        try
+        {
+            if (month == 2)
+            {
+                return isLeapYear(year)?29:28;
+            }
+            return maxDaysInMonth.get(month);
+        }
+        catch (Exception impossible)
+        {
+            return -1;
+        }
+    }
+
+    /**
+     * Determine if the given year is a leap years. A year is a leap year
+     * if it is divisible by 4, unless it is the first year of a century
+     * (i.e. is divisible by 100), except for every fourth century.
+     */
+    public static boolean{pYear} isLeapYear(int pYear)
+    {
+            return (pYear % 4 == 0 && (pYear % 100 != 0 || pYear % 400 == 0));
+    }
+
 	// why is this method orginally static if called from a object that is being instantiated?
     private void checkDateValid{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
     throws  (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
@@ -290,6 +318,140 @@ public class Date[label L, principal p] {
             return null;
         }
     }*/
+
+	// Why is this static originally?
+    public Date[lbl, p] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, principal p)
+    where   caller(p),
+            //authority(p),
+            //endorse({*lbl}),
+
+            {p→;p←} ⊑ {*lbl},
+            {*lbl} ⊑ {p→;p←},
+            {*lbl} ⊑ {⊤→this.store$},  // TODO: What does this mean?
+            {⊤←this.store$} ⊑ {*lbl}   // TODO: and this?
+    {
+        /*int y = year;
+        int m = month;
+        int d = day;
+        try {
+            while (m > 12 || m < 1 || d < 1 || d > daysInMonth(m, y))
+            {
+                while (m > 12)
+                {
+                    m -= 12; y++;
+                }
+                while (m < 1)
+                {
+                    m += 12; y--;
+                }
+                // m is now between 1 and 12 inclusive
+                if (d > daysInMonth(m, y))
+                {
+                    d -= daysInMonth(m, y); m++;
+                }
+                if (d < 1)
+                {
+                    d += daysInMonth((m+10)%12+1, y); m--;
+                }
+            }
+            return new Date[lbl](y, m, d);
+        }
+        catch (IllegalArgumentException impossible) { }*/
+        return null;
+    }
+
+    // Why is this static originally?
+    public Date[lbl, p] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, int{*lbl} hour, int{*lbl} minute, principal p )
+    {
+    /*    int y = year;
+        int m = month;
+        int d = day;
+        int h = hour;
+        int min = minute;
+
+        while (min > 59)
+        {
+            min -= 60; h++;
+        }
+        while (min < 0)
+        {
+            min += 60; h--;
+        }
+        while (h > 23)
+        {
+            h -= 24; d++;
+        }
+        while (h < 0)
+        {
+            h += 24; d--;
+        }
+
+        try {
+            while (m > 12 || m < 1 || d < 1 || d > daysInMonth(m, y)) {
+                while (m > 12) {
+                    m -= 12; y++;
+                }
+                while (m < 1) {
+                    m += 12; y--;
+                }
+                // m is now between 1 and 12 inclusive
+                if (d > daysInMonth(m, y)) {
+                    d -= daysInMonth(m, y); m++;
+                }
+                if (d < 1) {
+                    d += daysInMonth((m+10)%12+1, y); m--;
+                }
+            }
+            return new Date[lbl](y, m, d, h, min);
+        }
+        catch (IllegalArgumentException impossible) { }*/
+        return null;
+    }
+
+    public int{L} getYear()     { return this.year;     }
+    public int{L} getMonth()    { return this.month;    }
+    public int{L} getDay()      { return this.day;      }
+    public int{L} getHour()     { return this.hour;     }
+    public int{L} getMinute()   { return this.minute;    }
+    public int{L} getDayOfWeek() {
+        // Jan 1 1900 was a monday, so its index is 1.
+        // add the number of days since then, and take mod 7
+        // could be a negative number, so add seven to be safe...
+        int thisD = Date[L, p].daysAfterJan_1_1900(this.year, this.month, this.day);
+        return ((thisD % 7) + 8) % 7;
+    }
+
+    private static int daysAfterJan_1_1900(int year, int month, int day)
+    {
+        int y = year;
+        int m = month;
+        int d = day;
+        int count = 0;
+
+        while (y - 400 > 1900) {
+            count += DAYS_IN_400_YEARS;
+            y -= 400;
+        }
+        while (y + 400 < 1900) {
+            count -= DAYS_IN_400_YEARS;
+            y += 400;
+        }
+
+        while (y > 1900) {
+            count += isLeapYear(--y)?366:365;
+        }
+        while (y < 1900) {
+            count -= isLeapYear(++y)?366:365;
+        }
+        // now y == 1900
+        while (m > 1) {
+            count += daysInMonth(--m, y);
+        }
+        count += d-1;
+        return count;
+    }
+    private static final int{⊤←⊤} DAYS_IN_400_YEARS = 146097;
+
 
 //
 //    /**
