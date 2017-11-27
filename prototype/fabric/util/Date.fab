@@ -62,7 +62,7 @@ public class Date[label L, principal p] {
         this.minute = pMinute;
         checkDateValid(pYear, pMonth, pDay, pHour, pMinute);
 
-        setConstants();
+        setConstants(); // TODO: put this in init so can set labels to bottom prinicipal
     }
 
     public Date{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay)
@@ -240,14 +240,15 @@ public class Date[label L, principal p] {
         }
     }
 
-    /** TODO: DOES NOT BUILD YET!!!!!!!!
+//IDEA:  Date[{d}, p]{d; L} valueOf(String d, principal{d} p)
+    /** TODO: DOES NOT BUILD YET!!!!!!!! And I need this one
      * At the moment, assume that the string is in the format YYYY/MM/DD hh:mm
      * or DD-MM-YYYY hh:mm
      */
-    /*public static Date[{*lbl}, p]{*lbl} valueOf{*lbl}(label{*lbl} lbl, String{*lbl} d, principal p)
-    throws (IllegalArgumentException{*lbl})
-    where   lbl ⊑ {*lbl},
-            {*lbl} ⊑ lbl
+    public Date[L, p]{d; L} valueOf{L}(String d, principal{d} p)
+    throws (IllegalArgumentException{d})
+    where   {d} ⊑ L,
+            {d} ⊑ {⊤→this.store$}  //TODO: Is this bad?
     {
         if (d == null)
         {
@@ -309,7 +310,7 @@ public class Date[label L, principal p] {
             {
                 min = Integer.parseInt(d.substring(minStart,minEnd));
             }
-            return new Date[{*lbl}, p](year, month, day, hour, min);
+            return new Date[L, p](year, month, day, hour, min);
         }
         catch (NumberFormatException e)
         {
@@ -319,11 +320,11 @@ public class Date[label L, principal p] {
         {
             return null;
         }
-    }*/
+    }
 
 	// Why is this static originally?
 	// What is the purpose of this method anyways? why are we making a "lenient date" with new label?
-    public Date[{*lbl}, p]{*lbl} lenientDate{L}(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, principal p)
+/*    public Date[{*lbl}, p]{*lbl} lenientDate{L}(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, principal p)
     where   caller(p),
             //authority(p),
             //endorse({*lbl}),
@@ -366,7 +367,7 @@ public class Date[label L, principal p] {
         }
         catch (IllegalArgumentException impossible) { }
         return null;
-    }
+    }*/
 
     // Why is this static originally?
     public Date[lbl, p] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, int{*lbl} hour, int{*lbl} minute, principal p )
