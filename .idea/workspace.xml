@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Impl.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Static$_Impl.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Static$_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Static$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$_Static$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Impl.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Static$_Impl.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Static$_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Static$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0$_Static$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_0.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Impl.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Static$_Impl.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Static$_Impl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Static$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1$_Static$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date$prototype$fabric$util$Date$_split_1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/DateBck.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/DateBck.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList$prototype$fabric$util$IntList$_split_0.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList$prototype$fabric$util$IntList$_split_0.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList$_Proxy.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList$_Proxy.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList$prototype$fabric$util$StringList$_split_0.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList$prototype$fabric$util$StringList$_split_0.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList.class" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/Date.java" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/Date.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/DateBck.java" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/DateBck.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList.java" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/IntList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList.java" afterPath="$PROJECT_DIR$/classes/prototype/fabric/util/StringList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/fabric/util/Date.fab" afterPath="$PROJECT_DIR$/prototype/fabric/util/Date.fab" />
-    </list>
+    <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,10 +27,10 @@
       <file leaf-file-name="Date.fab" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prototype/fabric/util/Date.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4452">
-              <caret line="721" column="35" lean-forward="true" selection-start-line="721" selection-start-column="35" selection-end-line="721" selection-end-column="35" />
+            <state relative-caret-position="979">
+              <caret line="480" column="39" lean-forward="false" selection-start-line="480" selection-start-column="39" selection-end-line="480" selection-end-column="39" />
               <folding>
-                <marker date="1511790749000" expanded="true" signature="13529:13710" ph="..." />
+                <marker date="1511793764000" expanded="true" signature="13529:13710" ph="..." />
               </folding>
             </state>
           </provider>
@@ -579,12 +550,12 @@
       <workItem from="1509050691425" duration="59764000" />
       <workItem from="1510613705840" duration="44878000" />
       <workItem from="1511377528691" duration="16483000" />
-      <workItem from="1511751360803" duration="13085000" />
+      <workItem from="1511751360803" duration="14179000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135580000" />
+    <option name="totallyTimeSpent" value="136674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-1660" width="1440" height="2560" extended-state="6" />
@@ -974,10 +945,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/prototype/fabric/util/Date.fab">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4452">
-          <caret line="721" column="35" lean-forward="true" selection-start-line="721" selection-start-column="35" selection-end-line="721" selection-end-column="35" />
+        <state relative-caret-position="979">
+          <caret line="480" column="39" lean-forward="false" selection-start-line="480" selection-start-column="39" selection-end-line="480" selection-end-column="39" />
           <folding>
-            <marker date="1511790749000" expanded="true" signature="13529:13710" ph="..." />
+            <marker date="1511793764000" expanded="true" signature="13529:13710" ph="..." />
           </folding>
         </state>
       </provider>
