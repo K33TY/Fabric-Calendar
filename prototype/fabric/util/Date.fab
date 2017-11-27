@@ -13,7 +13,7 @@ import fabric.runtime.Runtime;
  * It is immutable.
  * It provides no way to get the current time.
  */
-public class Date[label L, principal p] {
+public class Date[label L] {
 
     private int{L} year;
     private int{L} month;
@@ -23,24 +23,144 @@ public class Date[label L, principal p] {
 
 	// Special list structures because of issues with polyglot no able to instantiate arrays with values
 	// Originally this was compiling and allowing to add values when it was non static and label L
-    public StringList[L]{L}  monthNames;
+    //public StringList[L]{L}  monthNames;
 
-    public StringList[L]{L}  daysOfWeek;
+    public static String monthNames(int i) throws (IllegalArgumentException{i}) {
+      switch (i) {
+        case 1:
+          return "January";
+        case 2:
+          return "February";
+        case 3:
+          return "March";
+        case 4:
+          return "April";
+        case 5:
+          return "May";
+        case 6:
+          return "June";
+        case 7:
+          return "July";
+        case 8:
+          return "August";
+        case 9:
+          return "September";
+        case 10:
+          return "October";
+        case 11:
+          return "November";
+        case 12:
+          return "December";
+        default:
+          throw new IllegalArgumentException("BAD MONTH");
+      }
+    }
 
-    public StringList[L]{L}  shortDaysOfWeek;
+    public static String daysOfWeek(int i) throws (IllegalArgumentException{i}) {
+      switch (i) {
+        case 1:
+          return "Monday";
+        case 2:
+          return "Tuesday";
+        case 3:
+          return "Wednesday";
+        case 4:
+          return "Thursday";
+        case 5:
+          return "Friday";
+        case 6:
+          return "Saturday";
+        case 0:
+        case 7:
+          return "Sunday";
+        default:
+          throw new IllegalArgumentException("BAD DAY");
+      }
+    }
 
-    public StringList[L]{L}  shortMonthNames; //[{⊤←⊤}]{⊤←⊤}
+    public static String shortDaysOfWeek(int i) throws (IllegalArgumentException{i}) {
+      switch (i) {
+        case 1:
+          return "Mon";
+        case 2:
+          return "Tue";
+        case 3:
+          return "Wed";
+        case 4:
+          return "Thu";
+        case 5:
+          return "Fri";
+        case 6:
+          return "Sat";
+        case 0:
+        case 7:
+          return "Sun";
+        default:
+          throw new IllegalArgumentException("BAD DAY");
+      }
+    }
 
-    public IntList[L]{L}     maxDaysInMonth;
+    public static String shortMonthNames(int i) throws (IllegalArgumentException{i}) {
+      switch (i) {
+        case 1:
+          return "Jan";
+        case 2:
+          return "Feb";
+        case 3:
+          return "Mar";
+        case 4:
+          return "Apr";
+        case 5:
+          return "May";
+        case 6:
+          return "Jun";
+        case 7:
+          return "Jul";
+        case 8:
+          return "Aug";
+        case 9:
+          return "Sept";
+        case 10:
+          return "Oct";
+        case 11:
+          return "Nov";
+        case 12:
+          return "Dec";
+        default:
+          throw new IllegalArgumentException("BAD MONTH");
+      }
+    }
+
+    public static int maxDaysInMonth(int i) throws (IllegalArgumentException{i}) {
+      switch (i) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+          return 31;
+        case 2:
+          return 29;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+          return 30;
+        default:
+          throw new IllegalArgumentException("BAD MONTH");
+      }
+    }
 
 	  //---------------//
 	 //  Constructors //
 	//---------------//
 
 	// Set date to current time
-    public Date()
-    where   L ⊑ {this},
-    	    {this} ⊑ L
+    public Date(final principal p)
+    //where   //L ⊑ {this},
+    //            {this} ⊑ L
     {
         // TODO: originally final principal p = PrincipalUtil.nullPrincipal(); and date not requiring principal for construction...
         this.year = Runtime[p].currentYear();
@@ -48,145 +168,75 @@ public class Date[label L, principal p] {
         this.day = Runtime[p].currentDayOfMonth();
         this.hour = Runtime[p].currentHour();
         this.minute = Runtime[p].currentMinute();
-
-        setConstants();
+        super();
     }
 
-    public Date{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
+    public Date(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
     throws  (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
+    //where   //L ⊑ {this},
+    //            {this} ⊑ L
     {
         this.year = pYear;
         this.month = pMonth;
         this.day = pDay;
         this.hour = pHour;
         this.minute = pMinute;
+        super();
         checkDateValid(pYear, pMonth, pDay, pHour, pMinute);
-
-        setConstants(); // TODO: put this in init so can set labels to bottom prinicipal
     }
 
-    public Date{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay)
+    public Date(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay)
     throws (IllegalArgumentException{pYear; pMonth; pDay})
+    //where   //L ⊑ {this},
+    //            {this} ⊑ L
     {
         this(pYear, pMonth, pDay, 0, 0);
     }
 
-    public Date{L}(int{L; this} pYear, String{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
-    throws (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
-    where   L ⊑ {this},
-        	{this} ⊑ L
-    {
-        this.year = pYear;
-        this.day = pDay;
-        this.hour = pHour;
-        this.minute = pMinute;
-        int theMonth = 0;
-        for (int i = 1; i <= 12; i++)
-        {
-            try
-            {
-                if (monthNames.get(i).equalsIgnoreCase(pMonth) || shortMonthNames.get(i).equalsIgnoreCase(pMonth))
-                {
-                    theMonth = i;
-                    break;
-                }
-            }
-            catch(Exception impossible) {  }
-        }
-        if (theMonth == 0)
-        {
-            throw new IllegalArgumentException("Invalid month: " + pMonth);
-        }
-        this.month = theMonth;
-        checkDateValid(pYear, theMonth, pDay, pHour, pMinute);
-
-        setConstants();
-    }
-
-    public Date{L}(int{L; this} pYear, String{L; this} pMonth, int{L; this} pDay)
-    throws (IllegalArgumentException{pYear; pMonth; pDay})
-    where   L ⊑ {this},
-            {this} ⊑ L
-    {
-        this(pYear, pMonth, pDay, 0, 0);
-    }
-
-	  //-----------------------------//
-	 //  Constructor Helper Methods //
-	//-----------------------------//
-
-	//  Cannot instantiate arrays with values so doing this stupid thing
-    public void setConstants{L}()
-    {
-        // Month Names
-        monthNames.add("NOT A VALID MONTH");
-        monthNames.add("January");
-		monthNames.add("February");
-		monthNames.add("March");
-		monthNames.add("April");
-		monthNames.add("May");
-		monthNames.add("June");
-		monthNames.add("July");
-		monthNames.add("August");
-		monthNames.add("September");
-		monthNames.add("October");
-		monthNames.add("November");
-		monthNames.add("December");
-
-		// Days of week
-		daysOfWeek.add("Sunday");
-		daysOfWeek.add("Monday");
-		daysOfWeek.add("Tuesday");
-		daysOfWeek.add("Wednesday");
-		daysOfWeek.add("Thursday");
-		daysOfWeek.add("Friday");
-		daysOfWeek.add("Saturday");
-		daysOfWeek.add("Sunday");
-
-		// Short month names
-		shortMonthNames.add("NOT A VALID MONTH");
-		shortMonthNames.add("Jan");
-		shortMonthNames.add("Feb");
-		shortMonthNames.add("Mar");
-		shortMonthNames.add("Apr");
-		shortMonthNames.add("May");
-		shortMonthNames.add("Jun");
-		shortMonthNames.add("Jul");
-		shortMonthNames.add("Aug");
-		shortMonthNames.add("Sep");
-		shortMonthNames.add("Oct");
-		shortMonthNames.add("Nov");
-		shortMonthNames.add("Dec");
-
-		// Short days of week
-		shortDaysOfWeek.add("Sun");
-		shortDaysOfWeek.add("Mon");
-		shortDaysOfWeek.add("Tue");
-		shortDaysOfWeek.add("Wed");
-		shortDaysOfWeek.add("Thu");
-		shortDaysOfWeek.add("Fri");
-		shortDaysOfWeek.add("Sat");
-		shortDaysOfWeek.add("Sun");
-
-		// Maximum days in month
-		maxDaysInMonth.add(-1);
-		maxDaysInMonth.add(31);
-		maxDaysInMonth.add(29);
-		maxDaysInMonth.add(31);
-		maxDaysInMonth.add(30);
-		maxDaysInMonth.add(31);
-        maxDaysInMonth.add(30);
-        maxDaysInMonth.add(31);
-        maxDaysInMonth.add(31);
-        maxDaysInMonth.add(30);
-        maxDaysInMonth.add(31);
-        maxDaysInMonth.add(30);
-        maxDaysInMonth.add(31);
-    }
+    // Below are commented out due to troubles with label checks and constructor
+    // epilogues.
+    //
+    //public Date(int{L} pYear, String{L} pMonth, int{L} pDay, int{L} pHour, int{L} pMinute)
+    //throws (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
+    ////where   //L ⊑ {this},
+    ////            {this} ⊑ L
+    //{
+    //    this.year = pYear;
+    //    this.day = pDay;
+    //    this.hour = pHour;
+    //    this.minute = pMinute;
+    //    int theMonth = 0;
+    //    for (int i = 1; i <= 12; i++)
+    //    {
+    //        try
+    //        {
+    //            if (monthNames(i).equalsIgnoreCase(pMonth) || shortMonthNames(i).equalsIgnoreCase(pMonth))
+    //            {
+    //                theMonth = i;
+    //                break;
+    //            }
+    //        }
+    //        catch(Exception impossible) {  }
+    //    }
+    //    if (theMonth == 0)
+    //    {
+    //        throw new IllegalArgumentException("Invalid month: " + pMonth);
+    //    }
+    //    this.month = theMonth;
+    //    super();
+    //    checkDateValid(pYear, this.month, pDay, pHour, pMinute);
+    //}
+    //
+    //public Date(int{L} pYear, String{L} pMonth, int{L} pDay)
+    //throws (IllegalArgumentException{pYear; pMonth; pDay})
+    ////where   L ⊑ {this},
+    ////        {this} ⊑ L
+    //{
+    //    this(pYear, pMonth, pDay, 0, 0);
+    //}
 
     // why is this method orginally static if called from a object that is being instantiated?
-    public int{L} daysInMonth{L}(int month, int year)
-    where   {month; year} ⊑ L
+    public static int daysInMonth(int month, int year)
     {
         if (month < 1 || month > 12) return -1;
         try
@@ -195,7 +245,7 @@ public class Date[label L, principal p] {
             {
                 return isLeapYear(year)?29:28;
             }
-            return maxDaysInMonth.get(month);
+            return maxDaysInMonth(month);
         }
         catch (Exception impossible)
         {
@@ -208,28 +258,24 @@ public class Date[label L, principal p] {
      * if it is divisible by 4, unless it is the first year of a century
      * (i.e. is divisible by 100), except for every fourth century.
      */
-    public boolean{pYear} isLeapYear(int pYear)
+    public static boolean isLeapYear(int pYear)
     {
         return (pYear % 4 == 0 && (pYear % 100 != 0 || pYear % 400 == 0));
     }
 
 	// why is this method orginally static if called from a object that is being instantiated?
-    private void checkDateValid{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
+    private void checkDateValid(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
     throws  (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
     {
         if (pMonth < 1 || pMonth > 12)
         {
             throw new IllegalArgumentException("Invalid month: " + pMonth);
         }
-        /*try {
-            if (pDay < 1 || pDay > daysInMonth(pMonth, pYear))
-            {
-                throw new IllegalArgumentException(monthNames[pMonth] + " " +
-                      pYear + " has " + daysInMonth(pMonth, pYear) + " days.");
-            }
+        if (pDay < 1 || pDay > daysInMonth(pMonth, pYear))
+        {
+            throw new IllegalArgumentException(monthNames(pMonth) + " " +
+                  pYear + " has " + daysInMonth(pMonth, pYear) + " days.");
         }
-        catch(ArrayIndexOutOfBoundsException impossible) { }
-        catch(NullPointerException impossible) { }*/
         if (pHour < 0 || pHour > 23)
         {
             throw new IllegalArgumentException("Invalid hour: " + pHour);
@@ -240,15 +286,15 @@ public class Date[label L, principal p] {
         }
     }
 
-//IDEA:  Date[{d}, p]{d; L} valueOf(String d, principal{d} p)
+//IDEA:  Date[{d}]{d; L} valueOf(String d, principal{d} p)
     /** TODO: DOES NOT BUILD YET!!!!!!!! And I need this one
      * At the moment, assume that the string is in the format YYYY/MM/DD hh:mm
      * or DD-MM-YYYY hh:mm
      */
-    public Date[L, p]{d; L} valueOf{L}(String d, principal{d} p)
-    throws (IllegalArgumentException{d})
-    where   {d} ⊑ L,
-            {d} ⊑ {⊤→this.store$}  //TODO: Is this bad?
+    public static Date[lbl]{*lbl} valueOf{*lbl}(label{*lbl} lbl, String{*lbl} d)
+    throws (IllegalArgumentException{*lbl})
+    //where   {d} ⊑ L//,
+            //{d} ⊑ {⊤→this.store$}  //TODO: Is this bad?
     {
         if (d == null)
         {
@@ -310,7 +356,7 @@ public class Date[label L, principal p] {
             {
                 min = Integer.parseInt(d.substring(minStart,minEnd));
             }
-            return new Date[L, p](year, month, day, hour, min);
+            return new Date[lbl](year, month, day, hour, min);
         }
         catch (NumberFormatException e)
         {
@@ -324,19 +370,8 @@ public class Date[label L, principal p] {
 
 	// Why is this static originally?
 	// What is the purpose of this method anyways? why are we making a "lenient date" with new label?
-/*    public Date[{*lbl}, p]{*lbl} lenientDate{L}(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, principal p)
-    where   caller(p),
-            //authority(p),
-            //endorse({*lbl}),
-			{month} ⊑ {L},
-            {p→;p←} ⊑ {*lbl},
-            {*lbl} ⊑ {p→;p←},
-            {*lbl} ⊑ {L},
-            {L} ⊑ {*lbl},
-            {*lbl} ⊑ {⊤→this.store$},  // TODO: What does this mean?
-            {⊤←this.store$} ⊑ {*lbl}   // TODO: and this?
+    public static Date[lbl] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day)
     {
-         // issue with daysInMonth()
         int y = year;
         int m = month;
         int d = day;
@@ -361,18 +396,16 @@ public class Date[label L, principal p] {
                     d += daysInMonth((m+10)%12+1, y); m--;
                 }
             }
-            //label newlbl = {L}⊔{*lbl};//idea
-            //return new Date[newlbl, p](y, m, d);
-            return new Date[{*lbl}, p](y, m, d);
+            return new Date[lbl](y, m, d);
         }
         catch (IllegalArgumentException impossible) { }
         return null;
-    }*/
+    }
 
     // Why is this static originally?
-    public Date[lbl, p] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, int{*lbl} hour, int{*lbl} minute, principal p )
+    public static Date[lbl] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, int{*lbl} hour, int{*lbl} minute)
     {
-    /*    int y = year;
+        int y = year;
         int m = month;
         int d = day;
         int h = hour;
@@ -413,7 +446,7 @@ public class Date[label L, principal p] {
             }
             return new Date[lbl](y, m, d, h, min);
         }
-        catch (IllegalArgumentException impossible) { }*/
+        catch (IllegalArgumentException impossible) { }
         return null;
     }
 
@@ -426,7 +459,7 @@ public class Date[label L, principal p] {
     {
         try
         {
-            return monthNames.get(this.month);
+            return monthNames(this.month);
         }
         catch(Exception impossible) { }
         return "impossible!";
@@ -436,7 +469,7 @@ public class Date[label L, principal p] {
     {
         try
         {
-            return shortMonthNames.get(this.month);
+            return shortMonthNames(this.month);
         }
         catch(Exception impossible) { }
         return "impossible!";
@@ -446,7 +479,7 @@ public class Date[label L, principal p] {
     {
         try
         {
-            return daysOfWeek.get(this.getDayOfWeek());
+            return daysOfWeek(this.getDayOfWeek());
         }
 		catch(Exception impossible) { }
         return "impossible!";
@@ -455,22 +488,11 @@ public class Date[label L, principal p] {
     public String{L} getShortDayOfWeekName{L}()
     {
         try {
-            return shortDaysOfWeek.get(this.getDayOfWeek());
+            return shortDaysOfWeek(this.getDayOfWeek());
         }
         catch(Exception impossible) { }
         return "impossible!";
     }
-
-	// Why is implemented twice?
-    /*public String{L} getDayOfWeek{L}()
-    {
-	    try
-	    {
-	        return daysOfWeek.get(this.day);
-	    }
-	    catch(Exception impossible) { }
-        return "impossible!";
-	}*/
 
     public int{L} getYear()     { return this.year;     }
     public int{L} getMonth()    { return this.month;    }
@@ -509,47 +531,7 @@ public class Date[label L, principal p] {
         }
         // now y == 1900
         while (m > 1) {
-            //count += daysInMonth(--m, y); //TODO: FIX ME
-            /* Error:
-
-				build-calendar:
-				    [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/prototype/fabric/util/Date.fab:449:
-				    [apply]     Unsatisfiable constraint
-				    [apply]     	general constraint:
-				    [apply]     		actual_arg_1 ⊑ formal_arg_1
-				    [apply]     	in this context:
-				    [apply]     		{month ⊔ caller_pc ⊔ ⊥→⊥; ⊤←} ⊑ L
-				    [apply]     	cannot satisfy equation:
-				    [apply]     		{month ⊔ caller_pc} ⊑ L
-				    [apply]     	in environment:
-				    [apply]     		{this} ⊑ {L ⊔ ⊥→⊥; ⊥←⊥}
-				    [apply]     		L ⊑ {⊤→this.store$}
-				    [apply]     		L ⊑ {⊤→this.store$}
-				    [apply]     		{⊤←this.store$} ⊑ L
-				    [apply]     		{this} ⊑ {caller_pc}
-				    [apply]     		[]
-				    [apply]
-				    [apply]     Label Descriptions
-				    [apply]     ------------------
-				    [apply]      - actual_arg_1 = the label of the 1st actual argument
-				    [apply]      - actual_arg_1 = {month ⊔ caller_pc ⊔ ⊥→⊥; ⊤←}
-				    [apply]      - formal_arg_1 = the upper bound of the formal argument month
-				    [apply]      - formal_arg_1 = L
-				    [apply]      - month = polymorphic label of formal argument month of method
-				    [apply]     daysAfterJan_1_1900 (bounded above by {⊤→})
-				    [apply]      - caller_pc = pc label
-				    [apply]      - L = label parameter L of class prototype.fabric.util.Date
-				    [apply]      - this = label of the special variable "this" in
-				    [apply]     prototype.fabric.util.Date[label L, principal p]
-				    [apply]
-				    [apply]     The label of the actual argument, actual_arg_1, is more restrictive than
-				    [apply]     the label of the formal argument, formal_arg_1.
-				    [apply]             count += daysInMonth(--m, y);
-				    [apply]                                  ^-^
-				    [apply]
-				    [apply] 1 error.
-				    [apply] null
-            */
+            count += daysInMonth(--m, y);
         }
         count += d-1;
         return count;
@@ -557,10 +539,10 @@ public class Date[label L, principal p] {
     private final int{⊤←⊤} DAYS_IN_400_YEARS = 146097;
 
 
-    public boolean{L; when} before{L}(Date[L, p] when)
+    public boolean{L; when} before{L}(Date[L] when)
     where   {when} ⊑ {L}
     {
-        Date[L, p] that = when;
+        Date[L] that = when;
         if (that == null)
         {
             return false;
@@ -572,10 +554,10 @@ public class Date[label L, principal p] {
             (this.year == that.year && this.month == that.month && this.day == that.day && this.hour == that.hour && this.minute < that.minute);
     }
 
-    public boolean{L; when} after{L}(Date[L, p] when)
+    public boolean{L; when} after{L}(Date[L] when)
     where   {when} ⊑ {L}
     {
-        Date[L, p] that = when;
+        Date[L] that = when;
         if (that == null)
         {
             return false;
@@ -591,13 +573,13 @@ public class Date[label L, principal p] {
      * Return number of days that this is before when. Will return a negative
      * number if this is after when.
      */
-    public int{L; when} daysBefore{L}(Date[L, p] when)
+    public int{L; when} daysBefore{L}(Date[L] when)
     where   {when} ⊑ {L},
 		    {this} ⊑ {L}
     {
         if (when == null) return 0;
-        Date[L, p] w = when;
-        Date[L, p] t = this;
+        Date[L] w = when;
+        Date[L] t = this;
         int whenD = w.daysAfterJan_1_1900(when.year, when.month, when.day);
         int thisD = t.daysAfterJan_1_1900(this.year, this.month, this.day);
 
@@ -645,86 +627,86 @@ public class Date[label L, principal p] {
      //  Functional Style Methods  //
     //----------------------------//
 
-    public Date[L, p]{L} year{L}(int{this} year):{L; this}
+    public Date[L]{L} year{L}(int{this} year):{L; this}
     throws IllegalArgumentException
     {
-        return new Date[L, p](year, this.month, this.day, this.hour, this.minute);
+        return new Date[L](year, this.month, this.day, this.hour, this.minute);
     }
 
-    public Date[L, p]{L} month{L}(int{this} month):{L; this}
+    public Date[L]{L} month{L}(int{this} month):{L; this}
     throws IllegalArgumentException
     {
-        return new Date[L, p](this.year, month, this.day, this.hour, this.minute);
+        return new Date[L](this.year, month, this.day, this.hour, this.minute);
     }
 
-    public Date[L, p]{L} day{L}(int{this} day):{L; this}
+    public Date[L]{L} day{L}(int{this} day):{L; this}
     throws IllegalArgumentException
     {
-        return new Date[L, p](this.year, this.month, day, this.hour, this.minute);
+        return new Date[L](this.year, this.month, day, this.hour, this.minute);
     }
 
-    public Date[L, p]{L} hour{L}(int{this} hour):{L; this}
+    public Date[L]{L} hour{L}(int{this} hour):{L; this}
     throws IllegalArgumentException
     {
-        return new Date[L, p](this.year, this.month, this.day, hour, this.minute);
+        return new Date[L](this.year, this.month, this.day, hour, this.minute);
     }
 
-    public Date[L, p]{L} minute{L}(int{this} minute):{L; this}
+    public Date[L]{L} minute{L}(int{this} minute):{L; this}
     throws IllegalArgumentException
     {
-        return new Date[L, p](this.year, this.month, this.day, this.hour, minute);
+        return new Date[L](this.year, this.month, this.day, this.hour, minute);
     }
 
-    ////    public Date[L]{L} addYear(int{L} yearDelta):{L; this} {
-    ////        return lenientDate(L, this.year + yearDelta, this.month, this.day);
-    ////    }
-    ////    public Date[L]{L} addMonth(int{L} monthDelta):{L; this} {
-    ////        return lenientDate(L, this.year, this.month + monthDelta, this.day);
-    ////    }
-    ////    public Date[L]{L} addDay(int{L} dayDelta):{L; this} {
-    ////        return lenientDate(L, this.year, this.month, this.day + dayDelta);
-    ////    }
-    //    public static Date[lb]{*lb; lb; date; delta} addYear{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-    //        if (date == null) return null;
-    //        return Date[lb].lenientDate(lb, date.getYear() + delta, date.getMonth(), date.getDay(), date.getHour(), date.getMinute());
-    //    }
-    //    public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-    //        if (date == null) return null;
-    //        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
-    //    }
-    //    /**
-    //     * Adds a positive or negative number of months to the date. If smartUpdate is true, then
-    //     * the returned date is guranteed to be at most one calendar month away; if smartUpdate is false, this is
-    //     * not guaranteed. An example where behavior is different adding one month to October 31. There is no November 31, so with
-    //     * smartUpdate false, the date returned would be Dec 1; with smartUpdate true, the date returned would be November 30.
-    //     * Another example, March 30 minus one month would be either March 1 or March 2 if smartUpdate false (depending on leap years), and
-    //     * either Feb 28 or Feb 29 if smartUpdate true (depending on leap years).
-    //     */
-    //    public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label{*lb} lb, Date[lb]{*lb} date, int{*lb} delta, boolean{*lb} smartUpdate) {
-    //        if (date == null) return null;
-    //        Date[lb] d = Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
-    //        if (smartUpdate) {
-    //            int newMonth = date.getMonth() + delta;
-    //            newMonth = newMonth % 12; // make the new month in the correct range
-    //            if (newMonth <= 0) newMonth += 12;
-    //            while (d != null && newMonth != d.getMonth()) {
-    //                d = addDay(lb, d, delta<0?1:-1);
-    //            }
-    //        }
-    //        return d;
-    //    }
-    //    public static Date[lb]{*lb; lb; date; delta} addDay{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-    //        if (date == null) return null;
-    //        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay() + delta, date.getHour(), date.getMinute());
-    //    }
-    //    public static Date[lb]{*lb; lb; date; delta} addHour{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-    //        if (date == null) return null;
-    //        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour() + delta, date.getMinute());
-    //    }
-    //    public static Date[lb]{*lb; lb; date; delta} addMinute{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-    //        if (date == null) return null;
-    //        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour(), date.getMinute()+ delta);
-    //    }
+        //public Date[L]{L} addYear(int{L} yearDelta):{L; this} {
+        //    return lenientDate(L, this.year + yearDelta, this.month, this.day);
+        //}
+        //public Date[L]{L} addMonth(int{L} monthDelta):{L; this} {
+        //    return lenientDate(L, this.year, this.month + monthDelta, this.day);
+        //}
+        //public Date[L]{L} addDay(int{L} dayDelta):{L; this} {
+        //    return lenientDate(L, this.year, this.month, this.day + dayDelta);
+        //}
+        public static Date[lb]{*lb; lb; date; delta} addYear{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
+            if (date == null) return null;
+            return Date[lb].lenientDate(lb, date.getYear() + delta, date.getMonth(), date.getDay(), date.getHour(), date.getMinute());
+        }
+        public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
+            if (date == null) return null;
+            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
+        }
+        /**
+         * Adds a positive or negative number of months to the date. If smartUpdate is true, then
+         * the returned date is guranteed to be at most one calendar month away; if smartUpdate is false, this is
+         * not guaranteed. An example where behavior is different adding one month to October 31. There is no November 31, so with
+         * smartUpdate false, the date returned would be Dec 1; with smartUpdate true, the date returned would be November 30.
+         * Another example, March 30 minus one month would be either March 1 or March 2 if smartUpdate false (depending on leap years), and
+         * either Feb 28 or Feb 29 if smartUpdate true (depending on leap years).
+         */
+        public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label{*lb} lb, Date[lb]{*lb} date, int{*lb} delta, boolean{*lb} smartUpdate) {
+            if (date == null) return null;
+            Date[lb] d = Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
+            if (smartUpdate) {
+                int newMonth = date.getMonth() + delta;
+                newMonth = newMonth % 12; // make the new month in the correct range
+                if (newMonth <= 0) newMonth += 12;
+                while (d != null && newMonth != d.getMonth()) {
+                    d = addDay(lb, d, delta<0?1:-1);
+                }
+            }
+            return d;
+        }
+        public static Date[lb]{*lb; lb; date; delta} addDay{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
+            if (date == null) return null;
+            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay() + delta, date.getHour(), date.getMinute());
+        }
+        public static Date[lb]{*lb; lb; date; delta} addHour{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
+            if (date == null) return null;
+            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour() + delta, date.getMinute());
+        }
+        public static Date[lb]{*lb; lb; date; delta} addMinute{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
+            if (date == null) return null;
+            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour(), date.getMinute()+ delta);
+        }
 
     //    /* THIS DOES NOT COMPILE:
     //    //TODO: IS THIS A NECESSARY PART OF DATE?
