@@ -41,6 +41,7 @@ public class Date[label L, principal p] {
     where   L ⊑ {this},
     	    {this} ⊑ L
     {
+        // TODO: originally final principal p = PrincipalUtil.nullPrincipal(); and date not requiring principal for construction...
         this.year = Runtime[p].currentYear();
         this.month = Runtime[p].currentMonth();
         this.day = Runtime[p].currentDayOfMonth();
@@ -61,6 +62,52 @@ public class Date[label L, principal p] {
         checkDateValid(pYear, pMonth, pDay, pHour, pMinute);
 
         setConstants();
+    }
+
+    public Date{L}(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay)
+    throws (IllegalArgumentException{pYear; pMonth; pDay})
+    {
+        this(pYear, pMonth, pDay, 0, 0);
+    }
+
+    public Date{L}(int{L; this} pYear, String{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
+    throws (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
+    where   L ⊑ {this},
+        	{this} ⊑ L
+    {
+        this.year = pYear;
+        this.day = pDay;
+        this.hour = pHour;
+        this.minute = pMinute;
+        int theMonth = 0;
+        for (int i = 1; i <= 12; i++)
+        {
+            try
+            {
+                if (monthNames.get(i).equalsIgnoreCase(pMonth) || shortMonthNames.get(i).equalsIgnoreCase(pMonth))
+                {
+                    theMonth = i;
+                    break;
+                }
+            }
+            catch(Exception impossible) {  }
+        }
+        if (theMonth == 0)
+        {
+            throw new IllegalArgumentException("Invalid month: " + pMonth);
+        }
+        this.month = theMonth;
+        checkDateValid(pYear, theMonth, pDay, pHour, pMinute);
+
+        setConstants();
+    }
+
+    public Date{L}(int{L; this} pYear, String{L; this} pMonth, int{L; this} pDay)
+    throws (IllegalArgumentException{pYear; pMonth; pDay})
+    where   L ⊑ {this},
+            {this} ⊑ L
+    {
+        this(pYear, pMonth, pDay, 0, 0);
     }
 
 	  //-----------------------------//
@@ -162,6 +209,88 @@ public class Date[label L, principal p] {
             throw new IllegalArgumentException("Invalid minute: " + pMinute);
         }
     }
+
+    /** TODO: DOES NOT BUILD YET!!!!!!!!
+     * At the moment, assume that the string is in the format YYYY/MM/DD hh:mm
+     * or DD-MM-YYYY hh:mm
+     */
+    /*public static Date[{*lbl}, p]{*lbl} valueOf{*lbl}(label{*lbl} lbl, String{*lbl} d, principal p)
+    throws (IllegalArgumentException{*lbl})
+    where   lbl ⊑ {*lbl},
+            {*lbl} ⊑ lbl
+    {
+        if (d == null)
+        {
+            throw new IllegalArgumentException("null string");
+        }
+        int yearStart = 0;
+        int yearEnd = 4;
+        int monthStart = 5;
+        int monthEnd = 7;
+        int dayStart = 8;
+        int dayEnd = 10;
+        int hourStart = -1;
+        int hourEnd = -1;
+        int minStart = -1;
+        int minEnd = -1;
+        int i = d.indexOf('-', 0);
+        if (i > 0) {
+            // date is of the form dd-mm-yyyy
+            dayStart=0;
+            dayEnd = i;
+            monthStart = i + 1;
+            int j = d.indexOf('-', monthStart);
+            if (j > 0)
+            {
+                monthEnd = j;
+                yearStart = j + 1;
+                yearEnd = yearStart + 4;
+            }
+            else
+            {
+                throw new IllegalArgumentException("invalid string: format should be DD-MM-YYYY");
+            }
+        }
+        if (yearEnd != d.length())
+        {
+            // the time is included
+            hourStart = yearEnd + 1;
+            hourEnd = d.indexOf(':', hourStart);
+            minStart = hourEnd+1;
+            minEnd = minStart+2;
+        }
+        else if (d.length() != 10)
+        {
+            throw new IllegalArgumentException("invalid string: format should be DD-MM-YYYY [hh:mm]" + d.length());
+        }
+
+        try
+        {
+            int year = Integer.parseInt(d.substring(yearStart,yearEnd));
+            int month = Integer.parseInt(d.substring(monthStart,monthEnd));
+            int day = Integer.parseInt(d.substring(dayStart,dayEnd));
+            int hour = 0;
+            int min = 0;
+            if (hourStart > 0)
+            {
+                hour = Integer.parseInt(d.substring(hourStart,hourEnd));
+            }
+            if (minStart > 0)
+            {
+                min = Integer.parseInt(d.substring(minStart,minEnd));
+            }
+            return new Date[{*lbl}, p](year, month, day, hour, min);
+        }
+        catch (NumberFormatException e)
+        {
+            throw new IllegalArgumentException("invalid string: format should be DD-MM-YYYY [hh:mm]");
+        }
+        catch (StringIndexOutOfBoundsException impossible)
+        {
+            return null;
+        }
+    }*/
+
 //
 //    /**
 //     * At the moment, assume that the string is in the format YYYY/MM/DD hh:mm
