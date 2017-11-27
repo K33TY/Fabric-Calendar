@@ -22,6 +22,7 @@ public class Date[label L, principal p] {
     private int{L} minute;
 
 	// Special list structures because of issues with polyglot no able to instantiate arrays with values
+	// Originally this was compiling and allowing to add values when it was non static and label L
     public static StringList[{⊤←⊤}]{⊤←⊤}  monthNames;
 
     public static StringList[{⊤←⊤}]{⊤←⊤}  daysOfWeek;
