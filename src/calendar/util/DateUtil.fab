@@ -4,35 +4,64 @@ package calendar.util;
 
 public class DateUtil[label L]
 {
+	/*
 
-//	public static String{L;date} dateToString(Date[L] date, boolean{date} replaceSpace)
+	    [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/calendar/util/DateUtil.fab:10:
+        [apply]     Unsatisfiable constraint
+        [apply]     	general constraint:
+        [apply]     		reference label ⊑ access label
+        [apply]     	in this context:
+        [apply]     		{date ⊔ caller_pc} ⊑ {L ⊔ ⊥→⊥; ⊥←⊥}
+        [apply]     	cannot satisfy equation:
+        [apply]     		{date} ⊑ {L ⊔ ⊥→⊥; ⊥←⊥}
+        [apply]     	in environment:
+        [apply]     		{this} ⊑ {}
+        [apply]     		[]
+        [apply]
+        [apply]     Label Descriptions
+        [apply]     ------------------
+        [apply]      - reference label = {date ⊔ caller_pc}
+        [apply]      - access label = {L ⊔ ⊥→⊥; ⊥←⊥}
+        [apply]      - date = polymorphic label of formal argument date of method
+        [apply]     dateToString (bounded above by {⊤→})
+        [apply]      - caller_pc = pc label
+        [apply]      - L = label parameter L of class calendar.util.DateUtil
+        [apply]      - this = label of the special variable "this" in
+        [apply]     calendar.util.DateUtil[label L]
+        [apply]
+        [apply]     Dereferencing date may cause it to be fetched, revealing too much
+        [apply]     information to its store
+        [apply]         String d = ( (date == null) ? "" : date.toShortString() );
+
+	*/
+//	public static String{date; L} dateToString(Date[L] date, boolean{date} replaceSpace)
 //	{
 //        String d = ( (date == null) ? "" : date.toShortString() );
 //        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
-//  }
-
-//    public static boolean{*lbl;lbl} isDate{*lbl}(label lbl, String{*lbl} dateStr)
-//    {
-//        try
-//        {
-//            Date[L].valueOf(lbl, dateStr);
-//        }
-//        catch (IllegalArgumentException e)
-//        {
-//            return false;
-//        }
-//        return true;
 //    }
 
-//    public static Date[lbl]{*lbl;lbl} stringToDate{*lbl}(label lbl, String{*lbl} dateStr)
-//    {
-//        try
-//        {
-//            return Date[lbl].valueOf(lbl, dateStr);
-//        }
-//        catch (IllegalArgumentException e)
-//        {
-//            return null;
-//        }
-//    }
+    public static boolean{*lbl} isDate{*lbl}(label{*lbl} lbl, String{*lbl} dateStr)
+    {
+        try
+        {
+            Date[L].valueOf(lbl, dateStr);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static Date[lbl]{*lbl} stringToDate{*lbl}(label{*lbl} lbl, String{*lbl} dateStr)
+    {
+        try
+        {
+            return Date[lbl].valueOf(lbl, dateStr);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return null;
+        }
+    }
 }

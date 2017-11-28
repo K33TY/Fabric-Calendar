@@ -372,7 +372,23 @@ FabricWorker.getWorker().getLocalStore();
             <div id="labels" class="content-section">
                 <h2 class="content-header">Labels</h2>
 
+                Some times Fabric's syntax can be rather hard to visually parse, especially for someone new to the language.
+                Here is a breakdown of the various components in a concrete example: <br />
+                <img src="imgs/FabricMethod2.svg"/><br />
 
+                <b>Arguments:</b>   the label is passed as an argument, and currently the compiler needs to know that
+                                    the label is labeled by itself, so we use a pointer. Similarly, the string argument
+                                    which possibly is a date in string format also gets labeled with the pointer. <br /><br />
+
+                <b>Method:</b>   the method call is similarly labeled with the pointer, to mean that this method requires
+                                 that the caller has the same authority as the label passed to the method.<br /><br />
+
+                <b>Return type:</b> the return type is a Date object, instantiated with the label, and likewise we label
+                                    the object with a pointer to the label. <br /><br />
+
+                <b>Exception:</b> the thrown exception could leak information, and hence we also label it with the pointer
+                                  to the label. When doing this notation, the compiler requires that you use a pair of
+                                  parentheses to encase the exception type and respective label.<br /><br />
 
             </div>
 
