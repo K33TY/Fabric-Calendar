@@ -390,6 +390,8 @@ FabricWorker.getWorker().getLocalStore();
                                   to the label. When doing this notation, the compiler requires that you use a pair of
                                   parentheses to encase the exception type and respective label.<br /><br />
 
+                <h3 class="content-subsection">Where Clauses</h3>
+
             </div>
 
 <!--======================================|  INSTANTIATION  |========================================-->
@@ -413,7 +415,26 @@ FabricWorker.getWorker().getLocalStore();
 <!--======================================|  THINGS TO NOTE  |========================================-->
             <div id="notes" class="content-section">
                 <h2 class="content-header">Things to Note</h2>
-                Compiler has issues if you:
+                Fabric applications are distributed, meaning that there can often be intricate flow policies and access labels
+                restricting how methods, and also objects, can interact. This is could be dependent on principals not wanting to
+                reveal too much information via their program counters when methods throw exceptions, return objects, or
+                instantiate new objects. Similarly, a principal may not want secrets from their objects to be revealed to
+                stores that they do not trust. This means that it can be useful to think about the overall architecture
+                and begin sketching access policy diagrams and flow diagrams to model what you want your system to do, and
+                what you want to ensure it does not do.<br /><br />
+
+                At the same time, the compiler likes to throw fits for reasons that may not always seem obvious. While some of
+                these errors could be compiler errors or lower level errors in the language upon which Fabric is built, especially
+                considering that the language is still in development and at the moment has some known bugs, this does not mean
+                that all errors are bad. In fact, much of the errors are protecting you from accidentally leaking sensitive
+                information that you might not have thought to protect. Some times, fixing one bug can lead to needing to
+                completely revamp numerous other methods, because the previous labels were too restrictive, for example. Hence,
+                it is sensible to program in small units so that you do not have to follow a slew of seemingly nonsensical
+                bugs.<br /><br />
+
+                <h3 class="content-subsection">Common Compiler Issues</h3>
+
+                The <font color="#bf0a00">fabc</font> compiler has issues if you:
 
                 <ul>
                     <li>Try to save your principals for your app in any other package besides <font color="#bf0a00">fabric.principals</font></li>
@@ -734,6 +755,9 @@ FabricWorker.getWorker().getLocalStore();
 
 <!--======================================|  REFERENCES  |========================================-->
             <div id="references" class="content-section">
+                Currently, Fabric has been ported to a public Git Repository, to allow for more open source contribution, as
+                well as allowing users of the language to submit bugs or other issues: <a href="https://github.com/apl-cornell/fabric">Fabric on Github</a>
+
                 <h2 class="content-header">References</h2>
                 <dl class="citelist">
                     <dt><a class="anchor" id="CITEREF_mobile-fabric-2012"></a>[1]</dt>

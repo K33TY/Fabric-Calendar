@@ -197,7 +197,7 @@ public class Date[label L] {
     ////where   //L ⊑ {this},
     ////            {this} ⊑ L
     //{
-    //    this.year = pYear;
+    //    year = pYear;
     //    this.day = pDay;
     //    this.hour = pHour;
     //    this.minute = pMinute;

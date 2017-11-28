@@ -146,31 +146,31 @@ public abstract class AuthenticatedAction extends login.AbstractAction {
                     "Error processing request");
         sif.servlet.Servlet servlet_ = this.getServlet();
         {
-            fabric.worker.transaction.TransactionManager $tm127 =
+            fabric.worker.transaction.TransactionManager $tm135 =
               fabric.worker.transaction.TransactionManager.getInstance();
-            boolean $backoffEnabled130 =
+            boolean $backoffEnabled138 =
               fabric.worker.Worker.getWorker().config.txRetryBackoff;
-            int $backoff128 = 1;
-            boolean $doBackoff129 = true;
-            $label123: for (boolean $commit124 = false; !$commit124; ) {
-                if ($backoffEnabled130) {
-                    if ($doBackoff129) {
-                        if ($backoff128 > 32) {
+            int $backoff136 = 1;
+            boolean $doBackoff137 = true;
+            $label131: for (boolean $commit132 = false; !$commit132; ) {
+                if ($backoffEnabled138) {
+                    if ($doBackoff137) {
+                        if ($backoff136 > 32) {
                             while (true) {
                                 try {
-                                    java.lang.Thread.sleep($backoff128);
+                                    java.lang.Thread.sleep($backoff136);
                                     break;
                                 }
-                                catch (java.lang.InterruptedException $e125) {
+                                catch (java.lang.InterruptedException $e133) {
                                     
                                 }
                             }
                         }
-                        if ($backoff128 < 5000) $backoff128 *= 2;
+                        if ($backoff136 < 5000) $backoff136 *= 2;
                     }
-                    $doBackoff129 = $backoff128 <= 32 || !$doBackoff129;
+                    $doBackoff137 = $backoff136 <= 32 || !$doBackoff137;
                 }
-                $commit124 = true;
+                $commit132 = true;
                 fabric.worker.transaction.TransactionManager.getInstance().
                   startTransaction();
                 try {
@@ -269,47 +269,47 @@ public abstract class AuthenticatedAction extends login.AbstractAction {
                         }
                     }
                 }
-                catch (final fabric.worker.RetryException $e125) {
-                    $commit124 = false;
-                    continue $label123;
+                catch (final fabric.worker.RetryException $e133) {
+                    $commit132 = false;
+                    continue $label131;
                 }
                 catch (final fabric.worker.
-                         TransactionRestartingException $e125) {
-                    $commit124 = false;
-                    fabric.common.TransactionID $currentTid126 =
-                      $tm127.getCurrentTid();
-                    if ($e125.tid.isDescendantOf($currentTid126))
-                        continue $label123;
-                    if ($currentTid126.parent != null) throw $e125;
+                         TransactionRestartingException $e133) {
+                    $commit132 = false;
+                    fabric.common.TransactionID $currentTid134 =
+                      $tm135.getCurrentTid();
+                    if ($e133.tid.isDescendantOf($currentTid134))
+                        continue $label131;
+                    if ($currentTid134.parent != null) throw $e133;
                     throw new InternalError(
                             "Something is broken with " +
                                 "transaction management. Got a signal to restart a " +
                                 "different transaction than the one being managed.");
                 }
-                catch (final Throwable $e125) {
-                    $commit124 = false;
-                    if ($tm127.checkForStaleObjects()) continue $label123;
-                    throw new fabric.worker.AbortException($e125);
+                catch (final Throwable $e133) {
+                    $commit132 = false;
+                    if ($tm135.checkForStaleObjects()) continue $label131;
+                    throw new fabric.worker.AbortException($e133);
                 }
                 finally {
-                    if ($commit124) {
+                    if ($commit132) {
                         try {
                             fabric.worker.transaction.TransactionManager.
                               getInstance().commitTransaction();
                         }
-                        catch (final fabric.worker.AbortException $e125) {
-                            $commit124 = false;
+                        catch (final fabric.worker.AbortException $e133) {
+                            $commit132 = false;
                         }
                         catch (final fabric.worker.
-                                 TransactionRestartingException $e125) {
-                            $commit124 = false;
-                            fabric.common.TransactionID $currentTid126 =
-                              $tm127.getCurrentTid();
-                            if ($currentTid126 != null) {
-                                if ($e125.tid.equals($currentTid126) ||
-                                      !$e125.tid.isDescendantOf(
-                                                   $currentTid126)) {
-                                    throw $e125;
+                                 TransactionRestartingException $e133) {
+                            $commit132 = false;
+                            fabric.common.TransactionID $currentTid134 =
+                              $tm135.getCurrentTid();
+                            if ($currentTid134 != null) {
+                                if ($e133.tid.equals($currentTid134) ||
+                                      !$e133.tid.isDescendantOf(
+                                                   $currentTid134)) {
+                                    throw $e133;
                                 }
                             }
                         }
@@ -318,9 +318,9 @@ public abstract class AuthenticatedAction extends login.AbstractAction {
                         fabric.worker.transaction.TransactionManager.
                           getInstance().abortTransaction();
                     }
-                    if (!$commit124) {
+                    if (!$commit132) {
                         {  }
-                        continue $label123;
+                        continue $label131;
                     }
                 }
             }

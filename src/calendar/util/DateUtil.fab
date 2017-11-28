@@ -40,6 +40,13 @@ public class DateUtil[label L]
 //        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
 //    }
 
+	public static String{L} dateToString{L}(Date[L]{L} date, boolean{L} replaceSpace)
+ // Date object store should be able to learn that we can access this date object
+	{
+        String d = ( (date == null) ? "" : date.toShortString() );
+        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
+    }
+
     public static boolean{*lbl} isDate{*lbl}(label{*lbl} lbl, String{*lbl} dateStr)
     {
         try
