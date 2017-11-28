@@ -1,9 +1,6 @@
 package prototype.fabric.util;
 
 import fabric.runtime.Runtime;
-//import fabil.ast.FabricArrayInit;
-//import fabric.lang.*;
-//import fabric.util.List;
 
 /**
  * This class is a simple utility class for representing and comparing dates.
@@ -21,10 +18,12 @@ public class Date[label L] {
     private int{L} hour;
     private int{L} minute;
 
-	// Special list structures because of issues with polyglot no able to instantiate arrays with values
-	// Originally this was compiling and allowing to add values when it was non static and label L
-    //public StringList[L]{L}  monthNames;
+      //--------------------------------------//
+	 //  Special "list emulating structures" //
+	//--------------------------------------//
 
+	 //  as work around for issue of not being able to instantiate const arrays with values in Fabric
+	//  (Error where: Arrays in Fabric cast to polyglot arrays, and then cannot be cast back to Fabric arrays)
     public static String monthNames(int i) throws (IllegalArgumentException{i}) {
       switch (i) {
         case 1:
@@ -157,12 +156,13 @@ public class Date[label L] {
 	 //  Constructors //
 	//---------------//
 
-	// Set date to current time
+	/**  Constructor to set the date to current time for a given principal
+	 *   Pass principal into constructor because Jif implementation of Date used:
+	 *   final principal p = PrincipalUtil.nullPrincipal()
+	 *   But Fabric disallows this because it doesn't know which principal's runtime to use as it is distributed
+	 */
     public Date(final principal p)
-    //where   //L ⊑ {this},
-    //            {this} ⊑ L
     {
-        // TODO: originally final principal p = PrincipalUtil.nullPrincipal(); and date not requiring principal for construction...
         this.year = Runtime[p].currentYear();
         this.month = Runtime[p].currentMonth();
         this.day = Runtime[p].currentDayOfMonth();
@@ -173,8 +173,6 @@ public class Date[label L] {
 
     public Date(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay, int{L; this} pHour, int{L; this} pMinute)
     throws  (IllegalArgumentException{pYear; pMonth; pDay; pHour; pMinute})
-    //where   //L ⊑ {this},
-    //            {this} ⊑ L
     {
         this.year = pYear;
         this.month = pMonth;
@@ -187,8 +185,6 @@ public class Date[label L] {
 
     public Date(int{L; this} pYear, int{L; this} pMonth, int{L; this} pDay)
     throws (IllegalArgumentException{pYear; pMonth; pDay})
-    //where   //L ⊑ {this},
-    //            {this} ⊑ L
     {
         this(pYear, pMonth, pDay, 0, 0);
     }
@@ -235,7 +231,6 @@ public class Date[label L] {
     //    this(pYear, pMonth, pDay, 0, 0);
     //}
 
-    // why is this method orginally static if called from a object that is being instantiated?
     public static int daysInMonth(int month, int year)
     {
         if (month < 1 || month > 12) return -1;
@@ -254,9 +249,9 @@ public class Date[label L] {
     }
 
     /**
-     * Determine if the given year is a leap years. A year is a leap year
-     * if it is divisible by 4, unless it is the first year of a century
-     * (i.e. is divisible by 100), except for every fourth century.
+     *  Determine if the given year is a leap years. A year is a leap year
+     *  if it is divisible by 4, unless it is the first year of a century
+     *  (i.e. is divisible by 100), except for every fourth century.
      */
     public static boolean isLeapYear(int pYear)
     {
@@ -286,15 +281,12 @@ public class Date[label L] {
         }
     }
 
-//IDEA:  Date[{d}]{d; L} valueOf(String d, principal{d} p)
-    /** TODO: DOES NOT BUILD YET!!!!!!!! And I need this one
+    /**
      * At the moment, assume that the string is in the format YYYY/MM/DD hh:mm
      * or DD-MM-YYYY hh:mm
      */
     public static Date[lbl]{*lbl} valueOf{*lbl}(label{*lbl} lbl, String{*lbl} d)
     throws (IllegalArgumentException{*lbl})
-    //where   {d} ⊑ L//,
-            //{d} ⊑ {⊤→this.store$}  //TODO: Is this bad?
     {
         if (d == null)
         {
@@ -368,7 +360,6 @@ public class Date[label L] {
         }
     }
 
-	// Why is this static originally?
 	// What is the purpose of this method anyways? why are we making a "lenient date" with new label?
     public static Date[lbl] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day)
     {
@@ -402,7 +393,6 @@ public class Date[label L] {
         return null;
     }
 
-    // Why is this static originally?
     public static Date[lbl] lenientDate(label lbl, int{*lbl} year, int{*lbl} month, int{*lbl} day, int{*lbl} hour, int{*lbl} minute)
     {
         int y = year;
@@ -499,10 +489,11 @@ public class Date[label L] {
     public int{L} getDay()      { return this.day;      }
     public int{L} getHour()     { return this.hour;     }
     public int{L} getMinute()   { return this.minute;    }
-    public int{L} getDayOfWeek() {
-        // Jan 1 1900 was a monday, so its index is 1.
-        // add the number of days since then, and take mod 7
-        // could be a negative number, so add seven to be safe...
+    public int{L} getDayOfWeek()
+    {
+          // Jan 1 1900 was a monday, so its index is 1.
+         //  add the number of days since then, and take mod 7
+        //   could be a negative number, so add seven to be safe...
         int thisD = this.daysAfterJan_1_1900(this.year, this.month, this.day);
         return ((thisD % 7) + 8) % 7;
     }
@@ -657,73 +648,58 @@ public class Date[label L] {
         return new Date[L](this.year, this.month, this.day, this.hour, minute);
     }
 
-        //public Date[L]{L} addYear(int{L} yearDelta):{L; this} {
-        //    return lenientDate(L, this.year + yearDelta, this.month, this.day);
-        //}
-        //public Date[L]{L} addMonth(int{L} monthDelta):{L; this} {
-        //    return lenientDate(L, this.year, this.month + monthDelta, this.day);
-        //}
-        //public Date[L]{L} addDay(int{L} dayDelta):{L; this} {
-        //    return lenientDate(L, this.year, this.month, this.day + dayDelta);
-        //}
-        public static Date[lb]{*lb; lb; date; delta} addYear{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-            if (date == null) return null;
-            return Date[lb].lenientDate(lb, date.getYear() + delta, date.getMonth(), date.getDay(), date.getHour(), date.getMinute());
-        }
-        public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-            if (date == null) return null;
-            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
-        }
-        /**
-         * Adds a positive or negative number of months to the date. If smartUpdate is true, then
-         * the returned date is guranteed to be at most one calendar month away; if smartUpdate is false, this is
-         * not guaranteed. An example where behavior is different adding one month to October 31. There is no November 31, so with
-         * smartUpdate false, the date returned would be Dec 1; with smartUpdate true, the date returned would be November 30.
-         * Another example, March 30 minus one month would be either March 1 or March 2 if smartUpdate false (depending on leap years), and
-         * either Feb 28 or Feb 29 if smartUpdate true (depending on leap years).
-         */
-        public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label{*lb} lb, Date[lb]{*lb} date, int{*lb} delta, boolean{*lb} smartUpdate) {
-            if (date == null) return null;
-            Date[lb] d = Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
-            if (smartUpdate) {
-                int newMonth = date.getMonth() + delta;
-                newMonth = newMonth % 12; // make the new month in the correct range
-                if (newMonth <= 0) newMonth += 12;
-                while (d != null && newMonth != d.getMonth()) {
-                    d = addDay(lb, d, delta<0?1:-1);
-                }
-            }
-            return d;
-        }
-        public static Date[lb]{*lb; lb; date; delta} addDay{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-            if (date == null) return null;
-            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay() + delta, date.getHour(), date.getMinute());
-        }
-        public static Date[lb]{*lb; lb; date; delta} addHour{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-            if (date == null) return null;
-            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour() + delta, date.getMinute());
-        }
-        public static Date[lb]{*lb; lb; date; delta} addMinute{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta) {
-            if (date == null) return null;
-            return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour(), date.getMinute()+ delta);
-        }
+    public static Date[lb]{*lb; lb; date; delta} addYear{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta)
+    {
+        if (date == null) return null;
+        return Date[lb].lenientDate(lb, date.getYear() + delta, date.getMonth(), date.getDay(), date.getHour(), date.getMinute());
+    }
 
-    //    /* THIS DOES NOT COMPILE:
-    //    //TODO: IS THIS A NECESSARY PART OF DATE?
-    //    public boolean{L;o} equals(IDComparable[L] o) {
-    //        return equals(L, o);
-    //    }
-    //    public boolean{L;*lbl;lbl;o} equals(label lbl, IDComparable[lbl] o) {
-    //        if (o == null || !(o instanceof Date[lbl])) {
-    //            return false;
-    //        }
-    //        Date[lbl] that = (Date[lbl])o;
-    //        return this.year == that.year &&
-    //            this.month == that.month &&
-    //            this.day == that.day &&
-    //            this.hour == that.hour&&
-    //            this.minute == that.minute;
-    //
-    //    }*/
-    //
+    public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta)
+    {
+        if (date == null) return null;
+        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
+    }
+
+    /**
+     * Adds a positive or negative number of months to the date. If smartUpdate is true, then
+     * the returned date is guaranteed to be at most one calendar month away; if smartUpdate is false, this is
+     * not guaranteed. An example where behavior is different adding one month to October 31. There is no November 31, so with
+     * smartUpdate false, the date returned would be Dec 1; with smartUpdate true, the date returned would be November 30.
+     * Another example, March 30 minus one month would be either March 1 or March 2 if smartUpdate false (depending on leap years), and
+     * either Feb 28 or Feb 29 if smartUpdate true (depending on leap years).
+     */
+    public static Date[lb]{*lb; lb; date; delta} addMonth{*lb}(label{*lb} lb, Date[lb]{*lb} date, int{*lb} delta, boolean{*lb} smartUpdate)
+    {
+        if (date == null) return null;
+        Date[lb] d = Date[lb].lenientDate(lb, date.getYear(), date.getMonth() + delta, date.getDay(), date.getHour(), date.getMinute());
+        if (smartUpdate)
+        {
+            int newMonth = date.getMonth() + delta;
+            newMonth = newMonth % 12; // make the new month in the correct range
+            if (newMonth <= 0) newMonth += 12;
+            while (d != null && newMonth != d.getMonth())
+            {
+                d = addDay(lb, d, delta<0?1:-1);
+            }
+        }
+        return d;
+    }
+
+    public static Date[lb]{*lb; lb; date; delta} addDay{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta)
+    {
+        if (date == null) return null;
+        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay() + delta, date.getHour(), date.getMinute());
+    }
+
+    public static Date[lb]{*lb; lb; date; delta} addHour{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta)
+    {
+        if (date == null) return null;
+        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour() + delta, date.getMinute());
+    }
+
+    public static Date[lb]{*lb; lb; date; delta} addMinute{*lb}(label lb, Date[lb]{*lb} date, int{*lb} delta)
+    {
+        if (date == null) return null;
+        return Date[lb].lenientDate(lb, date.getYear(), date.getMonth(), date.getDay(), date.getHour(), date.getMinute()+ delta);
+    }
 }
