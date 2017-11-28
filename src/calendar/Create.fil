@@ -1,7 +1,7 @@
 package calendar;
-// DO I NEED THIS?
+// DO I NEED THIS class?
 
-import calendar.principals.*;
+import fabric.principals.*;
 import fabric.util.Map;
 
 public class Create {
@@ -27,8 +27,8 @@ public class Create {
 		{
 			Store store = Worker.getWorker().getStore(Config.calendarStoreName);
 
-			AbstractPrincipal servlet = new ServletPrincipal.getInstance();
-			CalendarRoot        root  = new CalendarRoot@store(servlet);
+			AbstractPrincipal servlet = new ServletPrincipal().getInstance();
+			//CalendarRoot        root  = new CalendarRoot@store(servlet);
 
 //			IntegPolicy rootTrusted     = LabelUtil.writerPolicy(store, root, root);
 //			IntegPolicy servletTrusted  = LabelUtil.writerPolicy(store, servlet, servlet);

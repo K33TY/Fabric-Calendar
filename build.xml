@@ -66,14 +66,14 @@
             <arg value="-report" /> <arg value="debug=5" />
 -->
 
-            <fileset dir="${calendar.home}/prototype" includes="**/*.fab" />
+            <fileset dir="${calendar.home}/src" includes="**/*.fab" />
         </fabc>
 
         <filc dest="${calendar.home}/classes">
             <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
             <arg value="-cp" />         <arg value="${calendar.home}/classes" />
 
-            <fileset dir="${calendar.home}/prototype" includes="**/*.fil" />
+            <fileset dir="${calendar.home}/src" includes="**/*.fil" />
         </filc>
     </target>
 
