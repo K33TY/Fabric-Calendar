@@ -1,0 +1,25 @@
+package calendar.util;
+
+import fabric.lang.*;
+import fabric.lang.security.*;
+import fabric.worker.*;
+import fabric.worker.remote.*;
+import java.lang.*;
+public class AssertionFailedError extends java.lang.Error {
+    private java.lang.String message;
+    
+    public calendar.util.AssertionFailedError util$AssertionFailedError$(
+      java.lang.String message) {
+        this.message = message;
+        return this;
+    }
+    
+    public AssertionFailedError() { super(); }
+    
+    public java.lang.String toString() { return this.message; }
+    
+    public static final java.lang.String jlc$CompilerVersion$fabil = "0.3.0";
+    public static final long jlc$SourceLastModified$fabil = 1511977371000L;
+    public static final java.lang.String jlc$ClassType$fabil =
+      "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";
+}
