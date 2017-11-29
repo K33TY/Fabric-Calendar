@@ -1,1 +1,26 @@
 package calendar;
+
+import fabric.principals.ServletPrincipal;
+
+// Represents a calendar user
+public class User[principal p]
+{
+	String{ServletPrincipal→;ServletPrincipal←} name;
+	String{ServletPrincipal→;ServletPrincipal←} password;
+	String{ServletPrincipal→;ServletPrincipal←} firstName;
+	String{ServletPrincipal→;ServletPrincipal←} lastName;
+
+	public User{ServletPrincipal→;ServletPrincipal←}
+	( // Constructor Arguments
+		String{ServletPrincipal→;ServletPrincipal←} n,
+		String{ServletPrincipal→;ServletPrincipal←} pw,
+		String{ServletPrincipal→;ServletPrincipal←} f,
+		String{ServletPrincipal→;ServletPrincipal←} l
+	)
+	{
+		name = n;
+		password = pw;
+		firstName = f;
+		lastName = l;
+	}
+}

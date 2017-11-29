@@ -3,53 +3,114 @@ package calendar.event;
 import fabric.lang.Object;
 import fabricated.util.List;
 import calendar.util.Date;
+import calendar.User;
 
-public class Event[label L] //TODO: why? this ? extends Object
+
+public class Event[label L, label info, label time, principal p] //TODO: why? this ? implements JifObject[{CalServEP:;CalServEP!:}]
+where {p→} ⊑ L,
+      info ⊑ L,
+      time ⊑ L
 {
-	long onum;
-    String name;
-    Date[L] startTime;
-    Date[L] endTime;
-    String note;
-    //UserPrincipal[] attendees;
-    //UserPrincipal[] viewers;
-    //UserPrincipal owner;
-    label lbl; // Store policies within the object
+	final int{p→;p←;L}@{L} uid;
+    final label{L}@{L} timeLbl;
+    final label{L}@{L} infoLbl;
 
-    //label L = {_servletPrincipal→; _servletPrincipal←};
+    final Date[time]{L}@{L} startTime;
+    final Date[time]{L}@{L} endTime;
+    final String{info}@{L} name;
+    final String{info}@{L} note;
+    final List[{p→;p←}]{info}@{L} attendees; // Set of User{p→;p←} who are attending the event
+    final List[{p→;p←}]{info}@{L} viewers;   // Set of User{p→;p←} who can view the time of the event
+    final User[p]{info}@{L} creator;
 
-//	public OwnerEvent{L}
-//	( // Constructor params
-//		long {L} onum_,
-//		String {L} name_,
-//		//Date {L} startTime_,
-//		//Date {L} endTime_,
-//		String {L} note_,
-//		//UserPrincipal {L}[]{L} attendees_,
-//		//UserPrincipal {L}[]{L} viewers_,
-//		//UserPrincipal {L} owner_,
-//		label {L} ownerPolicy
-//	)
-//	//where L <= {} // probably need some rules here
-//	{   // initialize event values
-//		onum = onum_;
-//		name = name_;
-//		//startTime = startTime_;
-//		//endTime = endTime_;
-//		note = note_;
-//		//attendees = attendees_;
-//		//viewers = viewers_;
-//		//owner = owner_;
-//		lbl = ownerPolicy;
-//	}
-
-	// Deep copy with user label
-//	public OwnerEvent[lbl] {/*not sure what goes here*//*} getOwnerEvent(label lbl, Store s)
-//		where lbl equiv lbl_, //is this allowed?
-//		// TODO: more ensurance
-//		//ensure caller is correct user?
-//	{
-//		return new OwnerEvent[lbl]@s( this.onum, this.name, this.startTime, this.endTime, this note, this.attendees,
-//									  this.viewers, this.owner, this.lbl );
-//	}
+	public Event{*infoLbl} (    // Constructor Arguments
+								int{p→;p←;L} uid_,
+								label{*timeLbl_} timeLbl_,
+								label{*infoLbl_} infoLbl_,
+								Date[timeLbl_]{*timeLbl_} startTime_,
+								Date[timeLbl_]{*timeLbl_} endTime_,
+								String{*infoLbl_} name_,
+								String{*infoLbl_} note_,
+								List[{p→;p←}]{*infoLbl_} attendees_,
+								List[{p→;p←}]{*infoLbl_} viewers_,
+								User[p]{*infoLbl_} creator_
+						   )
+    where infoLbl_ ⊑ L,
+          timeLbl_ ⊑ L,
+          {time} equiv {*timeLbl_},
+          {info} equiv {*infoLbl_}
+	{
+		uid = uid_;
+        timeLbl = timeLbl_;
+        infoLbl = infoLbl_;
+        startTime = startTime_;
+        endTime = endTime_;
+        name = name_;
+        note = note_;
+        creator = creator_;
+        attendees = attendees_;
+        viewers = viewers_;
+        super();
+	}
 }
+
+
+/* impelements comparable
+
+public class Event  implements JifObject[{CalServEP:;CalServEP!:}] {
+    final int{CalServEP:;CalServEP!:;this} uid;
+    final label{this} timeLbl;
+    final label{this} infoLbl;
+
+    final Date[timeLbl]{this} startTime;
+    final Date[timeLbl]{this} endTime;
+    final String{*infoLbl} name;
+    final String{*infoLbl} note;
+    final List[{CalServEP:;CalServEP!:}]{*infoLbl} attendees; // Set of User[CalServEP] who are attending the event
+    final List[{CalServEP:;CalServEP!:}]{*infoLbl} viewers; // Set of User[CalServEP] who can view the time of the event
+    final User[CalServEP]{*infoLbl} creator;
+
+    public Event{*infoLbl_}(int{CalServEP:;CalServEP!:;this} uid_,
+                 label{this} timeLbl_,
+                 label{this} infoLbl_,
+                 Date[timeLbl_]{this} startTime_,
+                 Date[timeLbl_]{this} endTime_,
+                 String{*infoLbl_} name_,
+                 String{*infoLbl_} note_,
+                 List[{CalServEP:;CalServEP!:}]{*infoLbl_} attendees_,
+                 List[{CalServEP:;CalServEP!:}]{*infoLbl_} viewers_,
+                 User[CalServEP]{*infoLbl_} creator_) {
+        this.uid = uid_;
+        this.timeLbl = timeLbl_;
+        this.infoLbl = infoLbl_;
+        this.startTime = startTime_;
+        this.endTime = endTime_;
+        this.name = name_;
+        this.note = note_;
+        this.creator = creator_;
+        this.attendees = attendees_;
+        this.viewers = viewers_;
+    }
+
+
+    public String{CalServEP:;CalServEP!:} toString() {
+        return Integer.toString(uid);
+    }
+
+    public int{CalServEP:;CalServEP!:} hashCode() {
+        return uid;
+    }
+
+    public boolean{o;CalServEP:;CalServEP!:} equals(IDComparable[{CalServEP:;CalServEP!:}] o) {
+        return equals(new label {CalServEP:;CalServEP!:}, o);
+    }
+    public boolean{o;CalServEP:;CalServEP!:;lbl;*lbl} equals(label lbl, IDComparable[lbl] o) {
+        if (o instanceof Event) {
+            Event that = (Event)o;
+            return this.uid == that.uid;
+        }
+        return false;
+    }
+
+
+    */

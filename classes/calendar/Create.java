@@ -61,23 +61,9 @@ public interface Create extends fabric.lang.Object {
                           getStore(
                             calendar.Config._Static._Proxy.$instance.
                                 get$calendarStoreName());
-                        fabric.lang.security.AbstractPrincipal
-                          servlet =
-                          (fabric.principals.ServletPrincipal)
-                            fabric.lang.Object._Proxy.
-                            $getProxy(
-                              fabric.lang.security.DelegatingPrincipal._Impl.
-                                  $addDefaultDelegates(
-                                    (fabric.principals.ServletPrincipal)
-                                      new fabric.
-                                        principals.
-                                        ServletPrincipal.
-                                        _Impl(
-                                        calendar.Create._Static._Proxy.
-                                          $instance.
-                                            $getStore()).
-                                      $getProxy()))._Impl.
-                          getInstance();
+                        fabric.lang.security.AbstractPrincipal servlet =
+                          fabric.principals.ServletPrincipal._Impl.getInstance(
+                                                                     );
                     }
                     catch (final fabric.worker.RetryException $e2) {
                         $commit1 = false;
@@ -226,11 +212,11 @@ public interface Create extends fabric.lang.Object {
         
     }
     
-    public static final byte[] $classHash = new byte[] { 26, -76, -18, -56, -15,
-    -49, -122, -1, -110, 99, -36, -73, -35, 75, 73, -81, -28, -91, 91, -100,
-    -71, -102, -117, -36, -124, 55, -30, -64, -123, 7, -82, 39 };
+    public static final byte[] $classHash = new byte[] { -104, 59, -118, -127,
+    110, 86, 39, -26, 119, 93, 24, 123, 65, -38, 114, -5, 61, -126, 8, 93, -66,
+    -35, -72, 93, -81, -48, 82, -62, 48, -1, -21, -42 };
     public static final java.lang.String jlc$CompilerVersion$fabil = "0.3.0";
-    public static final long jlc$SourceLastModified$fabil = 1511876154000L;
+    public static final long jlc$SourceLastModified$fabil = 1511994481000L;
     public static final java.lang.String jlc$ClassType$fabil =
-      "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";
+      "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";
 }

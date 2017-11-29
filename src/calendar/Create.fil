@@ -12,13 +12,7 @@ public class Create {
 //	*
 //	*   store: contains all persistent objects for calendar app
 //	*   =====
-//	*   root: CalendarRoot[servlet]
-//	*       f label
-//	*       f servlet
-//	*
-//	*   servlet: DelegatingPrincipal
-//	*       f label     -> null (gets rewritten to {} )
-//	*         delegatesTo -> root
+//	*   root: ServletPrincipal
 //	*/
 //
 	public static void main(String[] args)
@@ -27,8 +21,7 @@ public class Create {
 		{
 			Store store = Worker.getWorker().getStore(Config.calendarStoreName);
 
-			AbstractPrincipal servlet = new ServletPrincipal().getInstance();
-			//CalendarRoot        root  = new CalendarRoot@store(servlet);
+			AbstractPrincipal servlet = ServletPrincipal.getInstance();
 
 //			IntegPolicy rootTrusted     = LabelUtil.writerPolicy(store, root, root);
 //			IntegPolicy servletTrusted  = LabelUtil.writerPolicy(store, servlet, servlet);

@@ -49,6 +49,8 @@
             <arg value="-cp" />         <arg value="${calendar.home}/classes" />
             <arg value="-addsigcp" />   <arg pathref="sif.sigcp" />
             <arg value="-trusted-providers" />
+            <arg value="-explain" />
+            <!--arg value="-h" /-->
 
 
 <!--debug
@@ -72,6 +74,7 @@
         <filc dest="${calendar.home}/classes">
             <arg value="-sourcepath" /> <arg value="${calendar.home}/src" />
             <arg value="-cp" />         <arg value="${calendar.home}/classes" />
+            <arg value="-cp" />         <arg pathref="collections.classpath" />
 
             <fileset dir="${calendar.home}/src" includes="**/*.fil" />
         </filc>
