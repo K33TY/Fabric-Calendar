@@ -4,11 +4,11 @@ import fabric.lang.Object;
 
 public class OwnerEvent[label L] extends Object
 {
-	long onum;
+	/*long onum;
     String name;
-    //Date startTime;
-    //Date endTime;
-    String note;
+    Date startTime;
+    Date endTime;
+    String note;*/
     //UserPrincipal[] attendees;
     //UserPrincipal[] viewers;
     //UserPrincipal owner;

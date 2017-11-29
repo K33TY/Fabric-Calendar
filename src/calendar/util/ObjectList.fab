@@ -1,0 +1,105 @@
+//package prototype.fabric.util;
+//
+//import fabric.util.Object;
+//
+//public class ObjectList[label L]
+//{
+// 	public Object{L} s;
+// 	public ObjectList[L]{L} next;
+//
+// 	public ObjectList{L}(Object{L} head)
+//	{
+//		this.s = head;
+//		this.next = null;
+//	}
+//
+// 	public ObjectList{L}(Object{L} head, ObjectList[L]{L} tail)
+// 	{
+// 		this.s = head;
+// 		this.next = tail;
+// 	}
+//
+// 	public void add{L}(Object{L} str)
+// 	{
+// 		if (next == null) next = new ObjectList{L}(str);
+// 		else next.add(str);
+// 	}
+//
+//	public void remove{L}(Object{L} str)
+//	where   L ⊑ {this},
+//	     {this} ⊑ L
+//	{
+//		remove(indexOf(str));
+//	}
+//
+//	public void remove{L}(int{L} i)
+//	where   L ⊑ {this},
+//	     {this} ⊑ L
+//	{
+//		// TODO
+//	}
+//
+//	public int{L} indexOf{L}(Object{L} str)
+//	where   L ⊑ {this},
+//	     {this} ⊑ L
+//	{
+//		return indexOf(str, 0);
+//	}
+//
+//	public int{L} indexOf{L}(Object{L} str, int{L} i)
+//	where   L ⊑ {this},
+//	     {this} ⊑ L,
+//	     {L;this} ⊑ {i}
+//	{
+//		 if (s.equals(str)) return i;
+//		 if (next != null)
+//		 {
+//		    int temp = i;
+//		    temp = i + 1;
+//		    return next.indexOf(str, temp);
+//		 }
+//		 else return -1;
+//	}
+//
+//	public int{L} size{L}()
+//	{
+//		int size = 0;
+//		//if (s != null) size = size + 1;
+//		size = 1; //maybe it is okay to have empty elements in list?
+//		if (next != null) size = size + next.size();
+//
+//		return size;
+//	}
+//
+//	public Object{L} get{L}(int{L} i)
+//	throws (IndexOutOfBoundsException{L})
+//	where   L ⊑ {this},
+//			{this} ⊑ L
+//	{
+//		return get(i, 0);
+//	}
+//
+//	public Object{L} get{L}(int{L} i, int{L} j)
+//	throws (IndexOutOfBoundsException{L})
+//	where   L ⊑ {this},
+//			{this} ⊑ L,
+//			{L;this} ⊑ {j}
+//	{
+//		if (i == j) return s;
+//		if (next != null)
+//		{
+//		    int temp = j;
+//		    temp = j + 1;
+//		    return next.get(i, temp);
+//		}
+//		else throw new IndexOutOfBoundsException("Index out of bounds");
+//     }
+//
+//// 	public String{L} toString{L}()
+//// 	{
+//// 		String str = "";
+//// 		if (s != null) str = str + s;
+//// 		if (next != null) str = str + "\n" + next.toString();
+//// 		return str;
+//// 	}
+//}

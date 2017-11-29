@@ -1,11 +1,17 @@
 package calendar;
 
 import fabric.util.Map;
+import fabricated.util.HashMap;
 
-public class Calendar[principal servletP] extends AbstractPrincipal
+// Principal p is the servlet principal;
+public class Calendar[principal p] extends AbstractPrincipal
 {
 	Calendar{this←}()
 	{
 		super("calendar");
 	}
+
+	protected final
+	// NOT SURE IF I CAN USE HASHMAPS, WOULD BE NICE
+	//HashMap<int, Event>{this} ownerEvents = new HashMap<int, Event>{this}();
 }
