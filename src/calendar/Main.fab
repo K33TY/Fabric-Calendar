@@ -94,8 +94,8 @@ public final class Main extends HTMLServlet[ServletPrincipal]
         {
             if ( _localStore != null &&
                  _localStore equiv worker$ &&
-                 lbl ⊑ new label{⊤→worker$} &&
-                 new label {⊤←worker$} ⊑ lbl )
+                 lbl <= new label{⊤→worker$} &&
+                 new label {⊤←worker$} <= lbl )
             {
                 return new SessionState@_localStore(id, session);
             }

@@ -2,80 +2,64 @@
 //
 //import fabric.worker.Store;
 //import fabric.util.*;
+//import calendar.Config;
+//import calendar.User;
 //
-//public class UserPrincipal[principal P] extends ExternalPrincipal
+//import login.LoginClosure;
+//
+//public class UserPrincipal[label L] extends ExternalPrincipal
 //{
-//    private final UserPassword[P]{P; P←}@{this.store$->} pass;
-//    private final String{P→; P←} user;
-//    private final String{P→; P←} mapKey;
-//    private final String{P→; P←} firstName;
-//    private final String{P→; P←} lastName;
+//    private final UserPassword[this]{L}@{L} pass;
 //
-//    private Store store;
-//
-//    // When adding other principals
-//    public UserPrincipal(String{this} user, String{this} password, String{P→; P←} firstName, String{P→; P←} lastName)
-//        where authority (this),
-//              endorse({P→;P←} meet {this←})
+//    // Add principal
+//    public UserPrincipal(String userName, String password)
+//    where authority (this)
 //    {
-//        store  = FabricWorker.getWorker().getStore("store");
-//
-//        this.pass  = new UserPassword[this](password);
-//        this.user = user;
-//        this.mapKey = user + "Principal";
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        super(user);
-//
-//        declassify({this→;this←})
-//        {
-//            addDelegatesTo( P);
-//        }
+//        this.pass = new UserPassword[this](password);
+//        super(userName);
 //    }
 //
-//	public static UserPrincipal{*←} getInstance{*←}()
+//    // TODO: boolean of isAuthorized()
+//
+//	// Maybe we assume at this point that User does not have all fields there but
+//    // we don't care if a user knows any username and their supposed password which the servlet has captured so far (only)
+//	public static UserPrincipal[L] getInstance(label L, String userName, String password)
+//	where   {userName} ⊑ L,
+//			{password} ⊑ L
 //	{
 //		atomic
 //		{
-//			FabricWorker user = FabricWorker.getWorker();
-//			if (user != null)
+//			FabricWorker w = FabricWorker.getWorker();
+//			if (w != null)
 //			{
-//				final Store store = user.getStore(this.user);
+//				final Store store = w.getStore(Config.calendarStoreName); // One store at the moment
 //				if (store != null)
 //				{
 //					Map rootMap = store.getRoot();
 //
 //					if (rootMap != null)
 //					{
-//						Object obj = rootMap.get(this.mapKey);
-//						UserPrincipal user= null;
+//						Object obj = rootMap.get(userName);
+//						UserPrincipal userP = null;
 //
-//						if (obj instanceof UserPrincipal)
+//						if (obj instanceof UserPrincipal[L])
 //						{
-//							user = (UserPrincipal) obj;
+//							userP = (UserPrincipal[L]) obj;
 //						}
 //						else
 //						{
-//							user = new UserPrincipal@store();
-//							rootMap.put(this.mapKey, user);
+//							// TODO: prompt to create a user object
+//							// Does this work to create a user principal?
+//							userP = new UserPrincipal[L]@store(userName, password);
+//							rootMap.put(userName, userP);
 //						}
-//						return user;
+//						return userP;
 //					}
 //				}
 //			}
 //
 //			return null;
 //		}
-//	}
-//
-//	public String getName()
-//	{
-//		return this.firstName + " " + this.lastName;
-//	}
-//
-//	public String getUid()
-//	{
-//		return this.user;
 //	}
 //}
 //
@@ -89,3 +73,124 @@
 //        super();
 //    }
 //}
+
+
+/*
+
+[apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/fabric/principals/UserPrincipal.fab:45:
+    [apply]     Unsatisfiable constraint
+    [apply]     	general constraint:
+    [apply]     		reference label ⊑ access label
+    [apply]     	in this context:
+    [apply]     		{⊤→} ⊑ {<uninterp: obj.store$>→; ⊥←⊥ ⊔ *L}
+    [apply]     	cannot satisfy equation:
+    [apply]     		{⊤→} ⊑ {<uninterp: obj.store$>→; ⊥←⊥ ⊔ *L}
+    [apply]     	in environment:
+    [apply]     		{this} ⊑ {this.store$→; ⊥←⊥ ⊔ L}
+    [apply]     		L ⊑ {⊤→this.store$}
+    [apply]     		L ⊑ {⊤→this.store$}
+    [apply]     		{⊤←this.store$} ⊑ L
+    [apply]     		{userName} ⊑ {*L}
+    [apply]     		{password} ⊑ {*L}
+    [apply]     		[(new(fabric.principals.UserPrincipal).store$ equiv store),
+    [apply]     (this.store$ actsFor this), (<uninterp: obj.store$> actsFor <uninterp:
+    [apply]     obj>), (worker$ actsFor this)]
+    [apply]
+    [apply]     Label Descriptions
+    [apply]     ------------------
+    [apply]      - reference label = {⊤→}
+    [apply]      - access label = {<uninterp: obj.store$>→; ⊥←⊥ ⊔ *L}
+    [apply]      - caller_pc = pc label
+    [apply]      - *L = dynamic label represented by the final access path L
+    [apply]      - this = label of the special variable "this" in
+    [apply]     fabric.principals.UserPrincipal[label L]
+    [apply]      - L = label parameter L of class fabric.principals.UserPrincipal
+    [apply]      - userName = polymorphic label of formal argument userName of method
+    [apply]     getInstance (bounded above by {⊤→})
+    [apply]      - password = polymorphic label of formal argument password of method
+    [apply]     getInstance (bounded above by {⊤→})
+    [apply]
+    [apply]     Dereferencing obj may cause it to be fetched, revealing too much
+    [apply]     information to its store
+    [apply] 						if (obj instanceof UserPrincipal[L])
+    [apply] 						    ^--------------------------^
+    [apply]
+    [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/fabric/principals/UserPrincipal.fab:18:
+    [apply]     Unsatisfiable constraint
+    [apply]     	general constraint:
+    [apply]     		actual_arg_1 ⊑ formal_arg_1
+    [apply]     	in this context:
+    [apply]     		{password} ⊑ {this→; this←}
+    [apply]     	cannot satisfy equation:
+    [apply]     		{password} ⊑ {this→; this←}
+    [apply]     	in environment:
+    [apply]     		{this} ⊑ {this.store$→; ⊥←⊥ ⊔ L}
+    [apply]     		L ⊑ {⊤→this.store$}
+    [apply]     		L ⊑ {⊤→this.store$}
+    [apply]     		{⊤←this.store$} ⊑ L
+    [apply]     		{this} ⊑ {caller_pc}
+    [apply]     		{caller_pc} ⊑ fabric.principals.UserPrincipal.provider
+    [apply]     		[(new(fabric.principals.UserPassword).store$ equiv this.store$),
+    [apply]     (this.store$ actsFor this), (worker$ actsFor this)]
+    [apply]
+    [apply]     Label Descriptions
+    [apply]     ------------------
+    [apply]      - actual_arg_1 = the label of the 1st actual argument
+    [apply]      - actual_arg_1 = {password}
+    [apply]      - formal_arg_1 = the upper bound of the formal argument password
+    [apply]      - formal_arg_1 = {this→; this←}
+    [apply]      - password = polymorphic label of formal argument password of
+    [apply]     constructor (bounded above by {⊤→})
+    [apply]      - this = label of the special variable "this" in
+    [apply]     fabric.principals.UserPrincipal[label L]
+    [apply]      - L = label parameter L of class fabric.principals.UserPrincipal
+    [apply]      - caller_pc = pc label
+    [apply]      - fabric.principals.UserPrincipal.provider = pc label
+    [apply]
+    [apply]     The label of the actual argument, actual_arg_1, is more restrictive than
+    [apply]     the label of the formal argument, formal_arg_1.
+    [apply]         this.pass = new UserPassword[this](password);
+    [apply]                                            ^------^
+    [apply]
+    [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/fabric/principals/UserPrincipal.fab:19:
+    [apply]     Unsatisfiable constraint
+    [apply]     	general constraint:
+    [apply]     		actual_arg_1 ⊑ formal_arg_1
+    [apply]     	in this context:
+    [apply]     		{userName} ⊑ {this}
+    [apply]     	cannot satisfy equation:
+    [apply]     		{userName} ⊑ {this}
+    [apply]     	in environment:
+    [apply]     		{this} ⊑ {this.store$→; ⊥←⊥ ⊔ L}
+    [apply]     		L ⊑ {⊤→this.store$}
+    [apply]     		L ⊑ {⊤→this.store$}
+    [apply]     		{⊤←this.store$} ⊑ L
+    [apply]     		{this} ⊑ {caller_pc}
+    [apply]     		{caller_pc} ⊑ fabric.principals.UserPrincipal.provider
+    [apply]     		[(new(fabric.principals.UserPassword).store$ equiv this.store$),
+    [apply]     (this.store$ actsFor this), (worker$ actsFor this)]
+    [apply]
+    [apply]     Label Descriptions
+    [apply]     ------------------
+    [apply]      - actual_arg_1 = the label of the 1st actual argument
+    [apply]      - actual_arg_1 = {userName}
+    [apply]      - formal_arg_1 = the upper bound of the formal argument name
+    [apply]      - formal_arg_1 = {this}
+    [apply]      - userName = polymorphic label of formal argument userName of
+    [apply]     constructor (bounded above by {⊤→})
+    [apply]      - this = label of the special variable "this" in
+    [apply]     fabric.principals.UserPrincipal[label L]
+    [apply]      - L = label parameter L of class fabric.principals.UserPrincipal
+    [apply]      - caller_pc = pc label
+    [apply]      - fabric.principals.UserPrincipal.provider = pc label
+    [apply]
+    [apply]     The label of the actual argument, actual_arg_1, is more restrictive than
+    [apply]     the label of the formal argument, formal_arg_1.
+    [apply]         super(userName);
+    [apply]               ^------^
+    [apply]
+    [apply] 3 errors.
+    [apply] null
+
+
+*/
