@@ -24,7 +24,7 @@ public final class Main extends HTMLServlet[ServletPrincipal]
 	final principal{this}@{⊤→} _servletPrincipal;
 
 	public Main() throws ServletException
-	where {⊤→} <= {this} //TODO: what does this mean? is it necessary??
+	where {⊤→} ⊑ {this} //TODO: what does this mean? is it necessary??
 	{
 		FabricWorker w = FabricWorker.getWorker();
 		Store localStore = null;
@@ -94,8 +94,8 @@ public final class Main extends HTMLServlet[ServletPrincipal]
         {
             if ( _localStore != null &&
                  _localStore equiv worker$ &&
-                 lbl <= new label{⊤→worker$} &&
-                 new label {⊤←worker$} <= lbl )
+                 lbl ⊑ new label{⊤→worker$} &&
+                 new label {⊤←worker$} ⊑ lbl )
             {
                 return new SessionState@_localStore(id, session);
             }
