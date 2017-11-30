@@ -2,16 +2,148 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d94c2ea8-4878-4b06-a8d3-e541babb9c9e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/init-state" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/run-in-xterm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/start-all" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/start-calendar-app" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/start-store" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/start-worker" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/FinishEditEventReceiveer.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Calendar.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/Create.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$calendar$event$AttendeeEvent$_split_0$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$calendar$event$AttendeeEvent$_split_0$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$calendar$event$AttendeeEvent$_split_0$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$calendar$event$AttendeeEvent$_split_0$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$calendar$event$AttendeeEvent$_split_0$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent$calendar$event$AttendeeEvent$_split_0.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/AttendeeEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/EditEventAction.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/FinishEditingEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$calendar$event$OwnerEvent$_split_0$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$calendar$event$OwnerEvent$_split_0$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$calendar$event$OwnerEvent$_split_0$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$calendar$event$OwnerEvent$_split_0$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$calendar$event$OwnerEvent$_split_0$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent$calendar$event$OwnerEvent$_split_0.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/OwnerEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$calendar$event$ViewerEvent$_split_0$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$calendar$event$ViewerEvent$_split_0$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$calendar$event$ViewerEvent$_split_0$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$calendar$event$ViewerEvent$_split_0$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$calendar$event$ViewerEvent$_split_0$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent$calendar$event$ViewerEvent$_split_0.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/event/ViewerEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/session/FinishEditEvent.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/session/ShowCalendar.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AbstractAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AbstractServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$login$AuthSessState$_split_0$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$login$AuthSessState$_split_0$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$login$AuthSessState$_split_0$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$login$AuthSessState$_split_0$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$login$AuthSessState$_split_0$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState$login$AuthSessState$_split_0.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthSessState.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/AuthenticatedAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/HTMLAuthServlet.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$login$LoginClosure$_split_0$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$login$LoginClosure$_split_0$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$login$LoginClosure$_split_0$_Static$_Impl.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$login$LoginClosure$_split_0$_Static$_Proxy.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$login$LoginClosure$_split_0$_Static.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure$login$LoginClosure$_split_0.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LoginClosure.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/LogoffAction.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/classes/login/SubmitLoginAction.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/Config.class" afterPath="$PROJECT_DIR$/classes/calendar/Config.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/FrontPage.class" afterPath="$PROJECT_DIR$/classes/calendar/FrontPage.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/Main.class" afterPath="$PROJECT_DIR$/classes/calendar/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/User$_Static$_Impl.class" afterPath="$PROJECT_DIR$/classes/calendar/User$_Static$_Impl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/User$calendar$User$_split_0.class" afterPath="$PROJECT_DIR$/classes/calendar/User$calendar$User$_split_0.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/User.class" afterPath="$PROJECT_DIR$/classes/calendar/User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event$_Impl.class" afterPath="$PROJECT_DIR$/classes/calendar/event/Event$_Impl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event$_Static$_Impl.class" afterPath="$PROJECT_DIR$/classes/calendar/event/Event$_Static$_Impl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event$calendar$event$Event$_split_0.class" afterPath="$PROJECT_DIR$/classes/calendar/event/Event$calendar$event$Event$_split_0.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event$calendar$event$Event$_split_1.class" afterPath="$PROJECT_DIR$/classes/calendar/event/Event$calendar$event$Event$_split_1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event$calendar$event$Event$_split_2.class" afterPath="$PROJECT_DIR$/classes/calendar/event/Event$calendar$event$Event$_split_2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event.class" afterPath="$PROJECT_DIR$/classes/calendar/event/Event.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Date$_Proxy.class" afterPath="$PROJECT_DIR$/classes/calendar/util/Date$_Proxy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Date$_Static$_Impl.class" afterPath="$PROJECT_DIR$/classes/calendar/util/Date$_Static$_Impl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Date$calendar$util$Date$_split_0.class" afterPath="$PROJECT_DIR$/classes/calendar/util/Date$calendar$util$Date$_split_0.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Date$calendar$util$Date$_split_1.class" afterPath="$PROJECT_DIR$/classes/calendar/util/Date$calendar$util$Date$_split_1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Date.class" afterPath="$PROJECT_DIR$/classes/calendar/util/Date.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/Config.java" afterPath="$PROJECT_DIR$/classes/calendar/Config.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/.idea/workspace.xml" afterPath="$PROJECT_DIR$/docs/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Config.fab" afterPath="$PROJECT_DIR$/src/calendar/Config.fab" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/FrontPage.java" afterPath="$PROJECT_DIR$/classes/calendar/FrontPage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/Main.java" afterPath="$PROJECT_DIR$/classes/calendar/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/User.java" afterPath="$PROJECT_DIR$/classes/calendar/User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/event/Event.java" afterPath="$PROJECT_DIR$/classes/calendar/event/Event.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/session/ShowCalendar.java" afterPath="$PROJECT_DIR$/classes/calendar/session/ShowCalendar.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Date.java" afterPath="$PROJECT_DIR$/classes/calendar/util/Date.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/DateUtil.java" afterPath="$PROJECT_DIR$/classes/calendar/util/DateUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/calendar/util/Declassifier.java" afterPath="$PROJECT_DIR$/classes/calendar/util/Declassifier.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal.java" afterPath="$PROJECT_DIR$/classes/fabric/principals/ServletPrincipal.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/login/AbstractServlet.java" afterPath="$PROJECT_DIR$/classes/login/AbstractServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/login/AuthSessState.java" afterPath="$PROJECT_DIR$/classes/login/AuthSessState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/login/AuthenticatedAction.java" afterPath="$PROJECT_DIR$/classes/login/AuthenticatedAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/login/LoginAction.java" afterPath="$PROJECT_DIR$/classes/login/LoginAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/login/LoginClosure.java" afterPath="$PROJECT_DIR$/classes/login/LoginClosure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/login/LogoffAction.java" afterPath="$PROJECT_DIR$/classes/login/LogoffAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/Create.fil" afterPath="$PROJECT_DIR$/src/calendar/Create.fil" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab" afterPath="$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +158,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ShowCalendar.fab" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ShowCalendar.fab" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="48" column="62" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="62" />
+            <state relative-caret-position="195">
+              <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -41,16 +173,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AssertionFailedError.fil" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/calendar/util/AssertionFailedError.fil">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,28 +221,38 @@
       <file leaf-file-name="Calendar.fab" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/calendar/Calendar.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowCalendar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/calendar/session/ShowCalendar.java">
+      <file leaf-file-name="Main.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-98">
-              <caret line="253" column="48" lean-forward="false" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="48" />
+            <state relative-caret-position="105">
+              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/classes/calendar/Calendar.java">
+      <file leaf-file-name="Create.fil" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/calendar/Create.fil">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="45" />
+            <state relative-caret-position="345">
+              <caret line="23" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServletPrincipal.fab" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fabric/principals/ServletPrincipal.fab">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="43" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -194,11 +326,9 @@
         <option value="$PROJECT_DIR$/src/calendar/session/FinishEditingEvent.fab" />
         <option value="$PROJECT_DIR$/src/calendar/User.fab" />
         <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/src/calendar/Main.fab" />
         <option value="$PROJECT_DIR$/src/calendar/event/Event.fab" />
         <option value="$PROJECT_DIR$/src/fabric/principals/UserPrincipal.fab" />
         <option value="$PROJECT_DIR$/src/calendar/CreateUser.fil" />
-        <option value="$PROJECT_DIR$/src/calendar/Create.fil" />
         <option value="$PROJECT_DIR$/src/fabric/principals/ServletPrincipal.fab" />
         <option value="$PROJECT_DIR$/src/calendar/FrontPage.fab" />
         <option value="$PROJECT_DIR$/bin/run-in-xterm" />
@@ -207,9 +337,11 @@
         <option value="$PROJECT_DIR$/bin/start-worker" />
         <option value="$PROJECT_DIR$/bin/init-state" />
         <option value="$PROJECT_DIR$/bin/start-all" />
-        <option value="$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab" />
         <option value="$PROJECT_DIR$/src/calendar/Config.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/Create.fil" />
+        <option value="$PROJECT_DIR$/src/calendar/Main.fab" />
         <option value="$PROJECT_DIR$/src/calendar/Calendar.fab" />
+        <option value="$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab" />
       </list>
     </option>
   </component>
@@ -338,24 +470,6 @@
               <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
               <item name="Calendar-Fabric" type="462c0819:PsiDirectoryNode" />
               <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Calendar-Fabric" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Calendar-Fabric" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Calendar-Fabric" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="calendar" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Calendar-Fabric" type="b2602c69:ProjectViewProjectNode" />
@@ -601,12 +715,12 @@
       <workItem from="1510613705840" duration="44878000" />
       <workItem from="1511377528691" duration="16483000" />
       <workItem from="1511751360803" duration="17974000" />
-      <workItem from="1512063538112" duration="3044000" />
+      <workItem from="1512063538112" duration="4189000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178852000" />
+    <option name="totallyTimeSpent" value="179997000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -793,27 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/Create.fil">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fabric/principals/ServletPrincipal.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="43" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="12" lean-forward="false" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/calendar/FrontPage.fab">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="960">
@@ -996,34 +1089,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="48" column="62" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/calendar/Calendar.fab">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/calendar/session/ShowCalendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="253" column="48" lean-forward="false" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="48" />
+        <state relative-caret-position="397">
+          <caret line="278" column="48" lean-forward="false" selection-start-line="278" selection-start-column="48" selection-end-line="278" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/calendar/Calendar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="43" column="45" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="45" />
+        <state relative-caret-position="525">
+          <caret line="40" column="45" lean-forward="false" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fabric/principals/ServletPrincipal.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="43" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/Create.fil">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/Main.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/Calendar.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/calendar/session/ShowCalendar.fab">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="42" lean-forward="false" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
           <folding />
         </state>
       </provider>
