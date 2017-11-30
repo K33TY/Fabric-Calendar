@@ -21,7 +21,7 @@ public class Create {
 		{
 			Store store = Worker.getWorker().getStore(Config.calendarStoreName);
 
-a			AbstractPrincipal servlet = ServletPrincipal.getInstance();
+			AbstractPrincipal servlet = ServletPrincipal.getInstance();
 
 //			IntegPolicy rootTrusted     = LabelUtil.writerPolicy(store, root, root);
 //			IntegPolicy servletTrusted  = LabelUtil.writerPolicy(store, servlet, servlet);

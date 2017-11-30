@@ -1,196 +1,76 @@
-//package fabric.principals;
-//
-//import fabric.worker.Store;
-//import fabric.util.*;
-//import calendar.Config;
-//import calendar.User;
-//
-//import login.LoginClosure;
-//
-//public class UserPrincipal[label L] extends ExternalPrincipal
-//{
-//    private final UserPassword[this]{L}@{L} pass;
-//
-//    // Add principal
-//    public UserPrincipal(String userName, String password)
-//    where authority (this)
-//    {
-//        this.pass = new UserPassword[this](password);
-//        super(userName);
-//    }
-//
-//    // TODO: boolean of isAuthorized()
-//
-//	// Maybe we assume at this point that User does not have all fields there but
-//    // we don't care if a user knows any username and their supposed password which the servlet has captured so far (only)
-//	public static UserPrincipal[L] getInstance(label L, String userName, String password)
-//	where   {userName} ⊑ L,
-//			{password} ⊑ L
-//	{
-//		atomic
-//		{
-//			FabricWorker w = FabricWorker.getWorker();
-//			if (w != null)
-//			{
-//				final Store store = w.getStore(Config.calendarStoreName); // One store at the moment
-//				if (store != null)
-//				{
-//					Map rootMap = store.getRoot();
-//
-//					if (rootMap != null)
-//					{
-//						Object obj = rootMap.get(userName);
-//						UserPrincipal userP = null;
-//
-//						if (obj instanceof UserPrincipal[L])
-//						{
-//							userP = (UserPrincipal[L]) obj;
-//						}
-//						else
-//						{
-//							// TODO: prompt to create a user object
-//							// Does this work to create a user principal?
-//							userP = new UserPrincipal[L]@store(userName, password);
-//							rootMap.put(userName, userP);
-//						}
-//						return userP;
-//					}
-//				}
-//			}
-//
-//			return null;
-//		}
-//	}
-//}
-//
-//class UserPassword[principal P]
-//{
-//    final String{P→; P←} password;
-//
-//    UserPassword(String{P→; P←} password)
-//    {
-//        this.password = password;
-//        super();
-//    }
-//}
+package fabric.principals;
 
+import fabric.worker.Store;
+import fabric.util.*;
+import calendar.Config;
+import calendar.User;
 
-/*
+import login.LoginClosure;
 
-[apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/fabric/principals/UserPrincipal.fab:45:
-    [apply]     Unsatisfiable constraint
-    [apply]     	general constraint:
-    [apply]     		reference label ⊑ access label
-    [apply]     	in this context:
-    [apply]     		{⊤→} ⊑ {<uninterp: obj.store$>→; ⊥←⊥ ⊔ *L}
-    [apply]     	cannot satisfy equation:
-    [apply]     		{⊤→} ⊑ {<uninterp: obj.store$>→; ⊥←⊥ ⊔ *L}
-    [apply]     	in environment:
-    [apply]     		{this} ⊑ {this.store$→; ⊥←⊥ ⊔ L}
-    [apply]     		L ⊑ {⊤→this.store$}
-    [apply]     		L ⊑ {⊤→this.store$}
-    [apply]     		{⊤←this.store$} ⊑ L
-    [apply]     		{userName} ⊑ {*L}
-    [apply]     		{password} ⊑ {*L}
-    [apply]     		[(new(fabric.principals.UserPrincipal).store$ equiv store),
-    [apply]     (this.store$ actsFor this), (<uninterp: obj.store$> actsFor <uninterp:
-    [apply]     obj>), (worker$ actsFor this)]
-    [apply]
-    [apply]     Label Descriptions
-    [apply]     ------------------
-    [apply]      - reference label = {⊤→}
-    [apply]      - access label = {<uninterp: obj.store$>→; ⊥←⊥ ⊔ *L}
-    [apply]      - caller_pc = pc label
-    [apply]      - *L = dynamic label represented by the final access path L
-    [apply]      - this = label of the special variable "this" in
-    [apply]     fabric.principals.UserPrincipal[label L]
-    [apply]      - L = label parameter L of class fabric.principals.UserPrincipal
-    [apply]      - userName = polymorphic label of formal argument userName of method
-    [apply]     getInstance (bounded above by {⊤→})
-    [apply]      - password = polymorphic label of formal argument password of method
-    [apply]     getInstance (bounded above by {⊤→})
-    [apply]
-    [apply]     Dereferencing obj may cause it to be fetched, revealing too much
-    [apply]     information to its store
-    [apply] 						if (obj instanceof UserPrincipal[L])
-    [apply] 						    ^--------------------------^
-    [apply]
-    [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/fabric/principals/UserPrincipal.fab:18:
-    [apply]     Unsatisfiable constraint
-    [apply]     	general constraint:
-    [apply]     		actual_arg_1 ⊑ formal_arg_1
-    [apply]     	in this context:
-    [apply]     		{password} ⊑ {this→; this←}
-    [apply]     	cannot satisfy equation:
-    [apply]     		{password} ⊑ {this→; this←}
-    [apply]     	in environment:
-    [apply]     		{this} ⊑ {this.store$→; ⊥←⊥ ⊔ L}
-    [apply]     		L ⊑ {⊤→this.store$}
-    [apply]     		L ⊑ {⊤→this.store$}
-    [apply]     		{⊤←this.store$} ⊑ L
-    [apply]     		{this} ⊑ {caller_pc}
-    [apply]     		{caller_pc} ⊑ fabric.principals.UserPrincipal.provider
-    [apply]     		[(new(fabric.principals.UserPassword).store$ equiv this.store$),
-    [apply]     (this.store$ actsFor this), (worker$ actsFor this)]
-    [apply]
-    [apply]     Label Descriptions
-    [apply]     ------------------
-    [apply]      - actual_arg_1 = the label of the 1st actual argument
-    [apply]      - actual_arg_1 = {password}
-    [apply]      - formal_arg_1 = the upper bound of the formal argument password
-    [apply]      - formal_arg_1 = {this→; this←}
-    [apply]      - password = polymorphic label of formal argument password of
-    [apply]     constructor (bounded above by {⊤→})
-    [apply]      - this = label of the special variable "this" in
-    [apply]     fabric.principals.UserPrincipal[label L]
-    [apply]      - L = label parameter L of class fabric.principals.UserPrincipal
-    [apply]      - caller_pc = pc label
-    [apply]      - fabric.principals.UserPrincipal.provider = pc label
-    [apply]
-    [apply]     The label of the actual argument, actual_arg_1, is more restrictive than
-    [apply]     the label of the formal argument, formal_arg_1.
-    [apply]         this.pass = new UserPassword[this](password);
-    [apply]                                            ^------^
-    [apply]
-    [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/fabric/principals/UserPrincipal.fab:19:
-    [apply]     Unsatisfiable constraint
-    [apply]     	general constraint:
-    [apply]     		actual_arg_1 ⊑ formal_arg_1
-    [apply]     	in this context:
-    [apply]     		{userName} ⊑ {this}
-    [apply]     	cannot satisfy equation:
-    [apply]     		{userName} ⊑ {this}
-    [apply]     	in environment:
-    [apply]     		{this} ⊑ {this.store$→; ⊥←⊥ ⊔ L}
-    [apply]     		L ⊑ {⊤→this.store$}
-    [apply]     		L ⊑ {⊤→this.store$}
-    [apply]     		{⊤←this.store$} ⊑ L
-    [apply]     		{this} ⊑ {caller_pc}
-    [apply]     		{caller_pc} ⊑ fabric.principals.UserPrincipal.provider
-    [apply]     		[(new(fabric.principals.UserPassword).store$ equiv this.store$),
-    [apply]     (this.store$ actsFor this), (worker$ actsFor this)]
-    [apply]
-    [apply]     Label Descriptions
-    [apply]     ------------------
-    [apply]      - actual_arg_1 = the label of the 1st actual argument
-    [apply]      - actual_arg_1 = {userName}
-    [apply]      - formal_arg_1 = the upper bound of the formal argument name
-    [apply]      - formal_arg_1 = {this}
-    [apply]      - userName = polymorphic label of formal argument userName of
-    [apply]     constructor (bounded above by {⊤→})
-    [apply]      - this = label of the special variable "this" in
-    [apply]     fabric.principals.UserPrincipal[label L]
-    [apply]      - L = label parameter L of class fabric.principals.UserPrincipal
-    [apply]      - caller_pc = pc label
-    [apply]      - fabric.principals.UserPrincipal.provider = pc label
-    [apply]
-    [apply]     The label of the actual argument, actual_arg_1, is more restrictive than
-    [apply]     the label of the formal argument, formal_arg_1.
-    [apply]         super(userName);
-    [apply]               ^------^
-    [apply]
-    [apply] 3 errors.
-    [apply] null
+public class UserPrincipal extends ExternalPrincipal
+{
+    private final UserPassword[this]{this}@{⊤→} pass; // Don't care that a password is set as long as cannot read password
 
+    // Add principal
+    public UserPrincipal(String{this} userName, String{this} password)
+    where authority (this)
+    {
+        this.pass = new UserPassword[this](password);
+        super(userName);
+    }
 
-*/
+    // TODO: boolean of isAuthorized()
+
+	// Maybe we assume at this point that User does not have all fields there but
+    // we don't care if a user knows any username and their supposed password which the servlet has captured so far (only)
+	public static UserPrincipal{⊤←} getInstance{⊤←}(String userName, String password)
+	where   {userName} ⊑ {⊤←},
+			{password} ⊑ {⊤←} //TODO: endorsement because probably cannot make this guarantee from call site and
+								// therefore will not actually be able to use this method t
+	{
+		atomic
+		{
+			FabricWorker w = FabricWorker.getWorker();
+			if (w != null)
+			{
+				final Store store = w.getStore(Config.calendarStoreName); // One store at the moment
+				if (store != null)
+				{
+					Map rootMap = store.getRoot();
+
+					if (rootMap != null)
+					{
+						Object obj = rootMap.get(userName);
+						UserPrincipal userP = null;
+
+						if (obj instanceof UserPrincipal)
+						{
+							userP = (UserPrincipal) obj;
+						}
+						else
+						{
+							// TODO: prompt to create a user object
+							// Does this work to create a user principal?
+							userP = new UserPrincipal@store(userName, password);
+							rootMap.put(userName, userP);
+						}
+						return userP;
+					}
+				}
+			}
+
+			return null;
+		}
+	}
+}
+
+class UserPassword[principal P]
+{
+    final String{P→; P←} password;
+
+    UserPassword(String{P→; P←} password)
+    {
+        this.password = password;
+        super();
+    }
+}

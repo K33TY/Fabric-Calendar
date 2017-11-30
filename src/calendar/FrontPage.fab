@@ -23,8 +23,8 @@ public class FrontPage extends CalendarAction authority (ServletPrincipal)
 
 	public final void invoke{*lbl}(label{*lbl} lbl, Request[ServletPrincipal]{*lbl} req)
 	throws (ServletException{*lbl;req.session←})
-	where caller(req.session),
-        lbl <= {req.session→}
+	where   caller(req.session),
+            lbl ⊑ {req.session→}
 	{
 	    HTMLServlet[ServletPrincipal] servlet = (HTMLServlet) getServlet();
 	    if (servlet == null || !(servlet instanceof Main))
