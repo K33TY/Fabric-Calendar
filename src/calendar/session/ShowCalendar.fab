@@ -1,1 +1,87 @@
 package calendar.session;
+
+import login.*;
+import sif.html.*;
+import calendar.Main;
+import calendar.Config;
+import calendar.Calendar;
+import calendar.FrontPage;
+import fabric.util.Map;
+import sif.servlet.Servlet;
+import sif.servlet.Request;
+import sif.servlet.SessionState;
+import sif.servlet.SessionPrincipal;
+import fabric.principals.ServletPrincipal;
+
+import javax.servlet.ServletException;
+
+public class ShowCalendar extends AbstractServlet[ServletPrincipal]
+{
+	final Store{this}@{ServletPrincipal→} localStore;
+	final Store{this}@{ServletPrincipal→} store;
+	final principal{this}@{ServletPrincipal→} calendar;
+
+	public ShowCalendar()
+	throws ServletException
+	where {⊤→} ⊑ {this} //TODO: this is bad, fix
+	{
+		FabricWorker w = FabricWorker.getWorker();
+		Store lStore = null;
+		if (w != null)
+		{
+			lStore = w.getLocalStore();
+		}
+		localStore = lStore;
+		store = worker$.getStore(Config.calendarStoreName);
+
+		Map root = null;
+		if (store != null)
+		{
+			root = (Map) store.getRoot();
+		}
+
+		Calendar[ServletPrincipal] calendarInit = null;
+		atomic
+		{
+			if (root != null)
+			{
+//				Object obj = root.get(Config.calendarMapKey);
+//				if (obj instancof Calendar[ServletPrincipal])
+//				{
+//					calendarInit = (Calendar[ServletPrincipal]) obj;
+//				}
+			}
+		}
+
+		calendar = calendarInit;
+		super();
+	}
+
+	public void initialize{ServletPrincipal→;ServletPrincipal←}(Main m)
+	throws ServletException
+	{
+		// TODO: does not compile because of flow issue
+		//addStartAction(new FrontPage(m));
+	}
+
+	public String getPrivateHostID() throws ServletException {
+	return "";
+	}
+
+	protected String defaultActionName(Request[ServletPrincipal] req)
+	{
+        return "frontpage";
+    }
+
+	// Look up a User from a given user id
+	public principal{p→; p←} lookupUserID{p→; p←}(String{p→; p←} userID, principal{p→; p←} p)
+	where   caller(p)
+	{
+		if (userID == null) return null;
+		else
+		{
+			// TODO: lookup user based on user ID from store
+		}
+		return null;
+	}
+}

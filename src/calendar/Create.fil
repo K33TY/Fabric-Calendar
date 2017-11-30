@@ -26,6 +26,9 @@ public class Create {
 //			IntegPolicy rootTrusted     = LabelUtil.writerPolicy(store, root, root);
 //			IntegPolicy servletTrusted  = LabelUtil.writerPolicy(store, servlet, servlet);
 //			ConfPolicy  servletTrusted
+
+
+// Why did the travel example give bottom integrity and bottom confidentiality to the store? Isn't that bad?
 		}
 	}
 }

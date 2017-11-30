@@ -9,7 +9,7 @@ public final class Config
     public static final String{⊤→} calendarMapKey = "calendar";
 
 	// The key in the root map for the calendar servlet principal
-	public static final String{⊤→} calendarPrincipalMapKey = "servletPrincipal";
+	public static final String{⊤→} calendarRootMapKey = "servletPrincipal";
 
 	// The key in the root map for user objects
 	public static final String{⊤→} usersMapKey = "users";

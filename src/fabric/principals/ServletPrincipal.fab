@@ -27,19 +27,21 @@ public class ServletPrincipal extends ExternalPrincipal
 					Map rootMap = store.getRoot();
 					if (rootMap != null)
 					{
-						//Object obj = rootMap.get(Config.calendarPrincipalMapKey);
-						ServletPrincipal servletP = null;
-//						if (obj instanceof ServletPrincipal)
-//						{
-//							servletP = (ServletPrincipal) obj;
-//						}
-//						else
-//						{
-//							servletP = new ServletPrincipal@store();
-//							rootMap.put(Config.calendarPrincipalMapKey, servletP);
-//						}
+						Object obj = rootMap.get(Config.calendarRootMapKey);
+						//return getServletPrincipal(obj, rootMap, store);
 
-//						return servletP;
+//						ServletPrincipal servletP = null;
+//                        if (obj instanceof ServletPrincipal)
+//                        {
+//                            servletP = (ServletPrincipal) obj;
+//                        }
+//                        else
+//                        {
+//                            servletP = new ServletPrincipal@store();
+//                            rootMap.put(Config.calendarRootMapKey, servletP);
+//                        }
+//
+//                        return servletP;
 					}
 				}
 
@@ -52,4 +54,22 @@ public class ServletPrincipal extends ExternalPrincipal
 	{
 		return getInstance();
 	}
+
+	// Is this allowed
+//    public static ServletPrincipal getServletPrincipal(Object obj, Map rootMap, Store store)
+//    where {obj} ⊑ {obj.store$→} // the object's details allowed to be known by store?
+//    {
+//        ServletPrincipal servletP = null;
+//        if (obj instanceof ServletPrincipal)
+//        {
+//            servletP = (ServletPrincipal) obj;
+//        }
+//        else
+//        {
+//            servletP = new ServletPrincipal@store();
+//            rootMap.put(Config.calendarRootMapKey, servletP);
+//        }
+//
+//        return servletP;
+//    }
 }

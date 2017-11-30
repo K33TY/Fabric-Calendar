@@ -15,16 +15,16 @@ import login.*;
 public class FrontPage extends CalendarAction authority (ServletPrincipal)
 {
     public FrontPage(Main{this} m)
-        throws ServletException
+    throws ServletException
     {
         super();
         initFields("frontPage", m);
     }
 
 	public final void invoke{*lbl}(label{*lbl} lbl, Request[ServletPrincipal]{*lbl} req)
-		throws (ServletException{*lbl;req.session←})
-		where caller(req.session),
-	        lbl <= {req.session→}
+	throws (ServletException{*lbl;req.session←})
+	where caller(req.session),
+        lbl <= {req.session→}
 	{
 	    HTMLServlet[ServletPrincipal] servlet = (HTMLServlet) getServlet();
 	    if (servlet == null || !(servlet instanceof Main))
@@ -54,7 +54,7 @@ public class FrontPage extends CalendarAction authority (ServletPrincipal)
     // Automatically make req.session actsfor ServletPrincipal, since we are on a worker that allows this
     // i.e. The customer worker principal acts for CustomerPrincipal
     private final void loginToServlet{session←}(principal{session←} session, Request[ServletPrincipal]{session←} reqParam)
-    where authority(ServletPrincipal), endorse({ServletPrincipal←})
+    where   authority(ServletPrincipal), endorse({ServletPrincipal←})
     {
         final Request[ServletPrincipal] req = endorse(reqParam, {session←} to {ServletPrincipal←});
         final DelegatingPrincipal p = (DelegatingPrincipal)ServletPrincipal;
