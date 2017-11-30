@@ -17,13 +17,13 @@ import javax.servlet.ServletException;
 
 public class ShowCalendar extends AbstractServlet[ServletPrincipal]
 {
-	final Store{this}@{ServletPrincipal→} localStore;
-	final Store{this}@{ServletPrincipal→} store;
-	final principal{this}@{ServletPrincipal→} calendar;
+	final Store{this}@{⊤→} localStore;
+	final Store{this}@{⊤→} store;
+	final principal{this}@{⊤→} calendar;
 
 	public ShowCalendar()
 	throws ServletException
-	where {⊤→} ⊑ {this} //TODO: this is bad, fix
+	//where {⊤→} ⊑ {this} //TODO: this is bad, fix
 	{
 		FabricWorker w = FabricWorker.getWorker();
 		Store lStore = null;
@@ -45,11 +45,11 @@ public class ShowCalendar extends AbstractServlet[ServletPrincipal]
 		{
 			if (root != null)
 			{
-//				Object obj = root.get(Config.calendarMapKey);
-//				if (obj instancof Calendar[ServletPrincipal])
-//				{
-//					calendarInit = (Calendar[ServletPrincipal]) obj;
-//				}
+				Object obj = root.get(Config.calendarMapKey);
+				if (obj instanceof Calendar[ServletPrincipal])
+				{
+					calendarInit = (Calendar[ServletPrincipal]) obj;
+				}
 			}
 		}
 
