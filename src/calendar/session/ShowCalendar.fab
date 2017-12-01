@@ -23,7 +23,6 @@ public class ShowCalendar extends AbstractServlet[ServletPrincipal]
 
 	public ShowCalendar()
 	throws ServletException
-	//where {⊤→} ⊑ {this} //TODO: this is bad, fix
 	{
 		FabricWorker w = FabricWorker.getWorker();
 		Store lStore = null;

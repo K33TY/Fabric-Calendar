@@ -57,10 +57,11 @@ public class FrontPage extends CalendarAction authority (ServletPrincipal)
     where   authority(ServletPrincipal), endorse({ServletPrincipal←})
     {
         final Request[ServletPrincipal] req = endorse(reqParam, {session←} to {ServletPrincipal←});
-        final DelegatingPrincipal p = (DelegatingPrincipal)ServletPrincipal;
+        final DelegatingPrincipal p = (DelegatingPrincipal) ServletPrincipal;
         if (p == null) return;
         final principal sessionLow = endorse(session, {session←} to {ServletPrincipal←});
-        if (p equiv ServletPrincipal) {
+        if (p equiv ServletPrincipal)
+        {
             p.addDelegatesTo(sessionLow);
         }
 

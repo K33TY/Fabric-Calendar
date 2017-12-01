@@ -25,8 +25,9 @@ public class UserPrincipal extends ExternalPrincipal
     // we don't care if a user knows any username and their supposed password which the servlet has captured so far (only)
 	public static UserPrincipal{⊤←} getInstance{⊤←}(String userName, String password)
 	where   {userName} ⊑ {⊤←},
-			{password} ⊑ {⊤←} //TODO: endorsement because probably cannot make this guarantee from call site and
-								// therefore will not actually be able to use this method t
+			{password} ⊑ {⊤←}    // TODO: endorsement because probably cannot make this guarantee from call site and
+								//  therefore will not actually be able to use this method
+			//endorse(userName), //this means that original caller of method endorses this field?
 	{
 		atomic
 		{
