@@ -1,1 +1,11 @@
 package calendar.session;
+
+import login.*;
+
+class changeDisplayDateAction extends AbstractAction[ServletPrincipal]
+{
+	public ChangeDisplayDateAction(Main{this} m, principal{this} session)
+	{
+		super(m, session);
+	}
+}
