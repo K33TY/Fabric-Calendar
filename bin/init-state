@@ -9,5 +9,6 @@ CP="${APP_HOME}/classes"
 export FABRIC_HOME="${APP_HOME}"
 
 fab --jvm-cp "${CP}" --app-home "${FABRIC_HOME}" --name calendar \
-  calendar.Create servletPrincipal
+  calendar.Create servletPrincipal calendar eperk andru jedliu tmagrino
 
+# Maybe hardcode users for now?

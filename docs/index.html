@@ -280,7 +280,15 @@
                 Another useful thing to know is that you can use <font color="#bf0a00">&lt;arg value="-h" /&gt;</font> as
                 an argument to the fabc or filc compiler to see other possible argument options.
 
-                <!-- TODO: h3 class="content-subsection">Shell Scripts</h3-->
+                <h3 class="content-subsection">Shell Scripts</h3>
+
+                Fabric applications generally use executables in the bin directory to start the nodes relating to their application
+                and to specify entry points for various components needed to operate the distributed application. Many of the
+                examples utilize a script which performs some form of initialization for the application's state. This is often
+                pointed at a FabIL file which creates the necessary stores and principals.<br /><br />
+
+                Then, there are usually scripts that start worker nodes and likewise scripts that start storage nodes. Often,
+                these couple with scripts to run the respective nodes in <font color="#bf0a00">xterm</font>.
 
             </div>
 
