@@ -288,7 +288,8 @@
                 pointed at a FabIL file which creates the necessary stores and principals.<br /><br />
 
                 Then, there are usually scripts that start worker nodes and likewise scripts that start storage nodes. Often,
-                these couple with scripts to run the respective nodes in <font color="#bf0a00">xterm</font>.
+                these couple with scripts to run the respective nodes in <font color="#bf0a00">xterm</font>, a standard terminal
+                emulator.
 
             </div>
 
@@ -402,6 +403,22 @@ FabricWorker.getWorker().getLocalStore();
                                   parentheses to encase the exception type and respective label.<br /><br />
 
                 <h3 class="content-subsection">Where Clauses</h3>
+                <font color="#bf0a00">Where</font> clauses can be employed by Fabric methods and constructors to add constraints
+                to their calls, and this is often useful for ensuring that only intended data is leaked when calling these
+                methods. Possible <font color="#bf0a00">where</font> clauses include:<br /><br />
+
+                <!-- TODO: fill this out more-->
+                <table>
+                    <tr>
+                        <td>data from label p may flow to label q</td> <td>p ⊑ q</td> <td>{p→} ⊑ {obj<sub>1</sub>→}</td>
+                    </tr>
+                    <tr>
+                        <td>principals p and q are the same principal</td> <td>p equiv q</td> <td></td>
+                    </tr>
+                    <tr>
+                        <td>the caller of the method is principal p</td> <td>caller(p)</td> <td></td>
+                    </tr>
+                </table>
 
             </div>
 
