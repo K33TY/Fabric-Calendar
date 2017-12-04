@@ -409,11 +409,28 @@ FabricWorker.getWorker().getLocalStore();
             <div id="instantiation" class="content-section">
                 <h2 class="content-header">Instantiation</h2>
 
+                    <strong>Class Constructors and Methods</strong>
+                    In Fabric, we are able to limit who may call a method or constructor by either labeling the method
+                    with an information flow policy or by using a where class; for example, stating that the caller of the
+                    method must be the principal from the session request:
+
 <pre><!------------------------codeblock------------->
 <code class="java">
-// TODO: how to instantiate an object with policy labels
+public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
+    throws  (ServletException{*lbl;req.session←})
+    where   caller(req.session),
+            lbl <= {req.session→}
+    {
+    ...
 </code>
 </pre><!-----------------------end codeblock--------->
+
+                    Often times, it can be helpful to write methods that can be called from a static context to avoid having
+                    to deal with information flow leaks from the method caller's program counter. However, if this is done,
+                    then will obviously not be able to refer to the information flow policy of an instantiated object, and may
+                    have to use pointers to a label passed within the method arguments.<br /><br />
+
+                <!---TODO: write more about arrays-->
 
 <pre><!------------------------codeblock------------->
 <code class="java">
@@ -432,7 +449,10 @@ FabricWorker.getWorker().getLocalStore();
                 instantiate new objects. Similarly, a principal may not want secrets from their objects to be revealed to
                 stores that they do not trust. This means that it can be useful to think about the overall architecture
                 and begin sketching access policy diagrams and flow diagrams to model what you want your system to do, and
-                what you want to ensure it does not do.<br /><br />
+                what you want to ensure it does not do. Doing this helps also understand where the main entrypoints are for
+                the application and how various distributed nodes interact, which can become confusing in convoluted applications.<br /><br />
+
+                <h3 class="content-subsection">Common Compiler Issues</h3>
 
                 At the same time, the compiler likes to throw fits for reasons that may not always seem obvious. While some of
                 these errors could be compiler errors or lower level errors in the language upon which Fabric is built, especially
@@ -442,8 +462,6 @@ FabricWorker.getWorker().getLocalStore();
                 completely revamp numerous other methods, because the previous labels were too restrictive, for example. Hence,
                 it is sensible to program in small units so that you do not have to follow a slew of seemingly nonsensical
                 bugs.<br /><br />
-
-                <h3 class="content-subsection">Common Compiler Issues</h3>
 
                 The <font color="#bf0a00">fabc</font> compiler has issues if you:
 
