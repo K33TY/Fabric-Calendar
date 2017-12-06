@@ -15,7 +15,7 @@ public class LoginClosure[principal P] implements Closure[P, {P→}]
         super();
     }
 
-    // DOWNGRADE REASON: Things need to be trusted by P!: in order to
+    // DOWNGRADE REASON: Things need to be trusted by P← in order to
     // delegate P's authority. However, since this stuff is coming from the
     // session principal (which does not yet act for P), it is untrusted by P.
     // The auto-endorse is OK, for the same reason that this closure is a source

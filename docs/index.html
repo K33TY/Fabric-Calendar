@@ -594,7 +594,54 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                         </ul>
                 </ul>
 
-                Login Package ("borrowed" from Travel example, but reformatted for readability concerns)
+                Login Package ("borrowed" from Travel example, but reformatted for readability concerns). This package is
+                largely similar to the Sif's Userserv package found in the examples application called User, but misses a
+                bit of functionality. The Jif Calendar uses the jar from this sif example, and therefore we need a Fabric implementation.
+                Since the login package is similar, it should be possible to edit the classes to do what is needed, as well
+                as add other classes to better mirror Userserv's capabilities. This requires better understanding what that package
+                is doing: <br /><br />
+
+                <table>
+                    <thead>Package Userserv Class Maps to Package Login Class</thead>
+                    <tr>
+                        <td><strong>Sif Userserv Package</strong></td>
+                        <td><strong>Fabric Login Package</strong></td>
+                        <td><strong>Methods Userserv does not have</strong></td>
+                        <td><strong>Methods Login does not have</strong></td>
+                    </tr>
+                    <tr>
+                        <td>UAction</td>
+                        <td>AbstractAction</td>
+                        <td></td>
+                        <td>
+                            <ul>
+                                <li>Constructor to construct from servlet</li>
+                                <li>Constructor to construct from servlet and name string</li>
+                                <li>boolean ensureLoggedIn() ... but this always returns true</li>
+                                <li>UAction[servP] directAfterLogin(Request[servP]{*:req.session} req, UServlet[servP]{*:req.session} servlet) ... but this always returns null</li>
+                                <li>Invoke and Invoke Impl methods</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>USessAction</td>
+                        <td>--</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>LoginAction</td>
+                        <td>LoginAction</td>
+                        <td>Extends USessAction</td>
+                        <td>Extends AbstractAction</td>
+                    </tr>
+                    <tr>
+                        <td>SubmitLoginAction</td>
+                        <td>SubmitLoginAction</td>
+                        <td>Extends USessAction</td>
+                        <td>Extends AbstractAction</td>
+                    </tr>
+                </table>
 
 
 <pre><!------------------------codeblock------------->
