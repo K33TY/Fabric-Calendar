@@ -386,12 +386,18 @@ FabricWorker.getWorker().getLocalStore();
                 <h2 class="content-header">Worker</h2>
 
                 The worker nodes perform computations in Fabric, either on their own local objects or on objects which were
-                copied storage nodes, or even other worker nodes. Fabric's computations are done atomically,
+                copied storage nodes, or even other worker nodes. In fact, it is possible for a worker node to
+                also simultaneously be a storage node, if so desired.<br /><br />
+
+                Fabric's computations are done "atomically"
                 within transactions. This allows actions, involved in Fabric's optimistic transactions, to be rolled back
-                as needed if a different node which had not yet finished computation changed an object within the
-                transaction. This allows consistency to be guaranteed for Fabric objects across all nodes. It is possible
-                for a worker node to simultaneously be a storage node, if so desired. A construct called
-                <font color="#bf0a00">atomic</font> is given in the syntax for handling the atomic transactions, for example:
+                as needed if a different node which accessed the object first but had not yet finished its computation
+                changed an object within its transaction. Naturally, this means that the node which had completed prior to
+                this had not done it on the correct data, but this can be easily reverted. Optimistic transactions are useful
+                because they rollbacks will not always be necessary, and thus we improve latency by not having to wait to compute.
+                Thus, atomic transactions performed in this manner allow consistency to be guaranteed for Fabric objects
+                across all nodes. A construct called <font color="#bf0a00">atomic</font> is given in the syntax for handling
+                the atomic transactions, for example:
 
 <pre><!------------------------codeblock------------->
 <code class="java">
@@ -423,7 +429,7 @@ protected SessionState{*lbl} createSessionState{*lbl}
             <div id="labels" class="content-section">
                 <h2 class="content-header">Labels</h2>
 
-                Some times Fabric's syntax can be rather hard to visually parse, especially for someone new to the language.
+                Sometimes, Fabric's syntax can be rather hard to parse visually, especially for someone new to the language.
                 Here is a breakdown of the various components in a concrete example: <br />
                 <img src="imgs/FabricMethod2.svg"/><br />
 
@@ -431,22 +437,23 @@ protected SessionState{*lbl} createSessionState{*lbl}
                                     the label is labeled by itself, so we use a pointer. Similarly, the string argument
                                     which possibly is a date in string format also gets labeled with the pointer. <br /><br />
 
-                <b>Method:</b>   the method call is similarly labeled with the pointer, to mean that this method requires
+                <b>Method:</b>   the method call is similarly labeled with the pointer, meaning that this method requires
                                  that the caller has the same authority as the label passed to the method.<br /><br />
 
                 <b>Return type:</b> the return type is a Date object, instantiated with the label, and likewise we label
-                                    the object with a pointer to the label. <br /><br />
+                                    the Date object with a pointer to the label. <br /><br />
 
                 <b>Exception:</b> the thrown exception could leak information, and hence we also label it with the pointer
                                   to the label. When doing this notation, the compiler requires that you use a pair of
                                   parentheses to encase the exception type and respective label.<br /><br />
 
-                <a href="Jif_Label_Syntax.pdf ">[Printable version of table found in Official Fabric Manual]</a>
+                <a href="Jif_Label_Syntax.pdf ">[Click here for a printable version of table found in Official Fabric Manual]</a>
 
                 <h3 class="content-subsection">Where Clauses</h3>
                 <font color="#bf0a00">Where</font> clauses can be employed by Fabric methods and constructors to add constraints
-                to their calls, and this is often useful for ensuring that only intended data is leaked when calling these
-                methods. Possible <font color="#bf0a00">where</font> clauses include:<br /><br />
+                to their calls, and this is often useful for ensuring that only intended data is leaked when calling Fabric
+                methods. Overly strong constraints may please the compiler, but later they may make it impossible to call the method due
+                to the inability to fulfill all the constraints. Possible <font color="#bf0a00">where</font> clauses include:<br /><br />
 
                 <!-- TODO: fill this out more-->
                 <table>
@@ -467,7 +474,7 @@ protected SessionState{*lbl} createSessionState{*lbl}
             <div id="instantiation" class="content-section">
                 <h2 class="content-header">Instantiation</h2>
 
-                    <strong>Class Constructors and Methods</strong>
+                    <strong>Class Constructors and Methods</strong><br />
                     In Fabric, we are able to limit who may call a method or constructor by either labeling the method
                     with an information flow policy or by using a where class; for example, stating that the caller of the
                     method must be the principal from the session request:
@@ -490,18 +497,12 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
 
                 <!---TODO: write more about arrays-->
 
-<pre><!------------------------codeblock------------->
-<code class="java">
-// TODO: how to instantiate an array with policy labels
-</code>
-</pre><!-----------------------end codeblock--------->
-
             </div>
 
 <!--======================================|  THINGS TO NOTE  |========================================-->
             <div id="notes" class="content-section">
                 <h2 class="content-header">Things to Note</h2>
-                Fabric applications are distributed, meaning that there can often be intricate flow policies and access labels
+                Fabric applications are distributed, meaning that there can often be intricate information flow policies and access labels
                 restricting how methods, and also objects, can interact. This is could be dependent on principals not wanting to
                 reveal too much information via their program counters when methods throw exceptions, return objects, or
                 instantiate new objects. Similarly, a principal may not want secrets from their objects to be revealed to
@@ -513,13 +514,14 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                 <h3 class="content-subsection">Common Compiler Issues</h3>
 
                 At the same time, the compiler likes to throw fits for reasons that may not always seem obvious. While some of
-                these errors could be compiler errors or lower level errors in the language upon which Fabric is built, especially
+                these errors could be compiler errors or lower level errors in the languages upon which Fabric is built, especially
                 considering that the language is still in development and at the moment has some known bugs, this does not mean
                 that all errors are bad. In fact, much of the errors are protecting you from accidentally leaking sensitive
                 information that you might not have thought to protect. Some times, fixing one bug can lead to needing to
-                completely revamp numerous other methods, because the previous labels were too restrictive, for example. Hence,
-                it is sensible to program in small units so that you do not have to follow a slew of seemingly nonsensical
-                bugs.<br /><br />
+                completely revamp numerous other methods (for example: because the previous labels were too restrictive). The
+                <font color="#bf0a00">fabc</font> compiler often only prints the first couple of issues, and then simply stops
+                analyzing the program. Hence, it is sensible to program in small units so that you do not have to follow a
+                slew of seemingly nonsensical bugs.<br /><br />
 
                 The <font color="#bf0a00">fabc</font> compiler has issues if you:
 
@@ -528,6 +530,9 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <li>Among different classes, try to keep your variable names unambiguous because the compiler may make a mistake as to which
                         object type a string representation of a variable is depending on if it has previously seen a string of that object type.</li>
                 </ul>
+
+                If you discover a new bug, or have interest in trying to fix certain issues, please feel free to contribute to
+                the public Github's issue tracker: <a href="https://github.com/apl-cornell/fabric/issues">[link]</a>
 
                 <h3 class="content-subsection">Integrated Development Environments</h3>
                 Fabric has an IDE <a href="https://github.com/apl-cornell/fabric.ide">[link]</a> which can be built if you have the following setup:
