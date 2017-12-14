@@ -1,0 +1,41 @@
+package calendar.util;
+
+/**
+*   A class to transfer confidentiality and/or integrity rights between principals
+*
+*/
+
+public class Declassifier authority (ServletPrincipal)
+{
+	// Do I need to transfer things from ServletPrincipal to specific users IF ServletP can act for all users?
+	// Couldn't the ServletPrincipal then create objects AS a user?
+	// Could the fabric store save the objects with the policies regarding a specific principal P allowing them
+	//  access to their objects forever?
+
+	/* Otherwise may need methods to:
+
+			- transfer Event Objects (OwnerEvent, ViewerEvent, AttendeeEvent) from ServletP to P
+			- transfer Date from ServletP to P (but would prefer that date based on user system time on authorization,
+				can I do this instead?
+
+
+
+			Jif calendar has the following:
+
+			// DOWNGRADE REASON: transfer user list from CalServEP to p
+
+			// DOWNGRADE REASON: transfer user display string from CalServEP to p
+
+			// DOWNGRADE REASON: transfer user list from CalServEP to p
+
+			// DOWNGRADE REASON: utility method to transfer from P to Q
+
+			// DOWNGRADE REASON: utility method to transfer from P to Q
+
+			// DOWNGRADE REASON: utility method to transfer date from P to Q
+
+			// DOWNGRADE REASON: utility method to transfer date from P to lbl.
+
+	*/
+
+}

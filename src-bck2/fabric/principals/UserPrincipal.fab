@@ -4,7 +4,6 @@ import fabric.worker.Store;
 import fabric.util.*;
 import calendar.Config;
 import calendar.User;
-import fabricated.util.Comparator;
 
 import login.LoginClosure;
 
@@ -14,52 +13,13 @@ public class UserPrincipal extends ExternalPrincipal
 
     // Add principal
     public UserPrincipal(String{this} userName, String{this} password)
-    where   authority (this)
+    where authority (this)
     {
         this.pass = new UserPassword[this](password);
         super(userName);
     }
 
-	// Check that the user is authorized
-    public boolean{authProof; closure; lbl; *lbl; executeNow; this; this←} isAuthorized{this→;this←}
-    (   // Method Arguments
-        java.lang.Object authProof,
-        Closure[this, lbl] closure,
-        label lbl,
-        boolean executeNow
-    )
-    where   authority(this),
-            {authProof; closure; lbl; executeNow} ⊑ lbl,
-            lbl ⊑ {this→}
-    {
-        endorse(authProof, {authProof; this→; this←} to {this→; this←})
-        if (authProof instanceof String)
-        {
-            String password = (String) authProof;
-            if (password == null)
-            {
-                declassify({*lbl; this; this←})
-                {
-                    return false;
-                }
-            }
-
-            // Check that password given matches the password for this user principal
-            String myPassword = pass.password;
-            if (myPassword == password || (myPassword != null && myPassword.equals(password)))
-            {
-                declassify ({*lbl; this; this←})
-                {
-                    return true;
-                }
-            }
-        }
-        // Don't accept passwords that are not Strings
-        declassify({*lbl; this; this←})
-        {
-            return false;
-        }
-    }
+    // TODO: boolean of isAuthorized()
 
 	// Maybe we assume at this point that User does not have all fields there but
     // we don't care if a user knows any username and their supposed password which the servlet has captured so far (only)
@@ -105,7 +65,6 @@ public class UserPrincipal extends ExternalPrincipal
 	}
 }
 
-// Password class
 class UserPassword[principal P]
 {
     final String{P→; P←} password;

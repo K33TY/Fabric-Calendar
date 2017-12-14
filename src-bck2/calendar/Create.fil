@@ -1,0 +1,35 @@
+package calendar;
+// DO I NEED THIS class?
+
+import fabric.principals.*;
+import fabric.util.Map;
+
+public class Create {
+//
+//	/**
+//	*
+//	*   Create necessary setup for the calendar application:
+//	*
+//	*   store: contains all persistent objects for calendar app
+//	*   =====
+//	*   root: ServletPrincipal
+//	*/
+//
+	public static void main(String[] args)
+	{
+		atomic
+		{
+			Store store = Worker.getWorker().getStore(Config.calendarStoreName);
+
+			AbstractPrincipal servlet = ServletPrincipal.getInstance();
+
+//			IntegPolicy rootTrusted     = LabelUtil.writerPolicy(store, root, root);
+//			IntegPolicy servletTrusted  = LabelUtil.writerPolicy(store, servlet, servlet);
+//			ConfPolicy  servletTrusted
+
+
+// Why did the travel example give bottom integrity and bottom confidentiality to the store? Isn't that bad?
+		}
+	}
+}
+

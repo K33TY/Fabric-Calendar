@@ -1,0 +1,231 @@
+package login;
+
+import javax.servlet.ServletException;
+import sif.servlet.*;
+import sif.html.*;
+
+public class LoginAction[principal servP] extends AbstractAction[servP]
+{
+    final AuthenticatedAction[servP]{this}@{⊤→} successAction;
+    final Input[servP]{this}@{⊤→} inpUserID;
+    final Input[servP]{this}@{⊤→} inpPassword;
+
+	// Constructor
+    public LoginAction
+    (   // Arguments
+        HTMLServlet[servP]{this} servlet,
+        AuthenticatedAction[servP]{this} successAction,
+        principal{this} session
+    )
+    {
+        this.successAction = successAction;
+        this.inpUserID = new Input[servP](servlet, new label {session←});
+        this.inpPassword = new Input[servP](servlet, new label {session:;session←});
+        super();
+        initFields(servlet);
+    }
+
+    public final void invoke{*lbl}(label{*lbl} lbl, Request[servP]{*lbl} _req)
+    throws  (ServletException{*lbl;_req.session←})
+    where   caller(_req.session),
+            lbl <= {_req.session→}
+    {
+        final HTMLRequest[servP] req = (HTMLRequest[servP]) _req;
+        Servlet[servP] servlet_ = getServlet();
+
+        if (!(servlet_ instanceof HTMLAuthServlet[servP]))
+            throw new ServletException("Error processing request");
+
+        final HTMLAuthServlet[servP] servlet = (HTMLAuthServlet[servP])servlet_;
+
+        if (req == null)
+            throw new ServletException("Error processing request");
+
+        final SessionState state_ = req.getSessionState(lbl);
+
+        if ( lbl <= new label {state_.store$→} )
+        {
+            if (!(state_ instanceof AuthSessState))
+                throw new ServletException("Incorrect session state");
+
+            final AuthSessState state = (AuthSessState)state_;
+
+            if ( lbl <= new label {⊤→state.store$} )
+            {
+                if (servlet == null || state == null)
+                    throw new ServletException("Error processing request");
+
+                atomic
+                {
+                    if (req.session equiv state.sessionPrincipal)
+                    {
+                        // when this action is invoked, just produce the login page.
+                        final label sessLbl = new label {req.session→;req.session←};
+
+                        if ( lbl <= sessLbl
+                             && inpPassword != null
+                             && inpUserID != null
+                             && inpUserID.inputLbl <= sessLbl
+                             && inpPassword.inputLbl equiv sessLbl
+                             && new label {*lbl; req.session←} <= inpUserID.inputLbl )
+                        {
+                            producePage(new label {*lbl;req.session←}, req, servlet, state, null, null);
+                        }
+                        else
+                        {
+                            String lblString = LabelUtil.toString(lbl);
+                            throw new ServletException("LoginAction.producePage: lbl too high: " + lblString);
+                        }
+                    }
+                    else
+                    {
+                        throw new ServletException("req.session not equivalent to state.sessionPrincipal");
+                    }
+                }
+            }
+        }
+    }
+
+    protected void producePage{*lbl}
+    (   // Method arguments
+        label{*lbl} lbl,
+		HTMLRequest[servP]{*lbl} req,
+		HTMLServlet[servP]{*lbl} servlet,
+		AuthSessState{*lbl} state,
+		String{*lbl} uidError,
+		String{*lbl} passwdError
+	)
+	where   req.session equiv state.sessionPrincipal,
+			lbl <= {⊤→req.session},
+			{req.session←} <= lbl,
+			{*this.inpUserID.inputLbl} <= {req.session:;req.session←},
+			{*this.inpPassword.inputLbl} <= {req.session:;req.session←},
+			lbl <= {*this.inpUserID.inputLbl},
+			{req.session:;req.session←} <= {*this.inpPassword.inputLbl},
+			caller(req.session)
+    {
+        Node[lbl, lbl] userIDText = desc(lbl, "User ID:");
+        Node[lbl, lbl] passwordText = desc(lbl, "Password:");
+        Node[lbl, lbl] welcomeText = new Paragraph[lbl, lbl]("Please login");
+        String title = "Login";
+
+        Node[lbl, lbl] banner = createBanner(lbl, title);
+
+        if (req == null || servlet == null || state == null) return;
+
+        String defaultUserID = defaultValue(lbl, lbl, req, null, inpUserID);
+
+        NodeList[lbl, lbl] entries = new NodeList[lbl, lbl]
+        (
+            lbl, lbl,
+            new TRow[lbl, lbl]
+            (
+                lbl, lbl,
+                new NodeList[lbl, lbl]
+                (
+                    lbl, lbl, userIDText,
+                    inpNode
+                    (
+                        lbl,
+                        new TextInput[servP, lbl, lbl](
+                            inpUserID, 40, defaultUserID
+                        ),
+                        uidError
+                    )
+                )
+            )
+        );
+
+        entries = entries.append
+        (
+            lbl, lbl,
+            new TRow[lbl, lbl]
+            (   lbl, lbl, new NodeList[lbl, lbl]
+                (
+                    lbl, lbl, passwordText,
+                    inpNode
+                    (
+                        lbl,
+                        new PasswordInput[servP, lbl, lbl]
+                        (
+                            inpPassword, 40, ""
+                        ),
+                        passwdError
+                    )
+                )
+            )
+        );
+
+        entries = (entries == null) ? null :
+                    entries.append
+                    (
+                        lbl, lbl,
+                        new TRow[lbl, lbl]
+                        (
+                            lbl, lbl,
+                            new TCell[lbl, lbl]
+                            (
+                                lbl, lbl,
+                                new SubmitButton[servP, lbl, lbl]
+                                (
+                                    servlet, lbl, "Login"
+                                )
+                            )
+                        )
+                    );
+
+        Node[lbl, lbl] form = servlet.createForm
+                              (
+                                  lbl, lbl,
+                                  new SubmitLoginAction[servP]
+                                  (
+                                      servlet, this
+                                  ),
+                                  lbl, lbl,
+                                  new Table[lbl, lbl]
+                                  (
+                                      lbl, lbl, entries
+                                  )
+                              );
+
+        Node[lbl, lbl] content = new NodeList[lbl, lbl]
+                                 (
+                                     lbl, lbl, banner,
+                                     createBody
+                                     (
+                                         lbl, lbl,
+                                         new NodeList[lbl, lbl]
+                                         (
+                                             lbl, lbl, welcomeText, form
+                                         )
+                                     )
+                                 );
+
+        servlet.createPage(req, title, lbl, lbl, content);
+    }
+
+    /**
+    *   Grab node from description
+    */
+    private Node[lbl, lbl]{lbl} desc{*lbl}(label{*lbl} lbl, String{*lbl} txt)
+    {
+        TCell[lbl, lbl] n = new TCell[lbl, lbl]("desc", lbl, lbl, new Text[lbl, lbl](txt));
+        return n;
+    }
+
+    private Node[lbl, lbl] inpNode{*lbl}(label{*lbl} lbl, InputNode[servP, lbl, lbl]{*lbl} inp, String{*lbl} error)
+    {
+        TCell[lbl, lbl] cell;
+        cell = new TCell[lbl, lbl](lbl, lbl, inp);
+
+        if (error == null)
+        {
+            return cell;
+        }
+
+        // There is an error for this input
+        TCell[lbl, lbl] err = new TCell[lbl, lbl]("error", lbl, lbl, new Text[lbl, lbl](error));
+        return new NodeList[lbl, lbl](lbl, lbl, cell, err);
+    }
+}
+

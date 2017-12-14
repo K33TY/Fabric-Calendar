@@ -1,0 +1,92 @@
+//package calendar.session;
+//
+//import sif.servlet.*;
+//import calendar.*;
+//import sif.html.*;
+//import login.*;
+//
+//import javax.servlet.ServletException;
+//
+//public class ShowCalendarSessAction extends AbstractAction[ServletPrincipal] authority(ServletPrincipal)
+//{
+//	// Input for getting the display date.
+//	final Input[ServletPrincipal]{this} displayDateInput;
+//
+//	// Input for getting the display kind.
+//	final Input[ServletPrincipal]{this} displayKindInput;
+//
+//	// Input for getting an event ID so that it can be edited or viewed.
+//	final Input[ServletPrincipal]{this} eventIDInput;
+//
+//	// Action for changing the display date.
+//	final ChangeDisplayDateAction{this} changeDisplayDateAction;
+//
+//	// Action for editing an event.
+//	final EditEventAction{this} editEventAction;
+//
+//	public ShowCalendarSessAction(Main{this} servlet, principal{this} session, User[ServletPrincipal]{this} currentUser)
+//	{
+//		displayDateInput = new Input[ServletPrincipal](servlet, new label {currentUser←});
+//        displayKindInput = new Input[ServletPrincipal](servlet, new label {currentUser←});
+//        eventIDInput = new Input[ServletPrincipal](servlet, new label {currentUser→;currentUser←});
+//	    changeDisplayDateAction = new ChangeDisplayDateAction(servlet, session);
+//        editEventAction = new EditEventAction(servlet, session);
+//        super(servlet, session);
+//	}
+//
+//	public void invokeSessImpl{*lbl; session←}
+//	(   // Method arguments
+//		label{*lbl; session←} lbl,
+//        Request[ServletPrincipal]{*lbl; session←} req,
+//        UServlet[ServletPrincipal]{*lbl; session←} uservlet,
+//        USessState[ServletPrincipal]{*lbl; session←} ustate,
+//        User[ServletPrincipal]{*lbl; session←} currentUser
+//    )
+//	throws (ServletException{*lbl; session←})
+//    where session equiv req.session,
+//          session equiv ustate.sessionPrincipal,
+//          session actsfor currentUser,
+//          lbl <= {⊤→req.session},
+//          caller(session)
+//	{
+//	    if (req == null || uservlet == null || ustate == null || currentUser == null || !(uservlet instanceof Main) ||
+//            !(ustate instanceof CalendarSessionState))
+//	        throw new ServletException("invalid args");
+//
+//	    final Main servlet = (Main) uservlet;
+//	    final CalendarSessionState state = (CalendarSessionState) ustate;
+//
+//	    if (lbl <= new label {currentUser→; currentUser←})
+//	    {
+//	        if (state.sessionPrincipal equiv session)  // always true
+//	        {
+//	            final State s = state.state;
+//	            if (s != null)
+//	            {
+//	                if (currentUser equiv s.currentUser && CalRootEP actsfor currentUser)
+//	                {
+//	                    declassify ({currentUser→; currentUser←} to {currentUser←})
+//	                    {
+//	                        produceView(declassify(req, {currentUser→; currentUser←} to {currentUser←}),
+//                            declassify(servlet, {currentUser→; currentUser←} to {currentUser←}),
+//                            declassify(s, {currentUser→; currentUser←} to {currentUser←}),
+//                            declassify(currentUser, {currentUser→; currentUser←} to {currentUser←}));
+//	                    }
+//	                }
+//	            }
+//	        }
+//	    }
+//	    else
+//	    {
+//	        String lblString = null;
+//	        try
+//	        {
+//	            lblString = LabelUtil.singleton().toString(lbl);
+//	        }
+//	        catch (NullPointerException imposs) { }
+//	        throw new ServletException("ShowCalendarSessAction.invokeSessImpl: lbl is too high: " + lblString);
+//	    }
+//	}
+//
+//
+//}

@@ -1,12 +1,95 @@
-//package calendar.session;
-//
-//import login.*;
-//import calendar.*;
-//
-//class changeDisplayDateAction extends AbstractAction[ServletPrincipal]
-//{
-//	public ChangeDisplayDateAction(Main{this} m, principal{this} session)
-//	{
-//		super(m, session);
-//	}
-//}
+package calendar.session;
+
+import login.*;
+import calendar.*;
+import sif.servlet.*;
+import sif.html.*;
+
+import fabric.util.Map;
+
+import javax.servlet.ServletException;
+
+public class ChangeDisplayDateAction extends AuthenticatedAction[ServletPrincipal]
+{
+	public ChangeDisplayDateAction(CalendarServlet{this} calendar)
+	{
+        super("changeDisplay", calendar);
+    }
+
+	// Implement authenticated action, by verifying that user allowed to edit event
+	public void invokeImpl{*lbl}
+    (
+        label{*lbl} lbl,
+        Request[ServletPrincipal]{*lbl} req,
+        HTMLAuthServlet[ServletPrincipal]{*lbl} servlet_,
+        AuthSessState{*lbl} state_,
+        principal{*lbl} currentUser
+    )
+    throws  (ServletException{*lbl; req.session←})
+    where   caller(req.session),
+            lbl <= {req.session→},
+            req.session equiv state_.sessionPrincipal,
+            req.session actsfor currentUser
+    {
+        atomic
+        {
+            if (new label {*lbl; _←_} <= new label {state_.store$→}) //TODO: what does this mean? It was in auth wiki (why let bottom integrity flow to store? isn't that bad?)
+            {
+                if (req == null
+                    || servlet_ == null
+                    || state_ == null
+                    || !(servlet_ instanceof CalendarServlet)
+                    || !(state_ instanceof CalendarSessionState)
+                    )
+                    throw new ServletException("invalid args");
+
+                final CalendarServlet {*lbl} servlet = (CalendarServlet) servlet_;
+                final CalendarSessionState state = (CalendarSessionState) state_;
+                final label pubLbl  = new label {currentUser←};
+
+                if (lbl equiv pubLbl)
+                {
+                    final ShowCalendarSessAction scsa = state.scsa;
+                    ServletException{*lbl} ex = null;
+
+                    if (   scsa != null
+                        && req.session equiv scsa.session
+                        && scsa.displayDateInput != null
+                        && scsa.displayDateInput.inputLbl <= pubLbl
+                        && scsa.displayKindInput != null
+                        && scsa.displayKindInput.inputLbl <= pubLbl )
+                    {
+                        // TODO: figure out how to do this
+                        String displayDate = null; //req.getParam(scsa.displayDateInput);
+                        String displayKind = null; //req.getParam(scsa.displayKindInput);
+
+                        if (state != null && state.currentUser equiv currentUser && state.sessionPrincipal equiv req.session)
+                        {
+							int dk = state.displayKind;
+                            if (displayKind != null && displayKind.length() > 0)
+                            {
+                                try
+                                {
+                                    dk = Integer.parseInt(displayKind);
+                                }
+                                catch (NumberFormatException e) { }
+                            }
+                        }
+                    }
+                }
+                 else
+                {
+					// JIF CALENDAR HAS THIS, but LabelUtil.singleton() is not a valid method call in Fabric, so just making an arbitrary message instead for now
+					// TODO: check if there is a LabelUtil toString() in Fabric
+//					String lblString = null;
+//					try {
+//					lblString = LabelUtil.singleton().toString(lbl);
+//					}
+//					catch (NullPointerException imposs) { }
+//					throw new ServletException("ChangeDisplayDateAction.invokeSessImpl: lbl too high " + lblString);
+					throw new ServletException("ChangeDisplayDateAction.invokeSessImpl: lbl too high");
+                }
+            }
+        }
+    }
+}

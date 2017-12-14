@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fabric: How to Create a Fabric Application</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="highlight/styles/liz.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="highlight/highlight.pack.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+
+        $(function() {
+            var nav = $( '#nav' );
+
+            // loop through each content section so we can use its ID
+            $( '.content-section' ).each( function() {
+                var div = $( this );
+                var divID = div.attr( 'id' );
+
+                // loop through all of the content headers and dynamically generate
+                // their IDs, anchors, and navbar links
+                div.children( '.content-header' ).each( function() {
+                    var header = $( this );
+                    var headerID = 'section-' + divID;
+
+                    // make this header clickable with an anchor tag
+                    header.attr( 'id', headerID );
+                    header.wrapInner( '<a href="#' + headerID + '" >' );
+
+                    // dynamically create a new link so we can add it to the navbar
+                    var navDiv = $( '<div>' );
+                    var navLink = $( '<a>' );
+                    navLink.text( header.text() );
+                    navLink.attr({ href: '#' + headerID, class: 'main-link' });
+                    navDiv.append( navLink );
+
+                    // check if this section has subsections to link to
+                    var subsections = div.children( '.content-subsection' );
+                    if ( subsections.length > 0 ) {
+                        var ul = $( '<ul class="sub-link">' );
+
+                        subsections.each( function() {
+                            var sub = $( this );
+                            var subText = sub.attr( 'content-link' ) || sub.text();
+                            var subID = headerID + '-' + subText.toLowerCase();
+
+                            // make this subheader clickable with an anchor tag
+                            sub.attr( 'id', subID );
+                            sub.wrapInner( '<a href="#' + subID + '" >' );
+
+                            // dynamically add a new sublink to the parent UL
+                            var navSubLink = $( '<a>' );
+                            navSubLink.text( subText );
+                            navSubLink.attr({ href: '#' + subID, class: 'content-sublink' });
+
+                            var li = $( '<li>' );
+                            li.append( navSubLink );
+                            ul.append( li );
+                        });
+                        // add the list of subsections to the new section div in the navbar
+                        navDiv.append( ul );
+                    }
+                    // add the new section div in the navbar
+                    nav.append( navDiv );
+                });
+            })
+
+            // scroll to newly created anchor now
+            if (location.hash) {
+                var requested_hash = location.hash.slice(1);
+                location.hash = '';
+                location.hash = requested_hash;
+            }
+        });
+    </script>
+</head>
+<body>
+<div id="header">
+    <div style="width: 100%;">
+        <h1>Fabric: How to Create a Fabric Application</h1>
+    </div>
+    <div>
+        <img id="seal" width="64px" height="64px" src="imgs/cornell_seal.svg"/>
+    </div>
+</div>
+
+<div id="main">
+    <div id="navPane">
+        <div id="nav"></div>
+    </div>
+
+    <div id="contentPane">
+        <div id="content">
+            <!--======================================|  APL CS CORNELL  |========================================-->
+            <div id="apl" class="content-section">
+                <h2 class="content-header">APL CS Cornell Repositories</h2>
+
+                <div id="apl-papers">
+                    Papers
+                    <table id="a-papers">
+                        <tr>
+                            <th>
+                                Paper
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                abrtchan
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                authchan
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                avail
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                belief
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                bibtex
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                bolt-design
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                cacm09
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                civitas-thresh-tr
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                civs
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                compile-compose
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                compknowledge
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                compose
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                coroutines
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                crdonate
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                csf03
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                csfw01
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                cupex
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                decl-policy
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                diagnostic
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dlmrobust
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dpl
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dscope
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dynamicadapt
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dyncache
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                dynlabel
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                editors
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                edlm
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                enferasure
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                erasure
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                esop01
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                esop05
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                exceptions
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                exist
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                fabric
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                etc...
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="apl-fabric">
+                    Fabric
+                    <table id="a-fabric">
+                        <tr>
+                            <th>
+                                Directory
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <!--======================================|  GITHUB  |========================================-->
+            <div id="github" class="content-section">
+                <h2 class="content-header">Github Repositories</h2>
+
+                <div id="git-fabric">
+                    <span class="clickable">Fabric</span>
+                    <table id="g-fabric">
+                        <tr>
+                            <th>
+                                Directory
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="clickable">Bin</span>
+                            </td>
+                            <td>
+                                Scripts
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <!--======================================|  Official Release  |========================================-->
+            <div id="release" class="content-section">
+                <h2 class="content-header">Official Released Versions</h2>
+
+                <div id="rel-fabric">
+                    Fabric
+                    <table id="r-fabric">
+                        <tr>
+                            <th>
+                                Directory
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

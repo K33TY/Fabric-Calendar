@@ -1,0 +1,79 @@
+package calendar.event;
+
+import fabric.lang.Object;
+import fabricated.util.List;
+import calendar.util.Date;
+import calendar.User;
+
+
+public class Event[label L, label info, label time, principal p] //TODO: why? this ? implements JifObject[{CalServEP:;CalServEP!:}]
+where {p→} ⊑ L,
+      info ⊑ L,
+      time ⊑ L
+{
+	final int{p→;p←;L}@{L} uid;
+    final label{L}@{L} timeLbl;
+    final label{L}@{L} infoLbl;
+
+    final Date[time]{L}@{L} startTime;
+    final Date[time]{L}@{L} endTime;
+    final String{info}@{L} name;
+    final String{info}@{L} note;
+    final List[{p→;p←}]{info}@{L} attendees; // Set of User{p→;p←} who are attending the event
+    final List[{p→;p←}]{info}@{L} viewers;   // Set of User{p→;p←} who can view the time of the event
+    final User[p]{info}@{L} creator;
+
+	public Event{*infoLbl} (    // Constructor Arguments
+								int{p→;p←;L} uid_,
+								label{*timeLbl_} timeLbl_,
+								label{*infoLbl_} infoLbl_,
+								Date[timeLbl_]{*timeLbl_} startTime_,
+								Date[timeLbl_]{*timeLbl_} endTime_,
+								String{*infoLbl_} name_,
+								String{*infoLbl_} note_,
+								List[{p→;p←}]{*infoLbl_} attendees_,
+								List[{p→;p←}]{*infoLbl_} viewers_,
+								User[p]{*infoLbl_} creator_
+						   )
+    where infoLbl_ ⊑ L,
+          timeLbl_ ⊑ L,
+          {time} equiv {*timeLbl_},
+          {info} equiv {*infoLbl_}
+	{
+		uid = uid_;
+        timeLbl = timeLbl_;
+        infoLbl = infoLbl_;
+        startTime = startTime_;
+        endTime = endTime_;
+        name = name_;
+        note = note_;
+        creator = creator_;
+        attendees = attendees_;
+        viewers = viewers_;
+        super();
+	}
+
+	// Return the id of event as a String
+	public String{p→;p←} toString()
+	where L ⊑ {p→; p←}
+	{
+		return Integer.toString(uid);
+	}
+
+	public int{p→;p←} hashCode()
+	where L ⊑ {p→; p←}
+	{
+        return uid;
+    }
+
+	// TODO: make sure these flow contraints make sense
+	// Check if two events are the same events
+    public boolean{p→; p←} equals{p→; p←}(label iLbl, label tLbl, Event[{p→; p←}, iLbl, tLbl, p] o)
+    where L ⊑ {p→; p←},
+          iLbl ⊑ L,
+          tLbl ⊑ L,
+          {o} ⊑ L
+    {
+        return this.uid == o.uid;
+    }
+}

@@ -1,1 +1,68 @@
 package calendar.session;
+
+import login.*;
+import calendar.*;
+import sif.html.Input;
+import calendar.util.Date;
+import sif.servlet.SessionState;
+import sif.servlet.SessionPrincipal;
+
+public class CalendarSessionState extends AuthSessState
+{
+    ShowCalendarSessAction{sessionPrincipal←} scsa = null;
+
+	final User[ServletPrincipal] {sessionPrincipal←}@{this.store$→} currentUser;
+	final Date[{currentUser←}]   {sessionPrincipal←}@{this.store$→} displayDate;
+	final int                    {sessionPrincipal←}@{this.store$→} displayKind;
+	final User[ServletPrincipal] {sessionPrincipal←}@{this.store$→} displayUser;
+	final String                 {sessionPrincipal←}@{this.store$→} id;
+
+//    public CalendarSessionState(String{this} id, SessionPrincipal{this} session)
+//    {
+//        super(id, session);
+//    }
+
+    public CalendarSessionState
+    (
+        String{this} id,
+        SessionPrincipal{this} session,
+        User[ServletPrincipal]{this} currentUser,
+		Date[{currentUser←}]{this} displayDate,
+		User[ServletPrincipal]{this} displayUser,
+		int{this} displayKind
+	)
+    {
+        this.currentUser = currentUser;
+        this.displayDate = displayDate;
+        this.displayKind = displayKind;
+        this.displayUser = displayUser;
+        this.id = id;
+        super(id, session);
+    }
+
+// TODO: Cant get this to work
+//    CalendarSessionState changeDisplayUser{this.store$→}
+//    (
+//        User[ServletPrincipal]{sessionPrincipal←} displayUser
+//    )
+//    {
+//        return new CalendarSessionState(this.id, this.currentUser, this.displayDate, this.displayKind, displayUser);
+//    }
+
+//    CalendarSessionState changeDisplayDate
+//    (
+//        Date[{currentUser←}] displayDate,
+//        int displayKind
+//    )
+//    {
+//        return new CalendarSessionState(this.id, this.currentUser, displayDate, displayKind, this.displayUser);
+//    }
+//
+//    CalendarSessionState changeDisplayDate
+//    (
+//        Date[{currentUser←}] displayDate
+//    )
+//    {
+//        return new CalendarSessionState(this.id, this.currentUser, displayDate, this.displayKind, this.displayUser);
+//    }
+}

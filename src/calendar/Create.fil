@@ -1,35 +1,82 @@
 package calendar;
-// DO I NEED THIS class?
 
+import calendar.util.UserComparator;
 import fabric.principals.*;
 import fabric.util.Map;
+import fabricated.util.List;
+import fabricated.util.ArrayList;
+import fabricated.util.Comparator;
+import fabricated.util.ListIterator;
 
 public class Create {
-//
-//	/**
-//	*
-//	*   Create necessary setup for the calendar application:
-//	*
-//	*   store: contains all persistent objects for calendar app
-//	*   =====
-//	*   root: ServletPrincipal
-//	*/
-//
+
+	/**
+	*
+	*   Create necessary setup for the calendar application:
+	*
+	*   store: contains all persistent objects for calendar app
+	*   =====
+	*   root: ServletPrincipal
+	*/
 	public static void main(String[] args)
 	{
 		atomic
 		{
+			RemoteWorker worker = Worker.getWorker().getWorker(Config.calendarStoreName);
 			Store store = Worker.getWorker().getStore(Config.calendarStoreName);
-
-			AbstractPrincipal servlet = ServletPrincipal.getInstance();
-
-//			IntegPolicy rootTrusted     = LabelUtil.writerPolicy(store, root, root);
-//			IntegPolicy servletTrusted  = LabelUtil.writerPolicy(store, servlet, servlet);
-//			ConfPolicy  servletTrusted
-
-
-// Why did the travel example give bottom integrity and bottom confidentiality to the store? Isn't that bad?
+            Create c = new Create@store().calendar$Create$();
+            c.create@worker(args);
 		}
 	}
+
+	// "Ensure class is compatible with what the Fabric compiler expects to translate constructor calls into" - tmagrino
+	public Create calendar$Create$()
+	{
+		fabric$lang$Object$();
+		return this;
+	}
+
+	public void create(String[] args)
+    {
+        atomic
+        {
+            // Let everything live on the same store in this example
+            Store store = Worker.getWorker().getStore(Config.calendarStoreName);
+            RemoteWorker worker = Worker.getWorker().getWorker(Config.calendarWorkerName);
+            AbstractPrincipal servletPrincipal = ServletPrincipal.getInstance();
+
+            ConfPolicy calSecret = LabelUtil.readerPolicy(store, servletPrincipal, servletPrincipal);   // {ServletPrincipal→}
+            IntegPolicy calTrusted = LabelUtil.writerPolicy(store, servletPrincipal, servletPrincipal); // {ServletPrincipal←}
+
+            Label calUserLabel = LabelUtil.toLabel(store, calSecret, calTrusted);
+
+            //Create a collection for calendar users
+            UserComparator comp = new UserComparator@store(calUserLabel).calendar$util$UserComparator$();
+            List users = new ArrayList@store(calUserLabel).fabricated$util$ArrayList$(comp);
+
+            // Users hardcoded for now because Jif Calendar and all other Fabric applications doing this currently
+			User eperk = new User@store(servletPrincipal).calendar$User$("eperk", "meow!", "Elizabeth", "Perk");
+			User andru = new User@store(servletPrincipal).calendar$User$("andru", "password", "Andrew", "Myers");
+			User jedliu = new User@store(servletPrincipal).calendar$User$("jedliu", "notpassword", "Jed", "Liu");
+			User tmagrino = new User@store(servletPrincipal).calendar$User$("tmagrino", "semicolon", "Tom", "Magrino");
+			User mouse = new User@store(servletPrincipal).calendar$User$("mickey", "minnie", "Mickey", "Mouse");
+
+			// Add the users
+			users.add(eperk);
+			users.add(andru);
+			users.add(tmagrino);
+			users.add(jedliu);
+			users.add(mouse);
+
+			// delegate users to worker and store
+            ListIterator iter = users.listIterator();
+            while (iter.hasNext())
+            {
+                User u = (User) iter.next();
+                u.addDelegatesTo(store.getPrincipal());
+                u.addDelegatesTo(worker.getPrincipal());
+            }
+        }
+    }
 }
 

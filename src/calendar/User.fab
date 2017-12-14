@@ -1,26 +1,28 @@
 package calendar;
 
-import fabric.principals.ServletPrincipal;
+import fabric.principals.UserPrincipal;
 
-// Represents a calendar user
-public class User[principal p]
+// Represents a calendar user's information
+public class User[principal servP] extends UserPrincipal
 {
-	String{ServletPrincipal→;ServletPrincipal←} name;
-	String{ServletPrincipal→;ServletPrincipal←} password;
-	String{ServletPrincipal→;ServletPrincipal←} firstName;
-	String{ServletPrincipal→;ServletPrincipal←} lastName;
+	private final String{this}@{this.store$→} name;
+	private final String{this}@{this.store$→} password;
+	private final String{this}@{this.store$→} firstName;
+	private final String{this}@{this.store$→} lastName;
 
-	public User{ServletPrincipal→;ServletPrincipal←}
+	public User
 	( // Constructor Arguments
-		String{ServletPrincipal→;ServletPrincipal←} n,
-		String{ServletPrincipal→;ServletPrincipal←} pw,
-		String{ServletPrincipal→;ServletPrincipal←} f,
-		String{ServletPrincipal→;ServletPrincipal←} l
+		String{this} n,
+		String{this} pw,
+		String{this} f,
+		String{this} l
 	)
+	where    authority (this)
 	{
 		name = n;
 		password = pw;
 		firstName = f;
 		lastName = l;
+		super(n, pw);
 	}
 }

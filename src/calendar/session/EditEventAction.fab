@@ -1,1 +1,125 @@
 package calendar.session;
+
+import login.*;
+import calendar.*;
+import sif.servlet.*;
+import sif.html.*;
+
+import fabric.util.Map;
+
+import javax.servlet.ServletException;
+
+public class EditEventAction extends AuthenticatedAction[ServletPrincipal]
+{
+	private final String{this}@{this.store$→} eventID;
+
+	public EditEventAction(CalendarServlet{this} calendar, String{this} eventID)
+	{
+		this.eventID = eventID;
+		super("editEvent", calendar);
+	}
+
+	public EditEventAction(CalendarServlet{this} calendar) //TODO: (erase this later)... Not sure how to use other method yet, but would like the edit event to link to an event id
+    {
+        this.eventID = null;
+        super("editEvent", calendar);
+    }
+
+	// Implement authenticated action, by verifying that user allowed to edit event
+	public void invokeImpl{*lbl}
+    (
+        label{*lbl} lbl,
+        Request[ServletPrincipal]{*lbl} req,
+        HTMLAuthServlet[ServletPrincipal]{*lbl} servlet_,
+        AuthSessState{*lbl} state_,
+        principal{*lbl} currentUser
+    )
+    throws  (ServletException{*lbl; req.session←})
+    where   caller(req.session),
+            lbl <= {req.session→},
+            req.session equiv state_.sessionPrincipal,
+            req.session actsfor currentUser
+    {
+        atomic
+        {
+            if (new label {*lbl; _←_} <= new label {state_.store$→}) //TODO: what does this mean? It was in auth wiki (why let bottom integrity flow to store? isn't that bad?)
+            {
+		        if (req == null
+		            || servlet_ == null
+		            || state_ == null
+		            || !(servlet_ instanceof CalendarServlet)
+		            || !(state_ instanceof CalendarSessionState)
+		            )
+		            throw new ServletException("invalid args");
+
+		        final CalendarServlet {*lbl} servlet = (CalendarServlet) servlet_;
+		        final CalendarSessionState state = (CalendarSessionState) state_;
+		        final label pubLbl  = new label {currentUser←};
+		        final label cuLbl   = new label {currentUser→; currentUser←};
+
+		        // Edit action only allowed if the label is the same as the authenticated user's label
+		        if (lbl equiv cuLbl)
+		        {
+		            final ShowCalendarSessAction scsa = state.scsa;
+		            ServletException{*lbl} ex = null;
+
+		            if (   scsa != null
+		                && req.session equiv scsa.session
+		                && state.sessionPrincipal equiv req.session
+		                && scsa.eventIDInput != null
+		                && scsa.eventIDInput.inputLbl <= cuLbl )
+		            {
+		                // TODO: Not sure how I want to do this yet
+		//                int eventID = -1;
+		//                try
+		//                {
+		//                    eventID = Integer.parseInt(req.getParam(scsa.eventIDInput));
+		//                }
+		//                catch (NumberFormatException failQuietly)
+		//                { }
+
+		                // get the event.
+		                //final Event ev = servlet.retrieveEvent(currentUser, eventID); // TODO: write this
+
+		                // determine the access control
+		//                boolean isEditable = (ev != null && ev.infoLbl <= cuLbl);
+		//                final CreateEditEvent createEditEvent =
+		//                    new CreateEditEvent(servlet,
+		//                                        session,
+		//                                        new FinishEditingEvent(scsa),
+		//                                        scsa,
+		//                                        ev,
+		//                                        !isEditable,
+		//                                        false);
+		//
+		//                if (createEditEvent.session equiv req.session && req.session equiv state.sessionPrincipal) {
+		//                    try {
+		//                        // return to the show calendar action.
+		//                        createEditEvent.invokeSessImpl(lbl, req, servlet, state, currentUser);
+		//                    }
+		//                    catch (ServletException e) {
+		//                        ex = e;
+		//                    }
+		//                }
+		            }
+		            if (ex != null) throw ex;
+		        }
+		        else
+		        {
+		              // JIF CALENDAR HAS THIS, but LabelUtil.singleton() is not a valid method call in Fabric, so just making an arbitrary message instead for now
+		              // TODO: check if there is a LabelUtil toString() in Fabric
+		//            String lblString = null;
+		//            String cuLblString = null;
+		//            try
+		//            {
+		//                lblString   = LabelUtil.singleton().toString(lbl);
+		//                cuLblString = LabelUtil.singleton().toString(cuLbl);
+		//            }
+		//            catch (NullPointerException imposs) { }
+		//            throw new ServletException("EditEventAction.invokeSessImpl: lbl too high " + lblString + " and cuLbl is " + cuLblString);
+					throw new ServletException("Unable to edit event because of information flow policy");
+		        }
+	        }
+        }
+    }
+}

@@ -1,0 +1,68 @@
+package calendar;
+
+import javax.servlet.ServletException;
+
+import sif.html.*;
+import sif.servlet.Action;
+import sif.servlet.Request;
+import sif.servlet.HTMLRequest;
+import sif.servlet.Servlet;
+import fabric.util.Map;
+import sif.servlet.HTMLServlet;
+
+import login.*;
+
+public class FrontPageAction extends CalendarAction authority (ServletPrincipal)
+{
+    public FrontPageAction(CalendarServlet{this} m)
+    throws ServletException
+    {
+        super();
+        initFields("frontPage", m);
+    }
+
+	public final void invoke{*lbl}(label{*lbl} lbl, Request[ServletPrincipal]{*lbl} req)
+	throws (ServletException{*lbl;req.session←})
+	where   caller(req.session),
+            lbl ⊑ {req.session→}
+	{
+	    HTMLServlet[ServletPrincipal] servlet = (HTMLServlet) getServlet();
+	    if (servlet == null || !(servlet instanceof CalendarServlet))
+	        throw new ServletException("No servlet available");
+
+	    if (req == null)
+	        throw new ServletException("No request available");
+	    CalendarServlet main = (CalendarServlet) servlet;
+
+	    atomic
+	    {
+	        if (lbl <= new label {req.session←})
+	        {
+	            loginToServlet(req.session, req);
+	        }
+
+	        if (lbl <= new label {ServletPrincipal←})
+	        {
+
+	            servlet.createPage((HTMLRequest)req, "Home Page", lbl, lbl,
+	                    new NodeList[lbl,lbl](lbl, lbl, createBanner(lbl, "Fabric Information Flow Calendar"),
+	                            lbl, lbl, createBody(lbl, lbl, null)));
+	        }
+	    }
+	}
+
+    // Automatically make req.session actsfor ServletPrincipal, since we are on a worker that allows this
+    private final void loginToServlet{session←}(principal{session←} session, Request[ServletPrincipal]{session←} reqParam)
+    where   authority(ServletPrincipal), endorse({ServletPrincipal←})
+    {
+        final Request[ServletPrincipal] req = endorse(reqParam, {session←} to {ServletPrincipal←});
+        final DelegatingPrincipal p = (DelegatingPrincipal) ServletPrincipal;
+        if (p == null) return;
+        final principal sessionLow = endorse(session, {session←} to {ServletPrincipal←});
+        if (p equiv ServletPrincipal)
+        {
+            p.addDelegatesTo(sessionLow);
+        }
+
+    }
+}

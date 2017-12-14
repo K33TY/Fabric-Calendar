@@ -11,9 +11,6 @@ public final class Config
 	// The key in the root map for the calendar servlet principal
 	public static final String{⊤←} calendarRootMapKey = "servletPrincipal";
 
-	// The key in the root map for the calendar servlet principal
-    public static final String{⊤←} calendarWorkerName = "calendarweb";
-
 	// The key in the root map for user objects
 	public static final String{⊤←} usersMapKey = "users";
 }

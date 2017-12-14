@@ -3,8 +3,7 @@ package calendar;
 import fabric.util.Map;
 import fabricated.util.HashMap;
 
-// Calendar is an abstract principal representing the "servlet principal," which is fully trusted
-// It is instantiated with the servlet principal label
+// Principal p is the servlet principal, this is the principal p's current session calendar
 public class Calendar[principal p] extends AbstractPrincipal
 {
 	Calendar{this←}()

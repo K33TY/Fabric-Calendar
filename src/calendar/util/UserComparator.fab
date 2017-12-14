@@ -1,0 +1,44 @@
+package calendar.util;
+
+import fabric.principals.UserPrincipal;
+
+import fabricated.util.Comparator;
+
+// Class borrowed/modified from auth package
+public class UserComparator[label L] implements Comparator[L] {
+
+	public UserComparator{L}() {}
+
+	// Check to see if two user principals are the same
+	public boolean{L} equals{L}(Object{L} a, Object{L} b)
+	throws (ClassCastException{L}, NullPointerException{L})
+	{
+		if (L <= new label {a.store$→} && L <= new label {b.store$→})
+		{
+			if (a instanceof UserPrincipal && b instanceof UserPrincipal)
+			{
+				final UserPrincipal userA = (UserPrincipal) a;
+				final UserPrincipal userB = (UserPrincipal) b;
+				if (L <= new label {userA.store$→} && L <= new label {userB.store$→})
+				{
+					return userA == userB;
+				}
+			}
+		}
+		return false;
+	}
+
+	// Comparator class requires this, but I'm not interested in them
+	public int{L} compare{L}(Object{L} a, Object{L} b)
+    throws (UnsupportedOperationException{L},ClassCastException{L}, NullPointerException{L})
+    {
+        return 0;
+    }
+
+    // Comparator class requires this, but I'm not interested in them
+    public int{L} hashCode{L}(Object{L} a)
+    throws (UnsupportedOperationException{L},ClassCastException{L}, NullPointerException{L})
+    {
+        return 0;
+    }
+}

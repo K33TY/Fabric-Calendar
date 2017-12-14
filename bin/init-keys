@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#=================================================================#
+#                                                                 #
+#   Script to auto-generate keystore certificates and trust them  #
+#       (For travel example application)                          #
+#                                                                 #
+#       Arguments: 1 == password (optional)                       #
+#                                                                 #
+#       *** NB! THIS DOES NOT WORK ON MAC YET                     #
+#		(issue with fabric/bin/import-cert sed)                   #
+#                                                                 #
+#=================================================================#
+
+#==============#
+# Create paths #
+#==============#
+APP_HOME="$(dirname $0)/.."
+FABRIC="${APP_HOME}/../.."
+PATH="${FABRIC}/bin:${PATH}"
+BIN_DIR="$(dirname $0)"
+
+#=======================================#
+# If no password supplied, then default #
+#=======================================#
+PASSWORD="password"
+if [[ $# -eq 0 ]] ; then
+	echo "No password supplied"
+	echo ""
+else
+	PASSWORD=$1
+fi
+
+#============================#
+# Forcibly remove stale keys #
+#============================#
+echo "removing stale keys..."
+rm -rf ${APP_HOME}/etc/keys
+
+#===============================#
+# Create new directory for keys #
+#===============================#
+mkdir ${APP_HOME}/etc/keys
+
+#======================================#
+# Create keystores based on name of    #
+# desired node and respective password #
+#======================================#
+# TODO: not sure which nodes are necessary yet but temporarily putting the following:
+"${BIN_DIR}/make-keystore" calendar ${PASSWORD}
+"${BIN_DIR}/make-keystore" calendarweb ${PASSWORD}
+"${BIN_DIR}/make-keystore" calroot ${PASSWORD}
+
+echo "*** For security reasons, if you use this example (or something based on it) in production, you will want to
+	  create your own certificate authority and rerun this executable with keys that are not generated with the
+	  default certificate authority provided. Information regarding this is in the fabric manual at:"
+echo "       https://www.cs.cornell.edu/projects/fabric/manual/0.3.0/html/node-config.html"
+echo ""
+

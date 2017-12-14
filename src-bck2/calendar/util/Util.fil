@@ -1,0 +1,48 @@
+package calendar.util;
+
+import java.io.PrintStream;
+import fabric.runtime.Runtime;
+import calendar.event.*;
+
+public class Util
+{
+  /**
+   * Copy the contents of an event into another event with the given labels.
+   *
+   * @throws NullPointerException
+   *         if events is null
+   */
+	public static Event[] copyEventArray(final Event[] events, final Label l, final Label m, final Store s)
+	throws NullPointerException
+	{
+		final Event[] result = new Event[events.length]@s;
+
+		try
+		{
+			for (int i = 0; i < events.length; i++)
+			{
+				result[i] = events[i];
+			}
+		}
+		catch (final ArrayIndexOutOfBoundsException e)
+		{
+			throw new AssertionFailedError().util$AssertionFailedError$("result and events have the same length.");
+		}
+
+		try // TODO: why is this try catch necessary or the compiler cries :'(
+		{
+			return result;
+		}
+		catch (final NullPointerException e)
+		{
+			throw new NullPointerException();
+		}
+	}
+
+	public static Event copyEvent(final Event event, final Label l, final Label m, final Store s)
+	throws NullPointerException
+	{
+		// TODO: copy all fields from Event e to new event with new labels
+		return null;
+	}
+}

@@ -1,0 +1,157 @@
+package calendar;
+
+import fabric.util.Map;
+import sif.servlet.Servlet;
+import sif.servlet.HTMLServlet;
+import sif.servlet.Request;
+import sif.servlet.SessionState;
+import sif.servlet.SessionPrincipal;
+import login.*;
+
+import javax.servlet.ServletException; // Why did Intellij have the intellisense to throw ServletException before I imported this?
+
+/**
+*   Entry point for calendar application, which should be the place where
+*		- Fabric nodes instantiated
+*       - Servlet instantiated
+*       - A calendar object created
+	(Looking at travel.customer.CustomerMain.fab example)
+*/
+
+public final class CalendarServlet extends HTMLAuthServlet[ServletPrincipal] authority (ServletPrincipal)
+{
+	final Store{this}@{⊤→} _localStore;
+	final Store{this}@{⊤→} _store;
+	final principal{this}@{⊤→} _calendar;
+
+	public CalendarServlet()
+	throws  ServletException
+	where   {⊤→} ⊑ {this} //TODO: what does this mean? is it necessary??
+	{
+		FabricWorker w = FabricWorker.getWorker();
+		Store localStore = null;
+
+		// If a worker exists, then grab its local store
+		if (w != null)
+		{
+			localStore = w.getLocalStore();
+		}
+
+		_localStore = localStore;
+		_store = worker$.getStore(Config.calendarStoreName); // What is the dollar sign for?
+
+		// If the store has a Map of Fabric objects, then grab the root of this
+		Map root = null;
+		if (_store != null)
+		{
+			root = (Map) _store.getRoot();
+		}
+
+		atomic
+		{
+			if (root != null)
+			{
+				Calendar[ServletPrincipal] calendarInit = null;
+				Object obj = root.get(Config.calendarMapKey);
+
+				if (obj instanceof Calendar[ServletPrincipal])
+				{
+					calendarInit = (Calendar[ServletPrincipal]) obj;
+				}
+				_calendar = calendarInit;
+			}
+			else
+			{
+				_calendar = null;
+			}
+		}
+		super();
+	}
+
+	public void initialize{ServletPrincipal→; ServletPrincipal←}()
+	throws  ServletException
+	{
+		addStartAction(new FrontPageAction(this));
+		addStartAction(new LogoffAction[ServletPrincipal](this));
+	}
+
+	public String getPrivateHostID() throws ServletException
+	{
+		return "";
+	}
+
+	public String defaultActionName(Request[ServletPrincipal] req)
+    {
+        return "frontPage";
+    }
+
+    // what does *lbl mean?
+    // Necessary runtime method for sif.servlet.Servlet.fab
+    protected SessionState{*lbl} createSessionState{*lbl}
+    (   // method params:
+		label{*lbl} lbl,
+		String{*lbl} id,
+		SessionPrincipal{*lbl} session
+	)
+    {
+        atomic
+        {
+            if ( _localStore != null &&
+                 _localStore equiv worker$ &&
+                 lbl <= new label{⊤→worker$} &&
+                 new label {⊤←worker$} <= lbl )
+            {
+                return new SessionState@_localStore(id, session);
+            }
+            return null;
+        }
+    }
+
+    // Necessary runtime method for sif.servlet.Servlet.fab
+    protected SessionPrincipal createSessionPrincipal( String{_calendar→; _calendar←} id )
+    {
+        SessionPrincipal p = null;
+        atomic
+        {
+            if (_store != null && _store equiv _calendar)
+            {
+                p = new SessionPrincipal@_store(id);
+            }
+        }
+        return p;
+    }
+
+    public principal{p→; p←} lookupUserID{p→; p←}
+    (
+        String{p→; p←} uid,
+        principal{p→; p←} p
+    )
+    throws  ServletException
+    where   caller(p),
+            authority (ServletPrincipal),
+            endorse({p→; p← meet ServletPrincipal←})
+    {
+        return null;
+        // TODO:
+//        int pc_caller = 0;
+//        declassify ({pc_caller} meet {_->_})
+//        {
+//            Map rootMap = helloStore.getRoot();
+//            if (rootMap == null)
+//            {
+//                throw new ServletException("Store not accessible");
+//            }
+//
+//            List[{HelloEP->;HelloEP<-}] allUsers = null;
+//            Object obj = rootMap.get(Config.usersMapKey);
+//            if (obj instanceof List[{HelloEP->; HelloEP<-}]) {
+//                allUsers = (List[{HelloEP->; HelloEP<-}])obj;
+//            }
+//
+//            if (allUsers == null) {
+//                throw new ServletException("Cannot fetch the collection of users from store");
+//            }
+//            return findUserInList(allUsers, uid, p);
+//        }
+    }
+}

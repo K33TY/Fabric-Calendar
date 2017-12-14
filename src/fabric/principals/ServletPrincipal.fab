@@ -1,75 +1,48 @@
 package fabric.principals;
 
-import fabric.util.Map;
 import calendar.Config;
+import fabric.util.Map;
 
-/**
-*   The Calendar servlet principal that essentially has rights to any writable objects for the Calendar
-*   It is has the same rights as the top principal for confidentiality
-*/
+//  Main principal who controls all actions on the calendar and is fully trusted by the single store
 public class ServletPrincipal extends ExternalPrincipal
 {
 	public ServletPrincipal()
 	{
-		super("servlet");
+		super("calendar");
 	}
 
-	public static ServletPrincipal{⊤←} getInstance{⊤←} ()
+
+	public static ServletPrincipal{*!:} getInstance{*!:}()
 	{
 		atomic
 		{
 			FabricWorker w = FabricWorker.getWorker();
-			if (w != null)
-			{
-				final Store store = w.getStore(Config.calendarStoreName);
-				if (store != null)
-				{
-					Map rootMap = store.getRoot();
-					if (rootMap != null)
-					{
-						Object obj = rootMap.get(Config.calendarRootMapKey);
-						//return getServletPrincipal(obj, rootMap, store);
+            if (w != null)
+            {
+                final Store store = w.getStore(Config.calendarStoreName); // One store at the moment
+                if (store != null)
+                {
+                    Map rootMap = store.getRoot();
 
-//						ServletPrincipal servletP = null;
-//                        if (obj instanceof ServletPrincipal)
-//                        {
-//                            servletP = (ServletPrincipal) obj;
-//                        }
-//                        else
-//                        {
-//                            servletP = new ServletPrincipal@store();
-//                            rootMap.put(Config.calendarRootMapKey, servletP);
-//                        }
-//
-//                        return servletP;
-					}
-				}
+                    if (rootMap != null)
+                    {
+                        Object obj = rootMap.get(Config.calendarRootMapKey);
+                        ServletPrincipal servP = null;
 
-			}
-			return null;
+                        if (obj instanceof ServletPrincipal)
+                        {
+                            servP = (ServletPrincipal) obj;
+                        }
+                        else
+                        {
+                            servP = new ServletPrincipal@store();
+                            rootMap.put(Config.calendarRootMapKey, servP);
+                        }
+                        return servP;
+                    }
+                }
+            }
+            return null;
 		}
 	}
-
-	public static ServletPrincipal{⊤←} getInstance{⊤←} (Store store)
-	{
-		return getInstance();
-	}
-
-	// Is this allowed
-//    public static ServletPrincipal getServletPrincipal(Object obj, Map rootMap, Store store)
-//    where {obj} ⊑ {obj.store$→} // the object's details allowed to be known by store?
-//    {
-//        ServletPrincipal servletP = null;
-//        if (obj instanceof ServletPrincipal)
-//        {
-//            servletP = (ServletPrincipal) obj;
-//        }
-//        else
-//        {
-//            servletP = new ServletPrincipal@store();
-//            rootMap.put(Config.calendarRootMapKey, servletP);
-//        }
-//
-//        return servletP;
-//    }
 }

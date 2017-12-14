@@ -1,0 +1,38 @@
+package calendar.util;
+
+//import fabric.util.Date;
+
+public class DateUtil[label L]
+{
+	public static String{L} dateToString{L}(Date[L]{L} date, boolean{L} replaceSpace)
+    // Date object store should be able to learn that we can access this date object
+	{
+        String d = ( (date == null) ? "" : date.toShortString() );
+        return (d == null || !replaceSpace) ? d : d.replace(' ', '-');
+    }
+
+    public static boolean{*lbl} isDate{*lbl}(label{*lbl} lbl, String{*lbl} dateStr)
+    {
+        try
+        {
+            Date[L].valueOf(lbl, dateStr);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static Date[lbl]{*lbl} stringToDate{*lbl}(label{*lbl} lbl, String{*lbl} dateStr)
+    {
+        try
+        {
+            return Date[lbl].valueOf(lbl, dateStr);
+        }
+        catch (IllegalArgumentException e)
+        {
+            return null;
+        }
+    }
+}
