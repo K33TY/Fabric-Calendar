@@ -402,6 +402,8 @@ FabricWorker.getWorker().getLocalStore();
                                   to the label. When doing this notation, the compiler requires that you use a pair of
                                   parentheses to encase the exception type and respective label.<br /><br />
 
+                <a href="Jif_Label_Syntax.pdf ">[Printable version of table found in Official Fabric Manual]</a>
+
                 <h3 class="content-subsection">Where Clauses</h3>
                 <font color="#bf0a00">Where</font> clauses can be employed by Fabric methods and constructors to add constraints
                 to their calls, and this is often useful for ensuring that only intended data is leaked when calling these
@@ -418,9 +420,7 @@ FabricWorker.getWorker().getLocalStore();
                     <tr>
                         <td>the caller of the method is principal p</td> <td>caller(p)</td> <td></td>
                     </tr>
-                </table>
-
-                <a href="Jif_Label_Syntax.pdf ">[Printable version of table found in Official Fabric Manual]</a>
+                </table><br /><br />
 
             </div>
 
@@ -527,7 +527,7 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                 with the intention of serving as a persistent database. This object, the store, follows the many new
                 distributed design decisions implemented in the Fabric language. <br /><br />
 
-                Now, instead of implementing a database, and using database calls to achieve the functionality in the
+                Now, instead of implementing a database, and using database calls to achieve the functionality of the
                 calendar, we simply need to ensure that a storage node is running somewhere with the persistent features
                 required by the calendar. In essence, this storage node acts as the top principal with the greatest label
                 {&#8868;→&#8868;;&#8868;←&#8868;}, allowing the storage to perform all actions on any calendar in an
@@ -547,8 +547,14 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                 perhaps we ought to first hard-code this functionality until
                 the other portions of the calendar are implemented?<br /><br />
 
+                Within the <font color="#bf0a00">HelloServlet</font> class of the <font color="#bf0a00">AuthWiki</font>
+                project, there does seem to be the desired capability implemented. Unfortunately, I could not get the
+                project to compile, so I was not able to run it to verify if it was actually doing what I hope it does,
+                namely creating a new user after the application state has been initialized (during runtime) and adding
+                him or her to the list of users.<br /><br />
 
-                <h3 class="content-subsection">Design Ideas</h3>
+
+                <h3 class="content-subsection">Initial Design Ideas</h3>
 
                 From some examples, such as the Box class in MapServ, it seemed that objects were deep copied from
                 one principal to the other. Perhaps for the calendar, something like this would work: <br /><br />
@@ -600,50 +606,55 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                 largely similar to the Sif's Userserv package found in the examples application called User, but misses a
                 bit of functionality. The Jif Calendar uses the jar from this sif example, and therefore we need a Fabric implementation.
                 Since the login package is similar, it should be possible to edit the classes to do what is needed, as well
-                as add other classes to better mirror Userserv's capabilities. This requires better understanding what that package
-                is doing: <br /><br />
+                as add other classes to better mirror Userserv's capabilities. This requires better understanding what each of
+                these packages are doing, so they were scrutinized. <br /><br />
 
-                <table>
-                    <thead>Package Userserv Class Maps to Package Login Class</thead>
-                    <tr>
-                        <td><strong>Sif Userserv Package</strong></td>
-                        <td><strong>Fabric Login Package</strong></td>
-                        <td><strong>Methods Userserv does not have</strong></td>
-                        <td><strong>Methods Login does not have</strong></td>
-                    </tr>
-                    <tr>
-                        <td>UAction</td>
-                        <td>AbstractAction</td>
-                        <td></td>
-                        <td>
-                            <ul>
-                                <li>Constructor to construct from servlet</li>
-                                <li>Constructor to construct from servlet and name string</li>
-                                <li>boolean ensureLoggedIn() ... but this always returns true</li>
-                                <li>UAction[servP] directAfterLogin(Request[servP]{*:req.session} req, UServlet[servP]{*:req.session} servlet) ... but this always returns null</li>
-                                <li>Invoke and Invoke Impl methods</li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>USessAction</td>
-                        <td>--</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>LoginAction</td>
-                        <td>LoginAction</td>
-                        <td>Extends USessAction</td>
-                        <td>Extends AbstractAction</td>
-                    </tr>
-                    <tr>
-                        <td>SubmitLoginAction</td>
-                        <td>SubmitLoginAction</td>
-                        <td>Extends USessAction</td>
-                        <td>Extends AbstractAction</td>
-                    </tr>
-                </table>
+                <h3 class="content-subsection">Current Design Ideas</h3>
+
+                Calendar Package
+                <ul>
+                    <li>CalendarServlet - Main entrypoint for the web application</li>
+                    <li>Calendar - An abstract calendar principal, reflecting the broker in travel application</li>
+                    <li>Config - Configuration for the calendar</li>
+                    <li>FrontPage - Front page of servlet</li>
+                    <li>User - User object</li>
+                    <li>Event sub package</li>
+                    <ul>
+                        <li>Event</li>
+                        <li>CreateEvent</li>
+                        <li>CreateEditEvent</li>
+                        <li>FinishEditEvent</li>
+                    </ul>
+                    <li>Session sub package</li>
+                    <ul>
+                        <li>CalendarSessionState</li>
+                        <li>ChangeDisplayDateAction</li>
+                        <li>EditEventAction</li>
+                        <li>FinishEditEventReceiver</li>
+                        <li>FinishEditingEvent</li>
+                        <li>SelectDisplayUser</li>
+                        <li>ShowCalendar</li>
+                        <li>ShowCalendarSessAction</li>
+                    </ul>
+                    <li>Utility sub package</li>
+                    <ul>
+                        <li>DateUtil</li>
+                        <li>Date</li>
+                        <li>Declassifier</li>
+                    </ul>
+                </ul>
+
+                Principals Package
+                <ul>
+                    <li>ServletPrincipal - can act on all servlet related mutable objects</li>
+                    <li>UserPrincipal - can only act on objects for which UserPrincipal has privilege</li>
+                </ul>
+
+                Modified Login Package
+                <ul>
+                    <li>ServletPrincipal - can act on all servlet related mutable objects</li>
+                    <li>UserPrincipal - can only act on objects for which UserPrincipal has privilege</li>
+                </ul>
 
 
 <pre><!------------------------codeblock------------->

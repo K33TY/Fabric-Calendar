@@ -126,7 +126,7 @@ public class ShowCalendarSessAction extends AuthenticatedAction[ServletPrincipal
                 caller(session),
                 authority(ServletPrincipal)
     {
-        List[{ServletPrincipal→; ServletPrincipal←}] selectDispUser = new ArrayList[{ServletPrincipal→; ServletPrincipal←}]();
+        //List[{ServletPrincipal→; ServletPrincipal←}] selectDispUser = new ArrayList[{ServletPrincipal→; ServletPrincipal←}]();
 //        SelectUsersAction[CalServEP] changeUser =
 //            new SelectUsersAction[CalServEP](true, servlet, session, cu,
 //                                  new SelectDisplayUser(servlet, session, this, selectDispUser),

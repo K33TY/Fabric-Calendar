@@ -14,23 +14,28 @@ abstract public class AbstractAction[principal servP] extends Action[servP]
         return new Table[lbl, lbl]
         (
             "banner",
-            lbl, lbl, lbl, lbl,
+            lbl,
+            lbl,
+            lbl,
+            lbl,
             new TRow[lbl, lbl]
             (
-                lbl, lbl,
+                lbl,
+                lbl,
                 new TCell[lbl, lbl]
                 (
-                    lbl, lbl,
+                    lbl,
+                    lbl,
                     new Header[lbl, lbl]
                     (
-                        1, lbl, lbl,
-                        new Text[lbl, lbl]
-                        (
-                            text
-                        )
+                        1,
+                        lbl,
+                        lbl,
+                        new Text[lbl, lbl](text)
                     )
                 )
-            ), null
+            ),
+            null
         );
     }
 
@@ -43,15 +48,21 @@ abstract public class AbstractAction[principal servP] extends Action[servP]
 		return new Table[cL, cE]
 		(
 		    "sifbody",
-			cL, cE, cL, cE,
+		    cL,
+		    cE,
+		    cL,
+		    cE,
 		    new TRow[cL, cE]
 		    (
-		        cL, cE,
+		        cL,
+		        cE,
 		        new TCell[cL, cE]
 		        (
-		            cL, cE, body
+		            cL,
+		            cE,
+		            body
 		        )
-	        ),
+		    ),
 		    null
 		);
     }
