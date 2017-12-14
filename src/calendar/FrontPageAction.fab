@@ -43,7 +43,6 @@ public class FrontPageAction extends AbstractAction[ServletPrincipal] authority 
 
 	        if (lbl <= new label {ServletPrincipal←})
 	        {
-
 	            servlet.createPage((HTMLRequest)req, "Home Page", lbl, lbl,
 	                    new NodeList[lbl,lbl](lbl, lbl, createBanner(lbl, "Fabric Information Flow Calendar"),
 	                            lbl, lbl, createBody(lbl, lbl, null)));

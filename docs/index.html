@@ -660,11 +660,11 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <li>CalendarServlet - Main entrypoint for the web application</li>
                     <li>Calendar - An abstract calendar principal, reflecting the broker in travel application</li>
                     <li>Config - Configuration for the calendar</li>
-                    <li>FrontPageAction - Front page of servlet</li>
-                    <li>User - User object</li>
+                    <li>FrontPageAction - Front page of the web application, should require the login for authentication</li>
+                    <li>User - Object containing the user's information</li>
                     <li>Event sub package</li>
                     <ul>
-                        <li>Event</li>
+                        <li>Event - The event class</li>
                         <li>CreateEvent</li>
                         <li>CreateEditEvent</li>
                         <li>FinishEditEvent</li>
@@ -684,7 +684,10 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <ul>
                         <li>DateUtil</li>
                         <li>Date</li>
-                        <li>Declassifier</li>
+                        <li>Declassifier - methods for downgrading various calendar objects</li>
+                        <li>UserComparator - A comparator to check if two objects represent the same UserPrincipal</li>
+                        <li>Util - Intended to become a deepcopy utility for Events, may require downgrading or endorsing
+                            to pass rights from one principal to another, but how would you revoke rights to an event?</li>
                     </ul>
                 </ul>
 
@@ -694,10 +697,20 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <li>UserPrincipal - can only act on objects for which UserPrincipal has privilege</li>
                 </ul>
 
-                Modified Login Package
+                Modified Login Package - Integrated a few classes from the fabric/tests/playground/auth example,
+                                        and modified some details in various classes within login and the added classes
                 <ul>
-                    <li>ServletPrincipal - can act on all servlet related mutable objects</li>
-                    <li>UserPrincipal - can only act on objects for which UserPrincipal has privilege</li>
+                    <li>AbstractAction -</li>
+                    <li>AbstractServlet -</li>
+                    <li>AuthenticatedAction -</li>
+                    <li>AuthSessState -</li>
+                    <li>CreateUserAction -</li>
+                    <li>HTMLAuthServlet -</li>
+                    <li>LoginAction -</li>
+                    <li>LoginClosure -</li>
+                    <li>LogoffAction -</li>
+                    <li>SubmitLoginAction -</li>
+                    <li>SubmitNewUserAction -</li>
                 </ul>
 
 
