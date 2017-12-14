@@ -376,7 +376,37 @@ FabricWorker.getWorker().getLocalStore();
             <div id="worker" class="content-section">
                 <h2 class="content-header">Worker</h2>
 
+                The worker nodes are what perform computations in Fabric, either on their own local objects or on
+                copied objects that could be from other worker nodes or storage nodes. Fabric's computations are done atomically,
+                within transactions. This allows actions optimistic transactions to be rolled back as needed if a different
+                node which had not yet finished computation changed an object within the transaction. This allows consistency
+                to be guaranteed for Fabric objects across all nodes. It is possible for a worker node to simultaneously
+                be a storage node, if so desired. A construct called <font color="#bf0a00">atomic</font> is given in the
+                syntax for handling the atomic transactions, for example:
 
+<pre><!------------------------codeblock------------->
+<code class="java">
+protected SessionState{*lbl} createSessionState{*lbl}
+(
+    label{*lbl} lbl,
+    String{*lbl} id,
+    SessionPrincipal{*lbl} session
+)
+{
+    atomic
+    {
+        if ( _localStore != null &&
+             _localStore equiv worker$ &&
+             lbl <= new label{⊤→worker$} &&
+             new label {⊤←worker$} <= lbl )
+        {
+            return new SessionState@_localStore(id, session);
+        }
+        return null;
+    }
+}
+</code>
+</pre><!-----------------------end codeblock--------->
 
             </div>
 
