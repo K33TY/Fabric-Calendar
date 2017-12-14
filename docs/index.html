@@ -124,9 +124,9 @@
                 both computations and information, in a way which strongly enforces both confidentiality and integrity
                 expectations. <br /><br />
 
-                There any many valuable and novel features that exist within the language which sets it apart from both
+                There any many valuable and novel features that exist within the language which sets it apart from both types of
                 prior implementations of distributed systems, which might focus heavily on either persistence or information
-                flow. A list of such features, some of which will be described in more detail, are as follows:<br />
+                flow, but not both. A list of Fabric's features, some of which will be described in more detail, are as follows:<br />
 
                 <ul>
                     <li>persistent storage</li>
@@ -135,6 +135,7 @@
                     <li>access control labels on objects</li>
                     <li>capability to grant authority to principal over classes and/or specific methods</li>
                     <li>capability to delegate authority from one principal to another</li>
+                    <li>capability to declassify objects from higher to lower labels</li>
                     <li>optimistic atomic transactions allowing for rollback when encountering various issues</li>
                     <li>sophisticated transaction bookkeeping and management</li>
                 </ul><br />
@@ -172,6 +173,11 @@
                 <h2 class="content-header">Setting Up Your Application</h2>
                 Generally, Fabric applications are built using Apache Ant, which you should have installed to get
                 Polyglot, Jif, and Fabric compiled and ready for use.
+
+                For information regarding how to install this Stack (especially for Mac OSX or Ubuntu), please click
+                <a href="https://github.com/K33TY/Jif-Sif-to-Fabric/blob/master/Docs/Polyglot-Jif-Fabric-Stack.md">[here]</a>.
+                Some applications use SIF (Servlet Information Flow), and instructions regarding that installation on Mac OSX can be
+                found <a href="https://github.com/K33TY/Jif-Sif-to-Fabric/blob/master/Docs/Sif-On-MacOSX.md">[here]</a>.
 
                 <h3 class="content-subsection">Apache Ant Build Files</h3>
                 The <font color="#bf0a00">build.xml</font> file, typically consists of something along the lines of:
