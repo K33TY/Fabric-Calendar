@@ -12,7 +12,7 @@ import sif.servlet.HTMLServlet;
 
 import login.*;
 
-public class FrontPageAction extends CalendarAction authority (ServletPrincipal)
+public class FrontPageAction extends AbstractAction[ServletPrincipal] authority (ServletPrincipal)
 {
     public FrontPageAction(CalendarServlet{this} m)
     throws ServletException
