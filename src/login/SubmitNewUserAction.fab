@@ -263,9 +263,9 @@ class SubmitNewUserAction[principal servP] extends AbstractAction[servP]
     private String{req.session→;req.session←} runClosure{req.session:;req.session←}
     (
         Request[servP]{req.session→;req.session←} req,
-        String{req.session:;req.session←} userID,
-        SessionPrincipal{req.session:;req.session←} sp,
-        String{req.session:;req.session←} password
+        String{req.session→;req.session←} userID,
+        SessionPrincipal{req.session→;req.session←} sp,
+        String{req.session→;req.session←} password
 	)
 	where   caller(req.session), servP actsfor req.session
 	{

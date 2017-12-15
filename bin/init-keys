@@ -49,7 +49,7 @@ mkdir ${APP_HOME}/etc/keys
 # TODO: not sure which nodes are necessary yet but temporarily putting the following:
 "${BIN_DIR}/make-keystore" calendar ${PASSWORD}
 "${BIN_DIR}/make-keystore" calendarweb ${PASSWORD}
-"${BIN_DIR}/make-keystore" calroot ${PASSWORD}
+"${BIN_DIR}/make-keystore" servletPrincipal ${PASSWORD}
 
 echo "*** For security reasons, if you use this example (or something based on it) in production, you will want to
 	  create your own certificate authority and rerun this executable with keys that are not generated with the

@@ -132,7 +132,7 @@ public final class CalendarServlet extends HTMLAuthServlet[ServletPrincipal] aut
             endorse({p→; p← meet ServletPrincipal←})
     {
         return null;
-        // TODO:
+        // TODO: from AUTHWIKI EXAMPLE WE HAVE:
 //        int pc_caller = 0;
 //        declassify ({pc_caller} meet {_->_})
 //        {

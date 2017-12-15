@@ -12,7 +12,5 @@ public class Calendar[principal p] extends AbstractPrincipal
 		super("calendar");
 	}
 
-	//protected final
-	// NOT SURE IF I CAN USE HASHMAPS, WOULD BE NICE
-	//HashMap<int, Event>{this} ownerEvents = new HashMap<int, Event>{this}();
+	//TODO: list of users, current user, list of events
 }

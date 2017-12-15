@@ -1,1 +1,3 @@
 package calendar.event;
+
+// Not sure why the JIF version has FinishEditEvent AND FinishedEditingEvent
