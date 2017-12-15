@@ -6,6 +6,12 @@ import sif.servlet.HTMLServlet;
 import sif.servlet.Request;
 import sif.servlet.SessionState;
 import sif.servlet.SessionPrincipal;
+import fabricated.util.List;
+import fabricated.util.ArrayList;
+import fabricated.util.ListIterator;
+import fabricated.util.NoSuchElementException;
+import fabricated.util.ConcurrentModificationException;
+import fabricated.util.Comparator;
 import login.*;
 
 import javax.servlet.ServletException; // Why did Intellij have the intellisense to throw ServletException before I imported this?
@@ -85,7 +91,6 @@ public final class CalendarServlet extends HTMLAuthServlet[ServletPrincipal] aut
         return "frontPage";
     }
 
-    // what does *lbl mean?
     // Necessary runtime method for sif.servlet.Servlet.fab
     protected SessionState{*lbl} createSessionState{*lbl}
     (   // method params:
@@ -128,30 +133,159 @@ public final class CalendarServlet extends HTMLAuthServlet[ServletPrincipal] aut
     )
     throws  ServletException
     where   caller(p),
-            authority (ServletPrincipal),
-            endorse({p→; p← meet ServletPrincipal←})
+            authority (ServletPrincipal)
     {
-        return null;
-        // TODO: from AUTHWIKI EXAMPLE WE HAVE:
-//        int pc_caller = 0;
-//        declassify ({pc_caller} meet {_->_})
-//        {
-//            Map rootMap = helloStore.getRoot();
-//            if (rootMap == null)
-//            {
-//                throw new ServletException("Store not accessible");
-//            }
-//
-//            List[{HelloEP->;HelloEP<-}] allUsers = null;
-//            Object obj = rootMap.get(Config.usersMapKey);
-//            if (obj instanceof List[{HelloEP->; HelloEP<-}]) {
-//                allUsers = (List[{HelloEP->; HelloEP<-}])obj;
-//            }
-//
-//            if (allUsers == null) {
-//                throw new ServletException("Cannot fetch the collection of users from store");
-//            }
-//            return findUserInList(allUsers, uid, p);
-//        }
+        int pc_caller = 0;
+        declassify ({pc_caller} meet {_→_})
+        {
+            Map rootMap = _store.getRoot();
+            if (rootMap == null)
+            {
+                throw new ServletException("Store not accessible");
+            }
+
+            List[{ServletPrincipal→; ServletPrincipal←}] allUsers = null;
+
+            Object obj = rootMap.get(Config.usersMapKey);
+            if ( obj instanceof List[{ServletPrincipal→; ServletPrincipal←}] )
+            {
+                allUsers = ( List[{ServletPrincipal→; ServletPrincipal←}] ) obj;
+            }
+
+            if (allUsers == null)
+            {
+                throw new ServletException("Cannot fetch the collection of users from store");
+            }
+            //return findUserInList(allUsers, uid, p);
+            return null;
+        }
     }
+
+//	TODO: info flow problems
+//	public principal{p→; p←} createUser{p→; p←}
+//	(
+//	    String{p→; p←} uid,
+//		String{p→; p←} password,
+//		String{p→; p←} firstName,
+//		String{p→; p←} lastName,
+//		principal{p→; p←} p
+//	)
+//	throws  ServletException
+//	where   caller(p),
+//			authority (ServletPrincipal)
+//	{
+//	    int pc_caller = 0;
+//	    declassify ({pc_caller} meet {_→_})
+//	    {
+//	        Map rootMap = _store.getRoot();
+//	        if (rootMap == null)
+//	        {
+//	            throw new ServletException("Store not accessible");
+//	        }
+//
+//	        List[{ServletPrincipal→; ServletPrincipal←}] allUsers = null;
+//
+//	        Object obj = rootMap.get(Config.usersMapKey);
+//	        if ( obj instanceof List[{ServletPrincipal→; ServletPrincipal←}] )
+//	        {
+//	            allUsers = ( List[{ServletPrincipal→; ServletPrincipal←}] ) obj;
+//	        }
+//
+//	        if (allUsers == null)
+//	        {
+//	            throw new ServletException("Could not get user list");
+//	        }
+//	        return addUserToList(allUsers, uid, password, firstName, lastName, p);
+//	    }
+//	}
+
+//  private principal{p→; p←} addUserToList{p→; p←}
+//	(
+//		List[{ServletPrincipal→; ServletPrincipal←}]{p→; p←} allUsers,
+//		String{p→; p←} uid,
+//		String{p→; p←} password,
+//		String{p→; p←} firstName,
+//      String{p→; p←} lastName,
+//		principal{p→; p←} p
+//	)
+//	where   caller(p, ServletPrincipal),
+//	        endorse({p→; ServletPrincipal←})
+//  {
+//        declassify({ServletPrincipal←})
+//        {
+//            List[{ServletPrincipal→; ServletPrincipal←}] users = declassify(endorse(allUsers, {p→; ServletPrincipal←}), {ServletPrincipal←});
+//
+//            String userID = declassify(endorse(uid, {p→; ServletPrincipal←}), {ServletPrincipal←});
+//            String _password = declassify(endorse(password, {p→; ServletPrincipal←}), {ServletPrincipal←});
+//            //TODO: fix info flow problem
+//            //User{ServletPrincipal←} ret = new User@_store(userID, _password, firstName, lastName);
+//            //users.add(ret);
+//
+//            declassify( {p→; p←; ServletPrincipal←})
+//            {
+////                endorse({p→; p←})
+////                {
+////                    //User{p→; p←} theUser = declassify(endorse(ret, {p→; p←}), {p→; p←; ServletPrincipal←});
+////                    //return theUser;
+////                }
+//					return null;
+//            }
+//        }
+//  }
+//
+//	private principal{p→; p←} findUserInList{p→; p←}
+//	(
+//		List[{ServletPrincipal→; ServletPrincipal←}]{p→; p←} allUsers,
+//		String{p→; p←} uid,
+//		principal{p→; p←} p
+//	)
+//	where   caller(p, ServletPrincipal),
+//		    endorse({p→; p← meet ServletPrincipal←})
+//	{
+//		declassify({p← meet ServletPrincipal←})
+//		{
+//			List[{ServletPrincipal→; ServletPrincipal←}] users = declassify(endorse(allUsers, {p→; p← meet ServletPrincipal←}), {p← meet ServletPrincipal←});
+//			String userID = declassify(endorse(uid, {p→; p← meet ServletPrincipal←}), {p← meet ServletPrincipal←});
+//			ListIterator iter = users.listIterator();
+//			User ret = null;
+//
+//			while (iter.hasNext())
+//			{
+//				try
+//				{
+//					final Object o = iter.next();
+//					if (new label {ServletPrincipal→; ServletPrincipal←} <= new label {o.store$→})
+//					{
+//						if (o instanceof User[ServletPrincipal])
+//						{
+//							final User[ServletPrincipal] u = (User[ServletPrincipal]) o;
+//							if (new label {ServletPrincipal→; ServletPrincipal←} <= new label {u.store$→})
+//							{
+//								if (u.name().equals(userID))
+//								{
+//								// TODO: info flow problem
+////									declassify({p→})
+////									{
+////										endorse({p→; p←})
+////										{
+////											ret = declassify(endorse( u,{ServletPrincipal→; p→; p←}), {p→});
+////										}
+////									}
+//								}
+//							}
+//							else
+//							{
+//								throw new Error("HelloEP doesn't act for user");
+//							}
+//						}
+//					}
+//				}
+//				catch (NoSuchElementException impossible) {}
+//				catch (ConcurrentModificationException impossible) {}
+//				catch (NullPointerException impossible) {}
+//			}
+//			User theUser = declassify(endorse(ret, {ServletPrincipal→; p→; p← meet ServletPrincipal←}), {p→; p← meet ServletPrincipal←});
+//			return theUser;
+//		}
+//	}
 }
