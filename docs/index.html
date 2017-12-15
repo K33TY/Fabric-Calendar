@@ -606,46 +606,6 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
 				<img src="imgs/calendar_1.svg"/>
 				<br />
 
-                Wondering if the following is a reasonable idea for the architecture:<br/>
-
-                Calendar package
-                <ul>
-                    <li>Main - Main entrypoint for application (hopefully)</li>
-                    <li>Calendar - The calendar object</li>
-                    <li>Config - Configuration for the calendar</li>
-                    <li>FrontPage - Front page of servlet</li>
-                    <li>User - User object</li>
-                    <li>Event sub package</li>
-                        <ul>
-                            <li>Event</li>
-                            <li>CreateEvent</li>
-                            <li>CreateEditEvent</li>
-                            <li>FinishEditEvent</li>
-                        </ul>
-                    <li>Principal sub package</li>
-                        <ul>
-                            <li>ServletPrincipal - can act on all servlet related mutable objects</li>
-                            <li>UserPrincipal - can only act on objects that UserPrincipal has CI rights</li>
-                        </ul>
-                    <li>Session sub package</li>
-                        <ul>
-                            <li>CalendarSessionState</li>
-                            <li>ChangeDisplayDateAction</li>
-                            <li>EditEventAction</li>
-                            <li>FinishEditEventReceiver</li>
-                            <li>FinishEditingEvent</li>
-                            <li>SelectDisplayUser</li>
-                            <li>ShowCalendar</li>
-                            <li>ShowCalendarSessAction</li>
-                        </ul>
-                    <li>Utility sub package</li>
-                        <ul>
-                            <li>DateUtil</li>
-                            <li>Date</li>
-                            <li>Declassifier</li>
-                        </ul>
-                </ul>
-
                 Login Package ("borrowed" from Travel example, but reformatted for readability concerns). This package is
                 largely similar to the Sif's Userserv package found in the examples application called User, but misses a
                 bit of functionality. The Jif Calendar uses the jar from this sif example, and therefore we need a Fabric implementation.
@@ -719,13 +679,6 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <li>SubmitLoginAction - A more comprehensive action for a user to log into the servlet.</li>
                     <li>SubmitNewUserAction - An action to submit the user to the servlet.</li>
                 </ul>
-
-
-<pre><!------------------------codeblock------------->
-<code class="java">
-// TODO: Edit this section!
-</code>
-</pre><!-----------------------end codeblock--------->
 
 <!--
                 A calendar application was written in Fabric's precursor language, Jif. This prior calendar, based on
@@ -975,21 +928,3 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
 </div>
 </body>
 </html>
-
-<!--example codeblock
-<pre><!------------------------codeblock------------------------------------------------------><!--
-<code class="java">
-public class FileOutputStream[label L] extends OutputStream[L]
-{
-    private static int __JIF_SIG_OF_JAVA_CLASS$20030619 = 0;
-
-    private FileOutputStream() { }
-    public native void write{L}(int{L} b) throws (IOException{L});
-    private native void writeBytes{L}(byte{L}[]{L} b, int{L} off, int{L} len) throws (IOException{L});
-    public native void write{L}(byte{L}[]{L} b) throws (IOException);
-    public native void write{L}(byte{L}[]{L} b, int{L} off, int{L} len) throws (IOException{L});
-    public native void close{L}() throws (IOException{L});
-    public final native FileDescriptor{L} getFD()  throws (IOException{L});
-}
-</code>
-</pre><!------------------------end codeblock--------------------------------------------------->
