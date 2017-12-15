@@ -665,27 +665,29 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <li>Event sub package</li>
                     <ul>
                         <li>Event - The event class</li>
-                        <li>CreateEvent</li>
-                        <li>CreateEditEvent</li>
-                        <li>FinishEditEvent</li>
+                        <li>CreateEvent - Reflecting a class found in JIF version (but maybe should be in session?)</li>
+                        <li>CreateEditEvent - Reflecting a class found in JIF version (but maybe should be in session?)</li>
+                        <li>FinishEditEvent - Reflecting a class found in JIF version (but not sure it is needed)</li>
                     </ul>
                     <li>Session sub package</li>
                     <ul>
-                        <li>CalendarSessionState</li>
-                        <li>ChangeDisplayDateAction</li>
-                        <li>EditEventAction</li>
-                        <li>FinishEditEventReceiver</li>
-                        <li>FinishEditingEvent</li>
-                        <li>SelectDisplayUser</li>
-                        <li>ShowCalendar</li>
-                        <li>ShowCalendarSessAction</li>
+                        <li>CalendarSessionState - Holds the state for the calendar of an authenticated session.</li>
+                        <li>ChangeDisplayDateAction - An authenticated action to change the display date.</li>
+                        <li>EditEventAction - An authenticated action to edit and Event in the calendar.</li>
+                        <li>FinishEditEventReceiver - Receives notification that an calendar Event edit is complete.</li>
+                        <li>FinishEditingEvent - An event that occurs when an edit on a calendar Event is complete.</li>
+                        <li>SelectDisplayUser - An authenticated action to change the display user.</li>
+                        <li>ShowCalendar - An authenticated action to show the calendar. </li>
+                        <li>ShowCalendarSessAction - An authenticated action to produce all the SIF elements
+                                                    available in the different views of the calendar.</li>
                     </ul>
                     <li>Utility sub package</li>
                     <ul>
-                        <li>DateUtil</li>
-                        <li>Date</li>
-                        <li>Declassifier - methods for downgrading various calendar objects</li>
-                        <li>UserComparator - A comparator to check if two objects represent the same UserPrincipal</li>
+                        <li>DateUtil - A utility to convert a string to a date, a date to a string, and to check
+                                        that a string is a date.</li>
+                        <li>Date - A necessary utility for the calendar that Fabric did not port from JIF.</li>
+                        <li>Declassifier - methods for downgrading various calendar objects.</li>
+                        <li>UserComparator - A comparator to check if two objects represent the same UserPrincipal.</li>
                         <li>Util - Intended to become a deepcopy utility for Events, may require downgrading or endorsing
                             to pass rights from one principal to another, but how would you revoke rights to an event?</li>
                     </ul>
@@ -700,17 +702,22 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                 Modified Login Package - Integrated a few classes from the fabric/tests/playground/auth example,
                                         and modified some details in various classes within login and the added classes
                 <ul>
-                    <li>AbstractAction -</li>
-                    <li>AbstractServlet -</li>
-                    <li>AuthenticatedAction -</li>
-                    <li>AuthSessState -</li>
-                    <li>CreateUserAction -</li>
-                    <li>HTMLAuthServlet -</li>
-                    <li>LoginAction -</li>
-                    <li>LoginClosure -</li>
-                    <li>LogoffAction -</li>
-                    <li>SubmitLoginAction -</li>
-                    <li>SubmitNewUserAction -</li>
+                    <li>AbstractAction - The most basic action, with methods to create SIF nodes that contain tables
+                                        with either a <font color="#bf0a00">banner</font> or with a
+                                        <font color="#bf0a00">sifbody</font> element. It also contains a method to return
+                                        a request's default value if it is available.</li>
+                    <li>AuthenticatedAction - A class extending abstract action, which create actions that are protected
+                                            by requiring a successful login.</li>
+                    <li>AuthSessState - A class which extends SIF's <font color="#bf0a00">SessionState</font>, associating
+                                        the session state to an authenticated user.</li>
+                    <li>CreateUserAction - An action which allows for the creation of a user.</li>
+                    <li>HTMLAuthServlet - A class which extends SIF's <font color="#bf0a00">HTMLServlet</font> class,
+                                            such that the servlet is related to an authenticated user.</li>
+                    <li>LoginAction - An action for a user to log into the servlet.</li>
+                    <li>LoginClosure - Allow the session to act for an authenticated user.</li>
+                    <li>LogoffAction - An action for a user to log off the servlet.</li>
+                    <li>SubmitLoginAction - A more comprehensive action for a user to log into the servlet.</li>
+                    <li>SubmitNewUserAction - An action to submit the user to the servlet.</li>
                 </ul>
 
 
