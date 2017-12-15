@@ -1,5 +1,6 @@
 // TODO: need to finish this
-//package calendar.session;
+package calendar.session;
+
 //
 ///**
 // * Class that receives an event after the event has been edited or created.

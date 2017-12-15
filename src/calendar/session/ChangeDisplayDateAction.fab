@@ -80,13 +80,24 @@ public class ChangeDisplayDateAction extends AuthenticatedAction[ServletPrincipa
                  else
                 {
 					// JIF CALENDAR HAS THIS, but LabelUtil.singleton() is not a valid method call in Fabric, so just making an arbitrary message instead for now
-					// TODO: check if there is a LabelUtil toString() in Fabric
+					// TODO: check if there is a LabelUtil toString() in Fabric, CHECK COMPLETE: does not exist!
 //					String lblString = null;
 //					try {
 //					lblString = LabelUtil.singleton().toString(lbl);
 //					}
 //					catch (NullPointerException imposs) { }
 //					throw new ServletException("ChangeDisplayDateAction.invokeSessImpl: lbl too high " + lblString);
+/*
+	  build-calendar:
+      [apply] /Users/Elizabeth/Desktop/MEng_Project/Calendar-Fabric/src/calendar/session/ChangeDisplayDateAction.fab:87:
+      [apply]     No valid method call found for singleton() in
+      [apply]     fabric.lang.security.LabelUtil.
+      [apply] 					lblString = LabelUtil.singleton().toString(lbl);
+      [apply] 					            ^-------------------^
+      [apply]
+      [apply] 1 error.
+      [apply] null
+*/
 					throw new ServletException("ChangeDisplayDateAction.invokeSessImpl: lbl too high");
                 }
             }

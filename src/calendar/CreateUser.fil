@@ -1,1 +1,2 @@
 // TODO: Create users on the fly from the servlet?
+// Used to think I needed this but now I think can use the new classes added to login package (CreateUserAction, SubmitNewUserAction)

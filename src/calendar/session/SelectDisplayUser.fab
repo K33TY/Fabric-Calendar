@@ -1,89 +1,132 @@
 package calendar.session;
 
+import sif.servlet.*;
+import calendar.*;
+import sif.html.*;
+import login.*;
+import fabricated.util.List;
+import fabricated.util.ArrayList;
+import fabricated.util.ListIterator;
+import fabricated.util.NoSuchElementException;
+import fabricated.util.ConcurrentModificationException;
+import fabricated.util.Comparator;
+
+import javax.servlet.ServletException;
+
+/**
+ * Wrapper action to receive the newly selected user from the SelectUserAction,
+ * update the state's displayUser field, and then return to the show calendar
+ * session action.
+ */
+public class SelectDisplayUser extends AuthenticatedAction[ServletPrincipal] authority(ServletPrincipal)
+{
+    /**
+     * A list of User, that should contain only a single element.
+     */
+    private final List[{ServletPrincipal→; ServletPrincipal←}]{this} selectedUser;
+
+    /**
+     * The show calendar session action that invoked this action.
+     */
+    private final ShowCalendarSessAction{this} showCal;
+
+    public SelectDisplayUser
+    (
+        CalendarServlet{this} servlet,
+        principal{this} session,
+        ShowCalendarSessAction{this} showCal,
+        List[{ServletPrincipal→; ServletPrincipal←}]{this} selectedUser
+    )
+    {
+        this.showCal = showCal;
+        this.selectedUser = selectedUser;
+        super("displayUser", servlet);
+    }
+
+    public void invokeImpl{*lbl}
+    (   // Method arguments
+        label{*lbl} lbl,
+        Request[ServletPrincipal]{*lbl} req,
+        HTMLAuthServlet[ServletPrincipal]{*lbl} servlet_,
+        AuthSessState{*lbl} state_,
+        principal{*lbl} currentUser
+    )
+    throws  (ServletException{*lbl})
+    where   req.session actsfor currentUser,
+            req.session equiv state_.sessionPrincipal,
+            lbl <= {req.session→},
+            caller(req.session),
+            authority(ServletPrincipal)
+    {
+        atomic
+        {
+//            if (new label {*lbl; _←_} <= new label {state_.store$→})
+//            {
+//                if (req == null
+//                    || servlet_ == null
+//                    || state_ == null
+//                    || currentUser == null
+//                    || !(servlet_ instanceof CalendarServlet)
+//                    || !(state_ instanceof CalendarSessionState)
+//                    )
+//                    throw new ServletException("invalid args");
+//
+//                final CalendarServlet servlet = (CalendarServlet) servlet_;
+//                final CalendarSessionState state = (CalendarSessionState) state_;
+//
+//                if (lbl <= new label {currentUser←} && state.sessionPrincipal equiv req.session)
+//                {
+//	                if (showCal == null) throw new ServletException("null showCal");
+//	                if (selectedUser != null)
+//	                {
+//	                    final CalendarSessionState s = state;
+//	                    if (s != null && s.currentUser equiv currentUser)
+//	                    {
+//	                        User[ServletPrincipal]{currentUser←; ServletPrincipal→; ServletPrincipal←} du = null;
+//	                        // TODO: info flow issue
+////	                        try
+////	                        {
+////	                            du = (User[ServletPrincipal])selectedUser.get(0);
+////	                        }
+////	                        catch (IndexOutOfBoundsException unlikely)
+////	                        {
+////	                            // may occur if the list is empty. Just ignore.
+////	                        }
+////	                        catch (ClassCastException impossible) { }
+//
+//							//TODO:
+//	                        //updateStateUser(state, s, du, currentUser);
+//	                    }
+//	                }
+//
+//	                // now redirect back to the show calendar action.
+//	                ServletException{*lbl; req.session←} ex = null;
+//	                if (req.session equiv showCal.session && state.sessionPrincipal equiv req.session)
+//	                {
+////	                    try
+////	                    {
+//	                        // TODO:
+//	                        //showCal.invokeSessImpl(lbl, req, servlet, state, currentUser);
+////	                    }
+////	                    catch (ServletException e) {
+////	                        ex = e;
+////	                    }
+//	                }
+//	                if (ex != null)
+//	                    throw ex;
+//	            }
+//	            else
+//	            {
+//	                throw new ServletException("SelectDisplayUser.invokeSessImpl: lbl too high ");
+//	            }
+//            }
+        }
+    }
+}
+
 // TODO: port
 // JIF CODE BELOW
-///**
-// * Wrapper action to receive the newly selected user from the SelectUserAction,
-// * update the state's displayUser field, and then return to the show calendar
-// * session action.
-// */
-//class SelectDisplayUser extends USessAction[CalServEP] authority(CalServEP) {
-//    /**
-//     * A list of User, that should contain only a single element.
-//     */
-//    private final List[{CalServEP:;CalServEP!:}]{this} selectedUser;
-//
-//    /**
-//     * The show calendar session action that invoked this action.
-//     */
-//    private final ShowCalendarSessAction{this} showCal;
-//
-//    public SelectDisplayUser(Main{this} servlet, principal{this} session,
-//            ShowCalendarSessAction{this} showCal, List[{CalServEP:;CalServEP!:}]{this} selectedUser) {
-//        this.showCal = showCal;
-//        this.selectedUser = selectedUser;
-//        super(servlet, session);
-//    }
-//
-//    public void invokeSessImpl{*lbl;session!:}(label{*lbl;session!:} lbl,
-//            Request[CalServEP]{*lbl;session!:} req,
-//            UServlet[CalServEP]{*lbl;session!:} uservlet,
-//            USessState[CalServEP]{*lbl;session!:} ustate,
-//            User[CalServEP]{*lbl;session!:} currentUser)
-//    throws (ServletException{*lbl;session!:})
-//        where session equiv req.session,
-//              session equiv ustate.sessionPrincipal,
-//              session actsfor currentUser,
-//              lbl <= {*:req.session},
-//              caller(session),
-//              authority(CalServEP)
-//    {
-//        if (req == null || uservlet == null || ustate == null ||
-//                !(uservlet instanceof Main) ||
-//                !(ustate instanceof CalendarSessionState))
-//            throw new ServletException("invalid args");
-//
-//        final Main servlet = (Main)uservlet;
-//        final CalendarSessionState state = (CalendarSessionState)ustate;
-//        if (lbl <= new label {currentUser!:} && state.sessionPrincipal equiv session) {
-//            if (showCal == null) throw new ServletException("null showCal");
-//            if (selectedUser != null) {
-//                final State s = state.state;
-//                if (s != null && s.currentUser equiv currentUser) {
-//                    User[CalServEP]{currentUser!:;CalServEP:;CalServEP!:} du = null;
-//                    try {
-//                        du = (User[CalServEP])selectedUser.get(0);
-//                    }
-//                    catch (IndexOutOfBoundsException unlikely) {
-//                        // may occur if the list is empty. Just ignore.
-//                    }
-//                    catch (ClassCastException impossible) { }
-//
-//                    updateStateUser(state, s, du, currentUser);
-//                }
-//            }
-//
-//            // now redirect back to the show calendar action.
-//            ServletException{*lbl;session!:} ex = null;
-//            if (session equiv showCal.session && state.sessionPrincipal equiv session) {
-//                try {
-//                    showCal.invokeSessImpl(lbl, req, servlet, state, currentUser);
-//                }
-//                catch (ServletException e) {
-//                    ex = e;
-//                }
-//            }
-//            if (ex != null) throw ex;
-//        }
-//        else {
-//            String lblString = null;
-//            try {
-//                lblString = LabelUtil.singleton().toString(lbl);
-//            }
-//            catch (NullPointerException imposs) { }
-//            throw new ServletException("SelectDisplayUser.invokeSessImpl: lbl too high " + lblString);
-//        }
-//    }
+
 //
 //    // DOWNGRADE REASON: Need to get down to {session!: meet calcervep!:} in order to update the display user, i.e. hand over from CalServEP, and
 //    //  also currUser (=p) is ok with making the display user public &&&ACCESS CONTROL

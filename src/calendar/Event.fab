@@ -6,7 +6,7 @@ import calendar.util.Date;
 import calendar.User;
 
 // TODO: probably want to get rid of all these labels, but this is how Tom and I got it to compile
-public class Event[label L, label info, label time, principal p] //TODO: why? this ? implements JifObject[{CalServEP:;CalServEP!:}]
+public class Event[label L, label info, label time, principal p] //TODO: why? this ? implements JifObject[{CalServEP:;CalServEP!:}] in JIF version
 where {p→} ⊑ L,
       info ⊑ L,
       time ⊑ L
@@ -66,7 +66,7 @@ where {p→} ⊑ L,
         return uid;
     }
 
-	// TODO: make sure these flow contraints make sense
+	// TODO: make sure these flow constraints make sense
 	// Check if two events are the same events
     public boolean{p→; p←} equals{p→; p←}(label iLbl, label tLbl, Event[{p→; p←}, iLbl, tLbl, p] o)
     where L ⊑ {p→; p←},

@@ -107,7 +107,7 @@ public class EditEventAction extends AuthenticatedAction[ServletPrincipal]
 		        else
 		        {
 		              // JIF CALENDAR HAS THIS, but LabelUtil.singleton() is not a valid method call in Fabric, so just making an arbitrary message instead for now
-		              // TODO: check if there is a LabelUtil toString() in Fabric
+		              // TODO: check if there is a LabelUtil toString() in Fabric, CHECK COMPLETE: does not exist!
 		//            String lblString = null;
 		//            String cuLblString = null;
 		//            try
