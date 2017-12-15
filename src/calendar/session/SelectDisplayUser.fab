@@ -1,1 +1,107 @@
 package calendar.session;
+
+// TODO: port
+// JIF CODE BELOW
+///**
+// * Wrapper action to receive the newly selected user from the SelectUserAction,
+// * update the state's displayUser field, and then return to the show calendar
+// * session action.
+// */
+//class SelectDisplayUser extends USessAction[CalServEP] authority(CalServEP) {
+//    /**
+//     * A list of User, that should contain only a single element.
+//     */
+//    private final List[{CalServEP:;CalServEP!:}]{this} selectedUser;
+//
+//    /**
+//     * The show calendar session action that invoked this action.
+//     */
+//    private final ShowCalendarSessAction{this} showCal;
+//
+//    public SelectDisplayUser(Main{this} servlet, principal{this} session,
+//            ShowCalendarSessAction{this} showCal, List[{CalServEP:;CalServEP!:}]{this} selectedUser) {
+//        this.showCal = showCal;
+//        this.selectedUser = selectedUser;
+//        super(servlet, session);
+//    }
+//
+//    public void invokeSessImpl{*lbl;session!:}(label{*lbl;session!:} lbl,
+//            Request[CalServEP]{*lbl;session!:} req,
+//            UServlet[CalServEP]{*lbl;session!:} uservlet,
+//            USessState[CalServEP]{*lbl;session!:} ustate,
+//            User[CalServEP]{*lbl;session!:} currentUser)
+//    throws (ServletException{*lbl;session!:})
+//        where session equiv req.session,
+//              session equiv ustate.sessionPrincipal,
+//              session actsfor currentUser,
+//              lbl <= {*:req.session},
+//              caller(session),
+//              authority(CalServEP)
+//    {
+//        if (req == null || uservlet == null || ustate == null ||
+//                !(uservlet instanceof Main) ||
+//                !(ustate instanceof CalendarSessionState))
+//            throw new ServletException("invalid args");
+//
+//        final Main servlet = (Main)uservlet;
+//        final CalendarSessionState state = (CalendarSessionState)ustate;
+//        if (lbl <= new label {currentUser!:} && state.sessionPrincipal equiv session) {
+//            if (showCal == null) throw new ServletException("null showCal");
+//            if (selectedUser != null) {
+//                final State s = state.state;
+//                if (s != null && s.currentUser equiv currentUser) {
+//                    User[CalServEP]{currentUser!:;CalServEP:;CalServEP!:} du = null;
+//                    try {
+//                        du = (User[CalServEP])selectedUser.get(0);
+//                    }
+//                    catch (IndexOutOfBoundsException unlikely) {
+//                        // may occur if the list is empty. Just ignore.
+//                    }
+//                    catch (ClassCastException impossible) { }
+//
+//                    updateStateUser(state, s, du, currentUser);
+//                }
+//            }
+//
+//            // now redirect back to the show calendar action.
+//            ServletException{*lbl;session!:} ex = null;
+//            if (session equiv showCal.session && state.sessionPrincipal equiv session) {
+//                try {
+//                    showCal.invokeSessImpl(lbl, req, servlet, state, currentUser);
+//                }
+//                catch (ServletException e) {
+//                    ex = e;
+//                }
+//            }
+//            if (ex != null) throw ex;
+//        }
+//        else {
+//            String lblString = null;
+//            try {
+//                lblString = LabelUtil.singleton().toString(lbl);
+//            }
+//            catch (NullPointerException imposs) { }
+//            throw new ServletException("SelectDisplayUser.invokeSessImpl: lbl too high " + lblString);
+//        }
+//    }
+//
+//    // DOWNGRADE REASON: Need to get down to {session!: meet calcervep!:} in order to update the display user, i.e. hand over from CalServEP, and
+//    //  also currUser (=p) is ok with making the display user public &&&ACCESS CONTROL
+//    private void updateStateUser{p!:}(CalendarSessionState{p!:} sessState,
+//                                     State{p!:} state,
+//                                     User[CalServEP]{p!:;CalServEP:;CalServEP!:} displayUser,
+//                                     principal{p!:} p)
+//      where session equiv sessState.sessionPrincipal,
+//            caller(session, CalServEP), session actsfor p, endorse({session!: meet CalServEP!:})
+//    {
+//
+//        final CalendarSessionState ss = endorse(sessState, {session!: meet CalServEP!:});
+//        if (ss != null && ss.sessionPrincipal equiv session) {
+//            User[CalServEP] du1 = endorse(displayUser, {CalServEP:;p!: meet CalServEP!:});
+//            User[CalServEP] du2 = declassify(du1, {p!: meet CalServEP!:});
+//
+//            State newS = state==null?null:state.changeDisplayUser(du2);
+//            ss.state = endorse(newS, {p!:} to {session!:});
+//        }
+//    }
+//}

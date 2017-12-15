@@ -12,7 +12,8 @@ import sif.servlet.HTMLServlet;
 
 import login.*;
 
-public class FrontPageAction extends AbstractAction[ServletPrincipal] authority (ServletPrincipal)
+// TODO: change this to AuthenticatedAction[ServletPrincipal] ???
+public class FrontPageAction extends AbstractAction[ServletPrincipal] authority(ServletPrincipal)
 {
     public FrontPageAction(CalendarServlet{this} m)
     throws ServletException
@@ -21,7 +22,11 @@ public class FrontPageAction extends AbstractAction[ServletPrincipal] authority 
         initFields("frontPage", m);
     }
 
-	public final void invoke{*lbl}(label{*lbl} lbl, Request[ServletPrincipal]{*lbl} req)
+	public final void invoke{*lbl}
+	(
+		label{*lbl} lbl,
+		Request[ServletPrincipal]{*lbl} req
+	)
 	throws (ServletException{*lbl;req.session←})
 	where   caller(req.session),
             lbl ⊑ {req.session→}

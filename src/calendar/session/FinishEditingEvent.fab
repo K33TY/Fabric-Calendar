@@ -1,1 +1,64 @@
-package calendar.session;
+// TODO: need to finish this
+//package calendar.session;
+//
+///**
+// * Class that receives an event after the event has been edited or created.
+// * This class is responsible for notifying the Servlet that the event
+// * has been updated, and then redirecting to the Show Calendar Session Action
+// * that invoked the create/edit.
+// */
+//class FinishEditingEvent implements FinishEditEventReceiver {
+//    private final ShowCalendarSessAction{this} showCalSessAction;
+//    public FinishEditingEvent(ShowCalendarSessAction{this} showCalSessAction) {
+//        this.showCalSessAction = showCalSessAction;
+//    }
+//
+//    public void receiveEvent{*lbl}(label{*lbl} lbl,
+//            Request[CalServEP]{*lbl} req,
+//            Main{*lbl} servlet,
+//            CalendarSessionState{*lbl} state,
+//            User[CalServEP]{*lbl} currentUser,
+//            Event{currentUser:;currentUser!:} origEvent,
+//            Event{currentUser:;currentUser!:} editedEvent)
+//     throws (ServletException{*lbl;req.session!:})
+//        where req.session equiv state.sessionPrincipal,
+//              req.session actsfor currentUser,
+//              lbl <= {currentUser:; currentUser!:},
+//              caller(req.session) {
+//
+//         if (req == null || servlet == null || state == null)
+//             throw new ServletException("invalid args");
+//
+//         // update the event in the calendar database.
+//         if (editedEvent != null && servlet != null && new label {currentUser!:} <= editedEvent.infoLbl) {
+//             servlet.updateEventInCalendar(currentUser, req, editedEvent);
+//
+//             // set the display date to the new event start date.
+//             // the user just edited the event, so we should have
+//             // editedEvent.timeLbl <= {currentUser:; currentUser!:}
+//             if (editedEvent.timeLbl <= new label {currentUser:; currentUser!:}) {
+//                 final State s = state.state;
+//                 if (s != null && s.currentUser equiv currentUser && state.sessionPrincipal equiv req.session) {
+//                     ChangeDisplayDateAction.updateStateDate(state, s, editedEvent.startTime, -1, currentUser, state.sessionPrincipal);
+//                 }
+//             }
+//         }
+//
+//         // redirect back to the show calendar session action.
+//         ServletException{*lbl;req.session!:} ex = null;
+//         if (showCalSessAction != null) {
+//             if (req.session equiv showCalSessAction.session) {
+//                 State s = state.state;
+//                 if (s != null) {
+//                     try {
+//                         showCalSessAction.invokeSessImpl(lbl, req, servlet, state, currentUser);
+//                     }
+//                     catch (ServletException e) {
+//                         ex = e;
+//                     }
+//                 }
+//             }
+//         }
+//         if (ex != null) throw ex;
+//     }
+//}

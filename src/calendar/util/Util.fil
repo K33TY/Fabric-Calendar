@@ -2,7 +2,7 @@ package calendar.util;
 
 import java.io.PrintStream;
 import fabric.runtime.Runtime;
-import calendar.event.*;
+import calendar.*;
 
 public class Util
 {

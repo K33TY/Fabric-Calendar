@@ -1,1 +1,33 @@
 package calendar.session;
+//TODO: PORT
+// Class below wasn't compiling with the changes I added, need to fix
+//
+//import javax.servlet.ServletException;
+//
+//import sif.servlet.*;
+//import sif.html.*;
+//import login.*;
+//import calendar.*;
+//
+///**
+// * Interface for a class that will receive notification of the event having been
+// * successfully created/edited.
+// */
+//public interface FinishEditEventReceiver
+//{
+//	void receiveEvent{*lbl}
+//	(
+//		label{*lbl} lbl,
+//	    Request[ServletPrincipal]{*lbl} req,
+//	    CalendarServlet{*lbl} servlet,
+//	    CalendarSessionState{*lbl} state,
+//	    User[ServletPrincipal]{*lbl} currentUser//,
+//	    //Event[*lbl, *lbl, *lbl, currentUser]{currentUser→;currentUser←} origEvent, // TODO: I don't like the 4 yucky labels on the Events...
+//	    //Event[*lbl, *lbl, *lbl, currentUser]{currentUser→;currentUser←} editedEvent
+//    )
+//	throws  (ServletException{*lbl; req.session←})
+//	where   req.session equiv state.sessionPrincipal,
+//	        req.session actsfor currentUser,
+//	        lbl <= {currentUser→; currentUser←},
+//	        caller(req.session);
+//}

@@ -482,11 +482,11 @@ protected SessionState{*lbl} createSessionState{*lbl}
 <pre><!------------------------codeblock------------->
 <code class="java">
 public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
-    throws  (ServletException{*lbl;req.session←})
-    where   caller(req.session),
-            lbl <= {req.session→}
-    {
-    ...
+throws  (ServletException{*lbl;req.session←})
+where   caller(req.session),
+        lbl <= {req.session→}
+{
+...
 </code>
 </pre><!-----------------------end codeblock--------->
 
@@ -622,17 +622,15 @@ public final void invoke{*lbl}( label{*lbl} lbl, Request[servP]{*lbl} req )
                     <li>Config - Configuration for the calendar</li>
                     <li>FrontPageAction - Front page of the web application, should require the login for authentication</li>
                     <li>User - Object containing the user's information</li>
-                    <li>Event sub package</li>
-                    <ul>
-                        <li>Event - The event class</li>
-                        <li>CreateEvent - Reflecting a class found in JIF version (but maybe should be in session?)</li>
-                        <li>CreateEditEvent - Reflecting a class found in JIF version (but maybe should be in session?)</li>
-                        <li>FinishEditEvent - Reflecting a class found in JIF version (but not sure it is needed)</li>
-                    </ul>
+                    <li>Event - The event class</li>
                     <li>Session sub package</li>
                     <ul>
                         <li>CalendarSessionState - Holds the state for the calendar of an authenticated session.</li>
                         <li>ChangeDisplayDateAction - An authenticated action to change the display date.</li>
+                        <li>CreateEvent - Small wrapper action to set things up before invoking the CreateEditEvent action.
+                                            In particular, this action creates a new Event, and gives that to the
+                                            createEditEvent action</li>
+                        <li>CreateEditEvent - A reusable Action for either creating, editing, or viewing events.</li>
                         <li>EditEventAction - An authenticated action to edit and Event in the calendar.</li>
                         <li>FinishEditEventReceiver - Receives notification that an calendar Event edit is complete.</li>
                         <li>FinishEditingEvent - An event that occurs when an edit on a calendar Event is complete.</li>

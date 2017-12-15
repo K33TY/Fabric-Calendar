@@ -1,11 +1,11 @@
-package calendar.event;
+package calendar;
 
 import fabric.lang.Object;
 import fabricated.util.List;
 import calendar.util.Date;
 import calendar.User;
 
-
+// TODO: probably want to get rid of all these labels, but this is how Tom and I got it to compile
 public class Event[label L, label info, label time, principal p] //TODO: why? this ? implements JifObject[{CalServEP:;CalServEP!:}]
 where {p→} ⊑ L,
       info ⊑ L,

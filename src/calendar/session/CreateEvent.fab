@@ -1,0 +1,68 @@
+package calendar.session;
+
+// TODO: port
+// JIF CODE BELOW
+//
+///**
+// * Small wrapper action to set things up before invoking the CreateEditEvent
+// * action. In particular, this action creates a new Event, and gives that
+// * to the createEditEvent action.
+// */
+//class CreateEvent extends USessAction[CalServEP]
+//{
+//    private final ShowCalendarSessAction{this} showCalAction;
+//    public CreateEvent(Main{this} servlet,
+//                       principal{this} session,
+//                       ShowCalendarSessAction{this} showCalAction) where caller(session) {
+//        this.showCalAction = showCalAction;
+//        super(servlet, session);
+//    }
+//
+//    public void invokeSessImpl{*lbl;session!:}(label{*lbl;session!:} lbl,
+//            Request[CalServEP]{*lbl;session!:} req,
+//            UServlet[CalServEP]{*lbl;session!:} uservlet,
+//            USessState[CalServEP]{*lbl;session!:} ustate,
+//            User[CalServEP]{*lbl;session!:} currentUser)
+//    throws (ServletException{*lbl;session!:})
+//        where session equiv req.session,
+//              session equiv ustate.sessionPrincipal,
+//              session actsfor currentUser,
+//              lbl <= {*:req.session},
+//              caller(session)
+//    {
+//        if (req == null || uservlet == null || ustate == null ||
+//                !(uservlet instanceof Main) ||
+//                !(ustate instanceof CalendarSessionState))
+//            throw new ServletException("invalid args");
+//
+//        final Main servlet = (Main)uservlet;
+//        final CalendarSessionState state = (CalendarSessionState)ustate;
+//        ServletException{*lbl;session!:} ex = null;
+//
+//        if (lbl equiv new label {currentUser!:} && servlet != null && state != null) {
+//            final CreateEditEvent createAction =
+//                new CreateEditEvent(servlet,
+//                                    session,
+//                                    new FinishEditingEvent(showCalAction),
+//                                    showCalAction,
+//                                    servlet.defaultEvent(currentUser),
+//                                    false,
+//                                    true);
+//
+//            if (session equiv createAction.session && session equiv state.sessionPrincipal) {
+//                try {
+//                    // invoke create action.
+//                    createAction.invokeSessImpl(new label {*lbl; session!:}, req, servlet, state, currentUser);
+//                }
+//                catch (ServletException e) {
+//                    ex = e;
+//                }
+//            }
+//            if (ex != null) throw ex;
+//        }
+//        else {
+//            throw new ServletException("CreateEvent.invokeSessImpl: lbl too high");
+//        }
+//
+//    }
+//}
